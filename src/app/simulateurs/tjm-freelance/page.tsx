@@ -345,12 +345,12 @@ export default function TJMFreelancePage() {
                     ))}
                   </ul>
 
-                  <p className="mt-6 text-xs italic text-muted-foreground">
-                    💡 Salairia est en cours de partenariat avec ces services.
-                    Une commission peut être perçue à terme lorsqu&apos;un
-                    utilisateur souscrit via ces liens, sans aucun impact sur
-                    votre prix ni biais sur notre classement, qui reste basé
-                    sur des critères objectifs.
+                  <p className="mt-6 text-sm italic text-muted-foreground">
+                    Salairia est un projet éditorial indépendant. Ces services
+                    sont sélectionnés sur la base de leur popularité auprès
+                    des freelances français en 2026 et de critères objectifs
+                    (frais, services inclus, qualité de
+                    l&apos;accompagnement).
                   </p>
                 </div>
               </section>
@@ -358,7 +358,7 @@ export default function TJMFreelancePage() {
               <section id="etapes" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
                   <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    🧮 Comprendre le calcul du TJM
+                    📐 Comprendre le calcul du TJM
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Voici les 6 étapes qui transforment votre chiffre

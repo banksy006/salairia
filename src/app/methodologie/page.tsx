@@ -219,7 +219,7 @@ export default function MethodologiePage() {
         {/* Processus de calcul */}
         <section className="mt-24">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            🧮 Notre processus de calcul
+            📐 Notre processus de calcul
           </h2>
           <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
             Quatre étapes systématiques avant la publication de chaque

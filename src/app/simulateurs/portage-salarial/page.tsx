@@ -233,7 +233,7 @@ export default function PortageSalarialPage() {
               <section id="etapes" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
                   <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    🧮 Comprendre le calcul en 6 étapes
+                    📐 Comprendre le calcul en 6 étapes
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Voici, étape par étape, comment votre chiffre
