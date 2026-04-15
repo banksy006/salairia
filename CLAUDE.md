@@ -115,6 +115,36 @@ Décisions prises et à ne **pas** remettre en question sans discussion explicit
 - **Mode clair uniquement.**
   Pas de dark mode tant que le besoin n'est pas prouvé. Éviter d'ajouter des classes `dark:*` sans discussion.
 
+## Simulateurs disponibles
+
+Tous les simulateurs vivent sous `/simulateurs/*`. La logique de calcul pure est isolée dans `src/lib/calculators/<nom>.ts` (testable sans React), le composant UI client dans `src/components/simulateurs/<Nom>Simulator.tsx`, et la page éditoriale (Server Component, metadata + JSON-LD) dans `src/app/simulateurs/<slug>/page.tsx`. Le hub `/simulateurs` liste les simulateurs disponibles.
+
+### Portage salarial — `/simulateurs/portage-salarial`
+
+Route créée session 2 (2026-04-15). Lib : `src/lib/calculators/portage.ts`. UI : `src/components/simulateurs/PortageSimulator.tsx`.
+
+Constantes 2026 (codées en dur, à mettre à jour chaque année) :
+
+- PASS mensuel : 4 005 €
+- Charges patronales : 43 % (moyenne marché, pas un barème URSSAF officiel)
+- Charges salariales : 22 % (idem)
+- Salaire minimum conventionnel : 70 % PASS junior, 75 % PASS senior, 85 % PASS forfait jours
+
+Ordre de calcul (à ne pas modifier) :
+1. CA HT = TJM × jours travaillés
+2. Frais de gestion = CA HT × taux (4 à 10 %, défaut 8 %)
+3. Base cotisations = CA HT − frais gestion − frais pro non refacturables
+4. Charges patronales = base × 43 %
+5. Salaire brut = base − charges patronales
+6. Charges salariales = brut × 22 %
+7. Net avant impôt = brut − charges salariales
+8. Net après impôt = net avant impôt × (1 − taux PAS), seulement si PAS > 0
+9. Total perçu = net final + frais refacturables (remboursés hors charges)
+
+Comparateur de 5 sociétés (frais de gestion fixes, relevés avril 2026) : CEGELEM 4 %, ABC Portage 5 %, OpenWork 6 %, Cadres en Mission 8 %, ITG 10 %. La ligne qui maximise le net est surlignée.
+
+Alertes UI : TJM < 250 € → rouge (conseiller l'auto-entrepreneur) ; salaire brut < minimum conventionnel du statut → orange. Les taux sont documentés comme indicatifs à plusieurs endroits de la page et dans le code.
+
 ## Prochaines étapes
 
-À définir dans les sessions suivantes. Typiquement : routes `/simulateurs`, premier simulateur (salaire brut/net), guides, schema.org, sitemap, robots, analytics. Chaque session indiquera précisément son périmètre.
+À définir dans les sessions suivantes. Typiquement : simulateur salaire brut/net salarié, simulateur auto-entrepreneur, guides, sitemap, robots, analytics. Chaque session indiquera précisément son périmètre.
