@@ -81,7 +81,8 @@ const simulateurs = [
   {
     nom: "TJM Freelance",
     desc: "Déterminez votre tarif journalier optimal selon votre statut",
-    dispo: false,
+    href: "/simulateurs/tjm-freelance",
+    dispo: true,
   },
   {
     nom: "Auto-entrepreneur",

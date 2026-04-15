@@ -71,6 +71,7 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 - **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
 - **Hub simulateurs (`/simulateurs`)** — liste des simulateurs disponibles. Un seul pour l'instant (portage).
 - **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+- **TJM Freelance (`/simulateurs/tjm-freelance`)** — V1 du 2026-04-16. Deuxième simulateur. Comparaison des 4 statuts freelance (auto-entrepreneur, portage, SASU, EURL) avec mode bidirectionnel (net cible ↔ TJM cible). Section « Choisir votre solution » avec liens partenaires placeholders (Qonto, Indy, Legalstart, comparatif portage). Voir détails plus bas.
 - **Mentions légales (`/mentions-legales`)** — V1 du 2026-04-15. Éditeur Nizar Laghrifi (entreprise individuelle en cours d'immatriculation, Paris), hébergeur Vercel Inc. avec mention SCC, propriété intellectuelle, limites de responsabilité (YMYL), liens externes, droit français. JSON-LD `BreadcrumbList`.
 - **Politique de confidentialité (`/politique-confidentialite`)** — V1 du 2026-04-15. Encadré « L'essentiel en 3 points » (no-cookie, no-collect, calculs locaux), responsable du traitement, données analytics via Plausible (Allemagne), transparence affiliation, droits RGPD (accès, rectification, effacement, opposition, portabilité), saisine CNIL, sécurité. Contact : `contact@salairia.com`.
 - **Politique cookies (`/politique-cookies`)** — V1 du 2026-04-15. Card héros « Aucun cookie de traçage sur Salairia », explication du choix Plausible sans cookie, cookies tiers affiliation, procédure de vérification F12.
@@ -201,6 +202,33 @@ Ordre de calcul (à ne pas modifier) :
 Comparateur de 5 sociétés (frais de gestion fixes, relevés avril 2026) : CEGELEM 4 %, ABC Portage 5 %, OpenWork 6 %, Cadres en Mission 8 %, ITG 10 %. La ligne qui maximise le net est surlignée.
 
 Alertes UI : TJM < 250 € → rouge (conseiller l'auto-entrepreneur) ; salaire brut < minimum conventionnel du statut → orange. Les taux sont documentés comme indicatifs à plusieurs endroits de la page et dans le code.
+
+### TJM Freelance — `/simulateurs/tjm-freelance`
+
+Route créée session 3. Lib : `src/lib/calculators/tjm-freelance.ts`. UI : `src/components/simulateurs/TJMSimulator.tsx` + `TJMApercuCard.tsx` + `TJMContext.tsx`.
+
+Constantes 2026 (`TJM_2026`, codées en dur, à mettre à jour chaque année) :
+
+- **Auto-entrepreneur (BNC libéral)** : cotisations 21,8 %, plafond CA 77 700 €, franchise TVA 39 100 €
+- **Portage salarial** : frais gestion 8 %, charges patronales 43 %, charges salariales 22 % (alignés sur le simulateur Portage)
+- **SASU** : charges patronales 42 %, charges salariales 22 %, frais compta 1 500 €/an
+- **EURL** : cotisations TNS 45 %, frais compta 1 500 €/an
+
+**Mode bidirectionnel** (toggle dans le simulateur, state partagé via `TJMContext`) :
+- **Net cible** (défaut) : l'utilisateur indique un net annuel voulu, on calcule le TJM nécessaire pour chaque statut par **bissection** (`findTJMForNetCible`, convergence à ±0,5 €/j en ~60 itérations). Tri par TJM croissant.
+- **TJM cible** : l'utilisateur indique un TJM, on calcule le net annuel pour chaque statut via `calculerTous`. Tri par net décroissant.
+
+Ordre des calculs par statut (à ne pas modifier) :
+1. **Auto-entrepreneur** : CA = TJM × j × 12 → cotisations = CA × 21,8 % → net = CA − cotisations − frais pro
+2. **Portage salarial** : CA → frais gestion 8 % → base = CA − gestion − frais pro → charges pat 43 % → brut → charges sal 22 % → net
+3. **SASU** : résultat = CA − frais pro − frais compta → brut = résultat / 1,42 → charges sal 22 % → net
+4. **EURL (TNS)** : résultat = CA − frais pro − frais compta → rém nette = résultat / 1,45, cotisations = rém nette × 45 %
+
+Alertes UI : AE > 77 700 € → rouge (plafond dépassé) ; AE > 39 100 € → orange (TVA obligatoire) ; TJM < 250 € → orange global ; CA max > 200 000 € → info global (optimisation expert-comptable).
+
+Section « 🚀 Choisir votre solution » (après le comparatif) : 4 cards partenaires (portage, compte pro Qonto, compta Indy, création société Legalstart) avec disclosure d'affiliation. Ces liens sont des placeholders — à remplacer par les vrais liens d'affiliation quand les partenariats sont actifs.
+
+**Pattern V3 Portage répliqué avec succès** sur TJM : context partagé, `ApercuCard` dans le hero, comparatif en tableau, TOC flottant desktop, cards uniformes, emojis parcimonieux. À répliquer sur les 7 simulateurs restants.
 
 ## Prochaines étapes
 

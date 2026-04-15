@@ -20,6 +20,13 @@ const simulateurs = [
       "Calculez votre salaire net en portage à partir de votre TJM, et comparez 5 sociétés en un clic.",
     statut: "Disponible",
   },
+  {
+    href: "/simulateurs/tjm-freelance",
+    titre: "TJM Freelance",
+    description:
+      "Quel TJM facturer pour atteindre votre net cible ? Comparaison auto-entrepreneur, portage, SASU et EURL.",
+    statut: "Disponible",
+  },
 ] as const;
 
 export default function SimulateursPage() {
