@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const dataPoints = [
   { value: "1 443 €", label: "SMIC net mensuel 2026" },
   { value: "2 670 €", label: "Salaire net moyen FR (INSEE)" },
-  { value: "PASS 4 005 €", label: "Plafond mensuel Sécu Sociale" },
+  { value: "4 005 €", label: "Plafond Sécu mensuel (PASS)" },
   { value: "+45%", label: "Charges patronales moyennes portage" },
 ];
 
@@ -230,7 +230,7 @@ export default function HomePage() {
             </span>
 
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Salaire, TJM, charges : sachez ce que vous touchez vraiment
+              Salaire, TJM, charges — sachez ce que vous touchez vraiment
             </h1>
 
             <p className="mt-6 text-lg leading-relaxed text-foreground/80 sm:text-xl">
@@ -286,7 +286,7 @@ export default function HomePage() {
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Quel est votre statut ?
+            👤 Quel est votre statut ?
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Salairia couvre les 4 grandes situations de rémunération en France.
