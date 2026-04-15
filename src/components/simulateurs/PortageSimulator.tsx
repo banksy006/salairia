@@ -18,7 +18,7 @@ const DEFAULTS: PortageInputs = {
   tauxPAS: 0,
 };
 
-const EUR = new Intl.NumberFormat("fr-FR", {
+const EUR0 = new Intl.NumberFormat("fr-FR", {
   style: "currency",
   currency: "EUR",
   maximumFractionDigits: 0,
@@ -38,9 +38,17 @@ export default function PortageSimulator() {
   const debounced = useDebounced(inputs, 150);
 
   const result = useMemo(() => calculerPortage(debounced), [debounced]);
-  const comparatif = useMemo(() => comparerSocietes(debounced), [debounced]);
+  const comparatifRaw = useMemo(
+    () => comparerSocietes(debounced),
+    [debounced],
+  );
 
-  const meilleurNet = Math.max(...comparatif.map((c) => c.netFinal));
+  const meilleurNet = Math.max(...comparatifRaw.map((c) => c.netFinal));
+  const comparatif = [...comparatifRaw].sort((a, b) => {
+    if (a.netFinal === meilleurNet && b.netFinal !== meilleurNet) return -1;
+    if (b.netFinal === meilleurNet && a.netFinal !== meilleurNet) return 1;
+    return a.societe.tauxFraisGestion - b.societe.tauxFraisGestion;
+  });
 
   function update<K extends keyof PortageInputs>(
     key: K,
@@ -50,295 +58,351 @@ export default function PortageSimulator() {
   }
 
   return (
-    <div className="flex flex-col gap-10">
-      <div className="grid gap-8 rounded-2xl border border-border bg-muted/40 p-6 md:grid-cols-2 md:p-8">
-        <div className="flex flex-col gap-5">
-          <h2 className="text-xl font-semibold text-foreground">
-            Tes paramètres
-          </h2>
+    <div className="flex flex-col gap-16">
+      <section id="simulateur" className="scroll-mt-24">
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Card>
+            <h3 className="text-2xl font-bold tracking-tight text-foreground">
+              Tes paramètres
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Ajuste tes entrées, le résultat se met à jour en direct.
+            </p>
 
-          <Field label="TJM (€ HT)" htmlFor="tjm">
-            <input
-              id="tjm"
-              type="number"
-              min={0}
-              step={10}
-              value={inputs.tjm}
-              onChange={(e) => update("tjm", Number(e.target.value) || 0)}
-              className={inputCls}
-            />
-          </Field>
+            <div className="mt-6 flex flex-col gap-5">
+              <Field label="TJM (€ HT)" htmlFor="tjm">
+                <input
+                  id="tjm"
+                  type="number"
+                  min={0}
+                  step={10}
+                  value={inputs.tjm}
+                  onChange={(e) => update("tjm", Number(e.target.value) || 0)}
+                  className={inputCls}
+                />
+              </Field>
 
-          <Field label="Jours travaillés / mois" htmlFor="jours">
-            <input
-              id="jours"
-              type="number"
-              min={0}
-              max={31}
-              step={0.5}
-              value={inputs.joursTravailles}
-              onChange={(e) =>
-                update("joursTravailles", Number(e.target.value) || 0)
-              }
-              className={inputCls}
-            />
-          </Field>
+              <Field label="Jours travaillés / mois" htmlFor="jours">
+                <input
+                  id="jours"
+                  type="number"
+                  min={0}
+                  max={31}
+                  step={0.5}
+                  value={inputs.joursTravailles}
+                  onChange={(e) =>
+                    update("joursTravailles", Number(e.target.value) || 0)
+                  }
+                  className={inputCls}
+                />
+              </Field>
 
-          <Field
-            label={`Frais de gestion société : ${inputs.tauxFraisGestion}%`}
-            htmlFor="gestion"
-          >
-            <input
-              id="gestion"
-              type="range"
-              min={4}
-              max={10}
-              step={0.5}
-              value={inputs.tauxFraisGestion}
-              onChange={(e) =>
-                update("tauxFraisGestion", Number(e.target.value))
-              }
-              className="w-full accent-[color:var(--primary)]"
-            />
-          </Field>
+              <Field
+                label={
+                  <span className="flex items-center justify-between gap-2">
+                    <span>Frais de gestion société</span>
+                    <span className="text-primary tabular-nums">
+                      {inputs.tauxFraisGestion}%
+                    </span>
+                  </span>
+                }
+                htmlFor="gestion"
+              >
+                <input
+                  id="gestion"
+                  type="range"
+                  min={4}
+                  max={10}
+                  step={0.5}
+                  value={inputs.tauxFraisGestion}
+                  onChange={(e) =>
+                    update("tauxFraisGestion", Number(e.target.value))
+                  }
+                  className="w-full accent-[color:var(--primary)]"
+                />
+              </Field>
 
-          <Field
-            label="Frais pro refacturables (€ / mois)"
-            htmlFor="refact"
-            help="Remboursés par le client, non soumis à charges"
-          >
-            <input
-              id="refact"
-              type="number"
-              min={0}
-              step={10}
-              value={inputs.fraisProRefacturables}
-              onChange={(e) =>
-                update("fraisProRefacturables", Number(e.target.value) || 0)
-              }
-              className={inputCls}
-            />
-          </Field>
+              <Field
+                label="Frais pro refacturables (€ / mois)"
+                htmlFor="refact"
+                help="Remboursés par le client, non soumis à charges"
+              >
+                <input
+                  id="refact"
+                  type="number"
+                  min={0}
+                  step={10}
+                  value={inputs.fraisProRefacturables}
+                  onChange={(e) =>
+                    update(
+                      "fraisProRefacturables",
+                      Number(e.target.value) || 0,
+                    )
+                  }
+                  className={inputCls}
+                />
+              </Field>
 
-          <Field
-            label="Frais pro non refacturables (€ / mois)"
-            htmlFor="nonrefact"
-            help="À ta charge, déduits du CA avant cotisations"
-          >
-            <input
-              id="nonrefact"
-              type="number"
-              min={0}
-              step={10}
-              value={inputs.fraisProNonRefacturables}
-              onChange={(e) =>
-                update("fraisProNonRefacturables", Number(e.target.value) || 0)
-              }
-              className={inputCls}
-            />
-          </Field>
+              <Field
+                label="Frais pro non refacturables (€ / mois)"
+                htmlFor="nonrefact"
+                help="À ta charge, déduits du CA avant cotisations"
+              >
+                <input
+                  id="nonrefact"
+                  type="number"
+                  min={0}
+                  step={10}
+                  value={inputs.fraisProNonRefacturables}
+                  onChange={(e) =>
+                    update(
+                      "fraisProNonRefacturables",
+                      Number(e.target.value) || 0,
+                    )
+                  }
+                  className={inputCls}
+                />
+              </Field>
 
-          <Field label="Statut" htmlFor="statut">
-            <select
-              id="statut"
-              value={inputs.statut}
-              onChange={(e) =>
-                update("statut", e.target.value as StatutPortage)
-              }
-              className={inputCls}
-            >
-              <option value="junior">Junior (&lt; 3 ans)</option>
-              <option value="senior">Senior (≥ 3 ans)</option>
-              <option value="forfait_jours">Forfait jours</option>
-            </select>
-          </Field>
+              <Field label="Statut" htmlFor="statut">
+                <select
+                  id="statut"
+                  value={inputs.statut}
+                  onChange={(e) =>
+                    update("statut", e.target.value as StatutPortage)
+                  }
+                  className={inputCls}
+                >
+                  <option value="junior">Junior (&lt; 3 ans)</option>
+                  <option value="senior">Senior (≥ 3 ans)</option>
+                  <option value="forfait_jours">Forfait jours</option>
+                </select>
+              </Field>
 
-          <Field
-            label="Taux de prélèvement à la source (%)"
-            htmlFor="pas"
-            help="Laisse 0 pour ne pas appliquer"
-          >
-            <input
-              id="pas"
-              type="number"
-              min={0}
-              max={45}
-              step={0.1}
-              value={inputs.tauxPAS}
-              onChange={(e) => update("tauxPAS", Number(e.target.value) || 0)}
-              className={inputCls}
-            />
-          </Field>
-        </div>
+              <Field
+                label="Taux de prélèvement à la source (%)"
+                htmlFor="pas"
+                help="Laisse 0 pour ne pas appliquer"
+              >
+                <input
+                  id="pas"
+                  type="number"
+                  min={0}
+                  max={45}
+                  step={0.1}
+                  value={inputs.tauxPAS}
+                  onChange={(e) =>
+                    update("tauxPAS", Number(e.target.value) || 0)
+                  }
+                  className={inputCls}
+                />
+              </Field>
+            </div>
+          </Card>
 
-        <div className="flex flex-col gap-4">
-          <h2 className="text-xl font-semibold text-foreground">
-            Ton résultat mensuel
-          </h2>
+          <Card>
+            <h3 className="text-2xl font-bold tracking-tight text-foreground">
+              Ton résultat mensuel
+            </h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Estimation basée sur les taux moyens 2026.
+            </p>
 
-          {result.tjmTropBas && (
-            <Alert tone="destructive">
-              TJM trop bas pour le portage salarial. Considère le statut
-              auto-entrepreneur, plus adapté en dessous de 250 €/jour.
-            </Alert>
-          )}
-          {!result.tjmTropBas && result.sousMinimum && (
-            <Alert tone="warning">
-              Attention : avec ces paramètres, ton salaire brut n&apos;atteint
-              pas le minimum conventionnel de ton statut (
-              {EUR.format(result.salaireMinimumConventionnel)}/mois). La société
-              de portage pourra refuser la mission.
-            </Alert>
-          )}
+            <div className="mt-6 flex flex-col gap-4">
+              {result.tjmTropBas && (
+                <Alert tone="destructive">
+                  TJM trop bas pour le portage salarial. Considère le statut
+                  auto-entrepreneur, plus adapté en dessous de 250 €/jour.
+                </Alert>
+              )}
+              {!result.tjmTropBas && result.sousMinimum && (
+                <Alert tone="warning">
+                  Attention : avec ces paramètres, ton salaire brut
+                  n&apos;atteint pas le minimum conventionnel de ton statut (
+                  {EUR0.format(result.salaireMinimumConventionnel)}/mois). La
+                  société de portage pourra refuser la mission.
+                </Alert>
+              )}
 
-          <div className="overflow-hidden rounded-xl border border-border bg-background">
-            <table className="w-full text-sm">
-              <tbody>
-                <Row label="Chiffre d'affaires HT" value={result.caHT} />
-                <Row
+              <ul className="flex flex-col divide-y divide-border rounded-xl border border-border bg-background">
+                <DetailRow
+                  label="Chiffre d'affaires HT"
+                  value={EUR0.format(result.caHT)}
+                />
+                <DetailRow
                   label="− Frais de gestion"
-                  value={-result.fraisGestion}
+                  value={EUR0.format(-result.fraisGestion)}
                   muted
                 />
-                <Row
-                  label="− Frais pro non refacturables"
-                  value={-inputs.fraisProNonRefacturables}
-                  muted
-                />
-                <Row
-                  label="− Charges patronales (43%)"
-                  value={-result.chargesPatronales}
-                  muted
-                />
-                <Row
-                  label="Salaire brut"
-                  value={result.salaireBrut}
-                  strong
-                />
-                <Row
-                  label="− Charges salariales (22%)"
-                  value={-result.chargesSalariales}
-                  muted
-                />
-                <Row
-                  label="Salaire net avant impôt"
-                  value={result.salaireNetAvantImpot}
-                  strong
-                />
-                {result.salaireNetApresImpot !== null && (
-                  <Row
-                    label={`− Impôt à la source (${inputs.tauxPAS}%)`}
-                    value={
-                      result.salaireNetAvantImpot -
-                      result.salaireNetApresImpot
-                    }
+                {inputs.fraisProNonRefacturables > 0 && (
+                  <DetailRow
+                    label="− Frais pro non refacturables"
+                    value={EUR0.format(-inputs.fraisProNonRefacturables)}
                     muted
-                    negative
                   />
                 )}
+                <DetailRow
+                  label="− Charges patronales (43 %)"
+                  value={EUR0.format(-result.chargesPatronales)}
+                  muted
+                />
+                <DetailRow
+                  label="Salaire brut"
+                  value={EUR0.format(result.salaireBrut)}
+                  highlight
+                />
+                <DetailRow
+                  label="− Charges salariales (22 %)"
+                  value={EUR0.format(-result.chargesSalariales)}
+                  muted
+                />
+                <DetailRow
+                  label="Salaire net avant impôt"
+                  value={EUR0.format(result.salaireNetAvantImpot)}
+                  strong
+                />
                 {result.salaireNetApresImpot !== null && (
-                  <Row
-                    label="Salaire net après impôt"
-                    value={result.salaireNetApresImpot}
-                    strong
-                  />
+                  <>
+                    <DetailRow
+                      label={`− Impôt à la source (${inputs.tauxPAS}%)`}
+                      value={EUR0.format(
+                        -(
+                          result.salaireNetAvantImpot -
+                          result.salaireNetApresImpot
+                        ),
+                      )}
+                      muted
+                    />
+                    <DetailRow
+                      label="Salaire net après impôt"
+                      value={EUR0.format(result.salaireNetApresImpot)}
+                      strong
+                    />
+                  </>
                 )}
                 {inputs.fraisProRefacturables > 0 && (
-                  <Row
+                  <DetailRow
                     label="+ Remboursement frais refacturables"
-                    value={result.fraisRefactures}
+                    value={EUR0.format(result.fraisRefactures)}
                   />
                 )}
-                <tr className="bg-primary text-primary-foreground">
-                  <td className="px-4 py-3 text-left font-semibold">
-                    Total perçu / mois
-                  </td>
-                  <td className="px-4 py-3 text-right text-base font-bold tabular-nums">
-                    {EUR.format(result.totalPercu)}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+              </ul>
 
-          <p className="text-xs text-muted-foreground">
-            Calcul indicatif basé sur des taux moyens 2026 (charges patronales
-            43 %, salariales 22 %). Les taux réels varient selon la société de
-            portage, la mutuelle et la prévoyance.
-          </p>
+              <div className="rounded-2xl bg-primary p-8 text-primary-foreground shadow-lg">
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/70">
+                  Total perçu / mois
+                </p>
+                <p className="mt-2 text-5xl font-bold tabular-nums">
+                  {EUR0.format(result.totalPercu)}
+                </p>
+                {result.salaireNetApresImpot !== null && (
+                  <p className="mt-2 text-sm text-primary-foreground/70">
+                    Net après impôt · prélèvement à la source {inputs.tauxPAS}{" "}
+                    %
+                  </p>
+                )}
+                {inputs.fraisProRefacturables > 0 && (
+                  <p className="mt-1 text-sm text-primary-foreground/70">
+                    Inclut {EUR0.format(inputs.fraisProRefacturables)} de frais
+                    pro remboursés.
+                  </p>
+                )}
+              </div>
+
+              <p className="text-xs text-muted-foreground">
+                Calcul indicatif. Les taux réels varient selon la société de
+                portage, la mutuelle et la prévoyance choisies.
+              </p>
+            </div>
+          </Card>
         </div>
-      </div>
+      </section>
 
-      <section className="flex flex-col gap-4">
-        <div>
-          <h2 className="text-xl font-semibold text-foreground">
+      <section id="comparatif" className="scroll-mt-24">
+        <Card>
+          <h3 className="text-2xl font-bold tracking-tight text-foreground">
             Comparatif de 5 sociétés de portage
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Salaire net estimé selon les frais de gestion appliqués par chaque
-            société, avec tes paramètres actuels. La meilleure offre est
-            surlignée.
+          </h3>
+          <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+            Salaire net estimé avec tes paramètres actuels, pour chaque société
+            selon ses frais de gestion. L&apos;offre qui maximise ton net est
+            mise en avant.
           </p>
-        </div>
 
-        <div className="overflow-x-auto rounded-xl border border-border bg-background">
-          <table className="w-full text-sm">
-            <thead className="bg-muted text-xs uppercase tracking-wide text-muted-foreground">
-              <tr>
-                <th className="px-4 py-3 text-left">Société</th>
-                <th className="px-4 py-3 text-right">Frais de gestion</th>
-                <th className="px-4 py-3 text-right">Salaire brut</th>
-                <th className="px-4 py-3 text-right">Net mensuel</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparatif.map(({ societe, result: r, netFinal }) => {
-                const best = netFinal === meilleurNet;
-                return (
-                  <tr
-                    key={societe.nom}
-                    className={
+          <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {comparatif.map(({ societe, result: r, netFinal }) => {
+              const best = netFinal === meilleurNet;
+              return (
+                <li key={societe.nom}>
+                  <div
+                    className={`group relative flex h-full flex-col gap-4 rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
                       best
-                        ? "bg-accent/10 font-semibold"
-                        : "border-t border-border"
-                    }
+                        ? "border-2 border-accent bg-accent/5"
+                        : "border-border bg-white"
+                    }`}
                   >
-                    <td className="px-4 py-3 text-left">
-                      {societe.nom}
-                      {best && (
-                        <span className="ml-2 inline-flex items-center rounded-full bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">
-                          Meilleur net
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-right tabular-nums">
-                      {societe.tauxFraisGestion}%
-                    </td>
-                    <td className="px-4 py-3 text-right tabular-nums text-muted-foreground">
-                      {EUR.format(r.salaireBrut)}
-                    </td>
-                    <td className="px-4 py-3 text-right tabular-nums">
-                      {EUR.format(netFinal)}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          Taux de frais de gestion relevés en avril 2026 sur les sites publics
-          de chaque société. Certaines proposent des paliers dégressifs selon
-          le chiffre d&apos;affaires — vérifie toujours l&apos;offre
-          commerciale avant de t&apos;engager.
-        </p>
+                    {best && (
+                      <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground shadow-sm">
+                        Meilleur net
+                      </span>
+                    )}
+
+                    <div className="flex items-center gap-3">
+                      <div
+                        aria-hidden
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-lg font-bold text-accent"
+                      >
+                        {societe.nom.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="text-base font-semibold text-foreground">
+                          {societe.nom}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          Frais de gestion · {societe.tauxFraisGestion} %
+                        </p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        Net mensuel estimé
+                      </p>
+                      <p className="mt-1 text-3xl font-bold tabular-nums text-foreground">
+                        {EUR0.format(netFinal)}
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        Brut : {EUR0.format(r.salaireBrut)}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          <p className="mt-6 text-xs text-muted-foreground">
+            Taux de frais de gestion relevés en avril 2026 sur les sites
+            publics de chaque société. Certaines proposent des paliers
+            dégressifs selon le chiffre d&apos;affaires — vérifie toujours
+            l&apos;offre commerciale avant de t&apos;engager.
+          </p>
+        </Card>
       </section>
     </div>
   );
 }
 
 const inputCls =
-  "w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring";
+  "w-full rounded-xl border-2 border-border bg-background px-4 py-3 text-base text-foreground shadow-sm transition focus:border-primary focus:outline-none focus:ring-4 focus:ring-ring";
+
+function Card({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="rounded-2xl border border-border bg-white p-6 shadow-md transition-shadow duration-200 hover:shadow-lg sm:p-8">
+      {children}
+    </div>
+  );
+}
 
 function Field({
   label,
@@ -346,14 +410,17 @@ function Field({
   help,
   children,
 }: {
-  label: string;
+  label: React.ReactNode;
   htmlFor: string;
   help?: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label htmlFor={htmlFor} className="text-sm font-medium text-foreground">
+    <div className="flex flex-col gap-2">
+      <label
+        htmlFor={htmlFor}
+        className="text-sm font-semibold text-foreground"
+      >
         {label}
       </label>
       {children}
@@ -362,37 +429,36 @@ function Field({
   );
 }
 
-function Row({
+function DetailRow({
   label,
   value,
   strong,
   muted,
-  negative,
+  highlight,
 }: {
   label: string;
-  value: number;
+  value: string;
   strong?: boolean;
   muted?: boolean;
-  negative?: boolean;
+  highlight?: boolean;
 }) {
-  const display = negative ? -Math.abs(value) : value;
+  const rowCls = highlight
+    ? "bg-muted/60"
+    : "";
+  const textCls = strong
+    ? "font-semibold text-foreground"
+    : muted
+      ? "text-muted-foreground"
+      : "text-foreground";
+  const valueCls = highlight ? "font-semibold text-foreground" : textCls;
+  const labelCls = highlight ? "font-medium text-foreground" : textCls;
   return (
-    <tr className="border-b border-border last:border-b-0">
-      <td
-        className={`px-4 py-2.5 text-left ${
-          strong ? "font-semibold text-foreground" : ""
-        } ${muted ? "text-muted-foreground" : ""}`}
-      >
-        {label}
-      </td>
-      <td
-        className={`px-4 py-2.5 text-right tabular-nums ${
-          strong ? "font-semibold text-foreground" : ""
-        } ${muted ? "text-muted-foreground" : ""}`}
-      >
-        {EUR.format(display)}
-      </td>
-    </tr>
+    <li
+      className={`flex items-center justify-between gap-4 px-4 py-3 text-base ${rowCls}`}
+    >
+      <span className={`${labelCls}`}>{label}</span>
+      <span className={`tabular-nums ${valueCls}`}>{value}</span>
+    </li>
   );
 }
 
@@ -405,11 +471,17 @@ function Alert({
 }) {
   const cls =
     tone === "destructive"
-      ? "border-destructive/40 bg-destructive/10 text-destructive"
-      : "border-amber-400/50 bg-amber-50 text-amber-900";
+      ? "border-destructive bg-destructive/10 text-destructive"
+      : "border-amber-500 bg-amber-50 text-amber-900";
+  const icon = tone === "destructive" ? "⛔" : "⚠️";
   return (
-    <div className={`rounded-lg border px-4 py-3 text-sm ${cls}`}>
-      {children}
+    <div
+      className={`flex items-start gap-3 rounded-r-lg border-l-4 p-4 text-sm ${cls}`}
+    >
+      <span aria-hidden className="text-base leading-none">
+        {icon}
+      </span>
+      <span className="flex-1">{children}</span>
     </div>
   );
 }

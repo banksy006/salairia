@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PortageSimulator from "@/components/simulateurs/PortageSimulator";
+import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
   title:
@@ -36,6 +37,70 @@ const faq = [
     q: "Le portage salarial est-il avantageux fiscalement ?",
     r: "Non, le portage est plus coûteux en charges que la micro-entreprise ou la SASU à l'IS. Son intérêt est ailleurs : ouverture des droits au chômage, couverture sociale complète de salarié, simplicité administrative (pas de compta à gérer), et accès à des missions qui exigent un statut salarié. Pour une pure optimisation fiscale, d'autres statuts sont plus adaptés.",
   },
+];
+
+const etapes = [
+  {
+    n: 1,
+    t: "Chiffre d'affaires HT",
+    d: "TJM × nombre de jours travaillés dans le mois. C'est le montant que la société de portage facture à votre client final.",
+  },
+  {
+    n: 2,
+    t: "Frais de gestion",
+    d: "La société de portage prélève entre 4 et 10 % du CA HT. Ce pourcentage rémunère ses services : facturation, paie, accompagnement, assurance.",
+  },
+  {
+    n: 3,
+    t: "Charges patronales",
+    d: "Environ 43 % sont prélevés sur la base restante (CA − frais de gestion − frais professionnels non refacturables). Ce sont les cotisations employeur : URSSAF, retraite, chômage, prévoyance.",
+  },
+  {
+    n: 4,
+    t: "Salaire brut",
+    d: "Ce qu'il reste après les charges patronales. C'est le salaire qui apparaît sur votre bulletin de paie avant cotisations salariales.",
+  },
+  {
+    n: 5,
+    t: "Charges salariales",
+    d: "Environ 22 % du salaire brut : cotisations salariales de retraite, chômage, CSG/CRDS. Elles sont prélevées directement sur la fiche de paie.",
+  },
+  {
+    n: 6,
+    t: "Salaire net",
+    d: "Le montant versé sur votre compte bancaire. Si vous avez renseigné un taux de prélèvement à la source, l'impôt est retiré pour obtenir le net après impôt.",
+  },
+];
+
+const sources = [
+  {
+    label: "URSSAF.fr — taux de cotisations 2026",
+    href: "https://www.urssaf.fr",
+  },
+  {
+    label: "BOSS.gouv.fr — Bulletin officiel de la Sécurité sociale",
+    href: "https://boss.gouv.fr",
+  },
+  {
+    label: "Convention collective du portage salarial (IDCC 3219)",
+    href: "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000034362668/",
+  },
+  { label: "ITG — grille tarifaire", href: "https://www.itg.fr" },
+  {
+    label: "Cadres en Mission — grille tarifaire",
+    href: "https://www.cadresenmission.com",
+  },
+  { label: "OpenWork — grille tarifaire", href: "https://www.openwork.cc" },
+  { label: "ABC Portage — grille tarifaire", href: "https://www.abcportage.fr" },
+  { label: "CEGELEM — grille tarifaire", href: "https://www.cegelem.fr" },
+];
+
+const tocItems = [
+  { id: "simulateur", label: "Simulateur" },
+  { id: "comparatif", label: "Comparatif sociétés" },
+  { id: "etapes", label: "Comprendre le calcul" },
+  { id: "faq", label: "FAQ" },
+  { id: "sources", label: "Sources" },
 ];
 
 export default function PortageSalarialPage() {
@@ -100,8 +165,8 @@ export default function PortageSalarialPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-5xl flex-col gap-1 px-6 py-6">
+      <header className="border-b border-border bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-6">
           <Link
             href="/"
             className="text-2xl font-bold tracking-tight text-primary"
@@ -114,149 +179,173 @@ export default function PortageSalarialPage() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
-        <nav aria-label="Fil d'Ariane" className="text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-primary">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
+        <nav
+          aria-label="Fil d'Ariane"
+          className="flex items-center gap-2 text-sm text-muted-foreground"
+        >
+          <Link href="/" className="transition hover:text-primary">
             Accueil
           </Link>
-          <span className="mx-2">/</span>
-          <Link href="/simulateurs" className="hover:text-primary">
+          <span aria-hidden>›</span>
+          <Link
+            href="/simulateurs"
+            className="transition hover:text-primary"
+          >
             Simulateurs
           </Link>
-          <span className="mx-2">/</span>
+          <span aria-hidden>›</span>
           <span className="text-foreground">Portage salarial</span>
         </nav>
 
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Simulateur Portage Salarial 2026 — Calculez votre salaire net
-        </h1>
+        <section className="mt-6 max-w-3xl">
+          <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
+            <span aria-hidden>🗓️</span>
+            À jour avril 2026
+          </span>
 
-        <div className="mt-6 max-w-3xl space-y-3 text-base text-muted-foreground sm:text-lg">
-          <p>
-            Le portage salarial permet à un indépendant de facturer ses clients
-            tout en gardant le statut de salarié : une société de portage
-            encaisse le chiffre d&apos;affaires, prélève ses frais de gestion,
-            puis verse un salaire après cotisations patronales et salariales.
-          </p>
-          <p>
-            Ce simulateur estime votre salaire net mensuel à partir de votre
-            TJM, et compare automatiquement cinq sociétés de portage parmi les
-            plus connues : ITG, Cadres en Mission, OpenWork, ABC Portage et
-            CEGELEM.
-          </p>
-          <p>
-            Les taux utilisés sont des moyennes indicatives 2026 : 43 % de
-            charges patronales, 22 % de charges salariales, et un PASS mensuel
-            de 4 005 €. Les montants réels dépendent de votre société, de
-            votre mutuelle et de votre prévoyance.
-          </p>
-        </div>
-
-        <div className="mt-12">
-          <PortageSimulator />
-        </div>
-
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground">
-            Comprendre le calcul en 6 étapes
-          </h2>
-          <p className="mt-2 max-w-3xl text-muted-foreground">
-            Voici, étape par étape, comment votre chiffre d&apos;affaires se
-            transforme en salaire net. Chaque déduction suit un ordre précis :
-            toute erreur de séquence fausse le résultat final.
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Simulateur Portage Salarial 2026
+          </h1>
+          <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
+            Calculez votre salaire net en temps réel
           </p>
 
-          <ol className="mt-8 grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                n: 1,
-                t: "Chiffre d'affaires HT",
-                d: "TJM × nombre de jours travaillés dans le mois. C'est le montant que la société de portage facture à votre client final.",
-              },
-              {
-                n: 2,
-                t: "Frais de gestion",
-                d: "La société de portage prélève entre 4 et 10 % du CA HT. Ce pourcentage rémunère ses services : facturation, paie, accompagnement, assurance.",
-              },
-              {
-                n: 3,
-                t: "Charges patronales",
-                d: "Environ 43 % sont prélevés sur la base restante (CA − frais de gestion − frais professionnels non refacturables). Ce sont les cotisations employeur : URSSAF, retraite, chômage, prévoyance.",
-              },
-              {
-                n: 4,
-                t: "Salaire brut",
-                d: "Ce qu'il reste après les charges patronales. C'est le salaire qui apparaît sur votre bulletin de paie avant cotisations salariales.",
-              },
-              {
-                n: 5,
-                t: "Charges salariales",
-                d: "Environ 22 % du salaire brut : cotisations salariales de retraite, chômage, CSG/CRDS. Elles sont prélevées directement sur la fiche de paie.",
-              },
-              {
-                n: 6,
-                t: "Salaire net",
-                d: "Le montant versé sur votre compte bancaire. Si vous avez renseigné un taux de prélèvement à la source, l'impôt est retiré pour obtenir le net après impôt.",
-              },
-            ].map((step) => (
-              <li
-                key={step.n}
-                className="rounded-xl border border-border bg-muted/30 p-5"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                    {step.n}
-                  </span>
-                  <h3 className="text-base font-semibold text-foreground">
-                    {step.t}
-                  </h3>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{step.d}</p>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground">
-            Questions fréquentes
-          </h2>
-          <div className="mt-6 divide-y divide-border rounded-xl border border-border bg-background">
-            {faq.map((item) => (
-              <details key={item.q} className="group p-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 text-base font-semibold text-foreground">
-                  {item.q}
-                  <span className="text-primary transition group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {item.r}
-                </p>
-              </details>
-            ))}
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground/80 sm:text-xl">
+            <p>
+              Le portage salarial permet à un indépendant de facturer ses
+              clients tout en gardant le statut de salarié : une société de
+              portage encaisse le chiffre d&apos;affaires, prélève ses frais
+              de gestion, puis verse un salaire après cotisations patronales
+              et salariales.
+            </p>
+            <p>
+              Ce simulateur estime votre salaire net mensuel à partir de votre
+              TJM, et compare automatiquement cinq sociétés parmi les plus
+              connues : ITG, Cadres en Mission, OpenWork, ABC Portage et
+              CEGELEM. Taux moyens 2026, basés sur les données publiques des
+              sociétés et de l&apos;URSSAF.
+            </p>
           </div>
         </section>
+
+        <div className="mt-16 flex gap-12">
+          <div className="min-w-0 flex-1 space-y-16">
+            <PortageSimulator />
+
+            <section id="etapes" className="scroll-mt-24">
+              <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
+                <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Comprendre le calcul en 6 étapes
+                </h2>
+                <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+                  Voici, étape par étape, comment votre chiffre d&apos;affaires
+                  se transforme en salaire net. L&apos;ordre des déductions
+                  est imposé par la réglementation : toute erreur de séquence
+                  fausse le résultat.
+                </p>
+
+                <ol className="mt-8 grid gap-4 md:grid-cols-2">
+                  {etapes.map((step) => (
+                    <li
+                      key={step.n}
+                      className="group flex gap-4 rounded-xl border border-border bg-background p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+                    >
+                      <div
+                        aria-hidden
+                        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-sm"
+                      >
+                        {step.n}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-foreground">
+                          {step.t}
+                        </h3>
+                        <p className="mt-1 text-base leading-relaxed text-foreground/80">
+                          {step.d}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </section>
+
+            <section id="faq" className="scroll-mt-24">
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                Questions fréquentes
+              </h2>
+              <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+                Les questions qu&apos;on nous pose le plus souvent sur le
+                portage salarial.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-4">
+                {faq.map((item) => (
+                  <details
+                    key={item.q}
+                    className="group rounded-2xl border border-border bg-white p-6 shadow-md transition hover:shadow-lg"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-foreground">
+                      <span>{item.q}</span>
+                      <span
+                        aria-hidden
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted text-xl text-primary transition group-open:rotate-45"
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-4 text-base leading-relaxed text-foreground/80">
+                      {item.r}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </section>
+
+            <section id="sources" className="scroll-mt-24">
+              <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
+                <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                  Sources
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Les données utilisées dans ce simulateur proviennent des
+                  publications officielles et des grilles tarifaires publiques
+                  des sociétés de portage.
+                </p>
+                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {sources.map((s) => (
+                    <li key={s.href}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary underline-offset-4 transition hover:underline"
+                      >
+                        {s.label}
+                        <span aria-hidden className="ml-1 text-xs">
+                          ↗
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-xs italic text-muted-foreground">
+                  Dernière mise à jour : 15 avril 2026. Les taux de charges
+                  sont des moyennes indicatives, pas un barème URSSAF
+                  exhaustif.
+                </p>
+              </div>
+            </section>
+          </div>
+
+          <TocSidebar items={tocItems} />
+        </div>
       </main>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto max-w-5xl space-y-2 px-6 py-8 text-sm text-muted-foreground">
-          <p className="font-semibold text-foreground">Sources</p>
-          <ul className="list-inside list-disc space-y-1">
-            <li>URSSAF.fr — taux de cotisations 2026</li>
-            <li>BOSS.gouv.fr — Bulletin officiel de la Sécurité sociale</li>
-            <li>
-              Convention collective nationale du portage salarial (IDCC 3219)
-            </li>
-            <li>
-              Grilles tarifaires publiques 2026 : ITG, Cadres en Mission,
-              OpenWork, ABC Portage, CEGELEM
-            </li>
-          </ul>
-          <p className="pt-2 text-xs">
-            Dernière mise à jour : 15 avril 2026. Les taux de charges sont des
-            moyennes indicatives, pas un barème URSSAF exhaustif.
-          </p>
+      <footer className="border-t border-border bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Salairia — Tous droits réservés.
         </div>
       </footer>
     </>

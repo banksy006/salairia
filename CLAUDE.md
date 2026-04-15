@@ -115,6 +115,22 @@ Décisions prises et à ne **pas** remettre en question sans discussion explicit
 - **Mode clair uniquement.**
   Pas de dark mode tant que le besoin n'est pas prouvé. Éviter d'ajouter des classes `dark:*` sans discussion.
 
+## Décisions UX/UI
+
+Pattern visuel **verrouillé V2 (avril 2026)**, à répliquer sur les futurs simulateurs :
+
+- **Hero de page** : H1 en `text-5xl`/`text-6xl` sur desktop, précédé d'un badge pill « À jour avril 2026 » (`bg-muted` + `text-primary`), sous-titre en `text-primary` `text-2xl`/`3xl`, paragraphe intro en `text-foreground/80`. Breadcrumb avec séparateur `›` (pas `/`).
+- **Cards** : toutes les sections (paramètres, résultats, comparatif, étapes, FAQ, sources) vivent dans des cards `bg-white` `border border-border` `rounded-2xl` `shadow-md` `hover:shadow-lg` `p-6 sm:p-8`. Espacement vertical `space-y-16` entre sections.
+- **Résultat principal** : rendu en carte héros `bg-primary` `text-primary-foreground` `rounded-2xl` `p-8` `shadow-lg`, chiffre en `text-5xl font-bold tabular-nums`, label en `text-xs uppercase tracking-wider`. Les lignes intermédiaires du calcul restent dans une liste discrète au-dessus.
+- **Comparatif** : grille de cards (pas un tableau), une card par offre. Card gagnante en `border-2 border-accent bg-accent/5` avec badge « Meilleur net » `bg-accent` en haut à droite. Logo placeholder = cercle `h-12 w-12` `bg-accent/10` avec l'initiale. Tri : gagnant d'abord, puis frais croissants.
+- **Alertes** : `border-l-4` + `rounded-r-lg`. Rouge = `border-destructive` `bg-destructive/10` `text-destructive` avec icône `⛔`. Orange = `border-amber-500` `bg-amber-50` `text-amber-900` avec icône `⚠️`.
+- **Sommaire flottant** (desktop `lg+` uniquement) : sidebar sticky à droite (`w-56`), ancres vers les sections (id `simulateur`, `comparatif`, `etapes`, `faq`, `sources`), item actif surligné avec `border-l-2 border-primary` via `IntersectionObserver`. Composant : `src/components/simulateurs/TocSidebar.tsx`.
+- **FAQ** : `<details>` natifs stylés, une card par question, icône `+` qui tourne en `×` via `group-open:rotate-45`.
+- **Sources** : liens externes cliquables (`target="_blank"` `rel="noopener noreferrer"`), couleur `text-primary` `underline-offset-4` `hover:underline`, flèche `↗` en suffixe.
+- **Inputs** : `border-2 border-border` `rounded-xl` `px-4 py-3 text-base`, focus en `border-primary` + `ring-4 ring-ring`.
+
+À chaque nouveau simulateur, reprendre ce même moule avant d'envisager un écart. Les exceptions doivent être discutées explicitement.
+
 ## Simulateurs disponibles
 
 Tous les simulateurs vivent sous `/simulateurs/*`. La logique de calcul pure est isolée dans `src/lib/calculators/<nom>.ts` (testable sans React), le composant UI client dans `src/components/simulateurs/<Nom>Simulator.tsx`, et la page éditoriale (Server Component, metadata + JSON-LD) dans `src/app/simulateurs/<slug>/page.tsx`. Le hub `/simulateurs` liste les simulateurs disponibles.
