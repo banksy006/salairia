@@ -17,8 +17,8 @@ const ressourcesLinks = [
 
 const legalLinks = [
   { label: "Mentions légales", href: "/mentions-legales" },
-  { label: "Politique de confidentialité", href: "/confidentialite" },
-  { label: "Politique cookies", href: "/cookies" },
+  { label: "Politique de confidentialité", href: "/politique-confidentialite" },
+  { label: "Politique cookies", href: "/politique-cookies" },
 ];
 
 interface LinkItem {

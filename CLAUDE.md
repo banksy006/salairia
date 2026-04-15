@@ -71,6 +71,13 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 - **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
 - **Hub simulateurs (`/simulateurs`)** — liste des simulateurs disponibles. Un seul pour l'instant (portage).
 - **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+- **Mentions légales (`/mentions-legales`)** — V1 du 2026-04-15. Éditeur Nizar Laghrifi (entreprise individuelle en cours d'immatriculation, Paris), hébergeur Vercel Inc. avec mention SCC, propriété intellectuelle, limites de responsabilité (YMYL), liens externes, droit français. JSON-LD `BreadcrumbList`.
+- **Politique de confidentialité (`/politique-confidentialite`)** — V1 du 2026-04-15. Encadré « L'essentiel en 3 points » (no-cookie, no-collect, calculs locaux), responsable du traitement, données analytics via Plausible (Allemagne), transparence affiliation, droits RGPD (accès, rectification, effacement, opposition, portabilité), saisine CNIL, sécurité. Contact : `contact@salairia.com`.
+- **Politique cookies (`/politique-cookies`)** — V1 du 2026-04-15. Card héros « Aucun cookie de traçage sur Salairia », explication du choix Plausible sans cookie, cookies tiers affiliation, procédure de vérification F12.
+
+### Note stratégique — no-cookie + Plausible
+
+**Différenciation RGPD forte** : choix Plausible Analytics (Allemagne, RGPD-by-design, sans cookie) + zéro cookie traceur déposé par Salairia. Les concurrents directs (URSSAF.fr, Boursorama, Hellowork, comparateurs de portage) ont tous Google Analytics + bandeau de consentement intrusif. Argumentaire EEAT et confiance fort, à exploiter dans la com / le contenu / les signaux d'autorité. **Ne pas introduire** de Google Analytics, Facebook Pixel, Hotjar, ou tout autre script tiers sans discussion explicite : cela invaliderait la page `/politique-cookies` et obligerait un bandeau de consentement.
 
 ### Note stratégique — neutralité vs affiliation
 
