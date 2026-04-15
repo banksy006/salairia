@@ -67,8 +67,14 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 ## Pages disponibles
 
 - **Home (`/`)** — V1 du 2026-04-15. Hub principal : hero (H1 + carte données de référence 2026) + segmentation 4 personas + grille 9 simulateurs (1 dispo, 8 « Bientôt ») + 3 engagements EEAT + 12 recherches populaires pour maillage interne + bandeau sources. JSON-LD `Organization` + `WebSite` avec `SearchAction` + `BreadcrumbList`. Pattern visuel cohérent avec `/simulateurs/portage-salarial` (cards `rounded-2xl shadow-md`, palette CLAUDE.md, hero grid 12 cols). À re-scrapper quand de nouveaux simulateurs sont publiés (maj du tableau `simulateurs` dans `page.tsx` + cartes `Footer.tsx`).
+- **À propos (`/a-propos`)** — V1 du 2026-04-15. Bio fondateur Nizar Laghrifi (Rennes School of Business + échange Erasmus Sheffield Hallam), mission, 4 engagements, section « Pourquoi Salairia », contact `mailto:contact@salairia.com`. Page EEAT critique (YMYL). JSON-LD `Person` (avec `alumniOf` + `sameAs` LinkedIn) + `Organization` + `BreadcrumbList`. Placeholder avatar = cercle gradient primary→accent avec « N ». À remplacer par `/public/nizar.jpg` quand une vraie photo est fournie.
+- **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
 - **Hub simulateurs (`/simulateurs`)** — liste des simulateurs disponibles. Un seul pour l'instant (portage).
 - **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+
+### Note stratégique — neutralité vs affiliation
+
+La phrase d'engagement de la home (section « Pourquoi Salairia ») a été reformulée en **« Comparatifs indépendants »** (au lieu de « Vraiment neutres ») pour cohérence avec le modèle économique d'affiliation futur. Le classement reste basé sur critères objectifs (frais, services) même si des liens d'affiliation sont ajoutés — pattern Wirecutter / Selectra : l'affiliation ne modifie pas l'ordre, elle finance le projet. **Ne pas rétropédaler** vers « aucune société ne nous finance » sans discussion : cette phrase deviendrait fausse dès la monétisation et minerait la crédibilité EEAT.
 
 Pas d'abstractions prématurées au-delà de `Header`/`Footer` et du contexte portage. Les abstractions supplémentaires (layout de section, primitives UI) s'introduiront quand un deuxième écran en aura vraiment besoin.
 

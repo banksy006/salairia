@@ -123,9 +123,9 @@ const simulateurs = [
 const engagements = [
   {
     emoji: "🎯",
-    titre: "Vraiment neutres",
+    titre: "Comparatifs indépendants",
     texte:
-      "Aucune société de portage ne nous finance. Nos comparatifs sont basés sur les grilles publiques de chaque acteur, vérifiées chaque trimestre.",
+      "Nos classements sont basés exclusivement sur les grilles publiques et critères objectifs (frais, services). Aucune relation commerciale n'influence l'ordre des comparatifs.",
   },
   {
     emoji: "📊",
