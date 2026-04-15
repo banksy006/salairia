@@ -37,16 +37,40 @@ npm run lint     # eslint
 
 ## Architecture
 
-Structure App Router classique, répertoire `src/` :
+Structure App Router, répertoire `src/` :
 
 ```
-src/app/
-├── layout.tsx      # Root layout : <html lang="fr">, Inter, metadata SEO
-├── page.tsx        # Home : header wordmark + hero + CTA + footer
-└── globals.css     # Palette Salairia via @theme inline (Tailwind v4)
+src/
+├── app/
+│   ├── layout.tsx                             # Root layout : Header + Footer globaux, Inter, metadata SEO
+│   ├── page.tsx                               # Home : hub simulateurs + personas + maillage interne
+│   ├── globals.css                            # Palette Salairia via @theme inline (Tailwind v4)
+│   └── simulateurs/
+│       ├── page.tsx                           # Hub des simulateurs
+│       └── portage-salarial/page.tsx          # Simulateur portage
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx                         # Wordmark + tagline (global via layout.tsx)
+│   │   └── Footer.tsx                         # Footer 4 colonnes (global via layout.tsx)
+│   └── simulateurs/
+│       ├── PortageContext.tsx                 # Provider + hook usePortage (state partagé)
+│       ├── PortageSimulator.tsx               # Client : inputs + résultats + comparatif
+│       ├── ApercuCard.tsx                     # Client : preview 3 KPI dans le hero
+│       └── TocSidebar.tsx                     # Sommaire flottant desktop
+└── lib/
+    └── calculators/
+        └── portage.ts                         # Logique pure, testable sans React
 ```
 
-Pas d'abstractions prématurées. Tant que la home est le seul écran, **pas de layout imbriqué, pas de composants partagés** — on extraira quand un deuxième écran en aura besoin.
+Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.tsx`. Les pages ne doivent **pas** les rendre elles-mêmes. Chaque page retourne son contenu dans un `<div className="mx-auto w-full max-w-6xl px-6 py-…">` (ou plusieurs `<section>` si elle a des bandeaux pleine largeur comme la home).
+
+## Pages disponibles
+
+- **Home (`/`)** — V1 du 2026-04-15. Hub principal : hero (H1 + carte données de référence 2026) + segmentation 4 personas + grille 9 simulateurs (1 dispo, 8 « Bientôt ») + 3 engagements EEAT + 12 recherches populaires pour maillage interne + bandeau sources. JSON-LD `Organization` + `WebSite` avec `SearchAction` + `BreadcrumbList`. Pattern visuel cohérent avec `/simulateurs/portage-salarial` (cards `rounded-2xl shadow-md`, palette CLAUDE.md, hero grid 12 cols). À re-scrapper quand de nouveaux simulateurs sont publiés (maj du tableau `simulateurs` dans `page.tsx` + cartes `Footer.tsx`).
+- **Hub simulateurs (`/simulateurs`)** — liste des simulateurs disponibles. Un seul pour l'instant (portage).
+- **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+
+Pas d'abstractions prématurées au-delà de `Header`/`Footer` et du contexte portage. Les abstractions supplémentaires (layout de section, primitives UI) s'introduiront quand un deuxième écran en aura vraiment besoin.
 
 ## Charte graphique
 

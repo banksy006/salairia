@@ -170,21 +170,7 @@ export default function PortageSalarialPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <header className="border-b border-border bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-6">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tight text-primary"
-          >
-            Salairia
-          </Link>
-          <span className="text-sm text-muted-foreground">
-            Votre rémunération, sans zone d&apos;ombre
-          </span>
-        </div>
-      </header>
-
-      <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12">
         <PortageProvider>
           <section className="grid gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
@@ -354,13 +340,7 @@ export default function PortageSalarialPage() {
             <TocSidebar items={tocItems} />
           </div>
         </PortageProvider>
-      </main>
-
-      <footer className="border-t border-border bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-8 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Salairia — Tous droits réservés.
-        </div>
-      </footer>
+      </div>
     </>
   );
 }

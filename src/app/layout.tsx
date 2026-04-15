@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,7 +38,11 @@ export default function RootLayout({
       lang="fr"
       className={`${inter.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
