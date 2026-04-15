@@ -1,22 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import {
   calculerPortage,
   comparerSocietes,
-  type PortageInputs,
   type StatutPortage,
 } from "@/lib/calculators/portage";
-
-const DEFAULTS: PortageInputs = {
-  tjm: 500,
-  joursTravailles: 18,
-  tauxFraisGestion: 8,
-  fraisProRefacturables: 0,
-  fraisProNonRefacturables: 0,
-  statut: "senior",
-  tauxPAS: 0,
-};
+import { usePortage } from "./PortageContext";
 
 const EUR0 = new Intl.NumberFormat("fr-FR", {
   style: "currency",
@@ -24,38 +14,25 @@ const EUR0 = new Intl.NumberFormat("fr-FR", {
   maximumFractionDigits: 0,
 });
 
-function useDebounced<T>(value: T, delay: number): T {
-  const [debounced, setDebounced] = useState(value);
-  useEffect(() => {
-    const t = setTimeout(() => setDebounced(value), delay);
-    return () => clearTimeout(t);
-  }, [value, delay]);
-  return debounced;
-}
-
 export default function PortageSimulator() {
-  const [inputs, setInputs] = useState<PortageInputs>(DEFAULTS);
-  const debounced = useDebounced(inputs, 150);
+  const { inputs, debouncedInputs, update } = usePortage();
 
-  const result = useMemo(() => calculerPortage(debounced), [debounced]);
+  const result = useMemo(
+    () => calculerPortage(debouncedInputs),
+    [debouncedInputs],
+  );
   const comparatifRaw = useMemo(
-    () => comparerSocietes(debounced),
-    [debounced],
+    () => comparerSocietes(debouncedInputs),
+    [debouncedInputs],
   );
 
   const meilleurNet = Math.max(...comparatifRaw.map((c) => c.netFinal));
   const comparatif = [...comparatifRaw].sort((a, b) => {
-    if (a.netFinal === meilleurNet && b.netFinal !== meilleurNet) return -1;
-    if (b.netFinal === meilleurNet && a.netFinal !== meilleurNet) return 1;
+    const aBest = a.netFinal === meilleurNet ? 0 : 1;
+    const bBest = b.netFinal === meilleurNet ? 0 : 1;
+    if (aBest !== bBest) return aBest - bBest;
     return a.societe.tauxFraisGestion - b.societe.tauxFraisGestion;
   });
-
-  function update<K extends keyof PortageInputs>(
-    key: K,
-    value: PortageInputs[K],
-  ) {
-    setInputs((prev) => ({ ...prev, [key]: value }));
-  }
 
   return (
     <div className="flex flex-col gap-16">
@@ -217,8 +194,8 @@ export default function PortageSimulator() {
               )}
               {!result.tjmTropBas && result.sousMinimum && (
                 <Alert tone="warning">
-                  Attention : avec ces paramètres, ton salaire brut
-                  n&apos;atteint pas le minimum conventionnel de ton statut (
+                  Avec ces paramètres, ton salaire brut n&apos;atteint pas le
+                  minimum conventionnel de ton statut (
                   {EUR0.format(result.salaireMinimumConventionnel)}/mois). La
                   société de portage pourra refuser la mission.
                 </Alert>
@@ -242,7 +219,7 @@ export default function PortageSimulator() {
                   />
                 )}
                 <DetailRow
-                  label="− Charges patronales (43 %)"
+                  label="− Charges patronales · 43%"
                   value={EUR0.format(-result.chargesPatronales)}
                   muted
                 />
@@ -252,7 +229,7 @@ export default function PortageSimulator() {
                   highlight
                 />
                 <DetailRow
-                  label="− Charges salariales (22 %)"
+                  label="− Charges salariales · 22%"
                   value={EUR0.format(-result.chargesSalariales)}
                   muted
                 />
@@ -264,7 +241,7 @@ export default function PortageSimulator() {
                 {result.salaireNetApresImpot !== null && (
                   <>
                     <DetailRow
-                      label={`− Impôt à la source (${inputs.tauxPAS}%)`}
+                      label={`− Impôt à la source · ${inputs.tauxPAS}%`}
                       value={EUR0.format(
                         -(
                           result.salaireNetAvantImpot -
@@ -297,14 +274,14 @@ export default function PortageSimulator() {
                 </p>
                 {result.salaireNetApresImpot !== null && (
                   <p className="mt-2 text-sm text-primary-foreground/70">
-                    Net après impôt · prélèvement à la source {inputs.tauxPAS}{" "}
-                    %
+                    Net après impôt · prélèvement à la source{" "}
+                    {inputs.tauxPAS}%
                   </p>
                 )}
                 {inputs.fraisProRefacturables > 0 && (
                   <p className="mt-1 text-sm text-primary-foreground/70">
-                    Inclut {EUR0.format(inputs.fraisProRefacturables)} de frais
-                    pro remboursés.
+                    Inclut {EUR0.format(inputs.fraisProRefacturables)} de
+                    frais pro remboursés.
                   </p>
                 )}
               </div>
@@ -324,62 +301,64 @@ export default function PortageSimulator() {
             Comparatif de 5 sociétés de portage
           </h3>
           <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-            Salaire net estimé avec tes paramètres actuels, pour chaque société
-            selon ses frais de gestion. L&apos;offre qui maximise ton net est
-            mise en avant.
+            Salaire net estimé avec tes paramètres actuels, pour chaque
+            société selon ses frais de gestion. L&apos;offre qui maximise ton
+            net est mise en avant.
           </p>
 
-          <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {comparatif.map(({ societe, result: r, netFinal }) => {
-              const best = netFinal === meilleurNet;
-              return (
-                <li key={societe.nom}>
-                  <div
-                    className={`group relative flex h-full flex-col gap-4 rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
-                      best
-                        ? "border-2 border-accent bg-accent/5"
-                        : "border-border bg-white"
-                    }`}
-                  >
-                    {best && (
-                      <span className="absolute right-4 top-4 inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground shadow-sm">
-                        Meilleur net
-                      </span>
-                    )}
-
-                    <div className="flex items-center gap-3">
-                      <div
-                        aria-hidden
-                        className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-lg font-bold text-accent"
+          <div className="mt-8 overflow-x-auto rounded-xl border border-border bg-background">
+            <table className="w-full text-left">
+              <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <tr>
+                  <th className="px-6 py-4">Société</th>
+                  <th className="px-6 py-4">Frais de gestion</th>
+                  <th className="px-6 py-4">Salaire brut</th>
+                  <th className="px-6 py-4 text-right">
+                    Net mensuel estimé
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparatif.map(({ societe, result: r, netFinal }) => {
+                  const best = netFinal === meilleurNet;
+                  return (
+                    <tr
+                      key={societe.nom}
+                      className={`border-b border-border last:border-b-0 transition hover:bg-muted/50 ${
+                        best ? "bg-accent/5" : ""
+                      }`}
+                    >
+                      <td
+                        className={`px-6 py-4 ${
+                          best ? "border-l-4 border-accent" : ""
+                        }`}
                       >
-                        {societe.nom.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="text-base font-semibold text-foreground">
-                          {societe.nom}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Frais de gestion · {societe.tauxFraisGestion} %
-                        </p>
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                        Net mensuel estimé
-                      </p>
-                      <p className="mt-1 text-3xl font-bold tabular-nums text-foreground">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-semibold text-foreground">
+                            {societe.nom}
+                          </span>
+                          {best && (
+                            <span className="inline-flex items-center rounded-full bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">
+                              Meilleur net
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-muted-foreground tabular-nums whitespace-nowrap">
+                        {societe.tauxFraisGestion}%
+                      </td>
+                      <td className="px-6 py-4 text-base text-muted-foreground tabular-nums">
+                        {EUR0.format(r.salaireBrut)}
+                      </td>
+                      <td className="px-6 py-4 text-right text-lg font-bold text-foreground tabular-nums">
                         {EUR0.format(netFinal)}
-                      </p>
-                      <p className="mt-1 text-xs text-muted-foreground">
-                        Brut : {EUR0.format(r.salaireBrut)}
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
 
           <p className="mt-6 text-xs text-muted-foreground">
             Taux de frais de gestion relevés en avril 2026 sur les sites
@@ -442,9 +421,7 @@ function DetailRow({
   muted?: boolean;
   highlight?: boolean;
 }) {
-  const rowCls = highlight
-    ? "bg-muted/60"
-    : "";
+  const rowCls = highlight ? "bg-muted/60" : "";
   const textCls = strong
     ? "font-semibold text-foreground"
     : muted
@@ -456,7 +433,7 @@ function DetailRow({
     <li
       className={`flex items-center justify-between gap-4 px-4 py-3 text-base ${rowCls}`}
     >
-      <span className={`${labelCls}`}>{label}</span>
+      <span className={`whitespace-nowrap ${labelCls}`}>{label}</span>
       <span className={`tabular-nums ${valueCls}`}>{value}</span>
     </li>
   );
@@ -473,7 +450,7 @@ function Alert({
     tone === "destructive"
       ? "border-destructive bg-destructive/10 text-destructive"
       : "border-amber-500 bg-amber-50 text-amber-900";
-  const icon = tone === "destructive" ? "⛔" : "⚠️";
+  const icon = tone === "destructive" ? "⚠️" : "ℹ️";
   return (
     <div
       className={`flex items-start gap-3 rounded-r-lg border-l-4 p-4 text-sm ${cls}`}

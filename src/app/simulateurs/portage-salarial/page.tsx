@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ApercuCard from "@/components/simulateurs/ApercuCard";
+import { PortageProvider } from "@/components/simulateurs/PortageContext";
 import PortageSimulator from "@/components/simulateurs/PortageSimulator";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
@@ -91,7 +93,10 @@ const sources = [
     href: "https://www.cadresenmission.com",
   },
   { label: "OpenWork — grille tarifaire", href: "https://www.openwork.cc" },
-  { label: "ABC Portage — grille tarifaire", href: "https://www.abcportage.fr" },
+  {
+    label: "ABC Portage — grille tarifaire",
+    href: "https://www.abcportage.fr",
+  },
   { label: "CEGELEM — grille tarifaire", href: "https://www.cegelem.fr" },
 ];
 
@@ -180,167 +185,175 @@ export default function PortageSalarialPage() {
       </header>
 
       <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12">
-        <nav
-          aria-label="Fil d'Ariane"
-          className="flex items-center gap-2 text-sm text-muted-foreground"
-        >
-          <Link href="/" className="transition hover:text-primary">
-            Accueil
-          </Link>
-          <span aria-hidden>›</span>
-          <Link
-            href="/simulateurs"
-            className="transition hover:text-primary"
-          >
-            Simulateurs
-          </Link>
-          <span aria-hidden>›</span>
-          <span className="text-foreground">Portage salarial</span>
-        </nav>
+        <PortageProvider>
+          <section className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-7">
+              <nav
+                aria-label="Fil d'Ariane"
+                className="flex items-center gap-2 text-sm text-muted-foreground"
+              >
+                <Link href="/" className="transition hover:text-primary">
+                  Accueil
+                </Link>
+                <span aria-hidden>›</span>
+                <Link
+                  href="/simulateurs"
+                  className="transition hover:text-primary"
+                >
+                  Simulateurs
+                </Link>
+                <span aria-hidden>›</span>
+                <span className="text-foreground">Portage salarial</span>
+              </nav>
 
-        <section className="mt-6 max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
-            <span aria-hidden>🗓️</span>
-            À jour avril 2026
-          </span>
+              <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
+                <span aria-hidden>📅</span>
+                À jour avril 2026
+              </span>
 
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Simulateur Portage Salarial 2026
-          </h1>
-          <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
-            Calculez votre salaire net en temps réel
-          </p>
-
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground/80 sm:text-xl">
-            <p>
-              Le portage salarial permet à un indépendant de facturer ses
-              clients tout en gardant le statut de salarié : une société de
-              portage encaisse le chiffre d&apos;affaires, prélève ses frais
-              de gestion, puis verse un salaire après cotisations patronales
-              et salariales.
-            </p>
-            <p>
-              Ce simulateur estime votre salaire net mensuel à partir de votre
-              TJM, et compare automatiquement cinq sociétés parmi les plus
-              connues : ITG, Cadres en Mission, OpenWork, ABC Portage et
-              CEGELEM. Taux moyens 2026, basés sur les données publiques des
-              sociétés et de l&apos;URSSAF.
-            </p>
-          </div>
-        </section>
-
-        <div className="mt-16 flex gap-12">
-          <div className="min-w-0 flex-1 space-y-16">
-            <PortageSimulator />
-
-            <section id="etapes" className="scroll-mt-24">
-              <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                  Comprendre le calcul en 6 étapes
-                </h2>
-                <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-                  Voici, étape par étape, comment votre chiffre d&apos;affaires
-                  se transforme en salaire net. L&apos;ordre des déductions
-                  est imposé par la réglementation : toute erreur de séquence
-                  fausse le résultat.
-                </p>
-
-                <ol className="mt-8 grid gap-4 md:grid-cols-2">
-                  {etapes.map((step) => (
-                    <li
-                      key={step.n}
-                      className="group flex gap-4 rounded-xl border border-border bg-background p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
-                    >
-                      <div
-                        aria-hidden
-                        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-sm"
-                      >
-                        {step.n}
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-foreground">
-                          {step.t}
-                        </h3>
-                        <p className="mt-1 text-base leading-relaxed text-foreground/80">
-                          {step.d}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </section>
-
-            <section id="faq" className="scroll-mt-24">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                Questions fréquentes
-              </h2>
-              <p className="mt-2 max-w-2xl text-base text-muted-foreground">
-                Les questions qu&apos;on nous pose le plus souvent sur le
-                portage salarial.
+              <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Simulateur Portage Salarial 2026
+              </h1>
+              <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
+                Calculez votre salaire net en temps réel
               </p>
 
-              <div className="mt-6 flex flex-col gap-4">
-                {faq.map((item) => (
-                  <details
-                    key={item.q}
-                    className="group rounded-2xl border border-border bg-white p-6 shadow-md transition hover:shadow-lg"
-                  >
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-foreground">
-                      <span>{item.q}</span>
-                      <span
-                        aria-hidden
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted text-xl text-primary transition group-open:rotate-45"
-                      >
-                        +
-                      </span>
-                    </summary>
-                    <p className="mt-4 text-base leading-relaxed text-foreground/80">
-                      {item.r}
-                    </p>
-                  </details>
-                ))}
+              <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground/80">
+                <p>
+                  Le portage salarial permet à un indépendant de facturer ses
+                  clients tout en gardant le statut de salarié : une société de
+                  portage encaisse le chiffre d&apos;affaires, prélève ses
+                  frais de gestion, puis verse un salaire après cotisations
+                  patronales et salariales.
+                </p>
+                <p>
+                  Ce simulateur estime votre salaire net mensuel à partir de
+                  votre TJM, et compare automatiquement cinq sociétés parmi
+                  les plus connues : ITG, Cadres en Mission, OpenWork, ABC
+                  Portage et CEGELEM. Taux moyens 2026.
+                </p>
               </div>
-            </section>
+            </div>
 
-            <section id="sources" className="scroll-mt-24">
-              <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                  Sources
+            <div className="lg:col-span-5">
+              <ApercuCard />
+            </div>
+          </section>
+
+          <div className="mt-16 flex gap-12">
+            <div className="min-w-0 flex-1 space-y-16">
+              <PortageSimulator />
+
+              <section id="etapes" className="scroll-mt-24">
+                <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
+                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                    🧮 Comprendre le calcul en 6 étapes
+                  </h2>
+                  <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+                    Voici, étape par étape, comment votre chiffre
+                    d&apos;affaires se transforme en salaire net.
+                    L&apos;ordre des déductions est imposé par la
+                    réglementation : toute erreur de séquence fausse le
+                    résultat.
+                  </p>
+
+                  <ol className="mt-8 grid gap-4 md:grid-cols-2">
+                    {etapes.map((step) => (
+                      <li
+                        key={step.n}
+                        className="group flex gap-4 rounded-xl border border-border bg-background p-5 transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+                      >
+                        <div
+                          aria-hidden
+                          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground shadow-sm"
+                        >
+                          {step.n}
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-foreground">
+                            {step.t}
+                          </h3>
+                          <p className="mt-1 text-base leading-relaxed text-foreground/80">
+                            {step.d}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </section>
+
+              <section id="faq" className="scroll-mt-24">
+                <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  💬 Questions fréquentes
                 </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Les données utilisées dans ce simulateur proviennent des
-                  publications officielles et des grilles tarifaires publiques
-                  des sociétés de portage.
+                <p className="mt-2 max-w-2xl text-base text-muted-foreground">
+                  Les questions qu&apos;on nous pose le plus souvent sur le
+                  portage salarial.
                 </p>
-                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                  {sources.map((s) => (
-                    <li key={s.href}>
-                      <a
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-primary underline-offset-4 transition hover:underline"
-                      >
-                        {s.label}
-                        <span aria-hidden className="ml-1 text-xs">
-                          ↗
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : 15 avril 2026. Les taux de charges
-                  sont des moyennes indicatives, pas un barème URSSAF
-                  exhaustif.
-                </p>
-              </div>
-            </section>
-          </div>
 
-          <TocSidebar items={tocItems} />
-        </div>
+                <div className="mt-6 flex flex-col gap-4">
+                  {faq.map((item) => (
+                    <details
+                      key={item.q}
+                      className="group rounded-2xl border border-border bg-white p-6 shadow-md transition hover:shadow-lg"
+                    >
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-foreground">
+                        <span>{item.q}</span>
+                        <span
+                          aria-hidden
+                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted text-xl text-primary transition group-open:rotate-45"
+                        >
+                          +
+                        </span>
+                      </summary>
+                      <p className="mt-4 text-base leading-relaxed text-foreground/80">
+                        {item.r}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+
+              <section id="sources" className="scroll-mt-24">
+                <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
+                  <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                    📚 Sources
+                  </h2>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Les données utilisées dans ce simulateur proviennent des
+                    publications officielles et des grilles tarifaires
+                    publiques des sociétés de portage.
+                  </p>
+                  <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                    {sources.map((s) => (
+                      <li key={s.href}>
+                        <a
+                          href={s.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary underline-offset-4 transition hover:underline"
+                        >
+                          {s.label}
+                          <span aria-hidden className="ml-1 text-xs">
+                            ↗
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-6 text-xs italic text-muted-foreground">
+                    Dernière mise à jour : 15 avril 2026. Les taux de charges
+                    sont des moyennes indicatives, pas un barème URSSAF
+                    exhaustif.
+                  </p>
+                </div>
+              </section>
+            </div>
+
+            <TocSidebar items={tocItems} />
+          </div>
+        </PortageProvider>
       </main>
 
       <footer className="border-t border-border bg-white">
