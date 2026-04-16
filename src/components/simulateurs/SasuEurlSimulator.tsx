@@ -264,7 +264,7 @@ function ResultCard({
 
       {deficitAlert && (
         <div className="mt-4">
-          <Alert tone="destructive">{deficitAlert}</Alert>
+          <Alert tone="warning">{deficitAlert}</Alert>
         </div>
       )}
 
