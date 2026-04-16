@@ -2,10 +2,14 @@ import Link from "next/link";
 
 const simulateursLinks = [
   { label: "Portage salarial", href: "/simulateurs/portage-salarial" },
-  { label: "TJM freelance", href: "/simulateurs" },
-  { label: "Auto-entrepreneur", href: "/simulateurs" },
-  { label: "SASU / EURL", href: "/simulateurs" },
-  { label: "Salaire brut/net", href: "/simulateurs" },
+  { label: "TJM freelance", href: "/simulateurs/tjm-freelance" },
+  { label: "Auto-entrepreneur", href: "/simulateurs/auto-entrepreneur" },
+  { label: "SASU / EURL", href: "/simulateurs/sasu-eurl" },
+  { label: "Salaire brut/net", href: "/simulateurs/salaire-brut-net" },
+];
+
+const comparateursLinks = [
+  { label: "Portage salarial", href: "/comparateurs/portage-salarial" },
 ];
 
 const ressourcesLinks = [
@@ -58,7 +62,7 @@ export default function Footer() {
   return (
     <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div>
             <p className="text-2xl font-bold tracking-tight text-background">
               Salairia
@@ -72,6 +76,7 @@ export default function Footer() {
           </div>
 
           <FooterColumn title="Simulateurs" links={simulateursLinks} />
+          <FooterColumn title="Comparateurs" links={comparateursLinks} />
           <FooterColumn title="Ressources" links={ressourcesLinks} />
           <FooterColumn title="Légal" links={legalLinks} />
         </div>
