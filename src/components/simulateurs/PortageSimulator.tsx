@@ -7,6 +7,15 @@ import {
   type StatutPortage,
 } from "@/lib/calculators/portage";
 import { usePortage } from "./PortageContext";
+import {
+  EuroIcon,
+  CalendarIcon,
+  PercentIcon,
+  ReceiptIcon,
+  TagIcon,
+  AlertTriangleIcon,
+  InfoIcon,
+} from "@/components/icons";
 
 const EUR0 = new Intl.NumberFormat("fr-FR", {
   style: "currency",
@@ -47,7 +56,7 @@ export default function PortageSimulator() {
             </p>
 
             <div className="mt-6 flex flex-col gap-5">
-              <Field label="TJM (€ HT)" htmlFor="tjm">
+              <Field label={<span className="flex items-center gap-2"><EuroIcon className="w-4 h-4 text-muted-foreground" />TJM (€ HT)</span>} htmlFor="tjm">
                 <input
                   id="tjm"
                   type="number"
@@ -59,7 +68,7 @@ export default function PortageSimulator() {
                 />
               </Field>
 
-              <Field label="Jours travaillés / mois" htmlFor="jours">
+              <Field label={<span className="flex items-center gap-2"><CalendarIcon className="w-4 h-4 text-muted-foreground" />Jours travaillés / mois</span>} htmlFor="jours">
                 <input
                   id="jours"
                   type="number"
@@ -77,7 +86,7 @@ export default function PortageSimulator() {
               <Field
                 label={
                   <span className="flex items-center justify-between gap-2">
-                    <span>Frais de gestion société</span>
+                    <span className="flex items-center gap-2"><PercentIcon className="w-4 h-4 text-muted-foreground" />Frais de gestion société</span>
                     <span className="text-primary tabular-nums">
                       {inputs.tauxFraisGestion}%
                     </span>
@@ -100,7 +109,7 @@ export default function PortageSimulator() {
               </Field>
 
               <Field
-                label="Frais pro refacturables (€ / mois)"
+                label={<span className="flex items-center gap-2"><ReceiptIcon className="w-4 h-4 text-muted-foreground" />Frais pro refacturables (€ / mois)</span>}
                 htmlFor="refact"
                 help="Remboursés par le client, non soumis à charges"
               >
@@ -121,7 +130,7 @@ export default function PortageSimulator() {
               </Field>
 
               <Field
-                label="Frais pro non refacturables (€ / mois)"
+                label={<span className="flex items-center gap-2"><ReceiptIcon className="w-4 h-4 text-muted-foreground" />Frais pro non refacturables (€ / mois)</span>}
                 htmlFor="nonrefact"
                 help="À ta charge, déduits du CA avant cotisations"
               >
@@ -141,7 +150,7 @@ export default function PortageSimulator() {
                 />
               </Field>
 
-              <Field label="Statut" htmlFor="statut">
+              <Field label={<span className="flex items-center gap-2"><TagIcon className="w-4 h-4 text-muted-foreground" />Statut</span>} htmlFor="statut">
                 <select
                   id="statut"
                   value={inputs.statut}
@@ -157,7 +166,7 @@ export default function PortageSimulator() {
               </Field>
 
               <Field
-                label="Taux de prélèvement à la source (%)"
+                label={<span className="flex items-center gap-2"><PercentIcon className="w-4 h-4 text-muted-foreground" />Taux de prélèvement à la source (%)</span>}
                 htmlFor="pas"
                 help="Laisse 0 pour ne pas appliquer"
               >
@@ -219,7 +228,12 @@ export default function PortageSimulator() {
                   />
                 )}
                 <DetailRow
-                  label="− Charges patronales · 43%"
+                  label={
+                    <span className="flex flex-col">
+                      <span>− Charges patronales</span>
+                      <span className="text-xs text-muted-foreground">Taux : 43 %</span>
+                    </span>
+                  }
                   value={EUR0.format(-result.chargesPatronales)}
                   muted
                 />
@@ -229,7 +243,12 @@ export default function PortageSimulator() {
                   highlight
                 />
                 <DetailRow
-                  label="− Charges salariales · 22%"
+                  label={
+                    <span className="flex flex-col">
+                      <span>− Charges salariales</span>
+                      <span className="text-xs text-muted-foreground">Taux : 22 %</span>
+                    </span>
+                  }
                   value={EUR0.format(-result.chargesSalariales)}
                   muted
                 />
@@ -241,7 +260,12 @@ export default function PortageSimulator() {
                 {result.salaireNetApresImpot !== null && (
                   <>
                     <DetailRow
-                      label={`− Impôt à la source · ${inputs.tauxPAS}%`}
+                      label={
+                        <span className="flex flex-col">
+                          <span>− Impôt à la source</span>
+                          <span className="text-xs text-muted-foreground">Taux : {inputs.tauxPAS} %</span>
+                        </span>
+                      }
                       value={EUR0.format(
                         -(
                           result.salaireNetAvantImpot -
@@ -415,7 +439,7 @@ function DetailRow({
   muted,
   highlight,
 }: {
-  label: string;
+  label: React.ReactNode;
   value: string;
   strong?: boolean;
   muted?: boolean;
@@ -433,8 +457,8 @@ function DetailRow({
     <li
       className={`flex items-center justify-between gap-4 px-4 py-3 text-base ${rowCls}`}
     >
-      <span className={`whitespace-nowrap ${labelCls}`}>{label}</span>
-      <span className={`tabular-nums ${valueCls}`}>{value}</span>
+      <span className={labelCls}>{label}</span>
+      <span className={`whitespace-nowrap tabular-nums ${valueCls}`}>{value}</span>
     </li>
   );
 }
@@ -450,13 +474,16 @@ function Alert({
     tone === "destructive"
       ? "border-destructive bg-destructive/10 text-destructive"
       : "border-amber-500 bg-amber-50 text-amber-900";
-  const icon = tone === "destructive" ? "⚠️" : "ℹ️";
   return (
     <div
       className={`flex items-start gap-3 rounded-r-lg border-l-4 p-4 text-sm ${cls}`}
     >
-      <span aria-hidden className="text-base leading-none">
-        {icon}
+      <span aria-hidden className="shrink-0">
+        {tone === "destructive" ? (
+          <AlertTriangleIcon className="w-4 h-4" />
+        ) : (
+          <InfoIcon className="w-4 h-4" />
+        )}
       </span>
       <span className="flex-1">{children}</span>
     </div>

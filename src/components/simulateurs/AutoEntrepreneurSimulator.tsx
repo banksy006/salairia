@@ -2,13 +2,29 @@
 
 import { useMemo } from "react";
 import {
-  AE_CATEGORIE_LABELS,
   AE_CATEGORIES,
   calculerAutoEntrepreneur,
   type AECategorie,
   type Warning as CalcWarning,
 } from "@/lib/calculators/auto-entrepreneur";
 import { useAE } from "./AEContext";
+import {
+  EuroIcon,
+  TagIcon,
+  ReceiptIcon,
+  AwardIcon,
+  FileTextIcon,
+  AlertTriangleIcon,
+  InfoIcon,
+  LightbulbIcon,
+} from "@/components/icons";
+
+const SHORT_LABELS: Record<AECategorie, string> = {
+  BIC_VENTE: "BIC \u2013 Vente de marchandises",
+  BIC_SERVICES: "BIC \u2013 Prestation de services",
+  BNC_REGIME_GENERAL: "BNC \u2013 R\u00e9gime g\u00e9n\u00e9ral",
+  BNC_CIPAV: "BNC \u2013 CIPAV",
+};
 
 const EUR0 = new Intl.NumberFormat("fr-FR", {
   style: "currency",
@@ -43,7 +59,7 @@ export default function AutoEntrepreneurSimulator() {
             </p>
 
             <div className="mt-6 flex flex-col gap-5">
-              <Field label="Chiffre d'affaires annuel (€)" htmlFor="ca">
+              <Field label={<span className="flex items-center gap-2"><EuroIcon className="w-4 h-4 text-muted-foreground" />Chiffre d&apos;affaires annuel (€)</span>} htmlFor="ca">
                 <input
                   id="ca"
                   type="number"
@@ -57,7 +73,7 @@ export default function AutoEntrepreneurSimulator() {
                 />
               </Field>
 
-              <Field label="Catégorie d'activité" htmlFor="categorie">
+              <Field label={<span className="flex items-center gap-2"><TagIcon className="w-4 h-4 text-muted-foreground" />Cat&eacute;gorie d&apos;activit&eacute;</span>} htmlFor="categorie">
                 <select
                   id="categorie"
                   value={inputs.categorie}
@@ -68,14 +84,17 @@ export default function AutoEntrepreneurSimulator() {
                 >
                   {AE_CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>
-                      {AE_CATEGORIE_LABELS[cat]}
+                      {SHORT_LABELS[cat]}
                     </option>
                   ))}
                 </select>
+                <span className="text-xs text-muted-foreground">
+                  BIC = B&eacute;n&eacute;fices Industriels et Commerciaux &middot; BNC = B&eacute;n&eacute;fices Non Commerciaux
+                </span>
               </Field>
 
               <Field
-                label="Frais professionnels annuels (€)"
+                label={<span className="flex items-center gap-2"><ReceiptIcon className="w-4 h-4 text-muted-foreground" />Frais professionnels annuels (€)</span>}
                 htmlFor="fraispro"
                 help="Matériel, logiciels, assurance RC pro, comptable…"
               >
@@ -94,7 +113,7 @@ export default function AutoEntrepreneurSimulator() {
 
               <Toggle
                 id="acre"
-                label="ACRE active (1re année)"
+                label={<><AwardIcon className="w-4 h-4 text-muted-foreground" />ACRE active (1re ann&eacute;e)</>}
                 checked={inputs.acre}
                 onChange={(v) => update("acre", v)}
                 help="Réduction 25 % des taux URSSAF pendant 12 mois"
@@ -102,7 +121,7 @@ export default function AutoEntrepreneurSimulator() {
 
               <Toggle
                 id="vl"
-                label="Versement libératoire"
+                label={<><FileTextIcon className="w-4 h-4 text-muted-foreground" />Versement lib&eacute;ratoire</>}
                 checked={inputs.versementLiberatoire}
                 onChange={(v) => update("versementLiberatoire", v)}
                 help="L'impôt sur le revenu est prélevé en % du CA au lieu des tranches IR classiques"
@@ -127,7 +146,12 @@ export default function AutoEntrepreneurSimulator() {
                   value={EUR0.format(result.caAnnuel)}
                 />
                 <DetailRow
-                  label={`− Cotisations URSSAF · ${PCT1.format(result.tauxURSSAFEffectif)}`}
+                  label={
+                    <span className="flex flex-col">
+                      <span>− Cotisations URSSAF</span>
+                      <span className="text-xs text-muted-foreground">Taux : {PCT1.format(result.tauxURSSAFEffectif)}</span>
+                    </span>
+                  }
                   value={EUR0.format(-result.cotisationsURSSAF)}
                   muted
                 />
@@ -231,7 +255,7 @@ function Toggle({
   help,
 }: {
   id: string;
-  label: string;
+  label: React.ReactNode;
   checked: boolean;
   onChange: (v: boolean) => void;
   help?: string;
@@ -242,7 +266,7 @@ function Toggle({
         htmlFor={id}
         className="flex cursor-pointer items-center justify-between gap-3"
       >
-        <span className="text-sm font-semibold text-foreground">{label}</span>
+        <span className="text-sm font-semibold text-foreground flex items-center gap-2">{label}</span>
         <button
           id={id}
           type="button"
@@ -271,7 +295,7 @@ function DetailRow({
   muted,
   highlight,
 }: {
-  label: string;
+  label: React.ReactNode;
   value: string;
   muted?: boolean;
   highlight?: boolean;
@@ -287,8 +311,8 @@ function DetailRow({
     <li
       className={`flex items-center justify-between gap-4 px-4 py-3 text-base ${rowCls}`}
     >
-      <span className={`whitespace-nowrap ${textCls}`}>{label}</span>
-      <span className={`tabular-nums ${valueCls}`}>{value}</span>
+      <span className={textCls}>{label}</span>
+      <span className={`whitespace-nowrap tabular-nums ${valueCls}`}>{value}</span>
     </li>
   );
 }
@@ -321,14 +345,18 @@ function Alert({
       : tone === "warning"
         ? "border-amber-500 bg-amber-50 text-amber-900"
         : "border-primary/40 bg-primary/5 text-primary";
-  const icon =
-    tone === "destructive" ? "⚠️" : tone === "warning" ? "ℹ️" : "💡";
   return (
     <div
       className={`flex items-start gap-3 rounded-r-lg border-l-4 p-4 text-sm ${cls}`}
     >
-      <span aria-hidden className="text-base leading-none">
-        {icon}
+      <span aria-hidden className="shrink-0">
+        {tone === "destructive" ? (
+          <AlertTriangleIcon className="w-4 h-4" />
+        ) : tone === "warning" ? (
+          <InfoIcon className="w-4 h-4" />
+        ) : (
+          <LightbulbIcon className="w-4 h-4" />
+        )}
       </span>
       <span className="flex-1">{children}</span>
     </div>

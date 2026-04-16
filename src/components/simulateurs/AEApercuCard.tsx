@@ -40,7 +40,7 @@ export default function AEApercuCard() {
           <dt className="text-xs font-medium text-muted-foreground">
             Net mensuel estimé
           </dt>
-          <dd className="mt-1 text-3xl font-bold tabular-nums text-primary">
+          <dd className="mt-1 text-3xl font-bold tabular-nums text-primary lg:text-4xl">
             {EUR0.format(result.netMensuel)}
           </dd>
         </div>
@@ -61,7 +61,7 @@ export default function AEApercuCard() {
 
       <a
         href="#simulateur"
-        className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="mt-6 hidden lg:inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         Affiner ma simulation ↓
       </a>

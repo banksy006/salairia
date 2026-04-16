@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  IconBadge,
+  CalendarIcon,
+  CalculatorIcon,
+  MessageCircleIcon,
+  ExternalLinkIcon,
+} from "@/components/icons";
 import ApercuCard from "@/components/simulateurs/ApercuCard";
 import { PortageProvider } from "@/components/simulateurs/PortageContext";
 import PortageSimulator from "@/components/simulateurs/PortageSimulator";
@@ -176,7 +183,7 @@ export default function PortageSalarialPage() {
             <div className="lg:col-span-7">
               <nav
                 aria-label="Fil d'Ariane"
-                className="flex items-center gap-2 text-sm text-muted-foreground"
+                className="flex items-center gap-2 text-sm text-foreground/70"
               >
                 <Link href="/" className="transition hover:text-primary">
                   Accueil
@@ -193,7 +200,7 @@ export default function PortageSalarialPage() {
               </nav>
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
-                <span aria-hidden>📅</span>
+                <CalendarIcon className="w-3.5 h-3.5" />
                 À jour avril 2026
               </span>
 
@@ -232,8 +239,9 @@ export default function PortageSalarialPage() {
 
               <section id="etapes" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    📐 Comprendre le calcul en 6 étapes
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
+                    Comprendre le calcul en 6 étapes
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Voici, étape par étape, comment votre chiffre
@@ -270,8 +278,9 @@ export default function PortageSalarialPage() {
               </section>
 
               <section id="faq" className="scroll-mt-24">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                  💬 Questions fréquentes
+                <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                  <IconBadge><MessageCircleIcon className="w-4 h-4" /></IconBadge>
+                  Questions fréquentes
                 </h2>
                 <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                   Les questions qu&apos;on nous pose le plus souvent sur le
@@ -303,8 +312,9 @@ export default function PortageSalarialPage() {
 
               <section id="sources" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                    📚 Sources
+                  <h2 className="flex items-center text-2xl font-bold tracking-tight text-foreground">
+                    <IconBadge><ExternalLinkIcon className="w-4 h-4" /></IconBadge>
+                    Sources
                   </h2>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Les données utilisées dans ce simulateur proviennent des
@@ -329,7 +339,7 @@ export default function PortageSalarialPage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : 15 avril 2026. Les taux de charges
+                    Dernière mise à jour : avril 2026. Les taux de charges
                     sont des moyennes indicatives, pas un barème URSSAF
                     exhaustif.
                   </p>

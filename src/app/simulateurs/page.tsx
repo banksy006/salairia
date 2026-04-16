@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  IconBadge,
+  CalendarIcon,
+  CalculatorIcon,
+  ScaleIcon,
+  MessageCircleIcon,
+  SparklesIcon,
+  CompassIcon,
+  BriefcaseIcon,
+  RocketIcon,
+  BuildingIcon,
+  TargetIcon,
+  ExternalLinkIcon,
+  ShieldIcon,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title:
@@ -222,7 +237,7 @@ export default function SimulateursPage() {
           <div className="lg:col-span-7">
             <nav
               aria-label="Fil d'Ariane"
-              className="flex items-center gap-2 text-sm text-muted-foreground"
+              className="flex items-center gap-2 text-sm text-foreground/70"
             >
               <Link href="/" className="transition hover:text-primary">
                 Accueil
@@ -232,7 +247,7 @@ export default function SimulateursPage() {
             </nav>
 
             <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
-              <span aria-hidden>📅</span>
+              <CalendarIcon className="w-3.5 h-3.5" />
               Mis à jour avril 2026
             </span>
 
@@ -263,8 +278,8 @@ export default function SimulateursPage() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-24">
               <div className="rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/5 to-accent/5 p-8 shadow-md">
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-                  <span aria-hidden>🧭</span> Aide-toi en 10 secondes
+                <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
+                  <CompassIcon className="w-4 h-4" /> Aide-toi en 10 secondes
                 </p>
                 <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">
                   Quel simulateur est fait pour toi ?
@@ -279,7 +294,7 @@ export default function SimulateursPage() {
                           className="flex w-full items-start gap-3 rounded-xl border border-border bg-white p-4 text-left text-base font-medium text-foreground transition hover:border-primary hover:bg-primary/5"
                         >
                           <span aria-hidden className="text-xl">
-                            {q.emoji}
+                            {{"💼": <BriefcaseIcon className="w-5 h-5 text-primary" />, "🚀": <RocketIcon className="w-5 h-5 text-primary" />, "📦": <BriefcaseIcon className="w-5 h-5 text-primary" />, "🏢": <BuildingIcon className="w-5 h-5 text-primary" />}[q.emoji] ?? q.emoji}
                           </span>
                           <span className="flex-1">{q.label}</span>
                           <span
@@ -295,7 +310,7 @@ export default function SimulateursPage() {
                           className="flex w-full items-start gap-3 rounded-xl border border-border bg-white p-4 text-left text-base font-medium text-foreground transition hover:border-primary hover:bg-primary/5"
                         >
                           <span aria-hidden className="text-xl">
-                            {q.emoji}
+                            {{"💼": <BriefcaseIcon className="w-5 h-5 text-primary" />, "🚀": <RocketIcon className="w-5 h-5 text-primary" />, "📦": <BriefcaseIcon className="w-5 h-5 text-primary" />, "🏢": <BuildingIcon className="w-5 h-5 text-primary" />}[q.emoji] ?? q.emoji}
                           </span>
                           <span className="flex-1">{q.label}</span>
                           <span
@@ -320,8 +335,9 @@ export default function SimulateursPage() {
           className="mt-20 scroll-mt-24"
         >
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              📐 Les 9 simulateurs Salairia
+            <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
+              Les 9 simulateurs Salairia
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
               Cliquez sur un simulateur pour le lancer. Les outils marqués
@@ -383,8 +399,9 @@ export default function SimulateursPage() {
 
         {/* Comparer plusieurs statuts */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            ⚖️ Hésitez entre plusieurs statuts ?
+          <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <IconBadge><ScaleIcon className="w-4 h-4" /></IconBadge>
+            Hésitez entre plusieurs statuts ?
           </h2>
 
           <div className="mt-8 rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/5 to-accent/5 p-8 shadow-md sm:p-12">
@@ -484,8 +501,9 @@ export default function SimulateursPage() {
         {/* FAQ guide */}
         <section className="mt-20">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              💬 Quel simulateur pour mon cas ?
+            <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <IconBadge><MessageCircleIcon className="w-4 h-4" /></IconBadge>
+              Quel simulateur pour mon cas ?
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
               Les questions les plus fréquentes pour bien choisir
@@ -518,8 +536,9 @@ export default function SimulateursPage() {
 
         {/* Pourquoi nos simulateurs sont différents */}
         <section className="mt-20">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            💎 Pourquoi nos simulateurs sont différents
+          <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <IconBadge><SparklesIcon className="w-4 h-4" /></IconBadge>
+            Pourquoi nos simulateurs sont différents
           </h2>
 
           <ul className="mt-8 grid gap-6 md:grid-cols-3">
@@ -528,8 +547,8 @@ export default function SimulateursPage() {
                 key={e.titre}
                 className="rounded-2xl border border-border bg-white p-8 shadow-md"
               >
-                <span aria-hidden className="text-4xl">
-                  {e.emoji}
+                <span aria-hidden className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                  {{"🎯": <TargetIcon className="w-6 h-6" />, "🔗": <ExternalLinkIcon className="w-6 h-6" />, "🛡️": <ShieldIcon className="w-6 h-6" />}[e.emoji] ?? e.emoji}
                 </span>
                 <h3 className="mt-4 text-xl font-bold text-foreground">
                   {e.titre}

@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  IconBadge,
+  CalendarIcon,
+  CalculatorIcon,
+  CoinIcon,
+  MessageCircleIcon,
+  ExternalLinkIcon,
+  RocketIcon,
+} from "@/components/icons";
 import TJMApercuCard from "@/components/simulateurs/TJMApercuCard";
 import { TJMProvider } from "@/components/simulateurs/TJMContext";
 import TJMSimulator from "@/components/simulateurs/TJMSimulator";
@@ -246,7 +255,7 @@ export default function TJMFreelancePage() {
             <div className="lg:col-span-7">
               <nav
                 aria-label="Fil d'Ariane"
-                className="flex items-center gap-2 text-sm text-muted-foreground"
+                className="flex items-center gap-2 text-sm text-foreground/70"
               >
                 <Link href="/" className="transition hover:text-primary">
                   Accueil
@@ -263,7 +272,7 @@ export default function TJMFreelancePage() {
               </nav>
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
-                <span aria-hidden>📅</span>
+                <CalendarIcon className="w-3.5 h-3.5" />
                 À jour avril 2026
               </span>
 
@@ -303,8 +312,9 @@ export default function TJMFreelancePage() {
 
               <section id="services" className="scroll-mt-24">
                 <div className="rounded-2xl bg-muted/50 p-6 sm:p-8">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    🚀 Choisir votre solution
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><RocketIcon className="w-4 h-4" /></IconBadge>
+                    Choisir votre solution
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Vous avez identifié le statut qui vous convient ? Voici
@@ -357,8 +367,9 @@ export default function TJMFreelancePage() {
 
               <section id="etapes" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    📐 Comprendre le calcul du TJM
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
+                    Comprendre le calcul du TJM
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Voici les 6 étapes qui transforment votre chiffre
@@ -394,8 +405,9 @@ export default function TJMFreelancePage() {
 
               <section id="combien" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    💰 Combien gagne un freelance en France ?
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><CoinIcon className="w-4 h-4" /></IconBadge>
+                    Combien gagne un freelance en France ?
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-foreground/80 sm:text-lg">
                     Selon les données INSEE et DARES 2024-2025 (les plus
@@ -449,8 +461,9 @@ export default function TJMFreelancePage() {
               </section>
 
               <section id="faq" className="scroll-mt-24">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                  💬 Questions fréquentes
+                <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                  <IconBadge><MessageCircleIcon className="w-4 h-4" /></IconBadge>
+                  Questions fréquentes
                 </h2>
                 <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                   Les questions qu&apos;on nous pose le plus souvent sur le
@@ -482,8 +495,9 @@ export default function TJMFreelancePage() {
 
               <section id="sources" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                    📚 Sources
+                  <h2 className="flex items-center text-2xl font-bold tracking-tight text-foreground">
+                    <IconBadge><ExternalLinkIcon className="w-4 h-4" /></IconBadge>
+                    Sources
                   </h2>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Les taux et données utilisés dans ce simulateur
@@ -507,7 +521,7 @@ export default function TJMFreelancePage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : 15 avril 2026. Calcul indicatif.
+                    Dernière mise à jour : avril 2026. Calcul indicatif.
                     Pour une optimisation fiscale précise, consultez un
                     expert-comptable.
                   </p>

@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  IconBadge,
+  CalendarIcon,
+  CalculatorIcon,
+  AlertTriangleIcon,
+  RocketIcon,
+  MessageCircleIcon,
+  ExternalLinkIcon,
+} from "@/components/icons";
 import AEApercuCard from "@/components/simulateurs/AEApercuCard";
 import { AEProvider } from "@/components/simulateurs/AEContext";
 import AutoEntrepreneurSimulator from "@/components/simulateurs/AutoEntrepreneurSimulator";
@@ -202,7 +211,7 @@ export default function AutoEntrepreneurPage() {
             <div className="lg:col-span-7">
               <nav
                 aria-label="Fil d'Ariane"
-                className="flex items-center gap-2 text-sm text-muted-foreground"
+                className="flex items-center gap-2 text-sm text-foreground/70"
               >
                 <Link href="/" className="transition hover:text-primary">
                   Accueil
@@ -219,7 +228,7 @@ export default function AutoEntrepreneurPage() {
               </nav>
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
-                <span aria-hidden>📅</span>
+                <CalendarIcon className="w-3.5 h-3.5" />
                 À jour avril 2026
               </span>
 
@@ -258,8 +267,9 @@ export default function AutoEntrepreneurPage() {
 
               <section id="etapes" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    📐 Comprendre le calcul en auto-entrepreneur
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
+                    Comprendre le calcul en auto-entrepreneur
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Les 6 étapes qui transforment votre chiffre d&apos;affaires
@@ -295,8 +305,9 @@ export default function AutoEntrepreneurPage() {
 
               <section id="plafonds" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    ⚠️ Plafonds et seuils 2026
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><AlertTriangleIcon className="w-4 h-4" /></IconBadge>
+                    Plafonds et seuils 2026
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                     Tableau récapitulatif des 4 catégories d&apos;activités
@@ -353,8 +364,9 @@ export default function AutoEntrepreneurPage() {
 
               <section id="passer-sasu" className="scroll-mt-24">
                 <div className="rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/5 to-accent/5 p-8 shadow-md sm:p-12">
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                    🚀 Quand passer de l&apos;auto-entrepreneur à la SASU ?
+                  <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                    <IconBadge><RocketIcon className="w-4 h-4" /></IconBadge>
+                    Quand passer de l&apos;auto-entrepreneur à la SASU ?
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-foreground/80 sm:text-lg">
                     L&apos;auto-entrepreneur est simple mais plafonné. À
@@ -389,14 +401,15 @@ export default function AutoEntrepreneurPage() {
                     href="/simulateurs/tjm-freelance"
                     className="mt-8 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   >
-                    Comparer avec les autres statuts →
+                    Comparer AE vs SASU vs EURL →
                   </Link>
                 </div>
               </section>
 
               <section id="faq" className="scroll-mt-24">
-                <h2 className="text-3xl font-bold tracking-tight text-foreground">
-                  💬 Questions fréquentes
+                <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                  <IconBadge><MessageCircleIcon className="w-4 h-4" /></IconBadge>
+                  Questions fréquentes
                 </h2>
                 <p className="mt-2 max-w-2xl text-base text-muted-foreground">
                   Les questions qu&apos;on nous pose le plus souvent sur le
@@ -428,8 +441,9 @@ export default function AutoEntrepreneurPage() {
 
               <section id="sources" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
-                  <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                    🔗 Sources
+                  <h2 className="flex items-center text-2xl font-bold tracking-tight text-foreground">
+                    <IconBadge><ExternalLinkIcon className="w-4 h-4" /></IconBadge>
+                    Sources
                   </h2>
                   <p className="mt-2 text-sm text-muted-foreground">
                     Les taux utilisés dans ce simulateur proviennent
@@ -453,7 +467,7 @@ export default function AutoEntrepreneurPage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : 16 avril 2026. Calculs indicatifs
+                    Dernière mise à jour : avril 2026. Calculs indicatifs
                     basés sur les taux 2026 officiels URSSAF. Pour votre
                     situation personnelle (ACRE restante, DOM-TOM, CIPAV
                     spécifique), vérifiez sur autoentrepreneur.urssaf.fr ou

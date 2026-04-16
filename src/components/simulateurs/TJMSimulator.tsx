@@ -11,6 +11,15 @@ import {
   type Warning as CalcWarning,
 } from "@/lib/calculators/tjm-freelance";
 import { useTJM } from "./TJMContext";
+import {
+  EuroIcon,
+  CalendarIcon,
+  ReceiptIcon,
+  PercentIcon,
+  AlertTriangleIcon,
+  InfoIcon,
+  LightbulbIcon,
+} from "@/components/icons";
 
 const EUR0 = new Intl.NumberFormat("fr-FR", {
   style: "currency",
@@ -106,7 +115,7 @@ export default function TJMSimulator() {
 
             <div className="mt-6 flex flex-col gap-5">
               {mode === "net" ? (
-                <Field label="Net annuel cible (€)" htmlFor="netCible">
+                <Field label={<span className="flex items-center gap-2"><EuroIcon className="w-4 h-4 text-muted-foreground" />Net annuel cible (€)</span>} htmlFor="netCible">
                   <input
                     id="netCible"
                     type="number"
@@ -120,7 +129,7 @@ export default function TJMSimulator() {
                   />
                 </Field>
               ) : (
-                <Field label="TJM (€ HT)" htmlFor="tjm">
+                <Field label={<span className="flex items-center gap-2"><EuroIcon className="w-4 h-4 text-muted-foreground" />TJM (€ HT)</span>} htmlFor="tjm">
                   <input
                     id="tjm"
                     type="number"
@@ -138,7 +147,7 @@ export default function TJMSimulator() {
               <Field
                 label={
                   <span className="flex items-center justify-between gap-2">
-                    <span>Jours travaillés / mois</span>
+                    <span className="flex items-center gap-2"><CalendarIcon className="w-4 h-4 text-muted-foreground" />Jours travaillés / mois</span>
                     <span className="text-primary tabular-nums">
                       {state.joursTravailles}
                     </span>
@@ -161,7 +170,7 @@ export default function TJMSimulator() {
               </Field>
 
               <Field
-                label="Frais pro mensuels (€)"
+                label={<span className="flex items-center gap-2"><ReceiptIcon className="w-4 h-4 text-muted-foreground" />Frais pro mensuels (€)</span>}
                 htmlFor="fraispro"
                 help="Logiciels, matériel, local, téléphone, assurance…"
               >
@@ -184,7 +193,7 @@ export default function TJMSimulator() {
               <Field
                 label={
                   <span className="flex items-center justify-between gap-2">
-                    <span>Taux prélèvement à la source</span>
+                    <span className="flex items-center gap-2"><PercentIcon className="w-4 h-4 text-muted-foreground" />Taux prélèvement à la source</span>
                     <span className="text-primary tabular-nums">
                       {state.tauxPAS}%
                     </span>
@@ -559,14 +568,18 @@ function Alert({
       : tone === "warning"
         ? "border-amber-500 bg-amber-50 text-amber-900"
         : "border-primary/40 bg-primary/5 text-primary";
-  const icon =
-    tone === "destructive" ? "⚠️" : tone === "warning" ? "ℹ️" : "💡";
   return (
     <div
       className={`flex items-start gap-3 rounded-r-lg border-l-4 p-4 text-sm ${cls}`}
     >
-      <span aria-hidden className="text-base leading-none">
-        {icon}
+      <span aria-hidden className="shrink-0">
+        {tone === "destructive" ? (
+          <AlertTriangleIcon className="w-4 h-4" />
+        ) : tone === "warning" ? (
+          <InfoIcon className="w-4 h-4" />
+        ) : (
+          <LightbulbIcon className="w-4 h-4" />
+        )}
       </span>
       <span className="flex-1">{children}</span>
     </div>

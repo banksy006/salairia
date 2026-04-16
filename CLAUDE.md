@@ -158,7 +158,26 @@ Décisions prises et à ne **pas** remettre en question sans discussion explicit
 
 ## Décisions UX/UI
 
-Pattern visuel **verrouillé V3 (avril 2026)**, à répliquer sur les futurs simulateurs :
+Pattern visuel **verrouillé V4 (avril 2026)**, à répliquer sur les futurs simulateurs et pages :
+
+### Évolutions V3 → V4 (16/04/2026)
+
+- **Icônes SVG inline** à la place des emojis pixel art. Bibliothèque maison dans `src/components/icons.tsx` (~25 icônes Lucide-style : CalendarIcon, CalculatorIcon, MessageCircleIcon, etc.). Wrapper `IconBadge` (cercle `bg-primary/10` + icône `text-primary`) pour les titres H2. Exceptions conservées : ✅ checkmarks, ❤️ footer, 🏆 preview hub.
+- **Breadcrumb renforcé** : `text-sm text-foreground/70` (au lieu de `text-muted-foreground`), liens en `hover:text-primary`.
+- **Sommaire flottant (TocSidebar)** généralisé sur **toutes les pages longues** : 3 simulateurs + 5 pages éditoriales (à-propos, méthodologie, 3 légales). Le composant `src/components/simulateurs/TocSidebar.tsx` est réutilisé partout.
+- **Tableau de résultats** : labels avec taux en 2 lignes (label principal + `text-xs text-muted-foreground` pour le taux), `whitespace-nowrap` sur les valeurs.
+- **Icônes input labels** : chaque champ de saisie des 3 simulateurs a une icône SVG à gauche du label (EuroIcon, CalendarIcon, ReceiptIcon, TagIcon, PercentIcon, etc.).
+- **Alertes SVG** : emojis ⚠️/ℹ️/💡 remplacés par AlertTriangleIcon/InfoIcon/LightbulbIcon.
+- **FAQ** : marker natif `<details>` masqué via CSS global (`summary::marker { display: none }`).
+- **Bouton "Affiner ↓"** : `hidden lg:inline-flex` (caché sur mobile où il fait doublon).
+- **Aperçu instantané** : valeur principale en `text-3xl lg:text-4xl` (responsive).
+- **Dates harmonisées** : "avril 2026" partout (sans jour précis).
+- **Pages légales** : passées de `max-w-4xl` à `max-w-6xl` pour accueillir le TocSidebar.
+- **max-w-6xl conservé** partout = signature premium respirante type Pretto/Stripe.
+
+Les 6 simulateurs futurs (SASU, Brut/Net, Net après impôt, Négociation, Pouvoir d'achat, Percentile) doivent hériter du pattern V4 dès leur création.
+
+### Détail du pattern (hérité V3, toujours valide) :
 
 - **Hero de page** : grid `lg:grid-cols-12`. Colonne gauche (`lg:col-span-7`) contient breadcrumb, badge pill « 📅 À jour avril 2026 » (`bg-muted` + `text-primary`), H1 en `text-5xl`/`text-6xl`, sous-titre `text-primary` `text-2xl`/`3xl`, paragraphes intro en `text-foreground/80`. Colonne droite (`lg:col-span-5`) contient la carte « Aperçu en temps réel » (`ApercuCard`). Stack vertical en mobile/tablet. Breadcrumb avec séparateur `›`.
 - **Carte « Aperçu instantané »** (hero right col) : `rounded-2xl` `shadow-lg` `p-8`, fond `bg-gradient-to-br from-primary/5 to-accent/5`, bordure `border-primary/10`. Label en haut `text-xs uppercase tracking-widest`. Trois chiffres : CA HT (`text-2xl`), Net mensuel (`text-3xl text-primary`, le héros), Taux de retour (`text-xl text-accent`, calculé `net / CA × 100`). Ligne dynamique en italique rappelant les inputs. Bouton CTA `bg-primary` « Affiner ma simulation ↓ » avec ancre `#simulateur`. Cette carte **partage le state** du simulateur principal.

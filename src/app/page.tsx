@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  IconBadge,
+  CalendarIcon,
+  CalculatorIcon,
+  SparklesIcon,
+  SearchIcon,
+  UserIcon,
+  BriefcaseIcon,
+  RocketIcon,
+  ZapIcon,
+  BuildingIcon,
+  TargetIcon,
+  BarChartIcon,
+  MessageCircleIcon,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Salairia : simulateurs et guides de rémunération en France 2026",
@@ -227,7 +242,7 @@ export default function HomePage() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
-              <span aria-hidden>📅</span>
+              <CalendarIcon className="w-3.5 h-3.5" />
               À jour avril 2026
             </span>
 
@@ -287,8 +302,9 @@ export default function HomePage() {
       {/* Personas */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            👤 Quel est votre statut ?
+          <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <IconBadge><UserIcon className="w-4 h-4" /></IconBadge>
+            Quel est votre statut ?
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Salairia couvre les 4 grandes situations de rémunération en France.
@@ -302,8 +318,8 @@ export default function HomePage() {
                 href={p.href}
                 className="group flex h-full flex-col gap-4 rounded-2xl border border-border bg-white p-6 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <span aria-hidden className="text-4xl">
-                  {p.emoji}
+                <span aria-hidden className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                  {{"💼": <BriefcaseIcon className="w-6 h-6" />, "🚀": <RocketIcon className="w-6 h-6" />, "⚡": <ZapIcon className="w-6 h-6" />, "🏢": <BuildingIcon className="w-6 h-6" />}[p.emoji] ?? p.emoji}
                 </span>
                 <h3 className="text-xl font-bold text-foreground">{p.nom}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
@@ -340,8 +356,9 @@ export default function HomePage() {
         className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 py-16"
       >
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            📐 Nos simulateurs
+          <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
+            Nos simulateurs
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
             9 simulateurs gratuits pour calculer précisément votre rémunération
@@ -400,8 +417,9 @@ export default function HomePage() {
       {/* Pourquoi Salairia */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            💎 Pourquoi Salairia ?
+          <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <IconBadge><SparklesIcon className="w-4 h-4" /></IconBadge>
+            Pourquoi Salairia ?
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Trois engagements qui font notre différence.
@@ -414,8 +432,8 @@ export default function HomePage() {
               key={e.titre}
               className="rounded-2xl border border-border bg-white p-8 shadow-md"
             >
-              <span aria-hidden className="text-4xl">
-                {e.emoji}
+              <span aria-hidden className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                {{"🎯": <TargetIcon className="w-6 h-6" />, "📊": <BarChartIcon className="w-6 h-6" />, "💬": <MessageCircleIcon className="w-6 h-6" />}[e.emoji] ?? e.emoji}
               </span>
               <h3 className="mt-4 text-xl font-bold text-foreground">
                 {e.titre}
@@ -431,8 +449,9 @@ export default function HomePage() {
       {/* Recherches populaires */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            🔍 Recherches populaires
+          <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <IconBadge><SearchIcon className="w-4 h-4" /></IconBadge>
+            Recherches populaires
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
             Les questions de rémunération qui reviennent le plus souvent.
