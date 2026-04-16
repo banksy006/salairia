@@ -25,10 +25,7 @@ const sortLabels: Record<SortKey, string> = {
 
 export default function PortageTable() {
   const [sort, setSort] = useState<SortKey>("frais");
-  const sorted = useMemo(
-    () => [...data].sort(sortFns[sort]),
-    [sort],
-  );
+  const sorted = useMemo(() => [...data].sort(sortFns[sort]), [sort]);
 
   return (
     <div>
@@ -49,8 +46,8 @@ export default function PortageTable() {
         ))}
       </div>
 
-      {/* Desktop table */}
-      <div className="hidden overflow-x-auto rounded-xl border border-border bg-background md:block">
+      {/* Desktop table — Fix 1: 7 cols, no "Idéal pour" */}
+      <div className="hidden rounded-xl border border-border bg-background md:block">
         <table className="w-full text-left text-sm">
           <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <tr>
@@ -61,7 +58,6 @@ export default function PortageTable() {
               <th className="whitespace-nowrap px-4 py-3">Portés</th>
               <th className="whitespace-nowrap px-4 py-3">Réseau</th>
               <th className="whitespace-nowrap px-4 py-3">Avance</th>
-              <th className="px-4 py-3">Idéal pour</th>
             </tr>
           </thead>
           <tbody>
@@ -70,21 +66,26 @@ export default function PortageTable() {
                 key={s.id}
                 className={`border-b border-border transition last:border-b-0 hover:bg-muted/50 ${s.choixSalairia ? "bg-accent/5" : ""}`}
               >
-                <td className={`px-4 py-3 ${s.choixSalairia ? "border-l-4 border-accent" : ""}`}>
-                  <div className="flex flex-col gap-0.5">
+                <td
+                  className={`px-4 py-3 ${s.choixSalairia ? "border-l-4 border-accent" : ""}`}
+                >
+                  <div className="flex items-center gap-2">
                     <a
                       href={`#${s.slug}`}
-                      className="font-semibold text-foreground hover:text-primary"
+                      className="font-medium text-primary hover:underline"
                     >
                       {s.nom}
-                      {s.choixSalairia && (
-                        <span className="ml-2 inline-flex items-center rounded-full bg-accent px-2 py-0.5 text-xs font-semibold text-accent-foreground">
-                          Choix Salairia
-                        </span>
-                      )}
                     </a>
+                    {s.choixSalairia && (
+                      <span
+                        aria-label="Choix Salairia"
+                        className="text-accent"
+                      >
+                        ★
+                      </span>
+                    )}
                     <span className="text-xs text-muted-foreground">
-                      Depuis {s.creation}
+                      ({s.creation})
                     </span>
                   </div>
                 </td>
@@ -106,7 +107,7 @@ export default function PortageTable() {
                       {s.avisNote}/5
                     </span>
                     <span className="text-xs text-muted-foreground">
-                      {s.avisNombre} avis · {s.avisPlateforme}
+                      {s.avisNombre} · {s.avisPlateforme}
                     </span>
                   </div>
                 </td>
@@ -132,9 +133,6 @@ export default function PortageTable() {
                     <span className="text-muted-foreground">—</span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-xs text-muted-foreground">
-                  {s.idealPour}
-                </td>
               </tr>
             ))}
           </tbody>
@@ -155,7 +153,7 @@ export default function PortageTable() {
             <div className="flex items-start justify-between gap-2">
               <a
                 href={`#${s.slug}`}
-                className="text-lg font-bold text-foreground hover:text-primary"
+                className="text-lg font-bold text-primary hover:underline"
               >
                 {s.nom}
               </a>

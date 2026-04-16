@@ -176,19 +176,51 @@ export default function PortageSalarialComparateurPage() {
               </div>
             </section>
 
-            {/* Fiches individuelles */}
-            {data.map((s) => (
+            {/* Fix 7 — Encadré "En bref" */}
+            <section className="scroll-mt-24">
+              <div className="rounded-xl border-l-4 border-primary bg-primary/5 p-6 sm:p-8">
+                <p className="text-lg font-bold text-foreground">
+                  💡 En bref — 3 profils, 3 recommandations
+                </p>
+                <ul className="mt-4 space-y-3 text-base leading-relaxed text-foreground/80">
+                  <li>
+                    <strong>Tu factures plus de 10 000 €/mois ?</strong> →{" "}
+                    <a href="#regie-portage" className="font-semibold text-primary hover:underline">
+                      Régie Portage
+                    </a>{" "}
+                    (5 % plafonné à 600 €, tu économises sur les frais dès que ton CA augmente)
+                  </li>
+                  <li>
+                    <strong>Tu veux un accompagnement humain et de proximité ?</strong> →{" "}
+                    <a href="#admissions" className="font-semibold text-primary hover:underline">
+                      Ad&apos;missions
+                    </a>{" "}
+                    (18 agences en France, 28 000 portés accompagnés depuis 1997)
+                  </li>
+                  <li>
+                    <strong>Tu es autonome et tu veux un coût fixe prévisible ?</strong> →{" "}
+                    <a href="#jump" className="font-semibold text-primary hover:underline">
+                      Jump
+                    </a>{" "}
+                    (99 €/mois, zéro commission sur ton CA, 100 % digital)
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            {/* Fiches individuelles — Fix 4 (fonds alternés) + Fix 5 (retour tableau) + Fix 6 (CTA secondaire) */}
+            {data.map((s, index) => (
               <section
                 key={s.id}
                 id={s.slug}
                 className="scroll-mt-24"
               >
                 <div
-                  className={`rounded-2xl border bg-muted/30 p-6 sm:p-8 ${
+                  className={`rounded-2xl border p-6 sm:p-8 ${
                     s.choixSalairia
                       ? "border-2 border-accent"
                       : "border-border"
-                  }`}
+                  } ${index % 2 === 0 ? "bg-white" : "bg-muted/20"}`}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
@@ -204,9 +236,20 @@ export default function PortageSalarialComparateurPage() {
                         Fondée en {s.creation}
                       </p>
                     </div>
-                    <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary">
-                      {s.fraisGestion}
-                    </span>
+                    <div className="flex flex-col items-end gap-1">
+                      <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary">
+                        {s.fraisGestion}
+                      </span>
+                      <a
+                        href={s.site}
+                        target="_blank"
+                        rel="noopener nofollow sponsored"
+                        data-affiliate="placeholder"
+                        className="affiliate-cta hidden text-sm text-primary hover:underline sm:inline"
+                      >
+                        Visiter le site →
+                      </a>
+                    </div>
                   </div>
 
                   <div className="mt-6 grid gap-6 sm:grid-cols-2">
@@ -298,15 +341,23 @@ export default function PortageSalarialComparateurPage() {
                     <span className="text-foreground/80">{s.idealPour}</span>
                   </p>
 
-                  <a
-                    href={s.site}
-                    target="_blank"
-                    rel="noopener nofollow sponsored"
-                    data-affiliate="placeholder"
-                    className="affiliate-cta mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
-                  >
-                    Découvrir {s.nom} ↗
-                  </a>
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <a
+                      href={s.site}
+                      target="_blank"
+                      rel="noopener nofollow sponsored"
+                      data-affiliate="placeholder"
+                      className="affiliate-cta inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
+                    >
+                      Découvrir {s.nom} ↗
+                    </a>
+                    <a
+                      href="#comparatif"
+                      className="text-sm text-muted-foreground transition hover:text-primary"
+                    >
+                      ↑ Retour au comparatif
+                    </a>
+                  </div>
                 </div>
               </section>
             ))}
