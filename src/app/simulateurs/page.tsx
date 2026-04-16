@@ -70,7 +70,8 @@ const simulateurs: readonly SimulateurCard[] = [
     nom: "SASU / EURL",
     desc: "Salaire vs dividendes, calcul IS, optimisation fiscale pour dirigeants assimilés salariés ou TNS.",
     motsCles: "SASU vs EURL, salaire dividende SASU, IS 2026",
-    dispo: false,
+    href: "/simulateurs/sasu-eurl",
+    dispo: true,
   },
   {
     nom: "Salaire Brut/Net",

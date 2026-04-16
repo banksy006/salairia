@@ -71,6 +71,7 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 - **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
 - **Hub simulateurs (`/simulateurs`)** — V2 du 2026-04-16. Page hub stratégique avec hero 12 cols (quiz d'orientation à droite, sticky desktop), grille 9 simulateurs (2 disponibles + 7 bientôt) avec mots-clés longue traîne par card pour le SEO, section « Hésitez entre plusieurs statuts » mettant en avant le simulateur TJM (grid 2 cols avec exemple illustratif de résultat), FAQ guide 6 questions, 3 différenciateurs (comparatifs indépendants / sources officielles / no-cookie). JSON-LD `BreadcrumbList` + `ItemList` (9 simulateurs) + `FAQPage`. Maillage interne renforcé — toute nouvelle page simulateur doit aussi être ajoutée ici.
 - **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+- **SASU vs EURL (`/simulateurs/sasu-eurl`)** — V1 du 2026-04-16. 5e simulateur. Comparatif côte à côte : charges sociales, IS, dividendes (flat tax + seuil TNS EURL), 3 scénarios de répartition. Le plus complexe. Voir détails plus bas.
 - **Salaire Brut/Net (`/simulateurs/salaire-brut-net`)** — V1 du 2026-04-16. 4e simulateur. Bidirectionnel (Brut→Net et Net→Brut via bisection). Cadre/non-cadre. Mensuel/annuel. Détail cotisations par groupe (sécu, retraite AGIRC-ARRCO, CSG/CRDS). Coût employeur. PAS personnalisé. KW principal : ~90k recherches/mois. Voir détails plus bas.
 - **Auto-entrepreneur (`/simulateurs/auto-entrepreneur`)** — V1 du 2026-04-16. 3e simulateur. 4 catégories BIC/BNC, ACRE 25 %, versement libératoire, alertes plafonds CA + franchise TVA. Voir détails plus bas.
 - **Sitemap (`/sitemap.xml`)** — généré dynamiquement via `src/app/sitemap.ts`. 9 URLs actuellement (home, hub simulateurs, 2 simulateurs disponibles, À propos, Méthodologie, 3 légales). À mettre à jour manuellement à chaque ajout de page.
@@ -295,6 +296,27 @@ Constantes 2026 (`SALAIRE_2026`, codées en dur, sources URSSAF/LégiSocial) :
 Section « Cadre vs Non-cadre » avec tableau comparatif 5 lignes.
 
 4/9 simulateurs disponibles. Pattern V4. KW principal Brut/Net : ~90k recherches/mois.
+
+### SASU vs EURL — `/simulateurs/sasu-eurl`
+
+Route créée session 5 (2026-04-16). Lib : `src/lib/calculators/sasu-eurl.ts`. UI : `src/components/simulateurs/SasuEurlSimulator.tsx` + `SasuEurlApercuCard.tsx` + `SasuEurlContext.tsx`.
+
+**Le plus complexe des simulateurs.** Compare SASU et EURL côte à côte avec les mêmes inputs.
+
+Constantes 2026 (`SASU_EURL_2026`) :
+- **IS** : 15 % ≤ 42 500 € puis 25 % (identique SASU/EURL)
+- **SASU** (assimilé-salarié) : charges patronales ~42 %, salariales ~22 %. Brut = net / 0,78. Coût = brut × 1,42. Pas de cotisations sans rémunération.
+- **EURL** (TNS) : cotisations ~45 % du net. Cotisations minimales 1 200 €/an même sans rémunération.
+- **Dividendes** : flat tax 30 % pour les deux. En EURL, dividendes > 10 % du capital → cotisations TNS supplémentaires (~45 %). C'est le point de bascule qui avantage souvent la SASU.
+- **Capital social** par défaut 1 000 € (seuil EURL = 100 €, quasi tous les dividendes taxés TNS).
+
+**Layout spécial** : 2 colonnes de résultats (SASU | EURL) au lieu d'1 seule, avec `ResultCard` component qui prend isBest pour surligner le meilleur en accent.
+
+**3 scénarios** automatiques (100 % salaire, mix actuel, 100 % dividendes) dans un tableau par statut.
+
+Alertes : CA insuffisant → rouge, rémunération = 0 → orange (pas de sécu), dividendes EURL > seuil capital → orange, statut gagnant → info bleue.
+
+5/9 simulateurs disponibles. Le plus complexe est fait. Les 4 restants sont des outils plus simples (Net après impôt, Négociation, Pouvoir d'achat, Percentile).
 
 ## Prochaines étapes
 
