@@ -159,26 +159,24 @@ export default function PortageSalarialComparateurPage() {
           </div>
         </section>
 
-        <div className="mt-16 flex gap-12">
-          <div className="min-w-0 flex-1 space-y-16">
-            {/* Tableau comparatif */}
-            <section id="comparatif" className="scroll-mt-24">
-              <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
-                <IconBadge><CalculatorIcon className="h-4 w-4" /></IconBadge>
-                Tableau comparatif
-              </h2>
-              <p className="mt-2 text-base text-muted-foreground">
-                Triez par frais, note client ou ancienneté. Cliquez sur un
-                nom pour accéder à sa fiche détaillée.
-              </p>
-              <div className="mt-6">
-                <PortageTable />
-              </div>
-            </section>
+        {/* Tableau + En bref — pleine largeur, hors du flex ToC */}
+        <div className="mt-16 space-y-16">
+          <section id="comparatif" className="scroll-mt-24">
+            <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+              <IconBadge><CalculatorIcon className="h-4 w-4" /></IconBadge>
+              Tableau comparatif
+            </h2>
+            <p className="mt-2 text-base text-muted-foreground">
+              Triez par frais, note client ou ancienneté. Cliquez sur un
+              nom pour accéder à sa fiche détaillée.
+            </p>
+            <div className="mt-6">
+              <PortageTable />
+            </div>
+          </section>
 
-            {/* Fix 7 — Encadré "En bref" */}
-            <section className="scroll-mt-24">
-              <div className="rounded-xl border-l-4 border-primary bg-primary/5 p-6 sm:p-8">
+          <section className="scroll-mt-24">
+            <div className="rounded-xl border-l-4 border-primary bg-primary/5 p-6 sm:p-8">
                 <p className="text-lg font-bold text-foreground">
                   💡 En bref — 3 profils, 3 recommandations
                 </p>
@@ -206,9 +204,13 @@ export default function PortageSalarialComparateurPage() {
                   </li>
                 </ul>
               </div>
-            </section>
+          </section>
+        </div>
 
-            {/* Fiches individuelles — Fix 4 (fonds alternés) + Fix 5 (retour tableau) + Fix 6 (CTA secondaire) */}
+        {/* Fiches + FAQ + Sources — retour layout avec ToC */}
+        <div className="mt-16 flex gap-12">
+          <div className="min-w-0 flex-1 space-y-16">
+            {/* Fiches individuelles */}
             {data.map((s, index) => (
               <section
                 key={s.id}
