@@ -140,12 +140,12 @@ export default function SasuEurlPage() {
                 Simulateur SASU vs EURL 2026
               </h1>
               <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
-                Quel statut rapporte le plus pour votre activité ?
+                Quel statut rapporte le plus pour ton activité ?
               </p>
 
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground/80">
                 <p>
-                  SASU ou EURL : ce simulateur compare les deux structures côte à côte, avec le même chiffre d&apos;affaires, les mêmes charges et la même rémunération souhaitée. Vous voyez instantanément l&apos;impact sur votre revenu net total (salaire + dividendes) après charges sociales, IS et flat tax.
+                  SASU ou EURL : ce simulateur compare les deux structures côte à côte, avec le même chiffre d&apos;affaires, les mêmes charges et la même rémunération souhaitée. Tu vois instantanément l&apos;impact sur ton revenu net total (salaire + dividendes) après charges sociales, IS et flat tax.
                 </p>
                 <p>
                   Taux 2026 vérifiés sur les sources officielles (URSSAF, service-public.fr, LégiSocial). Estimation simplifiée — consultez un expert-comptable pour une optimisation précise.

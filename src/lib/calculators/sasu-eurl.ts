@@ -287,7 +287,7 @@ export function comparerSasuEurl(inputs: SasuEurlInputs): ComparaisonResult {
     warnings.push({
       severity: "danger",
       message:
-        "Votre CA ne couvre pas cette rémunération. Réduisez le salaire ou augmentez le CA.",
+        "Ton CA ne couvre pas cette rémunération. Réduis le salaire ou augmente le CA.",
     });
   }
 
@@ -295,7 +295,7 @@ export function comparerSasuEurl(inputs: SasuEurlInputs): ComparaisonResult {
     warnings.push({
       severity: "warning",
       message:
-        "Sans rémunération, vous n'avez aucune couverture sociale (maladie, retraite, prévoyance) en SASU. En EURL, des cotisations minimales de 1 200 €/an s'appliquent.",
+        "Sans rémunération, tu n'as aucune couverture sociale (maladie, retraite, prévoyance) en SASU. En EURL, des cotisations minimales de 1 200 €/an s'appliquent.",
     });
   }
 
@@ -312,12 +312,12 @@ export function comparerSasuEurl(inputs: SasuEurlInputs): ComparaisonResult {
   if (meilleur === "sasu") {
     warnings.push({
       severity: "info",
-      message: `La SASU est plus avantageuse dans votre cas (+${EUR0(ecart)} / an) grâce aux dividendes non soumis aux cotisations sociales.`,
+      message: `La SASU est plus avantageuse dans ton cas (+${EUR0(ecart)} / an) grâce aux dividendes non soumis aux cotisations sociales.`,
     });
   } else if (meilleur === "eurl") {
     warnings.push({
       severity: "info",
-      message: `L'EURL est plus avantageuse dans votre cas (+${EUR0(ecart)} / an) grâce aux cotisations TNS plus faibles.`,
+      message: `L'EURL est plus avantageuse dans ton cas (+${EUR0(ecart)} / an) grâce aux cotisations TNS plus faibles.`,
     });
   }
 

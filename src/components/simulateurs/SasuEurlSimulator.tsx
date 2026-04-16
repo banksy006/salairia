@@ -151,12 +151,24 @@ export default function SasuEurlSimulator() {
             sublabel="Président assimilé-salarié"
             result={r.sasu}
             isBest={r.meilleur === "sasu"}
+            deficitAlert={
+              r.sasu.coutRemuneration > r.resultatBrut &&
+              debouncedInputs.remunerationNette > 0
+                ? `Ta rémunération nette souhaitée (${EUR0.format(debouncedInputs.remunerationNette)}) coûte ${EUR0.format(r.sasu.coutRemuneration)} à la société, mais le budget disponible (CA − charges) est de ${EUR0.format(r.resultatBrut)}. La société serait en déficit de ${EUR0.format(r.sasu.coutRemuneration - r.resultatBrut)}. Réduis ta rémunération ou augmente ton CA.`
+                : undefined
+            }
           />
           <ResultCard
             label="EURL"
             sublabel="Gérant TNS"
             result={r.eurl}
             isBest={r.meilleur === "eurl"}
+            deficitAlert={
+              r.eurl.coutRemuneration > r.resultatBrut &&
+              debouncedInputs.remunerationNette > 0
+                ? `Ta rémunération nette souhaitée (${EUR0.format(debouncedInputs.remunerationNette)}) coûte ${EUR0.format(r.eurl.coutRemuneration)} à la société, mais le budget disponible (CA − charges) est de ${EUR0.format(r.resultatBrut)}. Réduis ta rémunération ou augmente ton CA.`
+                : undefined
+            }
           />
         </div>
       </section>
@@ -222,11 +234,13 @@ function ResultCard({
   sublabel,
   result,
   isBest,
+  deficitAlert,
 }: {
   label: string;
   sublabel: string;
   result: StatutResult;
   isBest: boolean;
+  deficitAlert?: string;
 }) {
   return (
     <div
@@ -247,6 +261,12 @@ function ResultCard({
           </span>
         )}
       </div>
+
+      {deficitAlert && (
+        <div className="mt-4">
+          <Alert tone="destructive">{deficitAlert}</Alert>
+        </div>
+      )}
 
       <ul className="mt-5 flex flex-col divide-y divide-border rounded-xl border border-border bg-background text-sm">
         <Row label="Rémunération nette" value={EUR0.format(result.remunerationNette)} />
@@ -294,19 +314,19 @@ function ScenarioTable({
 }) {
   const bestNet = Math.max(...scenarios.map((s) => s.netTotal));
   return (
-    <div className="overflow-x-auto rounded-xl border border-border bg-background">
+    <div className="rounded-xl border border-border bg-background">
       <table className="w-full text-left text-sm">
         <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           <tr>
-            <th className="px-4 py-3" colSpan={4}>
+            <th className="px-3 py-3" colSpan={4}>
               {label}
             </th>
           </tr>
           <tr className="border-t border-border">
-            <th className="px-4 py-2">Scénario</th>
-            <th className="px-4 py-2 text-right">Salaire</th>
-            <th className="px-4 py-2 text-right">Dividendes</th>
-            <th className="px-4 py-2 text-right">Net total</th>
+            <th className="px-3 py-2">Scénario</th>
+            <th className="whitespace-nowrap px-3 py-2 text-right">Salaire</th>
+            <th className="whitespace-nowrap px-3 py-2 text-right">Divid.</th>
+            <th className="whitespace-nowrap px-3 py-2 text-right">Net</th>
           </tr>
         </thead>
         <tbody>
@@ -317,16 +337,16 @@ function ScenarioTable({
                 key={s.label}
                 className={`border-b border-border last:border-b-0 ${best ? "bg-accent/5 font-semibold" : ""}`}
               >
-                <td className={`px-4 py-3 ${best ? "border-l-4 border-accent" : ""}`}>
+                <td className={`px-3 py-2.5 ${best ? "border-l-4 border-accent" : ""}`}>
                   {s.label}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                <td className="whitespace-nowrap px-3 py-2.5 text-right tabular-nums">
                   {EUR0.format(s.remunerationNette)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums">
+                <td className="whitespace-nowrap px-3 py-2.5 text-right tabular-nums">
                   {EUR0.format(s.dividendesNets)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums font-bold">
+                <td className="whitespace-nowrap px-3 py-2.5 text-right tabular-nums font-bold">
                   {EUR0.format(s.netTotal)}
                 </td>
               </tr>
