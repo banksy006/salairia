@@ -48,7 +48,8 @@ const simulateurs: readonly SimulateurCard[] = [
     desc: "Charges URSSAF, ACRE, TVA et revenu net pour micro-entrepreneurs et professions libérales.",
     motsCles:
       "charges auto-entrepreneur 2026, plafond AE, simulation micro-entreprise",
-    dispo: false,
+    href: "/simulateurs/auto-entrepreneur",
+    dispo: true,
   },
   {
     nom: "SASU / EURL",

@@ -87,7 +87,8 @@ const simulateurs = [
   {
     nom: "Auto-entrepreneur",
     desc: "Charges URSSAF, ACRE, TVA et revenu net",
-    dispo: false,
+    href: "/simulateurs/auto-entrepreneur",
+    dispo: true,
   },
   {
     nom: "SASU / EURL",

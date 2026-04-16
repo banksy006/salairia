@@ -71,6 +71,7 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 - **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
 - **Hub simulateurs (`/simulateurs`)** — V2 du 2026-04-16. Page hub stratégique avec hero 12 cols (quiz d'orientation à droite, sticky desktop), grille 9 simulateurs (2 disponibles + 7 bientôt) avec mots-clés longue traîne par card pour le SEO, section « Hésitez entre plusieurs statuts » mettant en avant le simulateur TJM (grid 2 cols avec exemple illustratif de résultat), FAQ guide 6 questions, 3 différenciateurs (comparatifs indépendants / sources officielles / no-cookie). JSON-LD `BreadcrumbList` + `ItemList` (9 simulateurs) + `FAQPage`. Maillage interne renforcé — toute nouvelle page simulateur doit aussi être ajoutée ici.
 - **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+- **Auto-entrepreneur (`/simulateurs/auto-entrepreneur`)** — V1 du 2026-04-16. 3e simulateur. 4 catégories BIC/BNC, ACRE 25 %, versement libératoire, alertes plafonds CA + franchise TVA. Voir détails plus bas.
 - **Sitemap (`/sitemap.xml`)** — généré dynamiquement via `src/app/sitemap.ts`. 9 URLs actuellement (home, hub simulateurs, 2 simulateurs disponibles, À propos, Méthodologie, 3 légales). À mettre à jour manuellement à chaque ajout de page.
 - **Robots (`/robots.txt`)** — généré dynamiquement via `src/app/robots.ts`. Allow `*` sauf `/api/`, `/_next/`, `/admin/`. Bloque `MJ12bot` (spam). `crawlDelay: 10` pour AhrefsBot et SemrushBot. GPTBot et Google-Extended autorisés (choix assumé pour être cité dans AI Overviews). Pointe vers `/sitemap.xml`.
 - **TJM Freelance (`/simulateurs/tjm-freelance`)** — V1 du 2026-04-16. Deuxième simulateur. Comparaison des 4 statuts freelance (auto-entrepreneur, portage, SASU, EURL) avec mode bidirectionnel (net cible ↔ TJM cible). Section « Choisir votre solution » avec liens partenaires placeholders (Qonto, Indy, Legalstart, comparatif portage). Voir détails plus bas.
@@ -230,7 +231,28 @@ Alertes UI : AE > 77 700 € → rouge (plafond dépassé) ; AE > 39 100 € →
 
 Section « 🚀 Choisir votre solution » (après le comparatif) : 4 cards partenaires (portage, compte pro Qonto, compta Indy, création société Legalstart) avec disclosure d'affiliation. Ces liens sont des placeholders — à remplacer par les vrais liens d'affiliation quand les partenariats sont actifs.
 
-**Pattern V3 Portage répliqué avec succès** sur TJM : context partagé, `ApercuCard` dans le hero, comparatif en tableau, TOC flottant desktop, cards uniformes, emojis parcimonieux. À répliquer sur les 7 simulateurs restants.
+**Pattern V3 Portage répliqué avec succès** sur TJM : context partagé, `ApercuCard` dans le hero, comparatif en tableau, TOC flottant desktop, cards uniformes, emojis parcimonieux. À répliquer sur les 6 simulateurs restants.
+
+### Auto-entrepreneur — `/simulateurs/auto-entrepreneur`
+
+Route créée session 4 (2026-04-16). Lib : `src/lib/calculators/auto-entrepreneur.ts`. UI : `src/components/simulateurs/AutoEntrepreneurSimulator.tsx` + `AEApercuCard.tsx` + `AEContext.tsx`.
+
+Constantes 2026 (`AE_2026`, taux officiels URSSAF, codés en dur) :
+
+- **BIC Vente** : cotisations 12,3 %, CFP 0,1 %, VL 1 %, plafond 203 100 €, seuil TVA 85 000 €
+- **BIC Services** : cotisations 21,2 %, CFP 0,3 %, VL 1,7 %, plafond 83 600 €, seuil TVA 37 500 €
+- **BNC Régime général** : cotisations 25,6 % (hausse +1 pt au 1er jan 2026), CFP 0,2 %, VL 2,2 %, plafond 83 600 €, seuil TVA 37 500 €
+- **BNC CIPAV** : cotisations 23,2 %, mêmes plafonds/TVA que BNC RG
+
+**ACRE 2026** : réduction de 25 % des taux URSSAF pendant 12 mois (réforme : passée de 50 % à 25 %). Toggle on/off dans le simulateur.
+
+**Versement libératoire** : prélèvement proportionnel sur CA (1 % / 1,7 % / 2,2 %) en remplacement de l'IR classique. Toggle on/off.
+
+Alertes UI : CA > plafond → rouge ; CA > seuil TVA → orange ; CA > tolérance TVA → orange critique ; ACRE active → info ; VL + CA élevé → info.
+
+Section « 🚀 Quand passer en SASU ? » avec CTA vers `/simulateurs/tjm-freelance` pour comparaison croisée des statuts.
+
+3/9 simulateurs disponibles. Cluster AE couvert. Pattern V3 répliqué avec succès.
 
 ## Prochaines étapes
 
