@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     description:
       "Simulateurs gratuits, guides clairs et comparatifs neutres pour salariés, freelances, dirigeants et auto-entrepreneurs.",
   },
+  verification: {
+    google: "6lFbiKsed5RFyXQnOwjLibnAXYtIkTQl5WzukTYDntY",
+  },
 };
 
 export default function RootLayout({
