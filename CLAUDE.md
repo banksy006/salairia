@@ -71,6 +71,7 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 - **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
 - **Hub simulateurs (`/simulateurs`)** — V2 du 2026-04-16. Page hub stratégique avec hero 12 cols (quiz d'orientation à droite, sticky desktop), grille 9 simulateurs (2 disponibles + 7 bientôt) avec mots-clés longue traîne par card pour le SEO, section « Hésitez entre plusieurs statuts » mettant en avant le simulateur TJM (grid 2 cols avec exemple illustratif de résultat), FAQ guide 6 questions, 3 différenciateurs (comparatifs indépendants / sources officielles / no-cookie). JSON-LD `BreadcrumbList` + `ItemList` (9 simulateurs) + `FAQPage`. Maillage interne renforcé — toute nouvelle page simulateur doit aussi être ajoutée ici.
 - **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
+- **Salaire Brut/Net (`/simulateurs/salaire-brut-net`)** — V1 du 2026-04-16. 4e simulateur. Bidirectionnel (Brut→Net et Net→Brut via bisection). Cadre/non-cadre. Mensuel/annuel. Détail cotisations par groupe (sécu, retraite AGIRC-ARRCO, CSG/CRDS). Coût employeur. PAS personnalisé. KW principal : ~90k recherches/mois. Voir détails plus bas.
 - **Auto-entrepreneur (`/simulateurs/auto-entrepreneur`)** — V1 du 2026-04-16. 3e simulateur. 4 catégories BIC/BNC, ACRE 25 %, versement libératoire, alertes plafonds CA + franchise TVA. Voir détails plus bas.
 - **Sitemap (`/sitemap.xml`)** — généré dynamiquement via `src/app/sitemap.ts`. 9 URLs actuellement (home, hub simulateurs, 2 simulateurs disponibles, À propos, Méthodologie, 3 légales). À mettre à jour manuellement à chaque ajout de page.
 - **Robots (`/robots.txt`)** — généré dynamiquement via `src/app/robots.ts`. Allow `*` sauf `/api/`, `/_next/`, `/admin/`. Bloque `MJ12bot` (spam). `crawlDelay: 10` pour AhrefsBot et SemrushBot. GPTBot et Google-Extended autorisés (choix assumé pour être cité dans AI Overviews). Pointe vers `/sitemap.xml`.
@@ -272,6 +273,28 @@ Alertes UI : CA > plafond → rouge ; CA > seuil TVA → orange ; CA > toléranc
 Section « 🚀 Quand passer en SASU ? » avec CTA vers `/simulateurs/tjm-freelance` pour comparaison croisée des statuts.
 
 3/9 simulateurs disponibles. Cluster AE couvert. Pattern V3 répliqué avec succès.
+
+### Salaire Brut/Net — `/simulateurs/salaire-brut-net`
+
+Route créée session 5 (2026-04-16). Lib : `src/lib/calculators/salaire-brut-net.ts`. UI : `src/components/simulateurs/SalaireBrutNetSimulator.tsx` + `BrutNetApercuCard.tsx` + `BrutNetContext.tsx`.
+
+Constantes 2026 (`SALAIRE_2026`, codées en dur, sources URSSAF/LégiSocial) :
+
+- **Cotisations salariales** détaillées par groupe : vieillesse plafonnée (6,90 %) et déplafonnée (0,40 %), AGIRC-ARRCO T1 (3,15 %) et T2 (8,64 %), CEG T1/T2, CET (si brut > PASS), APEC (cadres, 0,024 %), CSG/CRDS (9,70 % sur 98,25 % du brut).
+- **Plafonds** : PASS mensuel 4 005 €, SMIC brut 1 823,03 €.
+- **Taux patronaux simplifiés** : 42 % non-cadre, 45 % cadre (pour calcul coût employeur).
+
+**Mode bidirectionnel** :
+- **Brut → Net** (défaut) : calcul direct, cotisations par tranche (T1 plafonnée PASS, T2 au-delà).
+- **Net → Brut** : bisection convergence < 0,01 € en ~60 itérations.
+
+**Toggle périodicité** : mensuel (défaut) / annuel. Le calcul interne est toujours mensuel, multiplié par 12 pour l'affichage annuel.
+
+**Tableau de résultats groupé** : 3 blocs (Sécurité sociale, Retraite complémentaire, CSG/CRDS) avec sous-totaux + total cotisations salariales + taux effectif + net avant impôt + PAS + net après impôt. Carte héros `bg-primary` avec net après impôt en `text-5xl`. Info coût employeur en dessous.
+
+Section « Cadre vs Non-cadre » avec tableau comparatif 5 lignes.
+
+4/9 simulateurs disponibles. Pattern V4. KW principal Brut/Net : ~90k recherches/mois.
 
 ## Prochaines étapes
 

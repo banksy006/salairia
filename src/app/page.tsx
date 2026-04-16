@@ -113,7 +113,8 @@ const simulateurs = [
   {
     nom: "Salaire Brut/Net",
     desc: "Conversion instantanée brut↔net pour salariés",
-    dispo: false,
+    href: "/simulateurs/salaire-brut-net",
+    dispo: true,
   },
   {
     nom: "Net après impôt",

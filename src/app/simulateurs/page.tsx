@@ -76,7 +76,8 @@ const simulateurs: readonly SimulateurCard[] = [
     nom: "Salaire Brut/Net",
     desc: "Conversion instantanée brut↔net pour salariés du privé (cadres et non-cadres).",
     motsCles: "salaire brut net 2026, calcul fiche paie, smic net",
-    dispo: false,
+    href: "/simulateurs/salaire-brut-net",
+    dispo: true,
   },
   {
     nom: "Net après impôt",
