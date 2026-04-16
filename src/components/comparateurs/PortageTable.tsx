@@ -47,7 +47,7 @@ export default function PortageTable() {
       </div>
 
       {/* Desktop table — Fix 1: 7 cols, no "Idéal pour" */}
-      <div className="hidden rounded-xl border border-border bg-background md:block">
+      <div className="hidden overflow-hidden rounded-xl border border-border bg-background md:block">
         <table className="w-full text-left text-sm">
           <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <tr>
