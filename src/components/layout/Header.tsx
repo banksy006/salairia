@@ -28,6 +28,12 @@ export default function Header() {
           >
             Comparateurs
           </Link>
+          <Link
+            href="/guides"
+            className="text-foreground/70 transition hover:text-primary"
+          >
+            Guides
+          </Link>
         </nav>
       </div>
     </header>

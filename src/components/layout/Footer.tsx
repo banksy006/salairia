@@ -12,6 +12,10 @@ const comparateursLinks = [
   { label: "Portage salarial", href: "/comparateurs/portage-salarial" },
 ];
 
+const guidesLinks = [
+  { label: "Portage salarial", href: "/guides/portage-salarial" },
+];
+
 const ressourcesLinks = [
   { label: "À propos", href: "/a-propos" },
   { label: "Méthodologie", href: "/methodologie" },
@@ -62,7 +66,7 @@ export default function Footer() {
   return (
     <footer className="bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           <div>
             <p className="text-2xl font-bold tracking-tight text-background">
               Salairia
@@ -77,6 +81,7 @@ export default function Footer() {
 
           <FooterColumn title="Simulateurs" links={simulateursLinks} />
           <FooterColumn title="Comparateurs" links={comparateursLinks} />
+          <FooterColumn title="Guides" links={guidesLinks} />
           <FooterColumn title="Ressources" links={ressourcesLinks} />
           <FooterColumn title="Légal" links={legalLinks} />
         </div>
