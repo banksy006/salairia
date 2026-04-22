@@ -20,22 +20,21 @@ const guides = [
     titre: "Portage salarial",
     desc: "Fonctionnement, salaire, avantages, inconvénients, cotisations, chômage. Le guide de référence 2026.",
     href: "/guides/portage-salarial",
-    dispo: true,
   },
   {
-    titre: "Choisir son statut freelance",
-    desc: "Auto-entrepreneur, portage, SASU ou EURL ? Comment choisir le bon statut pour votre activité.",
-    dispo: false,
+    titre: "Auto-entrepreneur",
+    desc: "Création, charges URSSAF, ACRE, TVA, plafonds, versement libératoire. Tout savoir pour démarrer.",
+    href: "/guides/auto-entrepreneur",
   },
   {
-    titre: "Comprendre sa fiche de paie",
-    desc: "Décryptage ligne par ligne de votre bulletin de salaire : brut, net, cotisations, PAS.",
-    dispo: false,
+    titre: "SASU vs EURL",
+    desc: "Charges sociales, IS, dividendes, protection sociale. Comparatif détaillé pour choisir le bon statut.",
+    href: "/guides/sasu-eurl",
   },
   {
-    titre: "Guide auto-entrepreneur",
-    desc: "Création, charges, plafonds, TVA, ACRE : tout savoir pour démarrer en micro-entreprise.",
-    dispo: false,
+    titre: "Salaire brut et net",
+    desc: "Cotisations, fiche de paie, prélèvement à la source. Tout comprendre sur votre rémunération.",
+    href: "/guides/salaire-brut-net",
   },
 ] as const;
 
@@ -67,49 +66,23 @@ export default function GuidesPage() {
       </p>
 
       <ul className="mt-12 grid gap-6 sm:grid-cols-2">
-        {guides.map((g) => {
-          const content = (
-            <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:shadow-md">
-              <div className="flex items-start justify-between gap-3">
+        {guides.map((g) => (
+          <li key={g.titre}>
+            <Link href={g.href} className="block h-full">
+              <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-white p-6 shadow-sm transition hover:shadow-md">
                 <h2 className="text-xl font-bold text-foreground">
                   {g.titre}
                 </h2>
-                {g.dispo ? (
-                  <span className="inline-flex shrink-0 items-center rounded-full bg-accent px-2 py-1 text-xs font-semibold text-accent-foreground">
-                    Disponible
-                  </span>
-                ) : (
-                  <span className="inline-flex shrink-0 items-center rounded-full bg-muted px-2 py-1 text-xs font-semibold text-muted-foreground">
-                    Bientôt
-                  </span>
-                )}
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {g.desc}
-              </p>
-              {g.dispo ? (
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {g.desc}
+                </p>
                 <span className="mt-auto pt-2 text-sm font-semibold text-primary">
                   Lire le guide →
                 </span>
-              ) : (
-                <span className="mt-auto pt-2 text-sm italic text-muted-foreground">
-                  Disponible prochainement
-                </span>
-              )}
-            </div>
-          );
-          return (
-            <li key={g.titre}>
-              {g.dispo && "href" in g ? (
-                <Link href={g.href} className="block h-full">
-                  {content}
-                </Link>
-              ) : (
-                content
-              )}
-            </li>
-          );
-        })}
+              </div>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

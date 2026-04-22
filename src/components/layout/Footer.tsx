@@ -14,6 +14,9 @@ const comparateursLinks = [
 
 const guidesLinks = [
   { label: "Portage salarial", href: "/guides/portage-salarial" },
+  { label: "Auto-entrepreneur", href: "/guides/auto-entrepreneur" },
+  { label: "SASU vs EURL", href: "/guides/sasu-eurl" },
+  { label: "Salaire brut/net", href: "/guides/salaire-brut-net" },
 ];
 
 const ressourcesLinks = [
