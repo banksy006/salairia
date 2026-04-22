@@ -84,13 +84,15 @@ const simulateurs: readonly SimulateurCard[] = [
     nom: "Net après impôt",
     desc: "Salaire net mensuel après prélèvement à la source selon votre taux personnalisé.",
     motsCles: "salaire net après impôt, prélèvement à la source 2026",
-    dispo: false,
+    href: "/simulateurs/net-apres-impot",
+    dispo: true,
   },
   {
     nom: "Négociation salariale",
     desc: "Estimez votre marge de négociation à l'embauche selon votre métier et expérience.",
     motsCles: "négociation salaire, salaire à l'embauche, demander augmentation",
-    dispo: false,
+    href: "/simulateurs/negociation-salariale",
+    dispo: true,
   },
   {
     nom: "Pouvoir d'achat ville",
@@ -103,7 +105,8 @@ const simulateurs: readonly SimulateurCard[] = [
     desc: "Comparez votre salaire à la distribution française par âge, métier et région (données INSEE).",
     motsCles:
       "salaire médian France, salaire moyen métier, distribution salaires",
-    dispo: false,
+    href: "/simulateurs/ou-se-situe-mon-salaire",
+    dispo: true,
   },
 ];
 

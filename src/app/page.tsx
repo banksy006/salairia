@@ -120,12 +120,14 @@ const simulateurs = [
   {
     nom: "Net après impôt",
     desc: "Salaire net mensuel après prélèvement à la source",
-    dispo: false,
+    href: "/simulateurs/net-apres-impot",
+    dispo: true,
   },
   {
     nom: "Négociation salariale",
     desc: "Estimez votre marge de négociation à l'embauche",
-    dispo: false,
+    href: "/simulateurs/negociation-salariale",
+    dispo: true,
   },
   {
     nom: "Pouvoir d'achat",
@@ -135,7 +137,8 @@ const simulateurs = [
   {
     nom: "Mon salaire me situe où ?",
     desc: "Comparez votre salaire à la distribution française",
-    dispo: false,
+    href: "/simulateurs/ou-se-situe-mon-salaire",
+    dispo: true,
   },
 ] as const;
 
