@@ -98,7 +98,8 @@ const simulateurs: readonly SimulateurCard[] = [
     nom: "Pouvoir d'achat ville",
     desc: "Salaire nécessaire pour vivre confortablement dans votre ville (loyer, transports, alimentation).",
     motsCles: "salaire vivre Paris, salaire vivre Lyon, coût de la vie ville",
-    dispo: false,
+    href: "/simulateurs/pouvoir-achat-ville",
+    dispo: true,
   },
   {
     nom: "Mon salaire me situe où ?",

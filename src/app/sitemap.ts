@@ -84,6 +84,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/simulateurs/pouvoir-achat-ville`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/simulateurs/ou-se-situe-mon-salaire`,
       lastModified: now,
       changeFrequency: "monthly",

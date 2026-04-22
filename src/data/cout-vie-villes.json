@@ -1,0 +1,25 @@
+{
+  "source": "MeilleursAgents (loyers T2, avril 2026), tarifs transports officiels 2026, INSEE (alimentation moyenne ajustée). Estimations indicatives.",
+  "villes": [
+    { "id": "paris", "nom": "Paris", "region": "Île-de-France", "loyerT2": 1350, "transport": 86, "alimentation": 420, "charges": 280 },
+    { "id": "lyon", "nom": "Lyon", "region": "Auvergne-Rhône-Alpes", "loyerT2": 780, "transport": 69, "alimentation": 380, "charges": 240 },
+    { "id": "marseille", "nom": "Marseille", "region": "PACA", "loyerT2": 720, "transport": 52, "alimentation": 370, "charges": 230 },
+    { "id": "toulouse", "nom": "Toulouse", "region": "Occitanie", "loyerT2": 700, "transport": 52, "alimentation": 360, "charges": 230 },
+    { "id": "bordeaux", "nom": "Bordeaux", "region": "Nouvelle-Aquitaine", "loyerT2": 780, "transport": 52, "alimentation": 370, "charges": 240 },
+    { "id": "nantes", "nom": "Nantes", "region": "Pays de la Loire", "loyerT2": 720, "transport": 68, "alimentation": 360, "charges": 230 },
+    { "id": "lille", "nom": "Lille", "region": "Hauts-de-France", "loyerT2": 680, "transport": 65, "alimentation": 350, "charges": 220 },
+    { "id": "strasbourg", "nom": "Strasbourg", "region": "Grand Est", "loyerT2": 660, "transport": 52, "alimentation": 360, "charges": 220 },
+    { "id": "rennes", "nom": "Rennes", "region": "Bretagne", "loyerT2": 700, "transport": 55, "alimentation": 350, "charges": 230 },
+    { "id": "montpellier", "nom": "Montpellier", "region": "Occitanie", "loyerT2": 720, "transport": 52, "alimentation": 360, "charges": 230 },
+    { "id": "nice", "nom": "Nice", "region": "PACA", "loyerT2": 850, "transport": 49, "alimentation": 390, "charges": 250 },
+    { "id": "grenoble", "nom": "Grenoble", "region": "Auvergne-Rhône-Alpes", "loyerT2": 620, "transport": 55, "alimentation": 350, "charges": 220 },
+    { "id": "rouen", "nom": "Rouen", "region": "Normandie", "loyerT2": 580, "transport": 52, "alimentation": 340, "charges": 210 },
+    { "id": "toulon", "nom": "Toulon", "region": "PACA", "loyerT2": 650, "transport": 38, "alimentation": 360, "charges": 220 },
+    { "id": "angers", "nom": "Angers", "region": "Pays de la Loire", "loyerT2": 560, "transport": 42, "alimentation": 340, "charges": 210 },
+    { "id": "dijon", "nom": "Dijon", "region": "Bourgogne-FC", "loyerT2": 550, "transport": 47, "alimentation": 340, "charges": 210 },
+    { "id": "brest", "nom": "Brest", "region": "Bretagne", "loyerT2": 480, "transport": 42, "alimentation": 330, "charges": 200 },
+    { "id": "clermont-ferrand", "nom": "Clermont-Ferrand", "region": "Auvergne-Rhône-Alpes", "loyerT2": 520, "transport": 47, "alimentation": 340, "charges": 210 },
+    { "id": "le-mans", "nom": "Le Mans", "region": "Pays de la Loire", "loyerT2": 480, "transport": 38, "alimentation": 330, "charges": 200 },
+    { "id": "aix-en-provence", "nom": "Aix-en-Provence", "region": "PACA", "loyerT2": 850, "transport": 49, "alimentation": 380, "charges": 250 }
+  ]
+}

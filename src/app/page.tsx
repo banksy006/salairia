@@ -132,7 +132,8 @@ const simulateurs = [
   {
     nom: "Pouvoir d'achat",
     desc: "Salaire nécessaire pour vivre dans votre ville",
-    dispo: false,
+    href: "/simulateurs/pouvoir-achat-ville",
+    dispo: true,
   },
   {
     nom: "Mon salaire me situe où ?",
