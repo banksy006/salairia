@@ -37,8 +37,8 @@ interface SimulateurCard {
   nom: string;
   desc: string;
   motsCles: string;
-  href?: string;
-  dispo: boolean;
+  href: string;
+  categorie: string;
 }
 
 const simulateurs: readonly SimulateurCard[] = [
@@ -48,7 +48,7 @@ const simulateurs: readonly SimulateurCard[] = [
     motsCles:
       "salaire portage 500€, simulateur portage 2026, comparaison sociétés portage",
     href: "/simulateurs/portage-salarial",
-    dispo: true,
+    categorie: "Freelance",
   },
   {
     nom: "TJM Freelance",
@@ -56,7 +56,7 @@ const simulateurs: readonly SimulateurCard[] = [
     motsCles:
       "calcul TJM freelance 2026, TJM développeur, TJM consultant",
     href: "/simulateurs/tjm-freelance",
-    dispo: true,
+    categorie: "Freelance",
   },
   {
     nom: "Auto-entrepreneur",
@@ -64,42 +64,42 @@ const simulateurs: readonly SimulateurCard[] = [
     motsCles:
       "charges auto-entrepreneur 2026, plafond AE, simulation micro-entreprise",
     href: "/simulateurs/auto-entrepreneur",
-    dispo: true,
+    categorie: "Auto-entrepreneur",
   },
   {
     nom: "SASU / EURL",
     desc: "Salaire vs dividendes, calcul IS, optimisation fiscale pour dirigeants assimilés salariés ou TNS.",
     motsCles: "SASU vs EURL, salaire dividende SASU, IS 2026",
     href: "/simulateurs/sasu-eurl",
-    dispo: true,
+    categorie: "Dirigeant",
   },
   {
     nom: "Salaire Brut/Net",
     desc: "Conversion instantanée brut↔net pour salariés du privé (cadres et non-cadres).",
     motsCles: "salaire brut net 2026, calcul fiche paie, smic net",
     href: "/simulateurs/salaire-brut-net",
-    dispo: true,
+    categorie: "Salarié",
   },
   {
     nom: "Net après impôt",
     desc: "Salaire net mensuel après prélèvement à la source selon votre taux personnalisé.",
     motsCles: "salaire net après impôt, prélèvement à la source 2026",
     href: "/simulateurs/net-apres-impot",
-    dispo: true,
+    categorie: "Tous statuts",
   },
   {
     nom: "Négociation salariale",
     desc: "Estimez votre marge de négociation à l'embauche selon votre métier et expérience.",
     motsCles: "négociation salaire, salaire à l'embauche, demander augmentation",
     href: "/simulateurs/negociation-salariale",
-    dispo: true,
+    categorie: "Salarié",
   },
   {
     nom: "Pouvoir d'achat ville",
     desc: "Salaire nécessaire pour vivre confortablement dans votre ville (loyer, transports, alimentation).",
     motsCles: "salaire vivre Paris, salaire vivre Lyon, coût de la vie ville",
     href: "/simulateurs/pouvoir-achat-ville",
-    dispo: true,
+    categorie: "Tous statuts",
   },
   {
     nom: "Mon salaire me situe où ?",
@@ -107,7 +107,7 @@ const simulateurs: readonly SimulateurCard[] = [
     motsCles:
       "salaire médian France, salaire moyen métier, distribution salaires",
     href: "/simulateurs/ou-se-situe-mon-salaire",
-    dispo: true,
+    categorie: "Tous statuts",
   },
 ];
 
@@ -360,15 +360,9 @@ export default function SimulateursPage() {
                     <h3 className="text-lg font-bold text-foreground">
                       {s.nom}
                     </h3>
-                    {s.dispo ? (
-                      <span className="inline-flex shrink-0 items-center rounded-full bg-accent px-2 py-1 text-xs font-semibold text-accent-foreground">
-                        Disponible
-                      </span>
-                    ) : (
-                      <span className="inline-flex shrink-0 items-center rounded-full bg-muted px-2 py-1 text-xs font-semibold text-muted-foreground">
-                        Bientôt
-                      </span>
-                    )}
+                    <span className="inline-flex shrink-0 items-center rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold text-primary">
+                      {s.categorie}
+                    </span>
                   </div>
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     {s.desc}
@@ -376,27 +370,17 @@ export default function SimulateursPage() {
                   <p className="text-xs italic text-muted-foreground/80">
                     Mots-clés : {s.motsCles}
                   </p>
-                  {s.dispo ? (
-                    <span className="mt-auto pt-2 text-sm font-semibold text-primary">
-                      Lancer →
-                    </span>
-                  ) : (
-                    <span className="mt-auto pt-2 text-sm italic text-muted-foreground">
-                      Disponible prochainement
-                    </span>
-                  )}
+                  <span className="mt-auto pt-2 text-sm font-semibold text-primary">
+                    Lancer →
+                  </span>
                 </div>
               );
 
               return (
                 <li key={s.nom}>
-                  {s.dispo && s.href ? (
-                    <Link href={s.href} className="block h-full">
-                      {content}
-                    </Link>
-                  ) : (
-                    content
-                  )}
+                  <Link href={s.href} className="block h-full">
+                    {content}
+                  </Link>
                 </li>
               );
             })}

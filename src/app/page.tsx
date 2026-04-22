@@ -91,55 +91,55 @@ const simulateurs = [
     nom: "Portage Salarial",
     desc: "Calculez votre net en portage et comparez 5 sociétés",
     href: "/simulateurs/portage-salarial",
-    dispo: true,
+    categorie: "Freelance",
   },
   {
     nom: "TJM Freelance",
     desc: "Déterminez votre tarif journalier optimal selon votre statut",
     href: "/simulateurs/tjm-freelance",
-    dispo: true,
+    categorie: "Freelance",
   },
   {
     nom: "Auto-entrepreneur",
     desc: "Charges URSSAF, ACRE, TVA et revenu net",
     href: "/simulateurs/auto-entrepreneur",
-    dispo: true,
+    categorie: "Auto-entrepreneur",
   },
   {
     nom: "SASU / EURL",
     desc: "Salaire, dividendes, IS et revenu disponible",
     href: "/simulateurs/sasu-eurl",
-    dispo: true,
+    categorie: "Dirigeant",
   },
   {
     nom: "Salaire Brut/Net",
     desc: "Conversion instantanée brut↔net pour salariés",
     href: "/simulateurs/salaire-brut-net",
-    dispo: true,
+    categorie: "Salarié",
   },
   {
     nom: "Net après impôt",
     desc: "Salaire net mensuel après prélèvement à la source",
     href: "/simulateurs/net-apres-impot",
-    dispo: true,
+    categorie: "Tous statuts",
   },
   {
     nom: "Négociation salariale",
     desc: "Estimez votre marge de négociation à l'embauche",
     href: "/simulateurs/negociation-salariale",
-    dispo: true,
+    categorie: "Salarié",
   },
   {
     nom: "Pouvoir d'achat",
     desc: "Salaire nécessaire pour vivre dans votre ville",
     href: "/simulateurs/pouvoir-achat-ville",
-    dispo: true,
+    categorie: "Tous statuts",
   },
   {
     nom: "Mon salaire me situe où ?",
     desc: "Comparez votre salaire à la distribution française",
     href: "/simulateurs/ou-se-situe-mon-salaire",
-    dispo: true,
+    categorie: "Tous statuts",
   },
 ] as const;
 
@@ -380,40 +380,24 @@ export default function HomePage() {
                   <h3 className="text-lg font-bold text-foreground">
                     {s.nom}
                   </h3>
-                  {s.dispo ? (
-                    <span className="inline-flex shrink-0 items-center rounded-full bg-accent px-2 py-1 text-xs font-semibold text-accent-foreground">
-                      Disponible
-                    </span>
-                  ) : (
-                    <span className="inline-flex shrink-0 items-center rounded-full bg-muted px-2 py-1 text-xs font-semibold text-muted-foreground">
-                      Bientôt
-                    </span>
-                  )}
+                  <span className="inline-flex shrink-0 items-center rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold text-primary">
+                    {s.categorie}
+                  </span>
                 </div>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {s.desc}
                 </p>
-                {s.dispo ? (
-                  <span className="mt-auto pt-2 text-sm font-semibold text-primary">
-                    Lancer le simulateur →
-                  </span>
-                ) : (
-                  <span className="mt-auto pt-2 text-sm italic text-muted-foreground">
-                    Disponible prochainement
-                  </span>
-                )}
+                <span className="mt-auto pt-2 text-sm font-semibold text-primary">
+                  Lancer le simulateur →
+                </span>
               </div>
             );
 
             return (
               <li key={s.nom}>
-                {s.dispo && s.href ? (
-                  <Link href={s.href} className="block h-full">
-                    {content}
-                  </Link>
-                ) : (
-                  content
-                )}
+                <Link href={s.href} className="block h-full">
+                  {content}
+                </Link>
               </li>
             );
           })}
