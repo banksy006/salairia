@@ -12,6 +12,8 @@ import {
   BriefcaseIcon,
   AlertTriangleIcon,
   ScaleIcon,
+  CompassIcon,
+  InfoIcon,
 } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
@@ -63,29 +65,52 @@ const faq = [
     q: "Le portage salarial existe-t-il à l'international ?",
     r: "Oui. Certaines sociétés de portage (comme Ad'missions ou ITG) accompagnent les consultants sur des missions à l'étranger. La facturation se fait via la société française, et le consultant conserve sa protection sociale française. Les modalités varient selon le pays et la durée de la mission.",
   },
+  {
+    q: "Combien de temps pour devenir salarié porté ?",
+    r: "Le délai moyen entre la prise de contact avec une société de portage et la signature du contrat de travail se situe entre 48 heures et 2 semaines. Il dépend de la rapidité à réunir votre dossier (pièce d'identité, diplômes, RIB, justificatif de domicile) et de la disponibilité de la société. Certaines sociétés proposent une signature 100 % en ligne sous 48 heures ; d'autres imposent un entretien préalable.",
+  },
+  {
+    q: "Quel contrat choisir entre CDI et CDD en portage ?",
+    r: "Le CDI s'impose dans la grande majorité des cas : carrière pérenne, accès au crédit immobilier, continuité des droits au chômage. Le CDD reste pertinent pour une mission unique de moins de 18 mois sans intention de poursuivre, ou pour tester le statut avant un autre choix. La plupart des sociétés de portage proposent spontanément un CDI, même pour une première mission courte.",
+  },
+  {
+    q: "Quelle est la durée maximale d'un CDD en portage salarial ?",
+    r: "La durée maximale d'un CDD en portage salarial est de 18 mois, renouvellement compris, selon l'article L1254-12 du Code du travail. L'article L1254-13 autorise une dérogation de 3 mois supplémentaires pour permettre au salarié porté de décrocher une nouvelle mission, soit 21 mois maximum. Il n'existe pas de dérogation à 36 mois, contrairement à ce qu'on lit parfois.",
+  },
+  {
+    q: "Comment fonctionne le détachement en portage salarial ?",
+    r: "Le détachement permet au salarié porté d'exercer à l'étranger tout en restant affilié au régime français de sécurité sociale. La société de portage demande un certificat A1 (UE, EEE ou Suisse) ou un certificat de mobilité internationale (pays à accord bilatéral) à l'URSSAF via le service ILASS. Le détachement est limité à 24 mois en UE, renouvelable sous conditions. Pendant la mission, vous continuez à cotiser en France (retraite, chômage, assurance maladie).",
+  },
 ];
 
 const sourcesLinks = [
   { label: "service-public.fr — portage salarial", href: "https://www.service-public.fr" },
   { label: "Legifrance — ordonnance du 2 avril 2015", href: "https://www.legifrance.gouv.fr" },
   { label: "Convention collective portage salarial (IDCC 3219)", href: "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000034362668/" },
+  { label: "Code du travail — articles L1254-1 à L1254-31 (portage)", href: "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000030435227/" },
   { label: "URSSAF — cotisations sociales", href: "https://www.urssaf.fr" },
-  { label: "PEPS — syndicat professionnel du portage", href: "https://pfrh.peps-syndicat.fr" },
+  { label: "URSSAF — service mobilité internationale (ILASS)", href: "https://www.urssaf.fr/accueil/services/travail-etranger-mobilite.html" },
+  { label: "CLEISS — accords bilatéraux de sécurité sociale", href: "https://www.cleiss.fr" },
+  { label: "CFE — Caisse des Français de l'Étranger", href: "https://www.cfe.fr" },
+  { label: "PEPS — syndicat professionnel du portage", href: "https://www.peps-syndicat.fr" },
   { label: "INSEE — données marché du portage salarial", href: "https://www.insee.fr" },
 ];
 
 const tocItems = [
   { id: "definition", label: "Définition" },
   { id: "fonctionnement", label: "Fonctionnement" },
+  { id: "lancement", label: "Se lancer" },
   { id: "avantages", label: "Avantages" },
   { id: "inconvenients", label: "Inconvénients" },
   { id: "salaire", label: "Salaire" },
   { id: "cotisations", label: "Cotisations" },
+  { id: "contrats", label: "CDI vs CDD" },
   { id: "chomage", label: "Chômage et ARE" },
   { id: "eligibilite", label: "Éligibilité" },
   { id: "comparatif", label: "vs autres statuts" },
   { id: "choisir", label: "Choisir sa société" },
   { id: "simuler", label: "Simuler" },
+  { id: "international", label: "International" },
   { id: "faq", label: "FAQ" },
   { id: "sources", label: "Sources" },
 ];
@@ -100,7 +125,7 @@ export default function GuidePortageSalarialPage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-17",
-      dateModified: "2026-04-17",
+      dateModified: "2026-04-23",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/portage-salarial`,
     },
@@ -251,6 +276,132 @@ export default function GuidePortageSalarialPage() {
               </ol>
             </section>
 
+            {/* 3. Se lancer en portage */}
+            <section id="lancement" className="scroll-mt-24">
+              <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                <IconBadge><RocketIcon className="h-4 w-4" /></IconBadge>
+                Les étapes pour se lancer en portage salarial
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-foreground/80">
+                Devenir salarié porté prend en général <strong>entre 48 heures et deux semaines</strong>,
+                selon la société choisie et la complexité de la première mission. Le parcours est encadré
+                par la convention collective de branche (IDCC 3219) et les articles L1254-1 à L1254-31 du
+                Code du travail. Chaque étape répond à un cadre juridique précis.
+              </p>
+
+              <div className="mt-8 space-y-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    1. Vérifier que votre profil est éligible
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Le portage salarial est réservé aux <strong>prestations intellectuelles</strong> :
+                    conseil, expertise, formation, management de transition, développement informatique.
+                    La convention collective impose un niveau Bac+2 minimum ou 3 ans d&apos;expérience
+                    significative dans le domaine de la mission. Les activités commerciales, artisanales
+                    ou relevant des professions réglementées (avocat, médecin, architecte) sont exclues.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Avant de vous lancer, trois questions à trancher :
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li>• <strong>Quel TJM pouvez-vous défendre sur le marché ?</strong> En dessous de 250 €/jour, le portage devient rarement viable économiquement — utilisez <Link href="/simulateurs/portage-salarial" className="text-primary hover:underline">notre simulateur portage</Link> pour vérifier.</li>
+                    <li>• <strong>Avez-vous une mission identifiée ou des pistes sérieuses ?</strong> La société de portage ne prospecte pas à votre place.</li>
+                    <li>• <strong>Quelle est votre priorité ?</strong> Le portage excelle sur la simplicité administrative et le droit au chômage ; l&apos;<Link href="/simulateurs/auto-entrepreneur" className="text-primary hover:underline">auto-entreprise</Link> sur l&apos;optimisation du revenu net.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    2. Choisir votre société de portage
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Une cinquantaine de sociétés se partagent le marché français. Cinq critères sont
+                    standardisés dans la sélection :
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li>• <strong>Frais de gestion</strong> — entre 4 % et 10 % du CA HT. Tout taux supérieur à 10 % interroge.</li>
+                    <li>• <strong>Label PEPS</strong> — l&apos;adhésion au syndicat professionnel est un filtre de sérieux. Les sociétés non labellisées ne sont pas à écarter automatiquement, mais l&apos;absence doit se justifier.</li>
+                    <li>• <strong>Avance sur salaire</strong> — certaines sociétés paient le consultant sans attendre le règlement du client (30 à 60 jours). C&apos;est l&apos;un des critères les plus discriminants.</li>
+                    <li>• <strong>Accompagnement</strong> — interlocuteur dédié vs plateforme purement administrative.</li>
+                    <li>• <strong>Services inclus</strong> — mutuelle, prévoyance, assurance RC pro, formation continue.</li>
+                  </ul>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Notre <Link href="/comparateurs/portage-salarial" className="font-semibold text-primary hover:underline">comparateur de 10 sociétés de portage salarial</Link> croise ces critères sur les acteurs les plus connus (ITG, Cadres en Mission, OpenWork, ABC Portage, CEGELEM et 5 autres).
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    3. Signer la convention d&apos;adhésion, puis le contrat de travail
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Le dossier administratif demandé par la société de portage comprend en général :
+                  </p>
+                  <ul className="mt-3 space-y-1 text-base text-foreground/80">
+                    <li>• Pièce d&apos;identité en cours de validité</li>
+                    <li>• RIB</li>
+                    <li>• Justificatif de domicile de moins de 3 mois</li>
+                    <li>• Diplômes ou certifications (pour les métiers techniques)</li>
+                    <li>• CV et description de la prestation envisagée</li>
+                  </ul>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Une fois le dossier validé, deux signatures se succèdent :
+                  </p>
+                  <ol className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li><strong>1. Convention d&apos;adhésion</strong> — contrat-cadre entre vous et la société de portage, qui définit les conditions commerciales (frais de gestion, services inclus). Ce n&apos;est pas encore un contrat de travail.</li>
+                    <li><strong>2. Contrat de travail</strong> — signé pour chaque mission, soit en CDI (forme très majoritaire), soit en CDD (cas spécifiques détaillés plus bas). Il comporte une période d&apos;essai dont la durée est fixée par la CCN IDCC 3219.</li>
+                  </ol>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Une fois le contrat de travail signé, vous êtes légalement salarié de la société
+                    de portage dès le premier jour de mission.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    4. Contractualiser votre première mission
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    La société de portage émet un <strong>contrat commercial de prestation</strong> avec
+                    votre client final. Il précise l&apos;objet de la mission et les livrables, la durée
+                    prévue et les conditions de renouvellement, le TJM convenu et le volume de jours,
+                    les conditions de facturation (généralement mensuelle) et de paiement.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Parallèlement, votre contrat de travail chez la société de portage reprend ces
+                    éléments côté salarié : salaire brut, durée du travail, convention applicable.
+                    La mission démarre une fois les deux contrats signés. <strong>Le premier bulletin
+                    de paie arrive généralement entre 30 et 45 jours</strong> après le début de mission,
+                    selon les modalités de facturation convenues avec le client.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    5. La vie quotidienne du salarié porté
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Chaque mois, vous remplissez un <strong>Compte-rendu d&apos;Activité (CRA)</strong> :
+                    nombre de jours travaillés, congés pris, précisions sur l&apos;avancement. Le CRA
+                    valide la facturation au client et déclenche votre bulletin de paie.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Les <strong>notes de frais professionnels</strong> (déplacements, repas clients,
+                    matériel) réduisent votre base de cotisations : elles augmentent donc mécaniquement
+                    votre net effectif, contrairement à l&apos;auto-entreprise où les frais sortent
+                    intégralement de votre poche.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    En cas de retard de paiement côté client, les sociétés qui proposent
+                    l&apos;<strong>avance sur salaire</strong> vous versent votre net dans les délais
+                    habituels sans attendre l&apos;encaissement. Ce service, encore loin d&apos;être
+                    universel, change considérablement le confort de trésorerie.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* 3. Avantages */}
             <section id="avantages" className="scroll-mt-24">
               <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
@@ -389,6 +540,133 @@ export default function GuidePortageSalarialPage() {
                 Ces taux sont des moyennes — les cotisations exactes dépendent de la convention collective et du niveau de rémunération. Consultez notre{" "}
                 <Link href="/methodologie" className="text-primary hover:underline">page méthodologie</Link> pour les sources.
               </p>
+            </section>
+
+            {/* 7. CDI vs CDD en portage */}
+            <section id="contrats" className="scroll-mt-24">
+              <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                <IconBadge><ScaleIcon className="h-4 w-4" /></IconBadge>
+                Les types de contrats en portage salarial (CDI vs CDD)
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-foreground/80">
+                Le portage salarial admet deux formes de contrat de travail : le CDI et le CDD. Leurs
+                règles, leurs durées et leurs cas d&apos;emploi diffèrent sensiblement. La convention
+                collective (IDCC 3219) et les articles L1254-1 à L1254-31 du Code du travail
+                encadrent strictement leur usage. Le choix entre CDI et CDD a des conséquences
+                directes sur votre protection sociale, votre accès au crédit et votre capacité à
+                enchaîner des missions.
+              </p>
+
+              <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-background">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    <tr>
+                      <th className="px-5 py-3">Critère</th>
+                      <th className="px-5 py-3">CDI en portage</th>
+                      <th className="px-5 py-3">CDD en portage</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["Durée", "Indéterminée", "18 mois max, renouvelable 1 fois dans cette limite"],
+                      ["Dérogation", "—", "+3 mois pour décrocher une nouvelle mission (L1254-13)"],
+                      ["Motif obligatoire", "Non", "Oui (article L1254-10)"],
+                      ["Indemnité fin de contrat", "Non", "10 % des salaires bruts versés"],
+                      ["Chômage en fin de contrat", "Oui (rupture conventionnelle ou licenciement)", "Oui"],
+                      ["Crédit immobilier", "Accès facilité", "Difficile"],
+                      ["Missions successives", "Oui, en continu", "Non, un seul CDD par cadre"],
+                    ].map(([critere, cdi, cdd]) => (
+                      <tr key={critere} className="border-b border-border last:border-b-0">
+                        <td className="px-5 py-2.5 font-semibold text-foreground">{critere}</td>
+                        <td className="px-5 py-2.5 text-foreground/80">{cdi}</td>
+                        <td className="px-5 py-2.5 text-foreground/80">{cdd}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-8 space-y-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Le CDI en portage salarial : le contrat standard
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Le CDI est la forme de contrat <strong>très majoritaire</strong> en portage
+                    salarial. Il se distingue du CDI classique sur un point : le salaire et la charge
+                    de travail sont rythmés par les missions successives. Entre deux missions, vous
+                    pouvez traverser une <strong>période d&apos;intermission</strong> pendant laquelle
+                    vous restez salarié de la société de portage, mais ne percevez pas de salaire sauf
+                    accord spécifique ou recours à une réserve financière constituée pendant les missions.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Atouts du CDI en portage :
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li>• <strong>Accès facilité au crédit immobilier</strong> — les banques reconnaissent le CDI comme un contrat stable, y compris en portage salarial.</li>
+                    <li>• <strong>Pas de date butoir</strong> — vous enchaînez les missions sans contrainte de durée légale.</li>
+                    <li>• <strong>Continuité des droits au chômage</strong> — cotisation ininterrompue tant que vous êtes sous contrat.</li>
+                    <li>• <strong>Réserve financière</strong> possible via votre compte d&apos;activité : une partie du salaire peut être mise en réserve pour lisser les périodes creuses.</li>
+                  </ul>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Point de vigilance : le CDI en portage ne garantit pas un salaire minimum en continu.
+                    Votre rémunération dépend toujours de votre capacité à signer des missions.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Le CDD en portage salarial : cas d&apos;usage et limites
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Le CDD en portage répond à des cas précis. L&apos;<strong>article L1254-12 du Code
+                    du travail</strong> fixe une durée maximale de <strong>18 mois, renouvellement
+                    compris</strong>. Le contrat peut être renouvelé une seule fois, à condition que la
+                    somme des périodes ne dépasse pas ces 18 mois.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    L&apos;<strong>article L1254-13</strong> autorise une dérogation de <strong>3 mois
+                    supplémentaires</strong> pour permettre au salarié porté de décrocher une nouvelle
+                    mission — soit <strong>21 mois grand maximum</strong>. Il n&apos;existe pas de
+                    dérogation à 36 mois en portage salarial, contrairement à ce qu&apos;on lit parfois
+                    (règle applicable à d&apos;autres formes de CDD, pas au portage).
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Comme tout CDD, il doit comporter un <strong>motif de recours</strong> (article
+                    L1254-10) : mission ponctuelle chez un client identifié, remplacement, accroissement
+                    temporaire d&apos;activité.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Le CDD donne droit à une <strong>indemnité de fin de contrat</strong> de 10 % des
+                    salaires bruts versés, sauf en cas de refus d&apos;un CDI proposé par la société
+                    de portage ou de rupture anticipée à l&apos;initiative du salarié.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Comment choisir entre CDI et CDD en portage
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Le <strong>CDI s&apos;impose dans la grande majorité des cas</strong> : carrière
+                    pérenne en portage, perspective d&apos;enchaîner plusieurs missions, projet
+                    immobilier à financer, continuité de cotisation à l&apos;assurance chômage.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Le <strong>CDD</strong> devient pertinent dans trois situations précises :
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li>• <strong>Mission unique courte</strong> (moins de 18 mois), sans intention de poursuivre en portage au-delà.</li>
+                    <li>• <strong>Test du statut</strong> avant de basculer vers un CDI portage ou vers un autre statut (<Link href="/simulateurs/sasu-eurl" className="text-primary hover:underline">SASU</Link>, <Link href="/simulateurs/sasu-eurl" className="text-primary hover:underline">EURL</Link>).</li>
+                    <li>• <strong>Activité secondaire</strong> ponctuelle, par exemple en cumul avec un emploi principal ailleurs.</li>
+                  </ul>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    En pratique, la plupart des sociétés de portage proposent spontanément un CDI,
+                    y compris pour une première mission courte. Vous pouvez en discuter lors de la
+                    négociation de votre convention d&apos;adhésion.
+                  </p>
+                </div>
+              </div>
             </section>
 
             {/* 7. Chômage */}
@@ -544,6 +822,129 @@ export default function GuidePortageSalarialPage() {
                   <Link href="/comparateurs/portage-salarial" className="inline-flex items-center rounded-xl border-2 border-primary bg-transparent px-6 py-3.5 text-base font-semibold text-primary transition hover:bg-primary/5">
                     Comparer les sociétés
                   </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* 12. International */}
+            <section id="international" className="scroll-mt-24">
+              <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground">
+                <IconBadge><CompassIcon className="h-4 w-4" /></IconBadge>
+                Le portage salarial à l&apos;international
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-foreground/80">
+                Le portage salarial est compatible avec les missions réalisées <strong>depuis
+                l&apos;étranger</strong> ou <strong>pour un client étranger</strong>, sous certaines
+                conditions. La société de portage reste française : elle facture en euros depuis la
+                France, déclare les cotisations à l&apos;URSSAF, et verse le salaire en France. Ce qui
+                change, c&apos;est le cadre juridique et social qui s&apos;applique à vous pendant la
+                mission.
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                Trois régimes distincts selon la géographie :
+              </p>
+
+              <div className="mt-8 space-y-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Missions dans l&apos;UE, l&apos;EEE et en Suisse (détachement A1)
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Les règlements européens de coordination de la sécurité sociale (CE 883/2004 et
+                    CE 987/2009) permettent le <strong>détachement</strong> d&apos;un salarié porté
+                    depuis la France vers un pays de l&apos;Union européenne, de l&apos;Espace
+                    économique européen (Islande, Liechtenstein, Norvège) ou en Suisse.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Le mécanisme :
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li>• La société de portage demande un <strong>certificat A1</strong> à l&apos;URSSAF via le service en ligne <strong>ILASS</strong> (Instruction de la Législation Applicable à la Sécurité Sociale).</li>
+                    <li>• Le certificat A1 atteste que vous restez affilié au régime français de sécurité sociale pendant toute la mission.</li>
+                    <li>• La durée maximale du détachement est fixée à <strong>24 mois</strong>, renouvelable sous conditions avec accord préalable des autorités du pays d&apos;accueil.</li>
+                  </ul>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Pendant toute la durée du détachement, vous continuez à cotiser à l&apos;Assurance
+                    Maladie, à la retraite et à l&apos;assurance chômage françaises. Votre carte
+                    Vitale reste active et la <strong>carte européenne d&apos;assurance maladie
+                    (CEAM)</strong> couvre les soins courants dans le pays d&apos;accueil.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Missions dans les pays à accord bilatéral
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Hors UE/EEE/Suisse, la France a signé des accords bilatéraux de sécurité sociale
+                    avec environ <strong>41 pays ou territoires</strong> : États-Unis, Canada,
+                    Québec, Royaume-Uni (accord post-Brexit), Japon, Corée du Sud, Maroc, Tunisie,
+                    Algérie, Sénégal, Brésil, Argentine, Chili, entre autres.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Le principe est proche du détachement européen : la société de portage demande un
+                    <strong> certificat de mobilité internationale</strong> à l&apos;URSSAF, qui maintient
+                    votre affiliation française pendant la durée prévue par l&apos;accord (souvent de
+                    2 à 5 ans selon les conventions). Les démarches passent également par le service
+                    mobilité internationale de l&apos;URSSAF.
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    La liste à jour des pays à accord bilatéral est tenue par le <strong>CLEISS</strong>
+                    (Centre des Liaisons Européennes et Internationales de Sécurité Sociale).
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Missions dans les pays sans accord (CFE, complémentaire internationale)
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Dans les pays où la France n&apos;a pas d&apos;accord bilatéral (la majeure partie
+                    de l&apos;Asie du Sud-Est, une large part de l&apos;Afrique subsaharienne,
+                    plusieurs pays du Moyen-Orient), la sécurité sociale française ne vous couvre pas
+                    automatiquement pendant la mission. Trois options existent :
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base text-foreground/80">
+                    <li>• <strong>Adhésion à la Caisse des Français de l&apos;Étranger (CFE)</strong> — organisme public qui maintient vos droits à l&apos;assurance maladie, maternité, invalidité, accident du travail et retraite depuis l&apos;étranger. Cotisation volontaire, additionnelle aux cotisations habituelles.</li>
+                    <li>• <strong>Complémentaire santé internationale</strong> — souscrite directement par vous ou via la société de portage pour couvrir les frais médicaux locaux.</li>
+                    <li>• <strong>Affiliation au régime local</strong> — possible dans certains pays, mais complexifie le portage car vous n&apos;êtes plus strictement affilié en France.</li>
+                  </ul>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Certaines sociétés de portage proposent des offres dédiées aux missions longue
+                    durée hors UE, souvent couplées à la CFE. Vérifiez cette ligne spécifique avant
+                    de signer si vous envisagez une mission hors zone UE/EEE/Suisse/accord bilatéral.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    Fiscalité et double imposition
+                  </h3>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/80">
+                    Votre revenu net de portage reste déclarable à l&apos;impôt sur le revenu en
+                    France tant que vous êtes <strong>résident fiscal français</strong> : plus de
+                    183 jours de présence annuelle sur le territoire, foyer fiscal en France, ou
+                    centre des intérêts économiques en France (un seul de ces critères suffit).
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                    Pour éviter la double imposition, la France a signé des <strong>conventions
+                    fiscales bilatérales</strong> avec plus de 120 pays. Ces conventions désignent
+                    quel État a le droit d&apos;imposer chaque type de revenu. Concrètement : vous
+                    êtes imposé en France sur le salaire versé par la société de portage, mais
+                    certains pays d&apos;accueil peuvent également taxer une partie du revenu si vous
+                    y résidez durablement. La convention évite que le même revenu soit taxé deux fois.
+                  </p>
+                  <div className="mt-4 rounded-lg border-l-4 border-primary bg-primary/5 p-4 text-sm">
+                    <p className="flex items-start gap-2 text-primary">
+                      <InfoIcon className="mt-0.5 h-4 w-4 shrink-0" />
+                      <span>
+                        Pour les missions longues (plus de 6 mois) ou les expatriations complètes,
+                        la bascule de résidence fiscale change la donne. Dans ce cas, consulter un
+                        expert-comptable ou un avocat fiscaliste <strong>avant le départ</strong> est
+                        fortement recommandé.
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </section>
