@@ -14,15 +14,15 @@ import PortageSimulator from "@/components/simulateurs/PortageSimulator";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title:
-    "Simulateur Portage Salarial 2026 : calculez votre salaire net (5 sociétés)",
+  title: "Simulateur Portage Salarial 2026 · Comparez 5 sociétés en 30 secondes",
   description:
-    "Simulateur gratuit et neutre pour calculer votre salaire net en portage salarial. Comparez ITG, OpenWork, Cadres en Mission, ABC Portage, CEGELEM. Taux 2026.",
+    "Comparez votre salaire net réel chez 5 sociétés de portage salarial. Simulateur gratuit, neutre, taux 2026. Résultat en 30 secondes, sans email demandé.",
+  alternates: { canonical: "/simulateurs/portage-salarial" },
   openGraph: {
-    title:
-      "Simulateur Portage Salarial 2026 : calculez votre salaire net (5 sociétés)",
+    title: "Simulateur Portage Salarial 2026 · Comparez 5 sociétés en 30 secondes",
     description:
-      "Simulateur gratuit et neutre pour calculer votre salaire net en portage salarial. Comparez ITG, OpenWork, Cadres en Mission, ABC Portage, CEGELEM. Taux 2026.",
+      "Comparez votre salaire net réel chez 5 sociétés de portage salarial. Simulateur gratuit, neutre, taux 2026. Résultat en 30 secondes, sans email demandé.",
+    url: "/simulateurs/portage-salarial",
   },
 };
 
@@ -209,7 +209,7 @@ export default function PortageSalarialPage() {
                 Simulateur Portage Salarial 2026
               </h1>
               <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
-                Calculez votre salaire net en temps réel
+                Comparez le net réel de 5 sociétés en 30 secondes
               </p>
 
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground/80">
