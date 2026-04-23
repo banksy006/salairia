@@ -49,6 +49,14 @@ const guides = [
     audience: "Salariés, candidats en négociation, dirigeants employeurs",
     lecture: "9 min",
   },
+  {
+    titre: "TJM freelance",
+    desc:
+      "Le Taux Journalier Moyen conditionne le revenu d'un freelance, son positionnement marché et sa capacité à encaisser les périodes creuses. Ce guide couvre la formule de calcul (3 méthodes), les grilles de TJM par métier en 2026 (dev, data, design, conseil), les variations par statut juridique et par zone géographique, et les leviers concrets pour négocier et augmenter son TJM.",
+    href: "/guides/tjm-freelance",
+    audience: "Freelances tech, consultants, designers, rédacteurs",
+    lecture: "11 min",
+  },
 ] as const;
 
 export default function GuidesPage() {
