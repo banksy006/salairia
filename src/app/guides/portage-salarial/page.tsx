@@ -181,8 +181,10 @@ export default function GuidePortageSalarialPage() {
               Le portage salarial permet à un professionnel indépendant de
               facturer ses clients tout en bénéficiant du statut de salarié :
               protection sociale complète, droit au chômage, bulletins de paie.
-              En 2026, plus de 200 000 consultants en France utilisent ce statut.
-              Ce guide couvre tout ce que vous devez savoir pour décider si le
+              Le secteur connaît une forte croissance — la fédération
+              professionnelle PEPS, qui revendique environ 80 % du marché,
+              fédère à elle seule autour de 50 000 consultants adhérents. Ce
+              guide couvre tout ce que vous devez savoir pour décider si le
               portage est adapté à votre situation.
             </p>
             <p className="text-sm text-muted-foreground">
