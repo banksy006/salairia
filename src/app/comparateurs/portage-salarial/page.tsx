@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -79,9 +80,9 @@ export default function PortageSalarialComparateurPage() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://salairia.fr/" },
-        { "@type": "ListItem", position: 2, name: "Comparateurs", item: "https://salairia.fr/comparateurs" },
-        { "@type": "ListItem", position: 3, name: "Portage salarial", item: "https://salairia.fr/comparateurs/portage-salarial" },
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Comparateurs", item: `${SITE_URL}/comparateurs` },
+        { "@type": "ListItem", position: 3, name: "Portage salarial", item: `${SITE_URL}/comparateurs/portage-salarial` },
       ],
     },
     {
@@ -94,7 +95,7 @@ export default function PortageSalarialComparateurPage() {
         "@type": "ListItem",
         position: i + 1,
         name: s.nom,
-        url: `https://salairia.fr/comparateurs/portage-salarial#${s.slug}`,
+        url: `${SITE_URL}/comparateurs/portage-salarial#${s.slug}`,
       })),
     },
     {

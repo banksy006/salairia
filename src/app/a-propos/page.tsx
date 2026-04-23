@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   CalendarIcon,
@@ -73,7 +74,7 @@ export default function AProposPage() {
       jobTitle: "Fondateur de Salairia",
       description:
         "Fondateur de Salairia, projet indépendant français de simulateurs et guides de rémunération. Également fondateur de SprintJob.co.",
-      url: "https://salairia.fr/a-propos",
+      url: `${SITE_URL}/a-propos`,
       sameAs: ["https://www.linkedin.com/in/nizar-laghrifi/"],
       alumniOf: [
         {
@@ -90,7 +91,7 @@ export default function AProposPage() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Salairia",
-      url: "https://salairia.fr",
+      url: `${SITE_URL}`,
       description:
         "Simulateurs, guides et comparatifs neutres de rémunération en France.",
       foundingDate: "2026",
@@ -107,13 +108,13 @@ export default function AProposPage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "À propos",
-          item: "https://salairia.fr/a-propos",
+          item: `${SITE_URL}/a-propos`,
         },
       ],
     },

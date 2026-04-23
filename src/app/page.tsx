@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -197,8 +198,8 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Salairia",
-      url: "https://salairia.fr",
-      logo: "https://salairia.fr/logo.png",
+      url: `${SITE_URL}`,
+      logo: `${SITE_URL}/logo.png`,
       description:
         "Simulateurs, guides et comparatifs neutres de rémunération en France.",
       founder: {
@@ -210,14 +211,14 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "Salairia",
-      url: "https://salairia.fr",
+      url: `${SITE_URL}`,
       inLanguage: "fr-FR",
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
           urlTemplate:
-            "https://salairia.fr/recherche?q={search_term_string}",
+            `${SITE_URL}/recherche?q={search_term_string}`,
         },
         "query-input": "required name=search_term_string",
       },
@@ -230,7 +231,7 @@ export default function HomePage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
       ],
     },

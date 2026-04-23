@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import { CalendarIcon, ShieldIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
@@ -39,13 +40,13 @@ export default function PolitiqueCookiesPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://salairia.fr/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Politique cookies",
-        item: "https://salairia.fr/politique-cookies",
+        item: `${SITE_URL}/politique-cookies`,
       },
     ],
   };

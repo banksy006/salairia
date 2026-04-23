@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -192,13 +193,13 @@ export default function SimulateursPage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Simulateurs",
-          item: "https://salairia.fr/simulateurs",
+          item: `${SITE_URL}/simulateurs`,
         },
       ],
     },
@@ -212,8 +213,8 @@ export default function SimulateursPage() {
         name: s.nom,
         description: s.desc,
         url: s.href
-          ? `https://salairia.fr${s.href}`
-          : "https://salairia.fr/simulateurs",
+          ? `${SITE_URL}${s.href}`
+          : `${SITE_URL}/simulateurs`,
       })),
     },
     {

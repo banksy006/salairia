@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -96,20 +97,20 @@ export default function GuidePortageSalarialPage() {
       "@type": "Article",
       headline: "Portage salarial : le guide complet 2026",
       description: "Tout savoir sur le portage salarial en 2026 : fonctionnement, salaire, avantages, inconvénients, cotisations, chômage.",
-      author: { "@type": "Person", name: "Nizar Laghrifi", url: "https://salairia.fr/a-propos" },
-      publisher: { "@type": "Organization", name: "Salairia", url: "https://salairia.fr" },
+      author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
+      publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-17",
       dateModified: "2026-04-17",
       inLanguage: "fr-FR",
-      url: "https://salairia.fr/guides/portage-salarial",
+      url: `${SITE_URL}/guides/portage-salarial`,
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://salairia.fr/" },
-        { "@type": "ListItem", position: 2, name: "Guides", item: "https://salairia.fr/guides" },
-        { "@type": "ListItem", position: 3, name: "Portage salarial", item: "https://salairia.fr/guides/portage-salarial" },
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+        { "@type": "ListItem", position: 3, name: "Portage salarial", item: `${SITE_URL}/guides/portage-salarial` },
       ],
     },
     {

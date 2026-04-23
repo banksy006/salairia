@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   CalendarIcon,
@@ -122,14 +123,14 @@ export default function MethodologiePage() {
       author: {
         "@type": "Person",
         name: "Nizar Laghrifi",
-        url: "https://salairia.fr/a-propos",
+        url: `${SITE_URL}/a-propos`,
       },
       publisher: {
         "@type": "Organization",
         name: "Salairia",
-        url: "https://salairia.fr",
+        url: `${SITE_URL}`,
       },
-      url: "https://salairia.fr/methodologie",
+      url: `${SITE_URL}/methodologie`,
     },
     {
       "@context": "https://schema.org",
@@ -139,13 +140,13 @@ export default function MethodologiePage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Méthodologie",
-          item: "https://salairia.fr/methodologie",
+          item: `${SITE_URL}/methodologie`,
         },
       ],
     },

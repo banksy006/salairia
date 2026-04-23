@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -94,20 +95,20 @@ export default function GuideSasuEurlPage() {
       "@type": "Article",
       headline: "SASU vs EURL : le guide complet 2026",
       description: "SASU ou EURL ? Comparatif détaillé 2026 : charges sociales, IS, dividendes, protection sociale, création.",
-      author: { "@type": "Person", name: "Nizar Laghrifi", url: "https://salairia.fr/a-propos" },
-      publisher: { "@type": "Organization", name: "Salairia", url: "https://salairia.fr" },
+      author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
+      publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-15",
       dateModified: "2026-04-15",
       inLanguage: "fr-FR",
-      url: "https://salairia.fr/guides/sasu-eurl",
+      url: `${SITE_URL}/guides/sasu-eurl`,
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://salairia.fr/" },
-        { "@type": "ListItem", position: 2, name: "Guides", item: "https://salairia.fr/guides" },
-        { "@type": "ListItem", position: 3, name: "SASU vs EURL", item: "https://salairia.fr/guides/sasu-eurl" },
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+        { "@type": "ListItem", position: 3, name: "SASU vs EURL", item: `${SITE_URL}/guides/sasu-eurl` },
       ],
     },
     {

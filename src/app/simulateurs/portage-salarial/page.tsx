@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -152,19 +153,19 @@ export default function PortageSalarialPage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Simulateurs",
-          item: "https://salairia.fr/simulateurs",
+          item: `${SITE_URL}/simulateurs`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Portage salarial",
-          item: "https://salairia.fr/simulateurs/portage-salarial",
+          item: `${SITE_URL}/simulateurs/portage-salarial`,
         },
       ],
     },

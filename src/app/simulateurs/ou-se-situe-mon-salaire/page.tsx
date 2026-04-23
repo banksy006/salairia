@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -142,19 +143,19 @@ export default function OuSeSitueMonSalairePage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Simulateurs",
-          item: "https://salairia.fr/simulateurs",
+          item: `${SITE_URL}/simulateurs`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "O\u00f9 se situe mon salaire ?",
-          item: "https://salairia.fr/simulateurs/ou-se-situe-mon-salaire",
+          item: `${SITE_URL}/simulateurs/ou-se-situe-mon-salaire`,
         },
       ],
     },

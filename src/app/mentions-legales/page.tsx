@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import { CalendarIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
@@ -40,13 +41,13 @@ export default function MentionsLegalesPage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://salairia.fr/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Mentions légales",
-        item: "https://salairia.fr/mentions-legales",
+        item: `${SITE_URL}/mentions-legales`,
       },
     ],
   };

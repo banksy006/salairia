@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import { CalendarIcon, ShieldIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
@@ -42,13 +43,13 @@ export default function PolitiqueConfidentialitePage() {
         "@type": "ListItem",
         position: 1,
         name: "Accueil",
-        item: "https://salairia.fr/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Politique de confidentialité",
-        item: "https://salairia.fr/politique-confidentialite",
+        item: `${SITE_URL}/politique-confidentialite`,
       },
     ],
   };

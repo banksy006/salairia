@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -128,19 +129,19 @@ export default function NetApresImpotPage() {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://salairia.fr/",
+          item: `${SITE_URL}/`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Simulateurs",
-          item: "https://salairia.fr/simulateurs",
+          item: `${SITE_URL}/simulateurs`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Net après impôt",
-          item: "https://salairia.fr/simulateurs/net-apres-impot",
+          item: `${SITE_URL}/simulateurs/net-apres-impot`,
         },
       ],
     },

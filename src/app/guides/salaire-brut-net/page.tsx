@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -98,20 +99,20 @@ export default function GuideSalaireBrutNetPage() {
       "@type": "Article",
       headline: "Salaire brut et net : tout comprendre en 2026",
       description: "Comment passer du brut au net ? Cotisations, CSG/CRDS, prélèvement à la source : tout comprendre sur votre fiche de paie.",
-      author: { "@type": "Person", name: "Nizar Laghrifi", url: "https://salairia.fr/a-propos" },
-      publisher: { "@type": "Organization", name: "Salairia", url: "https://salairia.fr" },
+      author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
+      publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-15",
       dateModified: "2026-04-15",
       inLanguage: "fr-FR",
-      url: "https://salairia.fr/guides/salaire-brut-net",
+      url: `${SITE_URL}/guides/salaire-brut-net`,
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://salairia.fr/" },
-        { "@type": "ListItem", position: 2, name: "Guides", item: "https://salairia.fr/guides" },
-        { "@type": "ListItem", position: 3, name: "Salaire brut net", item: "https://salairia.fr/guides/salaire-brut-net" },
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+        { "@type": "ListItem", position: 3, name: "Salaire brut net", item: `${SITE_URL}/guides/salaire-brut-net` },
       ],
     },
     {

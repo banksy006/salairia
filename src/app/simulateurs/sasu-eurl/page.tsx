@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
   IconBadge,
@@ -108,9 +109,9 @@ export default function SasuEurlPage() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Accueil", item: "https://salairia.fr/" },
-        { "@type": "ListItem", position: 2, name: "Simulateurs", item: "https://salairia.fr/simulateurs" },
-        { "@type": "ListItem", position: 3, name: "SASU / EURL", item: "https://salairia.fr/simulateurs/sasu-eurl" },
+        { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Simulateurs", item: `${SITE_URL}/simulateurs` },
+        { "@type": "ListItem", position: 3, name: "SASU / EURL", item: `${SITE_URL}/simulateurs/sasu-eurl` },
       ],
     },
   ];
