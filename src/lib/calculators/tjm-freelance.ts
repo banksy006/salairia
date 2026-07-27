@@ -4,6 +4,10 @@
  * Compare 4 statuts : auto-entrepreneur (BNC libéral), portage salarial,
  * SASU (assimilé salarié), EURL (gérant TNS).
  *
+ * Revalidés le 27 juillet 2026 : les constantes auto-entrepreneur étaient
+ * restées sur les valeurs 2023-2025 et ont été réalignées sur AE_2026
+ * (voir auto-entrepreneur.ts, qui fait foi pour ce statut).
+ *
  * Attention : les taux et hypothèses ci-dessous sont des moyennes 2026
  * documentées (URSSAF, BOSS.gouv.fr, Legifrance) à des fins
  * d'orientation. Ce ne sont pas des barèmes URSSAF officiels exhaustifs.
@@ -12,10 +16,17 @@
  */
 
 export const TJM_2026 = {
-  // Auto-entrepreneur (BNC libéral non réglementé)
-  AE_COTISATIONS_TAUX: 0.218,
-  AE_PLAFOND_BNC: 77_700,
-  AE_FRANCHISE_TVA_PLAFOND: 39_100,
+  // Auto-entrepreneur (BNC libéral non réglementé, régime général).
+  // Taux global de cotisations porté de 24,6 % à 25,6 % au 1er janvier 2026.
+  // Source : urssaf.fr « Évolution des taux de cotisations sociales des
+  // auto-entrepreneurs » — doit rester aligné sur AE_2026.TAUX_BNC_REGIME_GENERAL.
+  AE_COTISATIONS_TAUX: 0.256,
+  // Plafond de CA du régime micro pour les prestations de services / BNC.
+  // Source : autoentrepreneur.urssaf.fr, seuils 2026.
+  AE_PLAFOND_BNC: 83_600,
+  // Seuil de franchise en base de TVA, prestations de services (seuil limite).
+  // Source : economie.gouv.fr — seuils maintenus pour 2026 (réforme à 25 000 € abandonnée).
+  AE_FRANCHISE_TVA_PLAFOND: 37_500,
 
   // Portage salarial
   PORTAGE_FRAIS_GESTION: 0.08,

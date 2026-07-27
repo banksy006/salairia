@@ -1,8 +1,9 @@
 /**
  * Calculateur Salaire Brut/Net — taux 2026.
  *
- * Sources : URSSAF, LégiSocial, AGIRC-ARRCO, service-public.fr.
- * Vérifiés le 16 avril 2026.
+ * Sources : URSSAF, AGIRC-ARRCO (circulaire paramètres 2026), BOSS.
+ * Revalidés le 27 juillet 2026 : PASS et taux de cotisations inchangés,
+ * SMIC revalorisé au 1er juin 2026.
  *
  * Attention : les taux utilisés sont des références moyennes 2026.
  * Le montant exact dépend de votre convention collective, mutuelle
@@ -12,7 +13,10 @@
 export const SALAIRE_2026 = {
   PASS_ANNUEL: 48_060,
   PASS_MENSUEL: 4_005,
-  SMIC_MENSUEL_BRUT: 1_823.03,
+  // SMIC revalorisé au 1er juin 2026 : 12,31 €/h × 151,67 h = 1 867,02 € brut/mois.
+  // Source : arrêté du 22 mai 2026 (JORF), relayé par urssaf.fr et travail-emploi.gouv.fr.
+  // (Valeur au 1er janvier 2026 : 12,02 €/h soit 1 823,03 €.)
+  SMIC_MENSUEL_BRUT: 1_867.02,
 
   // Cotisations salariales
   SAL_VIEILLESSE_PLAFONNEE: 0.069,

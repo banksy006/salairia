@@ -143,7 +143,7 @@ export default function GuideSalaireBrutNetPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour avril 2026
+            À jour juillet 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -350,7 +350,7 @@ export default function GuideSalaireBrutNetPage() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bulletin de paie</p>
-                      <p className="text-sm text-muted-foreground">Période : avril 2026</p>
+                      <p className="text-sm text-muted-foreground">Période : juillet 2026</p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-muted-foreground">Entreprise Exemple SAS</p>
@@ -806,7 +806,7 @@ export default function GuideSalaireBrutNetPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : avril 2026. Ce guide est à vocation informative et ne
+                  Dernière mise à jour : juillet 2026. Ce guide est à vocation informative et ne
                   constitue pas un conseil fiscal ou juridique. Pour une analyse adaptée à votre
                   situation, consultez un expert-comptable ou un conseiller fiscal.
                   Rédigé par{" "}

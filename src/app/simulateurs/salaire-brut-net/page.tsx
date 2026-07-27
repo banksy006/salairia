@@ -189,7 +189,7 @@ export default function SalaireBrutNetPage() {
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 <CalendarIcon className="h-3.5 w-3.5" />
-                À jour avril 2026
+                À jour juillet 2026
               </span>
 
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -389,7 +389,7 @@ export default function SalaireBrutNetPage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : avril 2026. Estimation indicative
+                    Dernière mise à jour : juillet 2026. Estimation indicative
                     basée sur les taux moyens 2026. Le montant exact dépend
                     de votre convention collective, de votre mutuelle
                     d&apos;entreprise et de votre situation fiscale.

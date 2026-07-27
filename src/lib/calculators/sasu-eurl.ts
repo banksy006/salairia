@@ -1,8 +1,10 @@
 /**
  * Calculateur comparatif SASU vs EURL — taux indicatifs 2026.
  *
- * Sources : service-public.fr, LégiSocial, lecoindesentrepreneurs.fr,
- * Compta-Online, URSSAF. Vérifiés le 16 avril 2026.
+ * Sources : impots.gouv.fr, economie.gouv.fr, BOFiP, URSSAF.
+ * Revalidés le 27 juillet 2026 : IS (15 % jusqu'à 42 500 € puis 25 %)
+ * et PFU 30 % inchangés. Les taux de charges restent des moyennes
+ * simplifiées, pas des barèmes exhaustifs.
  *
  * Attention : les taux sont des moyennes simplifiées. Les cotisations
  * TNS réelles sont progressives et les cotisations SASU dépendent de

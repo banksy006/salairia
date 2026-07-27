@@ -230,7 +230,7 @@ export default function AutoEntrepreneurPage() {
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 <CalendarIcon className="w-3.5 h-3.5" />
-                À jour avril 2026
+                À jour juillet 2026
               </span>
 
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -468,7 +468,7 @@ export default function AutoEntrepreneurPage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : avril 2026. Calculs indicatifs
+                    Dernière mise à jour : juillet 2026. Calculs indicatifs
                     basés sur les taux 2026 officiels URSSAF. Pour votre
                     situation personnelle (ACRE restante, DOM-TOM, CIPAV
                     spécifique), vérifiez sur autoentrepreneur.urssaf.fr ou

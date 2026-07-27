@@ -9,7 +9,9 @@
  */
 
 export const PORTAGE_2026 = {
-  PASS_MENSUEL: 4005, // Plafond Annuel Sécurité Sociale 2026 (mensuel)
+  // Plafond de la Sécurité sociale 2026, valeur mensuelle (annuel : 48 060 €).
+  // Source : arrêté du 22 décembre 2025 (JORF), urssaf.fr. Revalidé le 27 juillet 2026.
+  PASS_MENSUEL: 4005,
   CHARGES_PATRONALES_TAUX: 0.43,
   CHARGES_SALARIALES_TAUX: 0.22,
   SALAIRE_MIN_JUNIOR_RATIO: 0.7,

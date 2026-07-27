@@ -1,8 +1,10 @@
 /**
  * Calculateur Auto-entrepreneur — taux officiels 2026.
  *
- * Sources : autoentrepreneur.urssaf.fr, economie.gouv.fr,
- * portail-autoentrepreneur.fr (vérifiés 16 avril 2026).
+ * Sources : autoentrepreneur.urssaf.fr, urssaf.fr, economie.gouv.fr
+ * (revalidés le 27 juillet 2026 : taux, plafonds de CA, seuils de
+ * franchise TVA et taux de versement libératoire inchangés depuis
+ * le 1er janvier 2026).
  *
  * Attention : certaines professions CIPAV spécifiques ou situations
  * DOM-TOM ont des taux différents. Pour un cas particulier, vérifiez

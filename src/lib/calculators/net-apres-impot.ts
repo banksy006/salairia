@@ -2,35 +2,41 @@
  * Calculateur Net après impôt — barème PAS taux neutre 2026.
  *
  * Source : BOFiP, impots.gouv.fr — grille de taux par défaut
- * (taux neutre) applicable en métropole au 1er janvier 2026.
+ * (taux neutre) applicable en métropole à compter du 1er mai 2026.
  *
  * Attention : le taux neutre est une estimation. Le taux réel dépend
  * de votre situation fiscale (parts, revenus du foyer). Consultez
  * votre espace impots.gouv.fr pour votre taux personnalisé.
  */
 
-// Barème taux neutre métropole 2026 — base mensuelle net imposable
-// Source : BOFiP, impots.gouv.fr, consulté avril 2026
+// Barème taux neutre métropole — base mensuelle net imposable.
+// Applicable à compter du 1er mai 2026 (limites de tranches réajustées par la
+// loi n° 2026-103 du 19 février 2026 de finances pour 2026, art. 4).
+// Sources : BOFiP BOI-BAREME-000037 et CGI art. 204 H (Legifrance).
+// Vérifié le 27 juillet 2026.
+//
+// `max` = borne haute INCLUSE en euros entiers : le barème officiel énonce
+// « supérieure ou égale à N et inférieure à N+1 », d'où max = borne_suivante − 1.
 export const BAREME_TAUX_NEUTRE_2026 = [
-  { max: 1_591, taux: 0 },
-  { max: 1_653, taux: 0.005 },
-  { max: 1_759, taux: 0.013 },
-  { max: 1_877, taux: 0.021 },
-  { max: 2_006, taux: 0.029 },
-  { max: 2_113, taux: 0.035 },
-  { max: 2_253, taux: 0.041 },
-  { max: 2_666, taux: 0.053 },
-  { max: 3_052, taux: 0.075 },
-  { max: 3_476, taux: 0.099 },
-  { max: 3_913, taux: 0.119 },
-  { max: 4_566, taux: 0.138 },
-  { max: 5_475, taux: 0.158 },
-  { max: 6_851, taux: 0.179 },
-  { max: 8_557, taux: 0.20 },
-  { max: 11_877, taux: 0.24 },
-  { max: 16_087, taux: 0.28 },
-  { max: 25_251, taux: 0.33 },
-  { max: 46_557, taux: 0.38 },
+  { max: 1_634, taux: 0 },
+  { max: 1_697, taux: 0.005 },
+  { max: 1_806, taux: 0.013 },
+  { max: 1_927, taux: 0.021 },
+  { max: 2_059, taux: 0.029 },
+  { max: 2_169, taux: 0.035 },
+  { max: 2_314, taux: 0.041 },
+  { max: 2_737, taux: 0.053 },
+  { max: 3_134, taux: 0.075 },
+  { max: 3_570, taux: 0.099 },
+  { max: 4_018, taux: 0.119 },
+  { max: 4_689, taux: 0.138 },
+  { max: 5_623, taux: 0.158 },
+  { max: 7_036, taux: 0.179 },
+  { max: 8_788, taux: 0.20 },
+  { max: 12_199, taux: 0.24 },
+  { max: 16_522, taux: 0.28 },
+  { max: 25_936, taux: 0.33 },
+  { max: 55_557, taux: 0.38 },
   { max: Infinity, taux: 0.43 },
 ] as const;
 
@@ -67,7 +73,7 @@ export function getTrancheLabel(netImposableMensuel: number): string {
       return `${min.toLocaleString("fr-FR")} – ${max}`;
     }
   }
-  return "46 558 € +";
+  return "55 558 € +";
 }
 
 export function calculerNetApresImpot(
