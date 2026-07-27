@@ -35,11 +35,11 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "Quel est le meilleur statut pour démarrer en freelance ?",
-    r: "Pour démarrer, l'auto-entrepreneur (micro-BNC) est presque toujours le meilleur choix : démarches en 10 minutes, cotisations simples (21,8 % en 2026), comptabilité minimale. Tant que votre CA annuel reste sous 77 700 € et que vous n'avez pas de gros frais professionnels, vous gardez la majorité de ce que vous facturez. Dès que vous dépassez ces seuils ou souhaitez déduire des frais importants (matériel, local, voiture), il devient pertinent de passer en SASU, EURL ou portage salarial.",
+    r: "Pour démarrer, l'auto-entrepreneur (micro-BNC) est presque toujours le meilleur choix : démarches en 10 minutes, cotisations simples (25,6 % en 2026), comptabilité minimale. Tant que votre CA annuel reste sous 83 600 € et que vous n'avez pas de gros frais professionnels, vous gardez la majorité de ce que vous facturez. Dès que vous dépassez ces seuils ou souhaitez déduire des frais importants (matériel, local, voiture), il devient pertinent de passer en SASU, EURL ou portage salarial.",
   },
   {
     q: "À partir de quel CA dois-je quitter l'auto-entrepreneur ?",
-    r: "Techniquement, vous devez quitter le régime micro-BNC dès que votre chiffre d'affaires dépasse 77 700 € sur deux années consécutives. Économiquement, le calcul mérite d'être fait plus tôt : au-delà de 60 000 à 70 000 € de CA annuel, la SASU ou l'EURL deviennent souvent plus avantageuses grâce à la déduction des frais réels (matériel, comptable, local). Utilisez notre simulateur en mode « TJM cible » pour comparer.",
+    r: "Techniquement, vous devez quitter le régime micro-BNC dès que votre chiffre d'affaires dépasse 83 600 € sur deux années consécutives. Économiquement, le calcul mérite d'être fait plus tôt : au-delà de 60 000 à 70 000 € de CA annuel, la SASU ou l'EURL deviennent souvent plus avantageuses grâce à la déduction des frais réels (matériel, comptable, local). Utilisez notre simulateur en mode « TJM cible » pour comparer.",
   },
   {
     q: "Comment passer de l'auto-entrepreneur à la SASU ?",
@@ -73,7 +73,7 @@ const etapes = [
   {
     n: 3,
     t: "Déduction des cotisations",
-    d: "Elles varient fortement selon le statut : 21,8 % en auto-entrepreneur, ~45 % en EURL (TNS), ~55 % en SASU (assimilé salarié), ~60 % en portage salarial.",
+    d: "Elles varient fortement selon le statut : 25,6 % en auto-entrepreneur (BNC), ~45 % en EURL (TNS), ~55 % en SASU (assimilé salarié), ~60 % en portage salarial.",
   },
   {
     n: 4,

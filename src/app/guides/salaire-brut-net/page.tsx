@@ -61,11 +61,11 @@ const faq = [
   },
   {
     q: "Comment passer du salaire horaire au mensuel ?",
-    r: "La durée légale du travail est de 151,67 heures par mois (35h × 52 semaines / 12 mois). Multipliez votre taux horaire brut par 151,67 pour obtenir votre salaire mensuel brut. Exemple : SMIC 2026 à 11,88 € × 151,67 = 1 801,84 € brut mensuel.",
+    r: "La durée légale du travail est de 151,67 heures par mois (35h × 52 semaines / 12 mois). Multipliez votre taux horaire brut par 151,67 pour obtenir votre salaire mensuel brut. Exemple : SMIC au 1er juin 2026 à 12,31 € × 151,67 ≈ 1 867 € brut mensuel (montant officiel : 1 867,02 €).",
   },
   {
     q: "Le SMIC est-il exprimé en brut ou en net ?",
-    r: "Le SMIC officiel est toujours exprimé en brut. En 2026, le SMIC brut mensuel est d\u2019environ 1 802 € pour 35 heures. Le SMIC net avant impôt est d\u2019environ 1 427 € (après cotisations salariales). La distinction est importante car c\u2019est le montant brut qui fait référence légalement.",
+    r: "Le SMIC officiel est toujours exprimé en brut. Depuis le 1er juin 2026, le SMIC brut mensuel est de 1 867,02 € pour 35 heures. Le SMIC net avant impôt est d\u2019environ 1 478 € (après cotisations salariales). La distinction est importante car c\u2019est le montant brut qui fait référence légalement.",
   },
 ];
 

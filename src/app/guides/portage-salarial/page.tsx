@@ -754,10 +754,10 @@ export default function GuidePortageSalarialPage() {
                     {[
                       ["Protection sociale", "Complète", "Minimale", "Assimilé-salarié", "TNS"],
                       ["Chômage", "Oui", "Non", "Non", "Non"],
-                      ["Plafond CA", "Aucun", "77 700 €", "Aucun", "Aucun"],
+                      ["Plafond CA", "Aucun", "83 600 €", "Aucun", "Aucun"],
                       ["Frais déductibles", "Oui", "Non", "Oui", "Oui"],
                       ["Gestion admin", "Zéro", "Simple", "Compta oblig.", "Compta oblig."],
-                      ["Coût total", "~50 % CA", "~22-25 % CA", "~60-65 % net", "~45 % net"],
+                      ["Coût total", "~50 % CA", "~26 % CA", "~60-65 % net", "~45 % net"],
                       ["Patrimoine", "Non", "Non", "Oui", "Oui"],
                     ].map(([critere, ...vals]) => (
                       <tr key={critere} className="border-b border-border last:border-b-0">

@@ -249,7 +249,7 @@ export default function GuideTjmFreelancePage() {
                     Les charges varient selon le statut :
                   </p>
                   <ul className="mt-3 space-y-2 text-base text-foreground/80">
-                    <li>• <strong>Auto-entrepreneur</strong> — majorer le net souhaité d&apos;environ <strong>30 %</strong> (cotisations URSSAF 21,8 à 25,6 % + frais pro non déductibles).</li>
+                    <li>• <strong>Auto-entrepreneur</strong> — majorer le net souhaité d&apos;environ <strong>30 %</strong> (cotisations URSSAF 25,6 % en BNC + frais pro non déductibles).</li>
                     <li>• <strong>Portage, SASU, EURL</strong> — charges proches de <strong>50 %</strong> : il faut quasi <strong>doubler</strong> le net souhaité avant de diviser par les jours facturables.</li>
                   </ul>
                   <p className="mt-3 text-base leading-relaxed text-foreground/80">
@@ -399,7 +399,7 @@ export default function GuideTjmFreelancePage() {
               <p className="mt-3 text-sm text-muted-foreground">
                 Estimations nettes mensuelles pour 18 jours travaillés/mois,
                 hors impôt sur le revenu. L&apos;auto-entreprise est plafonnée
-                à 77 700 € de CA annuel en BNC libéral, soit environ 850 €/j
+                à 83 600 € de CA annuel en BNC libéral, soit environ 870 €/j
                 sur 12 mois avec 8 jours par mois — au-delà, elle n&apos;est
                 plus accessible.
               </p>
