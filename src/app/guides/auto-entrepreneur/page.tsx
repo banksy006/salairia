@@ -99,7 +99,7 @@ export default function GuideAutoEntrepreneurPage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-15",
-      dateModified: "2026-04-15",
+      dateModified: "2026-07-27",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/auto-entrepreneur`,
     },

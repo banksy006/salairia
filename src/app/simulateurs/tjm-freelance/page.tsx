@@ -197,6 +197,8 @@ export default function TJMFreelancePage() {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       inLanguage: "fr-FR",
+      datePublished: "2026-04-16",
+      dateModified: "2026-07-27",
       offers: {
         "@type": "Offer",
         price: "0",

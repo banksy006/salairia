@@ -125,6 +125,8 @@ export default function PortageSalarialPage() {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       inLanguage: "fr-FR",
+      datePublished: "2026-04-15",
+      dateModified: "2026-07-27",
       offers: {
         "@type": "Offer",
         price: "0",

@@ -119,6 +119,8 @@ export default function SalaireBrutNetPage() {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       inLanguage: "fr-FR",
+      datePublished: "2026-04-16",
+      dateModified: "2026-07-27",
       offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
       description:
         "Convertissez instantanément votre salaire brut en net ou net en brut avec les cotisations 2026.",

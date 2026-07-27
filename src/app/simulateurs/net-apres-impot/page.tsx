@@ -108,6 +108,8 @@ export default function NetApresImpotPage() {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       inLanguage: "fr-FR",
+      datePublished: "2026-04-22",
+      dateModified: "2026-07-27",
       offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
       description:
         "Calculez votre salaire net après prélèvement à la source avec le barème taux neutre 2026 ou votre taux personnalisé.",

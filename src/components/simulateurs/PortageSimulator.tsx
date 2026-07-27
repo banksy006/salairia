@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Link from "next/link";
 import {
   calculerPortage,
   comparerSocietes,
@@ -382,6 +383,22 @@ export default function PortageSimulator() {
                 })}
               </tbody>
             </table>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5">
+            <p className="text-base font-semibold text-foreground">
+              Ces 5 sociétés ne sont qu&apos;un échantillon
+            </p>
+            <p className="mt-1 text-sm text-foreground/80">
+              Notre comparatif détaille 10 sociétés de portage sur 8 critères :
+              frais de gestion, services inclus, garanties, délais de paiement.
+            </p>
+            <Link
+              href="/comparateurs/portage-salarial"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
+            >
+              Voir le comparatif complet →
+            </Link>
           </div>
 
           <p className="mt-6 text-xs text-muted-foreground">

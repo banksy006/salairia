@@ -115,6 +115,8 @@ export default function OuSeSitueMonSalairePage() {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       inLanguage: "fr-FR",
+      datePublished: "2026-04-22",
+      dateModified: "2026-04-23",
       offers: {
         "@type": "Offer",
         price: "0",

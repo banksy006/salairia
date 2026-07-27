@@ -165,31 +165,33 @@ const engagements = [
   },
 ];
 
+// Chaque recherche pointe vers la page qui y répond réellement, et non vers le
+// hub générique : c'est la home qui redistribue son autorité aux pages profondes.
 const recherches = [
-  { label: "Quel salaire net pour 50 000 € brut ?", href: "/simulateurs" },
+  { label: "Quel salaire net pour 50 000 € brut ?", href: "/simulateurs/salaire-brut-net" },
   {
     label: "Combien je gagne en portage avec 500 € de TJM ?",
     href: "/simulateurs/portage-salarial",
   },
-  { label: "TJM développeur freelance 2026", href: "/simulateurs" },
-  { label: "SASU vs EURL : quel statut choisir ?", href: "/simulateurs" },
-  { label: "Charges auto-entrepreneur 2026", href: "/simulateurs" },
-  { label: "Salaire moyen Paris vs province", href: "/simulateurs" },
+  { label: "TJM développeur freelance 2026", href: "/guides/tjm-freelance" },
+  { label: "SASU vs EURL : quel statut choisir ?", href: "/guides/sasu-eurl" },
+  { label: "Charges auto-entrepreneur 2026", href: "/simulateurs/auto-entrepreneur" },
+  { label: "Salaire moyen Paris vs province", href: "/simulateurs/pouvoir-achat-ville" },
   {
     label: "Calcul net après prélèvement à la source",
-    href: "/simulateurs",
+    href: "/simulateurs/net-apres-impot",
   },
   {
     label: "Portage salarial ou auto-entrepreneur ?",
-    href: "/simulateurs/portage-salarial",
+    href: "/simulateurs/tjm-freelance",
   },
-  { label: "Comment négocier son salaire ?", href: "/simulateurs" },
-  { label: "Plafond auto-entrepreneur 2026", href: "/simulateurs" },
+  { label: "Comment négocier son salaire ?", href: "/simulateurs/negociation-salariale" },
+  { label: "Plafond auto-entrepreneur 2026", href: "/guides/auto-entrepreneur" },
   {
-    label: "Salaire net consultant en portage",
-    href: "/simulateurs/portage-salarial",
+    label: "Quelle société de portage choisir ?",
+    href: "/comparateurs/portage-salarial",
   },
-  { label: "ACRE auto-entrepreneur : impact réel", href: "/simulateurs" },
+  { label: "Où se situe mon salaire en France ?", href: "/simulateurs/ou-se-situe-mon-salaire" },
 ];
 
 export default function HomePage() {

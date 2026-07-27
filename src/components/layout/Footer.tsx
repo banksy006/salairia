@@ -6,14 +6,20 @@ const simulateursLinks = [
   { label: "Auto-entrepreneur", href: "/simulateurs/auto-entrepreneur" },
   { label: "SASU / EURL", href: "/simulateurs/sasu-eurl" },
   { label: "Salaire brut/net", href: "/simulateurs/salaire-brut-net" },
+  { label: "Net après impôt", href: "/simulateurs/net-apres-impot" },
+  { label: "Négociation salariale", href: "/simulateurs/negociation-salariale" },
+  { label: "Pouvoir d'achat par ville", href: "/simulateurs/pouvoir-achat-ville" },
+  { label: "Où se situe mon salaire", href: "/simulateurs/ou-se-situe-mon-salaire" },
 ];
 
 const comparateursLinks = [
   { label: "Portage salarial", href: "/comparateurs/portage-salarial" },
+  { label: "Tous les comparateurs", href: "/comparateurs" },
 ];
 
 const guidesLinks = [
   { label: "Portage salarial", href: "/guides/portage-salarial" },
+  { label: "TJM freelance", href: "/guides/tjm-freelance" },
   { label: "Auto-entrepreneur", href: "/guides/auto-entrepreneur" },
   { label: "SASU vs EURL", href: "/guides/sasu-eurl" },
   { label: "Salaire brut/net", href: "/guides/salaire-brut-net" },
@@ -22,8 +28,6 @@ const guidesLinks = [
 const ressourcesLinks = [
   { label: "À propos", href: "/a-propos" },
   { label: "Méthodologie", href: "/methodologie" },
-  { label: "Sources", href: "/sources" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const legalLinks = [

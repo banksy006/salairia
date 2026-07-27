@@ -119,7 +119,7 @@ export default function MethodologiePage() {
         "Processus de calcul, sources officielles et fréquence de mise à jour des simulateurs Salairia.",
       inLanguage: "fr-FR",
       datePublished: "2026-04-15",
-      dateModified: "2026-04-15",
+      dateModified: "2026-07-27",
       author: {
         "@type": "Person",
         name: "Nizar Laghrifi",

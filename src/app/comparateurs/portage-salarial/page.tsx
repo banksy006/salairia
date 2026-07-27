@@ -97,6 +97,19 @@ export default function PortageSalarialComparateurPage() {
   const jsonLd = [
     {
       "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Comparatif des sociétés de portage salarial 2026",
+      description:
+        "Comparatif indépendant de 10 sociétés de portage salarial : frais de gestion, services inclus, garanties.",
+      author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
+      publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
+      datePublished: "2026-04-23",
+      dateModified: "2026-07-27",
+      inLanguage: "fr-FR",
+      url: `${SITE_URL}/comparateurs/portage-salarial`,
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },

@@ -93,6 +93,8 @@ export default function SasuEurlPage() {
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       inLanguage: "fr-FR",
+      datePublished: "2026-04-16",
+      dateModified: "2026-07-27",
       offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
       description: "Comparateur SASU vs EURL côte à côte : charges sociales, IS, dividendes et revenu net total.",
     },
