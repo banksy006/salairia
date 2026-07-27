@@ -28,6 +28,7 @@ const guidesLinks = [
 const ressourcesLinks = [
   { label: "À propos", href: "/a-propos" },
   { label: "Méthodologie", href: "/methodologie" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const legalLinks = [
