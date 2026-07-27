@@ -37,11 +37,11 @@ const faq = [
   },
   {
     q: "D'où viennent les données de loyer ?",
-    r: "Les loyers moyens pour un T2 proviennent de MeilleursAgents et des observatoires locaux des loyers (OLAP pour Paris, observatoires régionaux), relevés en avril 2026. Il s'agit de moyennes sur l'ensemble de la ville — les écarts entre quartiers peuvent être importants.",
+    r: "Les loyers proviennent de MeilleursAgents, qui publie un loyer mensuel moyen au m² par ville, relevé au 1er juillet 2026. Nous l'appliquons à une surface de référence de 45 m² pour obtenir le loyer d'un T2 : à Lyon, 17,5 €/m² × 45 = 788 €. Il s'agit de moyennes sur l'ensemble de la ville — les écarts entre quartiers peuvent être importants, et un T2 réel fait entre 40 et 50 m² selon les villes.",
   },
   {
     q: "Pourquoi Paris est-elle si chère ?",
-    r: "Le loyer moyen d'un T2 à Paris (1 350 €/mois) est 2 à 3 fois supérieur à celui de villes comme Brest, Dijon ou Le Mans. Le surcoût ne vient pas que du loyer : l'alimentation et les charges courantes sont également 10 à 15 % plus élevées. En revanche, les salaires parisiens sont en moyenne 15 à 20 % plus élevés qu'en province.",
+    r: "Le loyer moyen d'un T2 à Paris (1 498 €/mois, soit 33,3 €/m²) est 2 à 3 fois supérieur à celui de villes comme Brest, Dijon ou Le Mans. Le surcoût ne vient pas que du loyer : l'alimentation et les charges courantes sont également 10 à 15 % plus élevées. En revanche, les salaires parisiens sont en moyenne 15 à 20 % plus élevés qu'en province.",
   },
   {
     q: "Ces données incluent-elles les familles ?",
@@ -131,7 +131,7 @@ export default function PouvoirAchatVillePage() {
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 <CalendarIcon className="h-3.5 w-3.5" />
-                À jour avril 2026
+                À jour juillet 2026
               </span>
 
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -151,7 +151,7 @@ export default function PouvoirAchatVillePage() {
                 <p>
                   Comparez deux villes côte à côte pour évaluer l&apos;impact d&apos;un
                   déménagement ou d&apos;une mutation sur votre budget. Données
-                  MeilleursAgents et INSEE, avril 2026.
+                  MeilleursAgents (juillet 2026) et INSEE.
                 </p>
               </div>
             </div>
@@ -216,14 +216,14 @@ export default function PouvoirAchatVillePage() {
                       Le <strong>net exigé par les bailleurs</strong> applique la règle des 3× le
                       loyer, utilisée par les agences pour évaluer la solvabilité d&apos;un
                       locataire : le loyer ne doit pas dépasser 30 % du revenu net. À Lyon, avec un
-                      loyer T2 moyen de 780 €, cela donne 780 / 0,30 = 2 600 € net. Ce montant ne
+                      loyer T2 moyen de 788 €, cela donne 788 / 0,30 = 2 627 € net. Ce montant ne
                       dépend que du loyer.
                     </p>
                     <p>
                       Le <strong>net pour vivre confortablement</strong> répond à une autre
                       question : il part du total des dépenses courantes et le divise par 0,70,
                       pour laisser 30 % de marge (épargne, loisirs, imprévus). Toujours à Lyon,
-                      1 469 € de dépenses donnent 1 469 / 0,70 = 2 099 € net. C&apos;est ce second
+                      1 477 € de dépenses donnent 1 477 / 0,70 = 2 110 € net. C&apos;est ce second
                       montant qui tient compte du transport, de l&apos;alimentation et des charges.
                     </p>
                     <p>
@@ -284,7 +284,7 @@ export default function PouvoirAchatVillePage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : avril 2026. Estimations indicatives basées sur
+                    Dernière mise à jour : juillet 2026 (loyers). Tarifs de transport relevés en avril 2026. Estimations indicatives basées sur
                     les moyennes de marché. Le coût réel dépend de votre quartier, mode de
                     vie et situation familiale.
                   </p>
