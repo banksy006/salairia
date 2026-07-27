@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "Comment est calculé le salaire nécessaire ?",
-    r: "Nous appliquons la règle bancaire classique : le loyer ne doit pas dépasser 30 % du salaire net. Le salaire nécessaire est donc calculé comme le loyer T2 moyen divisé par 0,30. C'est le seuil utilisé par les banques et les agences immobilières pour évaluer la solvabilité d'un locataire.",
+    r: "Nous affichons deux montants, parce qu'ils répondent à deux questions différentes. Le « net exigé par les bailleurs » applique la règle des 3× le loyer : c'est le seuil de solvabilité utilisé par les agences pour accepter un dossier de location, et il ne dépend que du loyer. Le « net pour vivre confortablement » part du total réel de vos dépenses (loyer, transport, alimentation, charges) et le divise par 0,70, de façon à conserver 30 % de marge pour l'épargne, les loisirs et les imprévus. Le premier est presque toujours plus élevé que le second : passer un dossier de location demande souvent plus que ce qu'il faut pour vivre.",
   },
   {
     q: "D'où viennent les données de loyer ?",
@@ -213,9 +213,27 @@ export default function PouvoirAchatVillePage() {
                   </h2>
                   <div className="mt-4 space-y-4 text-base leading-relaxed text-foreground/80">
                     <p>
-                      Le <strong>salaire net nécessaire</strong> est calculé selon la règle bancaire
-                      standard : le loyer ne doit pas dépasser 30 % du revenu net. Si le loyer T2
-                      moyen est de 780 € (Lyon), le salaire net minimum est de 780 / 0,30 = 2 600 €.
+                      Le <strong>net exigé par les bailleurs</strong> applique la règle des 3× le
+                      loyer, utilisée par les agences pour évaluer la solvabilité d&apos;un
+                      locataire : le loyer ne doit pas dépasser 30 % du revenu net. À Lyon, avec un
+                      loyer T2 moyen de 780 €, cela donne 780 / 0,30 = 2 600 € net. Ce montant ne
+                      dépend que du loyer.
+                    </p>
+                    <p>
+                      Le <strong>net pour vivre confortablement</strong> répond à une autre
+                      question : il part du total des dépenses courantes et le divise par 0,70,
+                      pour laisser 30 % de marge (épargne, loisirs, imprévus). Toujours à Lyon,
+                      1 469 € de dépenses donnent 1 469 / 0,70 = 2 099 € net. C&apos;est ce second
+                      montant qui tient compte du transport, de l&apos;alimentation et des charges.
+                    </p>
+                    <p>
+                      Le brut correspondant n&apos;est pas obtenu par un ratio forfaitaire : il est
+                      calculé avec notre{" "}
+                      <Link href="/simulateurs/salaire-brut-net" className="text-primary underline-offset-4 hover:underline">
+                        simulateur brut/net
+                      </Link>{" "}
+                      (statut non-cadre, cotisations 2026), afin que les deux outils ne se
+                      contredisent pas.
                     </p>
                     <p>
                       Le <strong>coût total mensuel</strong> additionne 4 postes : loyer T2 moyen

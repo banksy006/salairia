@@ -109,12 +109,12 @@ export default function PouvoirAchatSimulator() {
                 {r.comparaison.ville.nom}
               </p>
               <p className="mt-2 text-sm text-foreground/80">
-                Salaire net nécessaire : {EUR0.format(r.principale.salaireNetNecessaire)}{" "}
-                vs {EUR0.format(r.comparaison.salaireNetNecessaire)} (écart de{" "}
+                Net pour vivre confortablement :{" "}
+                {EUR0.format(r.principale.budgetVieNet)} vs{" "}
+                {EUR0.format(r.comparaison.budgetVieNet)} (écart de{" "}
                 {EUR0.format(
                   Math.abs(
-                    r.principale.salaireNetNecessaire -
-                      r.comparaison.salaireNetNecessaire,
+                    r.principale.budgetVieNet - r.comparaison.budgetVieNet,
                   ),
                 )}
                 )
@@ -236,15 +236,28 @@ function VilleCard({
         }`}
       >
         <p className="text-xs font-semibold uppercase tracking-wider opacity-70">
-          Salaire net nécessaire
+          Net exigé par les bailleurs
         </p>
         <p className="mt-1 text-3xl font-bold tabular-nums">
-          {EUR0.format(result.salaireNetNecessaire)} / mois
+          {EUR0.format(result.revenuExigeBailleur)} / mois
         </p>
         <p className="mt-1 text-sm opacity-70">
-          soit ~{EUR0.format(result.salaireBrutEstime)} brut · règle 30 %
-          loyer
+          soit ~{EUR0.format(result.brutPourRevenuExige)} brut · règle des 3× le
+          loyer, appliquée à la signature du bail
         </p>
+
+        <div className="mt-4 border-t border-current/20 pt-4">
+          <p className="text-xs font-semibold uppercase tracking-wider opacity-70">
+            Net pour vivre confortablement
+          </p>
+          <p className="mt-1 text-2xl font-bold tabular-nums">
+            {EUR0.format(result.budgetVieNet)} / mois
+          </p>
+          <p className="mt-1 text-sm opacity-70">
+            couvre les {EUR0.format(result.totalMensuel)} de dépenses ci-dessus
+            en gardant 30 % de marge
+          </p>
+        </div>
       </div>
     </div>
   );

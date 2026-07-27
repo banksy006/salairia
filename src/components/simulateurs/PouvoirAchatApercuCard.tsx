@@ -34,10 +34,10 @@ export default function PouvoirAchatApercuCard() {
         </div>
         <div>
           <dt className="text-xs font-medium text-muted-foreground">
-            Salaire net nécessaire
+            Net pour vivre confortablement
           </dt>
           <dd className="mt-1 text-3xl font-bold tabular-nums text-primary lg:text-4xl">
-            {EUR0.format(r.principale.salaireNetNecessaire)}
+            {EUR0.format(r.principale.budgetVieNet)}
           </dd>
         </div>
         {r.comparaison && (
