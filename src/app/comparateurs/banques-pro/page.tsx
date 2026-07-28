@@ -14,20 +14,23 @@ import TocSidebar from "@/components/simulateurs/TocSidebar";
 import data from "@/data/banques-pro.json";
 
 export const metadata: Metadata = {
-  title: "Comparatif banques pro freelance 2026 : 5 comptes comparés",
+  title: "Comparatif banques pro freelance 2026 : 6 comptes comparés",
   description:
-    "Comparatif indépendant des comptes pro pour freelances et micro-entrepreneurs : Blank, Propulse, Qonto, Shine, Finom. Tarifs relevés en juillet 2026 sur les grilles officielles.",
+    "Comparatif indépendant des comptes pro pour freelances et micro-entrepreneurs : Blank, Propulse, Qonto, Shine, Finom, Revolut. Tarifs relevés en juillet 2026 sur les grilles officielles.",
   alternates: { canonical: "/comparateurs/banques-pro" },
   openGraph: {
-    title: "Comparatif banques pro freelance 2026 : 5 comptes comparés",
+    title: "Comparatif banques pro freelance 2026 : 6 comptes comparés",
     description:
-      "Blank, Propulse, Qonto, Shine, Finom — offres d'entrée comparées ligne à ligne, tarifs officiels de juillet 2026.",
+      "Blank, Propulse, Qonto, Shine, Finom, Revolut — offres d'entrée comparées ligne à ligne, tarifs officiels de juillet 2026.",
     url: "/comparateurs/banques-pro",
   },
 };
 
+// Les acteurs dont la grille n'a pas pu être vérifiée sont relégués en fin de
+// tableau : les classer par un prix supposé serait leur donner un rang qu'on
+// ne peut pas justifier.
 const banques = [...data.banques].sort(
-  (a, b) => a.prixMensuelHT - b.prixMensuelHT,
+  (a, b) => (a.prixMensuelHT ?? 9_999) - (b.prixMensuelHT ?? 9_999),
 );
 
 const faq = [
@@ -46,6 +49,10 @@ const faq = [
   {
     q: "Que valent les garanties de dépôt sur ces comptes ?",
     r: "La distinction importante est celle entre établissement de crédit et établissement de paiement. Un établissement de crédit relève de la garantie des dépôts (FGDR, jusqu'à 100 000 € par déposant). Un établissement de paiement doit cantonner les fonds de ses clients sur des comptes séparés, ce qui protège différemment. Propulse est adossé au Crédit Agricole ; les néobanques relèvent de statuts variables. Cette information figure dans les conditions générales de chaque acteur.",
+  },
+  {
+    q: "Pourquoi Revolut Business apparaît-il sans tarif ?",
+    r: "Revolut publie bien une grille tarifaire, mais son site bloque les relevés automatisés : nos tentatives du 28 juillet 2026 ont toutes renvoyé une erreur 403. Les tarifs relayés par les sites tiers vont de 10 à 90 €/mois selon le forfait, mais ils divergent entre eux — l'un annonce le forfait intermédiaire à 25 €, un autre à 30 €. Publier l'un de ces montants reviendrait à présenter comme vérifié un chiffre que nous n'avons pas pu contrôler à la source. Nous préférons afficher l'acteur et dire pourquoi la ligne est vide. Consultez sa page officielle, liée ci-dessous, pour le tarif exact.",
   },
   {
     q: "Comment ce comparatif est-il financé ?",
@@ -74,7 +81,7 @@ export default function ComparateurBanquesProPage() {
       "@type": "WebPage",
       name: "Comparatif des banques pro pour freelances 2026",
       description:
-        "Comparatif indépendant des offres d'entrée de 5 comptes pro pour indépendants.",
+        "Comparatif indépendant des offres d'entrée de 6 comptes pro pour indépendants.",
       author: {
         "@type": "Person",
         name: "Nizar Laghrifi",
@@ -143,7 +150,7 @@ export default function ComparateurBanquesProPage() {
           Comparatif des banques pro pour freelances
         </h1>
         <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
-          Cinq comptes, leurs offres d&apos;entrée, sans classement acheté
+          Six comptes, leurs offres d&apos;entrée, sans classement acheté
         </p>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-foreground/80">
           Nous comparons ici l&apos;<strong>offre d&apos;entrée</strong> de chaque
@@ -191,7 +198,11 @@ export default function ComparateurBanquesProPage() {
                         </td>
                         <td className="px-5 py-4 text-muted-foreground">{b.offreEntree}</td>
                         <td className="whitespace-nowrap px-5 py-4 text-right text-lg font-bold tabular-nums">
-                          {b.prixMensuelHT === 0 ? (
+                          {b.prixMensuelHT === null ? (
+                            <span className="text-sm font-normal italic text-muted-foreground">
+                              Non vérifié
+                            </span>
+                          ) : b.prixMensuelHT === 0 ? (
                             <span className="text-accent">Gratuit</span>
                           ) : (
                             EUR.format(b.prixMensuelHT)

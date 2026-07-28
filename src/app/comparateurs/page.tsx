@@ -25,15 +25,15 @@ const comparateurs = [
     dispo: true,
     acteurs: "ITG, Cadres en Mission, OpenWork, ABC Portage, CEGELEM, et 5 autres",
     critereCount: 8,
-    lastUpdate: "avril 2026",
+    lastUpdate: "juillet 2026",
   },
   {
     titre: "Banques pro freelance",
     desc:
-      "Comparatif des comptes pro pour micro-entrepreneurs et freelances : Blank, Propulse by CA, Qonto, Shine, Finom. Offres d'entrée comparées ligne à ligne — prix mensuel HT, virements inclus, carte physique, IBAN français — avec les tarifs relevés sur les grilles officielles.",
+      "Comparatif des comptes pro pour micro-entrepreneurs et freelances : Blank, Propulse by CA, Qonto, Shine, Finom et Revolut. Offres d'entrée comparées ligne à ligne — prix mensuel HT, virements inclus, carte physique, IBAN français — avec les tarifs relevés sur les grilles officielles.",
     href: "/comparateurs/banques-pro",
     dispo: true,
-    acteurs: "Blank, Propulse by CA, Qonto, Shine, Finom",
+    acteurs: "Blank, Propulse by CA, Qonto, Shine, Finom, Revolut",
     critereCount: 5,
     lastUpdate: "juillet 2026",
   },
