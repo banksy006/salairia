@@ -103,6 +103,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/comparateurs/creation-societe`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/simulateurs/portage-salarial`,
       lastModified: now,
       changeFrequency: "monthly",

@@ -50,10 +50,12 @@ const comparateurs = [
   {
     titre: "Création SASU / EURL",
     desc:
-      "Comparatif des plateformes de création de société : Legalstart, Captain Contrat, Indy, Dougs, Qonto Créateur. Prix du pack, périmètre des services inclus (statuts, dépôt de capital, annonce légale, Kbis), support, offres bundle avec compta ou banque.",
-    dispo: false,
-    acteurs: "Legalstart, Captain Contrat, Indy, Dougs, Qonto",
-    critereCount: 9,
+      "Comparatif des plateformes de création de société : Legalstart, Captain Contrat, Qonto Créateur, Indy, Dougs. Honoraires réels et coût total réel — les 246,86 € de greffe et d'annonce légale sont dus quel que soit le prestataire, ce que le « à partir de 0 € » affiché partout ne dit pas.",
+    href: "/comparateurs/creation-societe",
+    dispo: true,
+    acteurs: "Legalstart, Captain Contrat, Qonto, Indy, Dougs",
+    critereCount: 5,
+    lastUpdate: "juillet 2026",
   },
 ] as const;
 

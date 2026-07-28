@@ -1,0 +1,63 @@
+{
+  "_source": "Tarifs relevés le 28 juillet 2026 sur les pages publiques de chaque plateforme, pour une création de SASU ou EURL. Le prix affiché correspond aux HONORAIRES DE LA PLATEFORME uniquement. Les frais de greffe et d'annonce légale, obligatoires quel que soit le prestataire, s'ajoutent systématiquement. Vérifier la grille officielle avant de souscrire.",
+  "dateReleve": "2026-07-28",
+  "fraisIncompressibles": 246.86,
+  "sourceFraisIncompressibles": "Qonto — FAQ Pack création : « Les frais de greffe et d'annonce légale de 246,86 € restent à votre charge. Ces frais sont des coûts administratifs inhérents à toute création d'entreprise. »",
+  "plateformes": [
+    {
+      "slug": "legalstart",
+      "nom": "Legalstart",
+      "offreEntree": "Starter",
+      "honorairesHT": 0,
+      "modele": "Formules à la carte",
+      "conditionGratuite": null,
+      "inclus": "Dossier préparé en autonomie, statuts, immatriculation au Guichet Unique, obtention du Kbis",
+      "autresPaliers": "Standard 99 € HT, Premium 199 € HT (traitement en 24 h, garantie anti-rejet, juriste-formaliste). Assistance : 30 jours offerts puis 29,90 €/mois sans engagement",
+      "urlTarifs": "https://www.legalstart.fr/creation-entreprise/"
+    },
+    {
+      "slug": "captain-contrat",
+      "nom": "Captain Contrat",
+      "offreEntree": "Création en solo",
+      "honorairesHT": 0,
+      "modele": "Formules à la carte",
+      "conditionGratuite": null,
+      "inclus": "Dossier préparé depuis votre espace, démarches gérées seul, frais administratifs à prix coûtant",
+      "autresPaliers": "Standard 99 € HT (délégation complète des démarches), formule express 269 € HT avec accompagnement administratif pendant 1 an",
+      "urlTarifs": "https://www.captaincontrat.com/creer-entreprise/creation-sasu-en-ligne"
+    },
+    {
+      "slug": "qonto",
+      "nom": "Qonto Créateur",
+      "offreEntree": "Pack création",
+      "honorairesHT": 0,
+      "modele": "Offerte avec un forfait bancaire",
+      "conditionGratuite": "Abonnement à un forfait Qonto : Basic 9 € HT, Smart 19 € HT ou Essential 49 € HT par mois",
+      "inclus": "Toutes les formalités offertes (statuts, annonce légale, immatriculation), un mois d'abonnement, dépôt de capital à 69 €",
+      "autresPaliers": "Dépôt de capital 69 € (hors micro-entreprise)",
+      "urlTarifs": "https://qonto.com/fr/pricing/creation"
+    },
+    {
+      "slug": "indy",
+      "nom": "Indy",
+      "offreEntree": "Création offerte",
+      "honorairesHT": 0,
+      "modele": "Offerte avec un abonnement compta",
+      "conditionGratuite": "Abonnement Indy Premium, à partir de 22 € HT par mois",
+      "inclus": "Démarches, rédaction des statuts, validation du dossier, immatriculation, garantie anti-rejet, compte pro gratuit",
+      "autresPaliers": "Dépôt de capital 59 € sans abonnement, certificat sous 72 h",
+      "urlTarifs": "https://www.indy.fr/creation-entreprise/"
+    },
+    {
+      "slug": "dougs",
+      "nom": "Dougs",
+      "offreEntree": "Pack création",
+      "honorairesHT": 150,
+      "modele": "Offerte avec la comptabilité",
+      "conditionGratuite": "Souscription à l'offre comptabilité Dougs, à partir de 79 € HT par mois — les 150 € d'honoraires sont alors offerts",
+      "inclus": "Juriste dédié, création en 48 h, accompagnement pendant et après la création, expert-comptable inscrit à l'Ordre",
+      "autresPaliers": "150 € en création seule, avancés en deux étapes (80 € au rendez-vous juridique puis 70 €)",
+      "urlTarifs": "https://www.dougs.fr/creation-entreprise"
+    }
+  ]
+}
