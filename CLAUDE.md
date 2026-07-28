@@ -66,20 +66,11 @@ Le **`Header` et le `Footer` sont rendus une seule fois** dans `src/app/layout.t
 
 ## Pages disponibles
 
-- **Home (`/`)** — V1 du 2026-04-15. Hub principal : hero (H1 + carte données de référence 2026) + segmentation 4 personas + grille 9 simulateurs (1 dispo, 8 « Bientôt ») + 3 engagements EEAT + 12 recherches populaires pour maillage interne + bandeau sources. JSON-LD `Organization` + `WebSite` avec `SearchAction` + `BreadcrumbList`. Pattern visuel cohérent avec `/simulateurs/portage-salarial` (cards `rounded-2xl shadow-md`, palette CLAUDE.md, hero grid 12 cols). À re-scrapper quand de nouveaux simulateurs sont publiés (maj du tableau `simulateurs` dans `page.tsx` + cartes `Footer.tsx`).
-- **À propos (`/a-propos`)** — V1 du 2026-04-15. Bio fondateur Nizar Laghrifi (Rennes School of Business + échange Erasmus Sheffield Hallam), mission, 4 engagements, section « Pourquoi Salairia », contact `mailto:contact@salairia.com`. Page EEAT critique (YMYL). JSON-LD `Person` (avec `alumniOf` + `sameAs` LinkedIn) + `Organization` + `BreadcrumbList`. Placeholder avatar = cercle gradient primary→accent avec « N ». À remplacer par `/public/nizar.jpg` quand une vraie photo est fournie.
-- **Méthodologie (`/methodologie`)** — V1 du 2026-04-15. Sources (6 cards : URSSAF, BOSS, Legifrance, INSEE, DARES, grilles tarifaires), processus de calcul en 4 étapes, fréquence MAJ (immédiate/trimestrielle/annuelle), encadré limites en amber, section signalement d'erreurs. JSON-LD `TechArticle` + `BreadcrumbList`. Page EEAT critique, complément obligatoire de `/a-propos`.
-- **Hub simulateurs (`/simulateurs`)** — V2 du 2026-04-16. Page hub stratégique avec hero 12 cols (quiz d'orientation à droite, sticky desktop), grille 9 simulateurs (2 disponibles + 7 bientôt) avec mots-clés longue traîne par card pour le SEO, section « Hésitez entre plusieurs statuts » mettant en avant le simulateur TJM (grid 2 cols avec exemple illustratif de résultat), FAQ guide 6 questions, 3 différenciateurs (comparatifs indépendants / sources officielles / no-cookie). JSON-LD `BreadcrumbList` + `ItemList` (9 simulateurs) + `FAQPage`. Maillage interne renforcé — toute nouvelle page simulateur doit aussi être ajoutée ici.
-- **Portage salarial (`/simulateurs/portage-salarial`)** — premier simulateur, voir plus bas.
-- **SASU vs EURL (`/simulateurs/sasu-eurl`)** — V1 du 2026-04-16. 5e simulateur. Comparatif côte à côte : charges sociales, IS, dividendes (flat tax + seuil TNS EURL), 3 scénarios de répartition. Le plus complexe. Voir détails plus bas.
-- **Salaire Brut/Net (`/simulateurs/salaire-brut-net`)** — V1 du 2026-04-16. 4e simulateur. Bidirectionnel (Brut→Net et Net→Brut via bisection). Cadre/non-cadre. Mensuel/annuel. Détail cotisations par groupe (sécu, retraite AGIRC-ARRCO, CSG/CRDS). Coût employeur. PAS personnalisé. KW principal : ~90k recherches/mois. Voir détails plus bas.
-- **Auto-entrepreneur (`/simulateurs/auto-entrepreneur`)** — V1 du 2026-04-16. 3e simulateur. 4 catégories BIC/BNC, ACRE 25 %, versement libératoire, alertes plafonds CA + franchise TVA. Voir détails plus bas.
-- **Sitemap (`/sitemap.xml`)** — généré dynamiquement via `src/app/sitemap.ts`. 9 URLs actuellement (home, hub simulateurs, 2 simulateurs disponibles, À propos, Méthodologie, 3 légales). À mettre à jour manuellement à chaque ajout de page.
-- **Robots (`/robots.txt`)** — généré dynamiquement via `src/app/robots.ts`. Allow `*` sauf `/api/`, `/_next/`, `/admin/`. Bloque `MJ12bot` (spam). `crawlDelay: 10` pour AhrefsBot et SemrushBot. GPTBot et Google-Extended autorisés (choix assumé pour être cité dans AI Overviews). Pointe vers `/sitemap.xml`.
-- **TJM Freelance (`/simulateurs/tjm-freelance`)** — V1 du 2026-04-16. Deuxième simulateur. Comparaison des 4 statuts freelance (auto-entrepreneur, portage, SASU, EURL) avec mode bidirectionnel (net cible ↔ TJM cible). Section « Choisir votre solution » avec liens partenaires placeholders (Qonto, Indy, Legalstart, comparatif portage). Voir détails plus bas.
-- **Mentions légales (`/mentions-legales`)** — V1 du 2026-04-15. Éditeur Nizar Laghrifi (entreprise individuelle en cours d'immatriculation, Paris), hébergeur Vercel Inc. avec mention SCC, propriété intellectuelle, limites de responsabilité (YMYL), liens externes, droit français. JSON-LD `BreadcrumbList`.
-- **Politique de confidentialité (`/politique-confidentialite`)** — V1 du 2026-04-15. Encadré « L'essentiel en 3 points » (no-cookie, no-collect, calculs locaux), responsable du traitement, données analytics via Plausible (Allemagne), transparence affiliation, droits RGPD (accès, rectification, effacement, opposition, portabilité), saisine CNIL, sécurité. Contact : `contact@salairia.com`.
-- **Politique cookies (`/politique-cookies`)** — V1 du 2026-04-15. Card héros « Aucun cookie de traçage sur Salairia », explication du choix Plausible sans cookie, cookies tiers affiliation, procédure de vérification F12.
+**L'inventaire des routes vit désormais dans `docs/STATUS.md`** — il y est tenu à jour avec l'état d'indexation, la fraîcheur de chaque jeu de données et le backlog. Ne pas dupliquer la liste ici, elle se périme immédiatement.
+
+Au 28 juillet 2026 : 28 routes, 9 simulateurs, 5 guides, 2 comparateurs, 1 rubrique actualités, 6 pages institutionnelles et légales.
+
+Toute nouvelle route doit être ajoutée à **quatre endroits** : `src/app/sitemap.ts`, le `Footer`, le hub de sa section, et `docs/STATUS.md`.
 
 ### Note stratégique — no-cookie + Plausible
 
@@ -273,7 +264,6 @@ Alertes UI : CA > plafond → rouge ; CA > seuil TVA → orange ; CA > toléranc
 
 Section « 🚀 Quand passer en SASU ? » avec CTA vers `/simulateurs/tjm-freelance` pour comparaison croisée des statuts.
 
-3/9 simulateurs disponibles. Cluster AE couvert. Pattern V3 répliqué avec succès.
 
 ### Salaire Brut/Net — `/simulateurs/salaire-brut-net`
 
@@ -295,7 +285,6 @@ Constantes 2026 (`SALAIRE_2026`, codées en dur, sources URSSAF/LégiSocial) :
 
 Section « Cadre vs Non-cadre » avec tableau comparatif 5 lignes.
 
-4/9 simulateurs disponibles. Pattern V4. KW principal Brut/Net : ~90k recherches/mois.
 
 ### SASU vs EURL — `/simulateurs/sasu-eurl`
 
@@ -316,8 +305,7 @@ Constantes 2026 (`SASU_EURL_2026`) :
 
 Alertes : CA insuffisant → rouge, rémunération = 0 → orange (pas de sécu), dividendes EURL > seuil capital → orange, statut gagnant → info bleue.
 
-5/9 simulateurs disponibles. Le plus complexe est fait. Les 4 restants sont des outils plus simples (Net après impôt, Négociation, Pouvoir d'achat, Percentile).
 
 ## Prochaines étapes
 
-À définir dans les sessions suivantes. Typiquement : simulateur salaire brut/net salarié, simulateur auto-entrepreneur, guides, sitemap, robots, analytics. Chaque session indiquera précisément son périmètre.
+Voir `docs/STATUS.md`, section « Backlog ». Le blocage du projet n'est pas technique : le site manque de backlinks, pas de fonctionnalités.
