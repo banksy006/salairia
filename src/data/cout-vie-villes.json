@@ -1,5 +1,5 @@
 {
-  "source": "Loyers T2 : MeilleursAgents, loyer mensuel moyen appartement au m2, releve au 1er juillet 2026, applique a une surface de reference de 45 m2 pour un T2 (loyerT2 = prix_m2 x 45, arrondi a l'euro). Transports : tarifs officiels des reseaux, releves en avril 2026 - a revalider, les tarifs sont zones et varient selon le reseau. Alimentation et charges : estimations INSEE ajustees par ville. Estimations indicatives.",
+  "source": "Loyers T2 : MeilleursAgents, loyer mensuel moyen appartement au m2, releve au 1er juillet 2026, applique a une surface de reference de 45 m2 pour un T2 (loyerT2 = prix_m2 x 45, arrondi a l'euro). Transports : abonnement mensuel tout public, zone couvrant la ville-centre. La date de releve figure par ville dans le champ transportMaj : Paris (janvier 2026) et Lyon (juillet 2026) sont verifies, les 18 autres datent d'avril 2026 et restent a revalider reseau par reseau. Alimentation et charges : estimations INSEE ajustees par ville. Estimations indicatives.",
   "villes": [
     {
       "id": "paris",
@@ -8,16 +8,18 @@
       "loyerT2": 1498,
       "transport": 90.8,
       "alimentation": 420,
-      "charges": 280
+      "charges": 280,
+      "transportMaj": "2026-01"
     },
     {
       "id": "lyon",
       "nom": "Lyon",
       "region": "Auvergne-Rhône-Alpes",
       "loyerT2": 788,
-      "transport": 69,
+      "transport": 74.1,
       "alimentation": 380,
-      "charges": 240
+      "charges": 240,
+      "transportMaj": "2026-07-28"
     },
     {
       "id": "marseille",
@@ -26,7 +28,8 @@
       "loyerT2": 752,
       "transport": 52,
       "alimentation": 370,
-      "charges": 230
+      "charges": 230,
+      "transportMaj": "2026-04"
     },
     {
       "id": "toulouse",
@@ -35,7 +38,8 @@
       "loyerT2": 684,
       "transport": 52,
       "alimentation": 360,
-      "charges": 230
+      "charges": 230,
+      "transportMaj": "2026-04"
     },
     {
       "id": "bordeaux",
@@ -44,7 +48,8 @@
       "loyerT2": 770,
       "transport": 52,
       "alimentation": 370,
-      "charges": 240
+      "charges": 240,
+      "transportMaj": "2026-04"
     },
     {
       "id": "nantes",
@@ -53,7 +58,8 @@
       "loyerT2": 662,
       "transport": 68,
       "alimentation": 360,
-      "charges": 230
+      "charges": 230,
+      "transportMaj": "2026-04"
     },
     {
       "id": "lille",
@@ -62,7 +68,8 @@
       "loyerT2": 742,
       "transport": 65,
       "alimentation": 350,
-      "charges": 220
+      "charges": 220,
+      "transportMaj": "2026-04"
     },
     {
       "id": "strasbourg",
@@ -71,7 +78,8 @@
       "loyerT2": 698,
       "transport": 52,
       "alimentation": 360,
-      "charges": 220
+      "charges": 220,
+      "transportMaj": "2026-04"
     },
     {
       "id": "rennes",
@@ -80,7 +88,8 @@
       "loyerT2": 670,
       "transport": 55,
       "alimentation": 350,
-      "charges": 230
+      "charges": 230,
+      "transportMaj": "2026-04"
     },
     {
       "id": "montpellier",
@@ -89,7 +98,8 @@
       "loyerT2": 720,
       "transport": 52,
       "alimentation": 360,
-      "charges": 230
+      "charges": 230,
+      "transportMaj": "2026-04"
     },
     {
       "id": "nice",
@@ -98,7 +108,8 @@
       "loyerT2": 927,
       "transport": 49,
       "alimentation": 390,
-      "charges": 250
+      "charges": 250,
+      "transportMaj": "2026-04"
     },
     {
       "id": "grenoble",
@@ -107,7 +118,8 @@
       "loyerT2": 662,
       "transport": 55,
       "alimentation": 350,
-      "charges": 220
+      "charges": 220,
+      "transportMaj": "2026-04"
     },
     {
       "id": "rouen",
@@ -116,7 +128,8 @@
       "loyerT2": 634,
       "transport": 52,
       "alimentation": 340,
-      "charges": 210
+      "charges": 210,
+      "transportMaj": "2026-04"
     },
     {
       "id": "toulon",
@@ -125,7 +138,8 @@
       "loyerT2": 680,
       "transport": 38,
       "alimentation": 360,
-      "charges": 220
+      "charges": 220,
+      "transportMaj": "2026-04"
     },
     {
       "id": "angers",
@@ -134,7 +148,8 @@
       "loyerT2": 630,
       "transport": 42,
       "alimentation": 340,
-      "charges": 210
+      "charges": 210,
+      "transportMaj": "2026-04"
     },
     {
       "id": "dijon",
@@ -143,7 +158,8 @@
       "loyerT2": 621,
       "transport": 47,
       "alimentation": 340,
-      "charges": 210
+      "charges": 210,
+      "transportMaj": "2026-04"
     },
     {
       "id": "brest",
@@ -152,7 +168,8 @@
       "loyerT2": 576,
       "transport": 42,
       "alimentation": 330,
-      "charges": 200
+      "charges": 200,
+      "transportMaj": "2026-04"
     },
     {
       "id": "clermont-ferrand",
@@ -161,7 +178,8 @@
       "loyerT2": 572,
       "transport": 47,
       "alimentation": 340,
-      "charges": 210
+      "charges": 210,
+      "transportMaj": "2026-04"
     },
     {
       "id": "le-mans",
@@ -170,7 +188,8 @@
       "loyerT2": 572,
       "transport": 38,
       "alimentation": 330,
-      "charges": 200
+      "charges": 200,
+      "transportMaj": "2026-04"
     },
     {
       "id": "aix-en-provence",
@@ -179,7 +198,8 @@
       "loyerT2": 828,
       "transport": 49,
       "alimentation": 380,
-      "charges": 250
+      "charges": 250,
+      "transportMaj": "2026-04"
     }
   ],
   "surfaceT2Reference": 45
