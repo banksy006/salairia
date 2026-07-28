@@ -33,11 +33,14 @@ export const metadata: Metadata = {
   },
 };
 
+// SMIC net : issu de computeFromBrut() sur le SMIC brut au 1er juin 2026
+// (1 867,02 €, arrêté du 22 mai 2026) → 1 477,93 € net avant impôt.
+// Charges patronales portage : PORTAGE_2026.CHARGES_PATRONALES_TAUX.
 const dataPoints = [
-  { value: "1 443 €", label: "SMIC net mensuel 2026" },
+  { value: "1 478 €", label: "SMIC net mensuel (juin 2026)" },
   { value: "2 670 €", label: "Salaire net moyen FR (INSEE)" },
   { value: "4 005 €", label: "Plafond Sécu mensuel (PASS)" },
-  { value: "+45%", label: "Charges patronales moyennes portage" },
+  { value: "+43%", label: "Charges patronales moyennes portage" },
 ];
 
 const personas = [
