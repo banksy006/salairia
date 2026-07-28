@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 28 |
-| URLs au sitemap | 28 |
+| Routes publiées | 32 |
+| URLs au sitemap | 32 |
 | Calculateurs | 9 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -35,11 +35,18 @@
 ### Guides — 5
 `/guides` (hub) · portage-salarial · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net
 
-### Comparateurs — 2
-`/comparateurs` (hub) · portage-salarial (10 sociétés) · banques-pro (5 comptes, juillet 2026)
+### Comparateurs — 4 (tous disponibles)
+`/comparateurs` (hub)
+- **portage-salarial** — 10 sociétés, frais relevés avril 2026 ⚠️
+- **banques-pro** — 5 comptes, offres d'entrée, juillet 2026
+- **comptabilite** — 5 solutions, séparées en outils autonomes / cabinets, juillet 2026
+- **creation-societe** — 5 plateformes, honoraires + frais obligatoires de 246,86 €, juillet 2026
 
-### Actualités — 1
-`/actualites` (hub) · smic-juin-2026-et-bareme-pas-mai-2026
+### Actualités — 3
+`/actualites` (hub)
+- smic-juin-2026-et-bareme-pas-mai-2026
+- cotisations-auto-entrepreneur-hausse-2026
+- acre-2026-exoneration-reduite-delai-60-jours
 
 ### Institutionnel et légal
 `/a-propos` · `/methodologie` · `/contact` · `/mentions-legales` · `/politique-confidentialite` · `/politique-cookies`
@@ -51,6 +58,8 @@
 | Constantes fiscales (URSSAF, IS, PASS, PAS, SMIC) | 27 juillet 2026 | ✅ à jour |
 | Loyers T2 des 20 villes (MeilleursAgents) | 1er juillet 2026 | ✅ à jour |
 | Tarifs banques pro | 28 juillet 2026 | ✅ à jour |
+| Tarifs comptabilité | 28 juillet 2026 | ✅ à jour |
+| Tarifs création de société | 28 juillet 2026 | ✅ à jour |
 | Tarif Navigo | janvier 2026 | ✅ à jour |
 | **Transports des 19 autres villes** | avril 2026 | ⚠️ à revalider |
 | **Frais du comparateur portage** | avril 2026 | ⚠️ à revalider |
@@ -69,12 +78,15 @@ Logo SVG : trois barres ascendantes, la plus haute en émeraude (`public/logo-ma
 
 ## Backlog, par priorité
 
-1. **Graphiques** à étendre aux 4 autres guides
+1. **Frais du comparateur portage** — 10 sociétés, données d'avril, le plus ancien jeu restant
 2. **Transports des 19 villes** — tarifs zonés, arbitrage éditorial requis par réseau
-3. **Frais du comparateur portage** à re-relever
-4. **`salairia.fr`** — rediriger en 301 vers le `.com` ou abandonner le domaine
-5. **Comparateurs restants** — comptabilité, création SASU ; ajouter Revolut Business aux banques pro
-6. **Données négociation et percentile** à re-sourcer
+3. **Revolut Business** à ajouter au comparateur banques pro
+4. **Données négociation (APEC 2024-25) et percentile (INSEE DADS 2023)** à re-sourcer
+5. **`salairia.fr`** — hors repo : à rediriger en 301 ou abandonner depuis le dashboard Vercel
+
+Audit des chiffres éditoriaux : **terminé sur les 5 guides** (28 juillet 2026). Quatre
+guides sur cinq publiaient des montants contredisant leurs propres calculateurs ; tout est
+désormais dérivé des calculateurs et se met à jour au build.
 
 ## Ce qui bloque réellement
 
