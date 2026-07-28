@@ -27,12 +27,8 @@ export const metadata: Metadata = {
     description:
       "Simulateurs gratuits, guides clairs et comparatifs neutres pour salariés, freelances, dirigeants et auto-entrepreneurs.",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    apple: "/apple-touch-icon.png",
-  },
+  // Pas de déclaration `icons` ici : elle écrasait la convention de fichiers
+  // App Router (icon.svg / apple-icon.tsx) et faisait servir l'ancien logo.
   verification: {
     google: "6lFbiKsed5RFyXQnOwjLibnAXYtIkTQl5WzukTYDntY",
   },
