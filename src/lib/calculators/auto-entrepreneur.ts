@@ -29,7 +29,15 @@ export const AE_2026 = {
   VL_BIC_SERVICES: 0.017,
   VL_BNC: 0.022,
 
+  // ACRE micro-social : taux de cotisation ramené à 75 % du taux de droit
+  // commun, soit 25 % d'exonération. Contrairement au régime réel, le micro
+  // n'est PAS soumis à la dégressivité selon le revenu (seuils 75 % / 100 % du
+  // PASS de l'article D131-6-1 CSS) : le taux réduit est forfaitaire.
+  // Source : urssaf.fr et autoentrepreneur.urssaf.fr, vérifié le 28 juillet 2026.
   ACRE_EXONERATION: 0.25,
+  // Durée réelle : jusqu'à la fin du 3e trimestre civil suivant l'immatriculation,
+  // soit 9 à 12 mois selon la date de début. Cette constante n'entre dans aucun
+  // calcul, elle ne sert que de repère documentaire.
   ACRE_DUREE_MOIS: 12,
 
   FRANCHISE_TVA_SERVICES: 37_500,
@@ -200,7 +208,7 @@ function getAlertes(
   if (inputs.acre) {
     warnings.push({
       severity: "info",
-      message: `Avec l'ACRE, vos taux URSSAF sont réduits de 25 % pendant 12 mois (au lieu de 50 % avant 2026). Seule la 1re année est concernée.`,
+      message: `Avec l'ACRE, vos taux URSSAF sont réduits de 25 % (au lieu de 50 % avant 2026). L'exonération court jusqu'à la fin du 3e trimestre civil suivant votre immatriculation — soit 9 à 12 mois selon votre date de début. Depuis le 1er janvier 2026, la demande doit être faite à l'Urssaf dans les 60 jours suivant le début d'activité.`,
     });
   }
 

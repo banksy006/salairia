@@ -43,7 +43,7 @@ const faq = [
   },
   {
     q: "L'ACRE a-t-elle encore un intérêt en 2026 ?",
-    r: "Oui, mais moins qu'avant. Depuis le 1er janvier 2026, l'ACRE ne réduit plus les taux URSSAF de 50 % mais de 25 % seulement, pendant 12 mois. Pour un auto-entrepreneur BNC à 40 000 € de CA, l'économie est d'environ 2 560 € sur la première année (au lieu de 5 120 € avec l'ancien taux). L'ACRE reste intéressante, surtout pour le démarrage d'activité, mais l'économie est divisée par deux.",
+    r: "Oui, mais moins qu'avant. Depuis le 1er janvier 2026, l'ACRE ne réduit plus les taux URSSAF de 50 % mais de 25 % seulement. L'exonération court jusqu'à la fin du 3e trimestre civil suivant l'immatriculation, soit 9 à 12 mois selon votre date de début — et non 12 mois pleins comme on le lit souvent. Pour un auto-entrepreneur BNC à 40 000 € de CA, l'économie est d'environ 2 560 € sur cette période (au lieu de 5 120 € avec l'ancien taux). Point de vigilance : depuis 2026, la demande doit être déposée auprès de l'Urssaf dans les 60 jours suivant le début d'activité, sous peine de perdre le bénéfice de l'aide. Bon à savoir enfin : contrairement aux entrepreneurs au régime réel, le micro-entrepreneur n'est pas soumis à la dégressivité de l'exonération selon le revenu — le taux réduit reste forfaitaire quel que soit le chiffre d'affaires.",
   },
   {
     q: "Le versement libératoire est-il avantageux pour moi ?",
