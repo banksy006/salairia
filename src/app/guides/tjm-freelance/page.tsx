@@ -19,6 +19,62 @@ import {
   InfoIcon,
 } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
+import BarChart, { type BarDatum } from "@/components/charts/BarChart";
+import {
+  calculerTous,
+  STATUT_LABELS,
+  TJM_2026,
+} from "@/lib/calculators/tjm-freelance";
+
+// Tous les chiffres de la section « TJM par statut » sortent de calculerTous().
+// Aucun montant n'est saisi à la main : GUARDRAILS interdit les approximations
+// dans le contenu éditorial.
+const TJM_REFERENCE = 350;
+const JOURS_REFERENCE = 18;
+const FRAIS_PRO_REFERENCE = 200;
+const CA_REFERENCE = TJM_REFERENCE * JOURS_REFERENCE * 12;
+
+const paramsReference = {
+  joursTravailles: JOURS_REFERENCE,
+  fraisProMensuels: FRAIS_PRO_REFERENCE,
+  tauxPAS: 0,
+};
+
+const resultatsReference = calculerTous({
+  tjm: TJM_REFERENCE,
+  ...paramsReference,
+});
+
+const meilleurNet = Math.max(...resultatsReference.map((r) => r.netMensuel));
+
+const netParStatut: BarDatum[] = resultatsReference
+  .map((r) => ({
+    label: STATUT_LABELS[r.statut],
+    value: Math.round(r.netMensuel),
+    highlight: r.netMensuel === meilleurNet,
+  }))
+  .sort((a, b) => b.value - a.value);
+
+const EUR_TABLE = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
+const tableauParTJM = [300, 350, 400, 500, 600].map((tjm) => {
+  const r = calculerTous({ tjm, ...paramsReference });
+  const par = (s: string) => r.find((x) => x.statut === s)!;
+  return {
+    tjm,
+    // Au-delà du plafond micro-BNC, le statut n'est simplement plus accessible :
+    // afficher un net dans cette colonne induirait le lecteur en erreur.
+    aeIndisponible: tjm * JOURS_REFERENCE * 12 > TJM_2026.AE_PLAFOND_BNC,
+    ae: EUR_TABLE.format(par("auto-entrepreneur").netMensuel),
+    portage: EUR_TABLE.format(par("portage").netMensuel),
+    sasu: EUR_TABLE.format(par("sasu").netMensuel),
+    eurl: EUR_TABLE.format(par("eurl").netMensuel),
+  };
+});
 
 export const metadata: Metadata = {
   title: "TJM freelance 2026 : calculer son taux journalier moyen",
@@ -367,6 +423,14 @@ export default function GuideTjmFreelancePage() {
                 50-55 % en mix salaire+dividendes, une gérance EURL 55-60 %.
               </p>
 
+              <div className="mt-6">
+                <BarChart
+                  caption={`Net mensuel avant impôt selon le statut — TJM ${TJM_REFERENCE} €/j, ${JOURS_REFERENCE} jours/mois`}
+                  data={netParStatut}
+                  footnote={`Calculé avec nos taux 2026 (${FRAIS_PRO_REFERENCE} €/mois de frais professionnels), avant impôt sur le revenu. À ce TJM, le chiffre d'affaires annuel atteint ${CA_REFERENCE.toLocaleString("fr-FR")} € : tous les statuts restent accessibles.`}
+                />
+              </div>
+
               <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-background">
                 <table className="w-full text-left text-sm">
                   <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -374,22 +438,28 @@ export default function GuideTjmFreelancePage() {
                       <th className="px-5 py-3">TJM facturé</th>
                       <th className="px-5 py-3 text-right">Auto-entrepreneur</th>
                       <th className="px-5 py-3 text-right">Portage salarial</th>
-                      <th className="px-5 py-3 text-right">SASU / EURL</th>
+                      <th className="px-5 py-3 text-right">SASU</th>
+                      <th className="px-5 py-3 text-right">EURL</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {[
-                      ["400 €/j", "~2 520 €", "~1 700 €", "~2 000 €"],
-                      ["500 €/j", "~3 150 €", "~2 150 €", "~2 500 €"],
-                      ["600 €/j", "~3 780 €", "~2 600 €", "~3 000 €"],
-                      ["800 €/j", "~5 040 €", "~3 500 €", "~4 000 €"],
-                      ["1 000 €/j", "~6 300 €", "~4 400 €", "~5 000 €"],
-                    ].map(([tjm, ae, portage, societe]) => (
-                      <tr key={tjm} className="border-b border-border last:border-b-0">
-                        <td className="px-5 py-2.5 font-semibold text-foreground">{tjm}</td>
-                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">{ae}</td>
-                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">{portage}</td>
-                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">{societe}</td>
+                    {tableauParTJM.map((ligne) => (
+                      <tr key={ligne.tjm} className="border-b border-border last:border-b-0">
+                        <td className="px-5 py-2.5 font-semibold text-foreground">
+                          {ligne.tjm} €/j
+                        </td>
+                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">
+                          {ligne.aeIndisponible ? (
+                            <span className="text-xs italic text-muted-foreground">
+                              plafond dépassé
+                            </span>
+                          ) : (
+                            ligne.ae
+                          )}
+                        </td>
+                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">{ligne.portage}</td>
+                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">{ligne.sasu}</td>
+                        <td className="px-5 py-2.5 text-right tabular-nums text-foreground/80">{ligne.eurl}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -397,11 +467,22 @@ export default function GuideTjmFreelancePage() {
               </div>
 
               <p className="mt-3 text-sm text-muted-foreground">
-                Estimations nettes mensuelles pour 18 jours travaillés/mois,
-                hors impôt sur le revenu. L&apos;auto-entreprise est plafonnée
-                à 83 600 € de CA annuel en BNC libéral, soit environ 870 €/j
-                sur 12 mois avec 8 jours par mois — au-delà, elle n&apos;est
-                plus accessible.
+                Nets mensuels avant impôt sur le revenu, pour{" "}
+                {JOURS_REFERENCE} jours travaillés/mois et{" "}
+                {FRAIS_PRO_REFERENCE} €/mois de frais professionnels. Tous ces
+                montants sont calculés en direct par notre simulateur, pas
+                estimés.
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                L&apos;auto-entreprise est plafonnée à{" "}
+                {TJM_2026.AE_PLAFOND_BNC.toLocaleString("fr-FR")} € de CA annuel
+                en BNC libéral. À {JOURS_REFERENCE} jours facturés par mois, ce
+                plafond est atteint dès{" "}
+                {Math.floor(
+                  TJM_2026.AE_PLAFOND_BNC / (JOURS_REFERENCE * 12),
+                )}{" "}
+                €/j — c&apos;est pourquoi la colonne devient inaccessible
+                au-delà, alors que les autres statuts continuent.
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
