@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
+import Temoignages from "@/components/Temoignages";
 import {
   IconBadge,
   CalendarIcon,
@@ -440,6 +441,11 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      {/* Témoignages — ne rend rien tant qu'aucun retour réel n'est collecté */}
+      <div className="mx-auto w-full max-w-6xl px-6">
+        <Temoignages />
+      </div>
 
       {/* Recherches populaires */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">

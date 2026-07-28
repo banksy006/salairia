@@ -1,0 +1,4 @@
+{
+  "_lisezmoi": "Témoignages réels uniquement. Un témoignage n'entre ici QUE si : (1) la personne a réellement utilisé le simulateur cité, (2) elle a écrit ou validé le texte elle-même, (3) elle a donné son accord explicite pour la publication sous la forme affichée. Voir docs/temoignages.md pour le protocole de collecte. Le composant n'affiche rien tant que le tableau est vide — ne jamais le remplir avec des exemples fictifs, même temporairement.",
+  "temoignages": []
+}
