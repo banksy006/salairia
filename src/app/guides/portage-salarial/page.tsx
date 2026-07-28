@@ -16,6 +16,47 @@ import {
   InfoIcon,
 } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
+import {
+  PORTAGE_2026,
+  calculerPortage,
+  salaireMinimumMensuel,
+} from "@/lib/calculators/portage";
+
+// Cascade CA -> net calculée par le simulateur, jamais saisie à la main.
+// Paramètres du cas type documentés ici pour être reproductibles.
+const TJM_TYPE = 500;
+const JOURS_TYPE = 18;
+const FRAIS_GESTION_TYPE = 8; // %, valeur par défaut du simulateur
+
+const EUR_PORTAGE = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
+const resultatPortage = calculerPortage({
+  tjm: TJM_TYPE,
+  joursTravailles: JOURS_TYPE,
+  tauxFraisGestion: FRAIS_GESTION_TYPE,
+  fraisProRefacturables: 0,
+  fraisProNonRefacturables: 0,
+  statut: "senior",
+  tauxPAS: 0,
+});
+
+const pct = (v: number) =>
+  Math.round((v / resultatPortage.caHT) * 100);
+
+const cascadePortage = [
+  { label: "CA HT mensuel", value: EUR_PORTAGE.format(resultatPortage.caHT), pct: 100, color: "bg-primary" },
+  { label: `− Frais de gestion (${FRAIS_GESTION_TYPE} %)`, value: `−${EUR_PORTAGE.format(resultatPortage.fraisGestion)}`, pct: pct(resultatPortage.baseCotisations), color: "bg-primary/80" },
+  { label: `− Charges patronales (${Math.round(PORTAGE_2026.CHARGES_PATRONALES_TAUX * 100)} %)`, value: `−${EUR_PORTAGE.format(resultatPortage.chargesPatronales)}`, pct: pct(resultatPortage.salaireBrut), color: "bg-primary/60" },
+  { label: "= Salaire brut", value: EUR_PORTAGE.format(resultatPortage.salaireBrut), pct: pct(resultatPortage.salaireBrut), color: "bg-accent" },
+  { label: `− Charges salariales (${Math.round(PORTAGE_2026.CHARGES_SALARIALES_TAUX * 100)} %)`, value: `−${EUR_PORTAGE.format(resultatPortage.chargesSalariales)}`, pct: pct(resultatPortage.salaireNetAvantImpot), color: "bg-accent/70" },
+  { label: "= Salaire net avant impôt", value: EUR_PORTAGE.format(resultatPortage.salaireNetAvantImpot), pct: pct(resultatPortage.salaireNetAvantImpot), color: "bg-accent" },
+];
+
+const tauxRestitution = pct(resultatPortage.salaireNetAvantImpot);
 
 export const metadata: Metadata = {
   title: "Portage salarial : le guide complet 2026",
@@ -461,35 +502,37 @@ export default function GuidePortageSalarialPage() {
                 Salaire et rémunération en portage salarial
               </h2>
               <p className="mt-4 text-base leading-relaxed text-foreground/80">
-                Voici la cascade de déductions pour un TJM de 500 €, 18 jours travaillés par mois :
+                Voici la cascade de déductions pour un TJM de {TJM_TYPE} €, {JOURS_TYPE} jours travaillés par mois :
               </p>
 
-              {/* Waterfall chart */}
               <div className="mt-6 space-y-2">
-                {[
-                  { label: "CA HT mensuel", value: "9 000 €", pct: 100, color: "bg-primary" },
-                  { label: "− Frais de gestion (7 %)", value: "−630 €", pct: 93, color: "bg-primary/80" },
-                  { label: "− Charges patronales (~43 %)", value: "−3 599 €", pct: 53, color: "bg-primary/60" },
-                  { label: "= Salaire brut", value: "4 771 €", pct: 53, color: "bg-accent" },
-                  { label: "− Charges salariales (~22 %)", value: "−1 050 €", pct: 41, color: "bg-accent/70" },
-                  { label: "= Salaire net avant impôt", value: "~3 721 €", pct: 41, color: "bg-accent" },
-                ].map((row) => (
+                {cascadePortage.map((row) => (
                   <div key={row.label} className="flex items-center gap-3">
                     <span className="w-56 shrink-0 text-right text-sm text-foreground/80">{row.label}</span>
                     <div className="flex-1">
                       <div className={`h-7 rounded ${row.color}`} style={{ width: `${row.pct}%` }} />
                     </div>
-                    <span className="w-20 text-right text-sm font-semibold tabular-nums text-foreground">{row.value}</span>
+                    <span className="w-24 text-right text-sm font-semibold tabular-nums text-foreground">{row.value}</span>
                   </div>
                 ))}
               </div>
               <p className="mt-4 text-sm text-muted-foreground">
-                Taux de restitution : environ <strong>41 %</strong> du CA. Les taux réels varient selon la société de portage.
+                Taux de restitution : environ <strong>{tauxRestitution} %</strong> du CA.
+                Cascade calculée par notre simulateur avec les taux 2026 — les
+                taux réels varient selon la société de portage.
               </p>
 
               <div className="mt-6 rounded-xl border-l-4 border-primary bg-primary/5 p-5">
                 <p className="text-sm text-primary">
-                  <strong>Salaire minimum légal :</strong> La convention collective impose une rémunération minimale de 75 % du PASS pour un junior (soit ~2 517 €/mois brut en 2026), 80 % pour un senior et 85 % pour un forfait jours.
+                  <strong>Salaire minimum conventionnel :</strong> la convention
+                  collective impose une rémunération minimale indexée sur le
+                  plafond de la Sécurité sociale, soit{" "}
+                  {Math.round(PORTAGE_2026.SALAIRE_MIN_JUNIOR_RATIO * 100)} % du
+                  PASS pour un junior ({EUR_PORTAGE.format(salaireMinimumMensuel("junior"))}/mois brut en 2026),{" "}
+                  {Math.round(PORTAGE_2026.SALAIRE_MIN_SENIOR_RATIO * 100)} % pour un senior
+                  ({EUR_PORTAGE.format(salaireMinimumMensuel("senior"))}) et{" "}
+                  {Math.round(PORTAGE_2026.SALAIRE_MIN_FORFAIT_JOURS_RATIO * 100)} % en forfait jours
+                  ({EUR_PORTAGE.format(salaireMinimumMensuel("forfait_jours"))}).
                 </p>
               </div>
 
