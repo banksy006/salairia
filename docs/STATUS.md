@@ -62,7 +62,7 @@
 | Tarifs création de société | 28 juillet 2026 | ✅ à jour |
 | Tarif Navigo | janvier 2026 | ✅ à jour |
 | **Transports des 19 autres villes** | avril 2026 | ⚠️ à revalider |
-| **Frais du comparateur portage** | avril 2026 | ⚠️ à revalider |
+| Frais du comparateur portage | 28 juillet 2026 | ✅ à jour |
 | **Fourchettes de négociation (APEC)** | 2024-2025 | ⚠️ à revalider |
 | **Percentiles INSEE DADS** | 2023 | ⚠️ à revalider |
 
@@ -78,11 +78,21 @@ Logo SVG : trois barres ascendantes, la plus haute en émeraude (`public/logo-ma
 
 ## Backlog, par priorité
 
-1. **Frais du comparateur portage** — 10 sociétés, données d'avril, le plus ancien jeu restant
-2. **Transports des 19 villes** — tarifs zonés, arbitrage éditorial requis par réseau
-3. **Revolut Business** à ajouter au comparateur banques pro
-4. **Données négociation (APEC 2024-25) et percentile (INSEE DADS 2023)** à re-sourcer
-5. **`salairia.fr`** — hors repo : à rediriger en 301 ou abandonner depuis le dashboard Vercel
+1. **Transports des 19 villes** — tarifs zonés, arbitrage éditorial requis par réseau
+2. **Données négociation (APEC 2024-25) et percentile (INSEE DADS 2023)** à re-sourcer
+3. **`salairia.fr`** — hors repo : à rediriger en 301 ou abandonner depuis le dashboard Vercel
+
+**Revolut Business : écarté du comparateur banques pro, volontairement.** Son site
+bloque l'accès automatisé (403 sur fetch, timeouts sur navigateur, le 28 juillet 2026)
+et les seuls tarifs disponibles proviennent de sources secondaires, dont le blog d'un
+concurrent direct. Ajouter une ligne ainsi sourcée affaiblirait un comparatif dont
+l'argument est le relevé sur grilles officielles. À reprendre si la page redevient
+accessible.
+
+**Frais de portage : 6 sociétés sur 10 ne publient aucune grille tarifaire** (ITG,
+ABC Portage, Ad'missions, Cadres en Mission, 2i Portage, OpenWork — vérifié le
+28 juillet 2026). Leurs taux affichés sont des estimations de marché, signalées comme
+telles sur leurs fiches. Ne pas les présenter comme des tarifs relevés.
 
 Audit des chiffres éditoriaux : **terminé sur les 5 guides** (28 juillet 2026). Quatre
 guides sur cinq publiaient des montants contredisant leurs propres calculateurs ; tout est
