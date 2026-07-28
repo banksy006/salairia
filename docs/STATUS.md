@@ -61,7 +61,7 @@
 | Tarifs comptabilité | 28 juillet 2026 | ✅ à jour |
 | Tarifs création de société | 28 juillet 2026 | ✅ à jour |
 | Tarif Navigo | janvier 2026 | ✅ à jour |
-| **Transports des 19 autres villes** | avril 2026 | ⚠️ à revalider |
+| Transports (18 villes hors Paris et Lyon) | avril 2026 | ◻️ ordres de grandeur, impact non matériel |
 | Frais du comparateur portage | 28 juillet 2026 | ✅ à jour |
 | **Fourchettes de négociation (APEC)** | 2024-2025 | ⚠️ à revalider |
 | **Percentiles INSEE DADS** | 2023 | ⚠️ à revalider |

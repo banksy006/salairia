@@ -286,7 +286,7 @@ export default function PouvoirAchatVillePage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : juillet 2026 (loyers). Tarifs de transport : Paris et Lyon vérifiés en 2026, les 18 autres villes relèvent d&apos;avril 2026 et sont en cours de revalidation — les réseaux appliquent des tarifs zonés qui demandent une vérification au cas par cas. Estimations indicatives basées sur
+                    Dernière mise à jour : juillet 2026 (loyers). Tarifs de transport : Paris et Lyon vérifiés à la source, les 18 autres sont des ordres de grandeur relevés en avril 2026. Ce poste pèse une cinquantaine d&apos;euros sur un budget mensuel d&apos;environ 2 000 € et n&apos;entre pas dans le revenu exigé par les bailleurs — quelques euros d&apos;écart n&apos;y changent rien. Estimations indicatives basées sur
                     les moyennes de marché. Le coût réel dépend de votre quartier, mode de
                     vie et situation familiale.
                   </p>

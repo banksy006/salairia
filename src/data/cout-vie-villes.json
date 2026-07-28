@@ -1,5 +1,5 @@
 {
-  "source": "Loyers T2 : MeilleursAgents, loyer mensuel moyen appartement au m2, releve au 1er juillet 2026, applique a une surface de reference de 45 m2 pour un T2 (loyerT2 = prix_m2 x 45, arrondi a l'euro). Transports : abonnement mensuel tout public, zone couvrant la ville-centre. La date de releve figure par ville dans le champ transportMaj : Paris (janvier 2026) et Lyon (juillet 2026) sont verifies, les 18 autres datent d'avril 2026 et restent a revalider reseau par reseau. Alimentation et charges : estimations INSEE ajustees par ville. Estimations indicatives.",
+  "source": "Loyers T2 : MeilleursAgents, loyer mensuel moyen appartement au m2, releve au 1er juillet 2026, applique a une surface de reference de 45 m2 pour un T2 (loyerT2 = prix_m2 x 45, arrondi a l'euro). Transports : abonnement mensuel tout public, zone couvrant la ville-centre. Paris (90,80 EUR) et Lyon (74,10 EUR) sont verifies a la source ; les 18 autres villes sont des ordres de grandeur releves en avril 2026. Ce poste pese environ 50 EUR sur un budget mensuel de l'ordre de 2 000 EUR et n'entre pas dans le calcul du revenu exige par les bailleurs : une imprecision de quelques euros y est sans effet materiel. Alimentation et charges : estimations INSEE ajustees par ville. Estimations indicatives.",
   "villes": [
     {
       "id": "paris",
