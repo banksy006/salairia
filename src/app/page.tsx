@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     title: "Salairia : simulateurs et guides de rémunération en France 2026",
     description:
       "Calculez précisément votre salaire net, votre TJM, vos charges et choisissez le meilleur statut. Simulateurs gratuits et données 2026 vérifiées (URSSAF, INSEE, BOSS).",
-    images: ["/og-home.png"],
     url: "/",
   },
 };
