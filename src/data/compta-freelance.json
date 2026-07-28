@@ -1,0 +1,68 @@
+{
+  "_source": "Tarifs relevés le 28 juillet 2026 sur les grilles publiques de chaque éditeur. Deux familles distinctes sont séparées volontairement : les OUTILS de comptabilité autonome (vous tenez votre compta, le logiciel automatise) et les CABINETS d'expertise comptable en ligne (un expert-comptable inscrit à l'Ordre engage sa responsabilité). Les mélanger dans un même classement serait trompeur : l'écart de prix va de 1 à 10 et le service n'est pas le même. Vérifier la grille officielle avant de souscrire.",
+  "dateReleve": "2026-07-28",
+  "outils": [
+    {
+      "slug": "indy",
+      "nom": "Indy",
+      "offreEntree": "Essentiel",
+      "prixMensuelHT": 0,
+      "gratuit": true,
+      "cible": "Micro-entrepreneurs",
+      "inclus": "Facturation électronique (plateforme agréée DGFiP), devis et factures illimités, comptabilité automatisée, compte pro avec carte",
+      "autresPaliers": "Plus dès 9 € HT/mois (108 € HT/an, ou 12 € HT en mensuel), Premium dès 15 € HT/mois",
+      "expertComptable": false,
+      "urlTarifs": "https://www.indy.fr/tarifs/"
+    },
+    {
+      "slug": "pennylane",
+      "nom": "Pennylane",
+      "offreEntree": "Starter",
+      "prixMensuelHT": 7,
+      "gratuit": false,
+      "cible": "Indépendants",
+      "inclus": "Compte pro, cartes physiques et virtuelles, facturation électronique conforme, règlement fournisseurs, accès comptable",
+      "autresPaliers": "Basique 14 € HT/mois, palier supérieur 24 € HT/mois, offre PME 79 € HT/mois",
+      "expertComptable": false,
+      "urlTarifs": "https://www.pennylane.com/fr/tarifs/"
+    }
+  ],
+  "cabinets": [
+    {
+      "slug": "l-expert-comptable",
+      "nom": "L'Expert-Comptable.com",
+      "offreEntree": "Professions libérales",
+      "prixMensuelHT": 39,
+      "surDevis": false,
+      "cible": "Professions libérales",
+      "inclus": "Conseiller dédié (réponse sous 24 h), tenue comptable, TVA, bilan et compte de résultat, liasse fiscale 2035, application Tiime incluse",
+      "autresPaliers": "Consultants et freelances dès 69 € HT/mois, commerçants et BTP dès 109 €/mois. Tiime : 6 mois offerts puis 107 €/an",
+      "expertComptable": true,
+      "urlTarifs": "https://www.l-expert-comptable.com/tarifs.html"
+    },
+    {
+      "slug": "dougs",
+      "nom": "Dougs",
+      "offreEntree": "Pack Liberté",
+      "prixMensuelHT": 79,
+      "surDevis": false,
+      "cible": "SASU, SAS, EURL, SARL",
+      "inclus": "Expert-comptable inscrit à l'Ordre, plateforme agréée facturation électronique, outils et conseils, sans engagement",
+      "autresPaliers": "Sérénité dès 99 € HT, Exclusivité dès 129 € HT (comptable dédié), PME dès 159 € HT",
+      "expertComptable": true,
+      "urlTarifs": "https://www.dougs.fr/tarifs"
+    },
+    {
+      "slug": "keobiz",
+      "nom": "Keobiz",
+      "offreEntree": "Sur devis",
+      "prixMensuelHT": null,
+      "surDevis": true,
+      "cible": "TPE et indépendants",
+      "inclus": "Expert-comptable, création d'entreprise offerte, accompagnement juridique et social",
+      "autresPaliers": "Aucune grille publique : le tarif s'obtient par devis",
+      "expertComptable": true,
+      "urlTarifs": "https://www.keobiz.fr/"
+    }
+  ]
+}

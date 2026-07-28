@@ -40,10 +40,12 @@ const comparateurs = [
   {
     titre: "Comptabilité freelance",
     desc:
-      "Comparatif des solutions de comptabilité en ligne adaptées aux indépendants : Indy, Dougs, L'Expert-Comptable.com, Pennylane, Keobiz. Prix mensuel, périmètre (micro, SASU, EURL), fonctionnalités TVA et liasse fiscale, intégrations bancaires, support.",
-    dispo: false,
-    acteurs: "Indy, Dougs, L'Expert-Comptable, Pennylane, Keobiz",
-    critereCount: 10,
+      "Comparatif des solutions comptables pour indépendants, séparées en deux familles : les outils de comptabilité autonome (Indy, Pennylane, de 0 à 24 € HT) et les cabinets d'expertise comptable en ligne (L'Expert-Comptable, Dougs, Keobiz, de 39 à 159 € HT). La question n'est pas le prix mais qui porte la responsabilité des comptes.",
+    href: "/comparateurs/comptabilite",
+    dispo: true,
+    acteurs: "Indy, Pennylane, L'Expert-Comptable, Dougs, Keobiz",
+    critereCount: 4,
+    lastUpdate: "juillet 2026",
   },
   {
     titre: "Création SASU / EURL",
@@ -101,7 +103,7 @@ export default function ComparateursPage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour avril 2026
+          À jour juillet 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
