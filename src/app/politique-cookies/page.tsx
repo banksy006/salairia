@@ -5,7 +5,7 @@ import { CalendarIcon, ShieldIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Politique cookies | Salairia",
+  title: "Politique cookies",
   description:
     "Salairia n'utilise aucun cookie de traçage ni publicitaire. Découvrez notre engagement de respect total de votre vie privée.",
   alternates: {

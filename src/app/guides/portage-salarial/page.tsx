@@ -18,7 +18,7 @@ import {
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Portage salarial : le guide complet 2026 | Salairia",
+  title: "Portage salarial : le guide complet 2026",
   description:
     "Tout savoir sur le portage salarial en 2026 : fonctionnement, salaire, avantages, inconvénients, cotisations, chômage. Guide indépendant + simulateur gratuit.",
   alternates: {

@@ -5,7 +5,7 @@ import { CalendarIcon, ShieldIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité | Salairia",
+  title: "Politique de confidentialité",
   description:
     "Comment Salairia protège vos données : aucun cookie traceur, aucune collecte personnelle. Conformité RGPD totale.",
   alternates: {

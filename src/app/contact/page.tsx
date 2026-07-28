@@ -14,7 +14,7 @@ import {
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Contact | Salairia",
+  title: "Contact",
   description:
     "Contacter Salairia : signaler une erreur de calcul, poser une question sur un simulateur, solliciter une interview ou une donnée pour un article de presse.",
   alternates: { canonical: "/contact" },

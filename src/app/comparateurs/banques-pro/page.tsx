@@ -14,7 +14,7 @@ import TocSidebar from "@/components/simulateurs/TocSidebar";
 import data from "@/data/banques-pro.json";
 
 export const metadata: Metadata = {
-  title: "Comparatif banques pro freelance 2026 : 5 comptes comparés | Salairia",
+  title: "Comparatif banques pro freelance 2026 : 5 comptes comparés",
   description:
     "Comparatif indépendant des comptes pro pour freelances et micro-entrepreneurs : Blank, Propulse, Qonto, Shine, Finom. Tarifs relevés en juillet 2026 sur les grilles officielles.",
   alternates: { canonical: "/comparateurs/banques-pro" },

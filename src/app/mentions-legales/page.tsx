@@ -5,7 +5,7 @@ import { CalendarIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Mentions légales | Salairia",
+  title: "Mentions légales",
   description:
     "Informations légales relatives à Salairia : éditeur, hébergeur, propriété intellectuelle, limites de responsabilité.",
   alternates: {

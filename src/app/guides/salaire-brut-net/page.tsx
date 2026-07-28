@@ -20,7 +20,7 @@ import {
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Salaire brut et net : tout comprendre en 2026 | Salairia",
+  title: "Salaire brut et net : tout comprendre en 2026",
   description:
     "Comment passer du brut au net ? Cotisations, CSG/CRDS, prélèvement à la source : tout comprendre sur votre fiche de paie. Guide complet + simulateur gratuit.",
   alternates: {

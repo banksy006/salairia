@@ -16,7 +16,7 @@ import {
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Auto-entrepreneur : le guide complet 2026 | Salairia",
+  title: "Auto-entrepreneur : le guide complet 2026",
   description:
     "Tout savoir sur le statut auto-entrepreneur en 2026 : création, charges URSSAF, ACRE, TVA, plafonds, versement libératoire. Guide indépendant + simulateur gratuit.",
   alternates: {

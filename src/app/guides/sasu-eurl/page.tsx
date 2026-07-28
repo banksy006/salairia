@@ -16,7 +16,7 @@ import {
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "SASU vs EURL : le guide complet 2026 | Salairia",
+  title: "SASU vs EURL : le guide complet 2026",
   description:
     "SASU ou EURL ? Comparatif détaillé 2026 : charges sociales, IS, dividendes, protection sociale, création. Guide indépendant pour choisir le bon statut.",
   alternates: {
