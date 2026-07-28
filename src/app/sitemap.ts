@@ -31,6 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/actualites/cotisations-auto-entrepreneur-hausse-2026`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/actualites/acre-2026-exoneration-reduite-delai-60-jours`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/guides`,
       lastModified: now,
       changeFrequency: "weekly",

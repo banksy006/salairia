@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import Temoignages from "@/components/Temoignages";
+import ActualitesTeaser from "@/components/ActualitesTeaser";
 import {
   IconBadge,
   CalendarIcon,
@@ -204,12 +205,13 @@ export default function HomePage() {
       "@type": "Organization",
       name: "Salairia",
       url: `${SITE_URL}`,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `${SITE_URL}/logo-mark.svg`,
       description:
         "Simulateurs, guides et comparatifs neutres de rémunération en France.",
       founder: {
         "@type": "Person",
-        name: "Nizar",
+        name: "Nizar Laghrifi",
+        url: `${SITE_URL}/a-propos`,
       },
     },
     {
@@ -218,15 +220,6 @@ export default function HomePage() {
       name: "Salairia",
       url: `${SITE_URL}`,
       inLanguage: "fr-FR",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate:
-            `${SITE_URL}/recherche?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
     },
     {
       "@context": "https://schema.org",
@@ -441,6 +434,8 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+
+      <ActualitesTeaser />
 
       {/* Témoignages — ne rend rien tant qu'aucun retour réel n'est collecté */}
       <div className="mx-auto w-full max-w-6xl px-6">
