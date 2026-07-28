@@ -51,10 +51,6 @@ const faq = [
     r: "La distinction importante est celle entre établissement de crédit et établissement de paiement. Un établissement de crédit relève de la garantie des dépôts (FGDR, jusqu'à 100 000 € par déposant). Un établissement de paiement doit cantonner les fonds de ses clients sur des comptes séparés, ce qui protège différemment. Propulse est adossé au Crédit Agricole ; les néobanques relèvent de statuts variables. Cette information figure dans les conditions générales de chaque acteur.",
   },
   {
-    q: "Pourquoi Revolut Business apparaît-il sans tarif ?",
-    r: "Revolut publie bien une grille tarifaire, mais son site bloque les relevés automatisés : nos tentatives du 28 juillet 2026 ont toutes renvoyé une erreur 403. Les tarifs relayés par les sites tiers vont de 10 à 90 €/mois selon le forfait, mais ils divergent entre eux — l'un annonce le forfait intermédiaire à 25 €, un autre à 30 €. Publier l'un de ces montants reviendrait à présenter comme vérifié un chiffre que nous n'avons pas pu contrôler à la source. Nous préférons afficher l'acteur et dire pourquoi la ligne est vide. Consultez sa page officielle, liée ci-dessous, pour le tarif exact.",
-  },
-  {
     q: "Comment ce comparatif est-il financé ?",
     r: "Salairia prévoit d'être financé par l'affiliation. Le classement ci-dessus est trié par prix de l'offre d'entrée, un critère objectif et vérifiable — il n'est pas influencé par une rémunération. Si des liens d'affiliation sont ajoutés, ils seront signalés et ne modifieront pas l'ordre.",
   },
