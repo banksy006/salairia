@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "D\u2019où viennent les données de salaires par métier ?",
-    r: "Les fourchettes sont compilées à partir du Baromètre cadres APEC 2024, des statistiques INSEE (DADS / DSN), des données Glassdoor France et du guide des salaires Robert Half 2025. Ces sources couvrent les salaires bruts annuels de cadres et non-cadres en France métropolitaine. Nous les mettons à jour chaque année.",
+    r: "Un repère vérifié d'abord : selon le Baromètre 2025 de la rémunération des cadres de l'APEC (enquête de juin 2025 auprès de 26 000 cadres du privé), la rémunération médiane des cadres s'établit à 55 k€ brut annuel, fixe et variable compris, et 80 % des cadres se situent entre 38 et 95 k€. Les fourchettes par métier affichées ici sont en revanche des estimations de marché recoupées, et non des grilles APEC par métier : l'APEC publie ces grilles dans une étude qui n'est pas exploitable automatiquement. Utilisez-les pour situer un ordre de grandeur avant une négociation, pas comme un référentiel opposable à un employeur.",
   },
   {
     q: "Comment négocier une augmentation avec ces chiffres ?",
@@ -106,7 +106,7 @@ const conseils = [
 
 const sources = [
   {
-    label: "APEC — Baromètre cadres 2024",
+    label: "APEC — Baromètre 2025 de la rémunération des cadres",
     href: "https://www.apec.fr",
   },
   {
@@ -237,8 +237,9 @@ export default function NegociationSalarialePage() {
                   français, pour 20 métiers courants.
                 </p>
                 <p>
-                  Les données sont issues de l&apos;APEC, de l&apos;INSEE et de
-                  Glassdoor, ventilées par niveau d&apos;expérience (junior à
+                  Les fourchettes sont des estimations de marché recoupées,
+                  ancrées sur le Baromètre APEC 2025 (médiane cadres 55 k€),
+                  ventilées par niveau d&apos;expérience (junior à
                   expert) et par zone géographique (Île-de-France ou Province).
                   Vous saurez immédiatement si vous avez une marge de
                   négociation.

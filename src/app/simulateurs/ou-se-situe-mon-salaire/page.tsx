@@ -38,7 +38,7 @@ const faq = [
   },
   {
     q: "D\u2019o\u00f9 viennent les donn\u00e9es de salaires ?",
-    r: "Les donn\u00e9es proviennent des D\u00e9clarations Annuelles de Donn\u00e9es Sociales (DADS) collect\u00e9es par l\u2019INSEE, derni\u00e8re ann\u00e9e disponible\u00a0: 2023. Elles couvrent l\u2019ensemble des salari\u00e9s du secteur priv\u00e9 \u00e0 temps plein en France m\u00e9tropolitaine. Les montants sont exprim\u00e9s en salaire net mensuel.",
+    r: "Les donn\u00e9es proviennent de l\u2019INSEE, publication « Les salaires dans le secteur priv\u00e9 en 2024 » (Insee Premi\u00e8re n\u00b02079, parue en octobre 2025, derni\u00e8re disponible). Elles couvrent les salari\u00e9s du secteur priv\u00e9 en \u00e9quivalent temps plein. Nous ne stockons que les valeurs effectivement publi\u00e9es par l\u2019INSEE : 1er d\u00e9cile 1 492 \u20ac, m\u00e9diane 2 190 \u20ac, 9e d\u00e9cile 4 344 \u20ac, 99e percentile 10 261 \u20ac. Les percentiles interm\u00e9diaires ne sont pas publi\u00e9s : votre position est interpol\u00e9e entre ces ancres r\u00e9elles, jamais \u00e0 partir de valeurs invent\u00e9es.",
   },
   {
     q: "Le salaire m\u00e9dian est-il le m\u00eame que le salaire moyen ?",
@@ -271,7 +271,7 @@ export default function OuSeSitueMonSalairePage() {
                   </ul>
 
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Source : INSEE DADS 2023, salaires nets mensuels des
+                    Source : INSEE, « Les salaires dans le secteur privé en 2024 », salaires nets mensuels des
                     salari&eacute;s &agrave; temps plein du secteur
                     priv&eacute;.
                   </p>

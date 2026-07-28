@@ -63,8 +63,8 @@
 | Tarif Navigo | janvier 2026 | ✅ à jour |
 | Transports (18 villes hors Paris et Lyon) | avril 2026 | ◻️ ordres de grandeur, impact non matériel |
 | Frais du comparateur portage | 28 juillet 2026 | ✅ à jour |
-| **Fourchettes de négociation (APEC)** | 2024-2025 | ⚠️ à revalider |
-| **Percentiles INSEE DADS** | 2023 | ⚠️ à revalider |
+| Fourchettes de négociation | 28 juillet 2026 | ◻️ ancrées sur l'APEC 2025, fourchettes par métier estimées |
+| Percentiles de salaires | 28 juillet 2026 | ✅ INSEE 2024, seules les valeurs publiées sont stockées |
 
 ## Identité visuelle
 

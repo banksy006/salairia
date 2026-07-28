@@ -1,8 +1,13 @@
 /**
- * Calculateur de percentile salarial — données INSEE DADS 2023.
+ * Calculateur de percentile salarial — données INSEE 2024.
  *
- * Source : INSEE, Déclarations Annuelles de Données Sociales (DADS),
- * salaires nets mensuels temps plein. Consulté avril 2026.
+ * Source : INSEE, Insee Première n°2079 « Les salaires dans le secteur privé
+ * en 2024 » (publiée en octobre 2025, dernière disponible). Salaires nets
+ * mensuels en équivalent temps plein. Revalidé le 28 juillet 2026.
+ *
+ * Seules les valeurs publiées par l'INSEE sont stockées (D1, médiane, D9, P99).
+ * Les percentiles intermédiaires ne sont pas publiés : la courbe est interpolée
+ * entre les ancres réelles plutôt que d'afficher des valeurs modélisées.
  *
  * Attention : ces données sont des moyennes nationales. Votre situation
  * réelle dépend de votre secteur, convention collective et localisation.
@@ -42,11 +47,14 @@ export const AGE_OPTIONS: readonly TrancheAge[] = [
   "56 ans et +",
 ];
 
+// P25, P75 et P95 sont optionnels : l'INSEE ne les publie pas pour la
+// distribution générale. Quand ils manquent, la courbe est interpolée entre les
+// ancres réellement publiées plutôt que d'afficher des valeurs modélisées.
 interface Percentiles {
   P10: number;
-  P25: number;
+  P25?: number;
   P50: number;
-  P75: number;
+  P75?: number;
   P90: number;
   P95?: number;
   P99?: number;
@@ -82,11 +90,11 @@ function interpolatePercentile(salary: number, dist: Percentiles): number {
   const points: [number, number][] = [
     [0, dist.P10 * 0.5],
     [10, dist.P10],
-    [25, dist.P25],
-    [50, dist.P50],
-    [75, dist.P75],
-    [90, dist.P90],
   ];
+  if (dist.P25) points.push([25, dist.P25]);
+  points.push([50, dist.P50]);
+  if (dist.P75) points.push([75, dist.P75]);
+  points.push([90, dist.P90]);
   if (dist.P95) points.push([95, dist.P95]);
   if (dist.P99) points.push([99, dist.P99]);
   points.push([100, (dist.P99 ?? dist.P90) * 1.5]);

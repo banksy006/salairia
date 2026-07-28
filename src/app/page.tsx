@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 // Charges patronales portage : PORTAGE_2026.CHARGES_PATRONALES_TAUX.
 const dataPoints = [
   { value: "1 478 €", label: "SMIC net mensuel (juin 2026)" },
-  { value: "2 670 €", label: "Salaire net moyen FR (INSEE)" },
+  { value: "2 733 €", label: "Salaire net moyen privé (INSEE 2024)" },
   { value: "4 005 €", label: "Plafond Sécu mensuel (PASS)" },
   { value: "+43%", label: "Charges patronales moyennes portage" },
 ];

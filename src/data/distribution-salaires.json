@@ -1,20 +1,77 @@
 {
-  "source": "INSEE DADS 2023, extrapolation 2024. Salaires nets mensuels temps plein.",
+  "source": "Distribution generale : INSEE, Insee Premiere n2079 « Les salaires dans le secteur prive en 2024 » (publication octobre 2025, derniere disponible). Salaires nets mensuels en equivalent temps plein. Seules les valeurs effectivement publiees par l'INSEE figurent ici : 1er decile 1 492 EUR, mediane 2 190 EUR, 9e decile 4 344 EUR, 99e percentile 10 261 EUR, moyenne 2 733 EUR. Les percentiles intermediaires (P25, P75, P95) ne sont pas publies et ne sont donc PAS stockes : le calculateur interpole entre les ancres reelles plutot que d'afficher des valeurs modelisees. Distributions par CSP et par age : estimations derivees de donnees 2023, non revalidees — a traiter comme des ordres de grandeur.",
   "general": {
-    "P10": 1430, "P25": 1700, "P50": 2120, "P75": 2800,
-    "P90": 3850, "P95": 4700, "P99": 7500
+    "P10": 1492,
+    "P50": 2190,
+    "P90": 4344,
+    "P99": 10261
   },
   "parCSP": {
-    "Cadres": { "P10": 2400, "P25": 2900, "P50": 3500, "P75": 4500, "P90": 6200 },
-    "Professions intermédiaires": { "P10": 1700, "P25": 1950, "P50": 2400, "P75": 2900, "P90": 3500 },
-    "Employés": { "P10": 1350, "P25": 1500, "P50": 1700, "P75": 2000, "P90": 2400 },
-    "Ouvriers": { "P10": 1400, "P25": 1550, "P50": 1800, "P75": 2100, "P90": 2500 }
+    "Cadres": {
+      "P10": 2400,
+      "P25": 2900,
+      "P50": 3500,
+      "P75": 4500,
+      "P90": 6200
+    },
+    "Professions intermédiaires": {
+      "P10": 1700,
+      "P25": 1950,
+      "P50": 2400,
+      "P75": 2900,
+      "P90": 3500
+    },
+    "Employés": {
+      "P10": 1350,
+      "P25": 1500,
+      "P50": 1700,
+      "P75": 2000,
+      "P90": 2400
+    },
+    "Ouvriers": {
+      "P10": 1400,
+      "P25": 1550,
+      "P50": 1800,
+      "P75": 2100,
+      "P90": 2500
+    }
   },
   "parAge": {
-    "18-25 ans": { "P10": 1300, "P25": 1450, "P50": 1600, "P75": 1900, "P90": 2400 },
-    "26-35 ans": { "P10": 1500, "P25": 1750, "P50": 2100, "P75": 2700, "P90": 3600 },
-    "36-45 ans": { "P10": 1550, "P25": 1850, "P50": 2350, "P75": 3100, "P90": 4200 },
-    "46-55 ans": { "P10": 1500, "P25": 1800, "P50": 2400, "P75": 3200, "P90": 4500 },
-    "56 ans et +": { "P10": 1450, "P25": 1750, "P50": 2300, "P75": 3100, "P90": 4300 }
-  }
+    "18-25 ans": {
+      "P10": 1300,
+      "P25": 1450,
+      "P50": 1600,
+      "P75": 1900,
+      "P90": 2400
+    },
+    "26-35 ans": {
+      "P10": 1500,
+      "P25": 1750,
+      "P50": 2100,
+      "P75": 2700,
+      "P90": 3600
+    },
+    "36-45 ans": {
+      "P10": 1550,
+      "P25": 1850,
+      "P50": 2350,
+      "P75": 3100,
+      "P90": 4200
+    },
+    "46-55 ans": {
+      "P10": 1500,
+      "P25": 1800,
+      "P50": 2400,
+      "P75": 3200,
+      "P90": 4500
+    },
+    "56 ans et +": {
+      "P10": 1450,
+      "P25": 1750,
+      "P50": 2300,
+      "P75": 3100,
+      "P90": 4300
+    }
+  },
+  "moyenne": 2733
 }

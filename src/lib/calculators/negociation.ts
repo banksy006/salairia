@@ -1,8 +1,14 @@
 /**
- * Estimateur fourchette salariale par métier — données 2024-2025.
+ * Estimateur de fourchette salariale par métier.
  *
- * Sources : APEC Baromètre cadres 2024, INSEE DADS, Glassdoor FR.
- * Salaires bruts annuels. Consulté avril 2026.
+ * Ancrage vérifié : APEC, Baromètre 2025 de la rémunération des cadres
+ * (enquête juin 2025, 26 000 cadres) — médiane 55 k€ brut annuel, 80 % des
+ * cadres entre 38 et 95 k€. Vérifié le 28 juillet 2026.
+ *
+ * Les fourchettes par métier sont en revanche des ESTIMATIONS de marché
+ * recoupées, pas des données APEC par métier : l'APEC publie ses grilles dans
+ * une étude non exploitable automatiquement. Ne pas les présenter comme un
+ * référentiel officiel.
  *
  * Attention : ces fourchettes sont des moyennes de marché. Votre
  * salaire réel dépend de votre entreprise, secteur, compétences
