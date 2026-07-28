@@ -14,6 +14,45 @@ import {
   ScaleIcon,
 } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
+import BarChart, { type BarDatum } from "@/components/charts/BarChart";
+import {
+  AE_CATEGORIES,
+  AE_CATEGORIE_LABELS,
+  calculerAutoEntrepreneur,
+} from "@/lib/calculators/auto-entrepreneur";
+
+// Comparaison des 4 catégories à CA identique : les montants viennent du
+// simulateur, seul le taux de cotisations change d'une catégorie à l'autre.
+const CA_TYPE_AE = 40_000;
+
+const EUR_AE = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
+const resultatsAE = AE_CATEGORIES.map((categorie) => ({
+  categorie,
+  r: calculerAutoEntrepreneur({
+    caAnnuel: CA_TYPE_AE,
+    categorie,
+    acre: false,
+    versementLiberatoire: false,
+    fraisProAnnuels: 0,
+  }),
+}));
+
+const meilleurAE = Math.max(...resultatsAE.map((x) => x.r.revenuAvantImpot));
+
+const revenuParCategorie: BarDatum[] = resultatsAE
+  .map(({ categorie, r }) => ({
+    label: AE_CATEGORIE_LABELS[categorie],
+    hint: `cotisations ${(r.tauxURSSAFEffectif * 100).toFixed(1).replace(".", ",")} %`,
+    value: Math.round(r.revenuAvantImpot),
+    highlight: r.revenuAvantImpot === meilleurAE,
+  }))
+  .sort((a, b) => b.value - a.value);
+
 
 export const metadata: Metadata = {
   title: "Auto-entrepreneur : le guide complet 2026",
@@ -261,6 +300,14 @@ export default function GuideAutoEntrepreneurPage() {
                 <IconBadge><CalculatorIcon className="h-4 w-4" /></IconBadge>
                 Charges et cotisations 2026
               </h2>
+
+              <div className="mt-6">
+                <BarChart
+                  caption={`Revenu annuel avant impôt selon la catégorie — ${EUR_AE.format(CA_TYPE_AE)} de chiffre d'affaires`}
+                  data={revenuParCategorie}
+                  footnote="Calculé par notre simulateur auto-entrepreneur, sans ACRE ni versement libératoire et hors frais professionnels. L'écart entre catégories vient uniquement du taux de cotisations, qui dépend de la nature de l'activité."
+                />
+              </div>
               <div className="mt-4 space-y-4 text-base leading-relaxed text-foreground/80">
                 <p>
                   En auto-entrepreneur, les cotisations sociales sont calculées comme un

@@ -53,7 +53,7 @@ const faq = [
   },
   {
     q: "Peut-on avoir 0 € de rémunération ?",
-    r: "Oui, dans les deux structures. En SASU, si vous ne vous versez aucun salaire, vous ne payez aucune charge sociale (mais vous n\u2019acquérez aucun droit). En EURL, le gérant TNS doit payer des cotisations minimales même sans rémunération (environ 1 100 €/an en 2026). C\u2019est un point important à considérer en début d\u2019activité.",
+    r: "Oui, dans les deux structures. En SASU, si vous ne vous versez aucun salaire, vous ne payez aucune charge sociale (mais vous n\u2019acquérez aucun droit). En EURL, le gérant TNS doit payer des cotisations minimales même sans rémunération (1 200 €/an en 2026). C\u2019est un point important à considérer en début d\u2019activité.",
   },
   {
     q: "Quelle structure pour une levée de fonds ?",
@@ -567,7 +567,7 @@ export default function GuideSasuEurlPage() {
                   <p className="mt-2 text-sm leading-relaxed text-foreground/80">
                     Zéro salaire, tout en dividendes. En SASU, vous ne payez que la flat tax (30 %)
                     mais n&apos;acquérez aucun droit social. En EURL, les cotisations TNS minimales
-                    restent dues (~1 100 €/an) même sans rémunération.
+                    restent dues (1 200 €/an) même sans rémunération.
                   </p>
                   <p className="mt-3 text-xs font-semibold text-primary">Favorable à la SASU (flat tax seule)</p>
                 </div>
@@ -635,7 +635,7 @@ export default function GuideSasuEurlPage() {
                   <ul className="mt-3 space-y-2 text-sm text-foreground/80">
                     <li>Dividendes lourdement taxés au-delà de 10 % du capital (charges TNS)</li>
                     <li>Protection sociale incomplète (retraite, prévoyance à compléter)</li>
-                    <li>Cotisations minimales dues même sans rémunération (~1 100 €/an)</li>
+                    <li>Cotisations minimales dues même sans rémunération (1 200 €/an)</li>
                     <li>Pas de droit au chômage</li>
                     <li>Structure peu adaptée à l&apos;entrée d&apos;investisseurs</li>
                     <li>Régularisation N+1 des cotisations (décalage trésorerie)</li>

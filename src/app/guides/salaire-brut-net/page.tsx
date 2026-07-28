@@ -18,6 +18,61 @@ import {
   LightbulbIcon,
 } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
+import { calculerBrutVersNet } from "@/lib/calculators/salaire-brut-net";
+
+// Cas type du schéma brut → net → net après impôt, calculé et non saisi.
+const BRUT_TYPE = 3_000;
+const PAS_TYPE = 7.5;
+
+const exemple = calculerBrutVersNet({
+  salaire: BRUT_TYPE,
+  mode: "brut-vers-net",
+  periodicite: "mensuel",
+  statut: "non-cadre",
+  tauxPAS: PAS_TYPE,
+});
+
+const tauxCotisationsType = Math.round(
+  (1 - exemple.netAvantImpotMensuel / BRUT_TYPE) * 1000,
+) / 10;
+
+const EUR_BN = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
+const exempleCadre = calculerBrutVersNet({
+  salaire: BRUT_TYPE,
+  mode: "brut-vers-net",
+  periodicite: "mensuel",
+  statut: "cadre",
+  tauxPAS: PAS_TYPE,
+});
+
+const tauxCotisationsCadre =
+  Math.round((1 - exempleCadre.netAvantImpotMensuel / BRUT_TYPE) * 1000) / 10;
+
+const ratio = (net: number) =>
+  (net / BRUT_TYPE).toFixed(3).replace(".", ",");
+const ratioNonCadre = ratio(exemple.netAvantImpotMensuel);
+const ratioCadre = ratio(exempleCadre.netAvantImpotMensuel);
+
+// Table brut → net → net après PAS, calculée pour chaque palier.
+const tableauBrutNet = [2_000, 2_500, 3_000, 4_000, 5_000].map((brut) => {
+  const r = calculerBrutVersNet({
+    salaire: brut,
+    mode: "brut-vers-net",
+    periodicite: "mensuel",
+    statut: "non-cadre",
+    tauxPAS: PAS_TYPE,
+  });
+  return [
+    EUR_BN.format(brut),
+    EUR_BN.format(r.netAvantImpotMensuel),
+    EUR_BN.format(r.netApresMensuel),
+  ] as const;
+});
 
 export const metadata: Metadata = {
   title: "Salaire brut et net : tout comprendre en 2026",
@@ -37,11 +92,11 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "Quelle est la différence entre salaire brut et net ?",
-    r: "Le salaire brut est le montant inscrit sur votre contrat de travail, avant toute déduction. Le salaire net est ce que vous recevez réellement sur votre compte bancaire, après déduction des cotisations sociales salariales (~22 %) et du prélèvement à la source (impôt sur le revenu). On distingue le net avant impôt (après cotisations, avant PAS) et le net après impôt (le virement réel).",
+    r: "Le salaire brut est le montant inscrit sur votre contrat de travail, avant toute déduction. Le salaire net est ce que vous recevez réellement sur votre compte bancaire, après déduction des cotisations sociales salariales (environ 21 %) et du prélèvement à la source (impôt sur le revenu). On distingue le net avant impôt (après cotisations, avant PAS) et le net après impôt (le virement réel).",
   },
   {
     q: "Comment calculer mon salaire net à partir du brut ?",
-    r: "La méthode rapide : multipliez votre salaire brut par 0,78 (non-cadre) ou 0,77 (cadre) pour obtenir le net avant impôt. Par exemple, 3 000 € brut × 0,78 = 2 340 € net avant impôt. Pour le net après impôt, appliquez ensuite votre taux de prélèvement à la source. Pour un calcul exact, utilisez notre simulateur brut/net.",
+    r: "La méthode rapide : multipliez votre salaire brut par environ 0,79 pour obtenir le net avant impôt. Par exemple, 3 000 € brut donnent environ 2 375 € net avant impôt selon notre simulateur. Attention à deux approximations que l'on lit souvent ailleurs : le ratio 0,78 sous-estime le net d'une trentaine d'euros à ce niveau de salaire, et la distinction cadre / non-cadre est négligeable à ce stade — l'APEC ne représente que 0,024 % du brut, soit moins d'un euro sur 3 000 €. L'écart réel entre statuts vient surtout du franchissement du plafond de la Sécurité sociale. Pour le net après impôt, appliquez ensuite votre taux de prélèvement à la source. Pour un calcul exact, utilisez notre simulateur brut/net.",
   },
   {
     q: "Le 13e mois est-il inclus dans le salaire brut ?",
@@ -207,31 +262,32 @@ export default function GuideSalaireBrutNetPage() {
                   <div className="flex h-28 w-52 flex-col items-center justify-center rounded-xl border-2 border-primary bg-white p-4 text-center shadow-sm">
                     <span className="text-sm font-bold text-primary">Salaire brut</span>
                     <span className="mt-1 text-xs text-muted-foreground">Montant contractuel</span>
-                    <span className="mt-1 text-lg font-bold tabular-nums text-foreground">3 000 €</span>
+                    <span className="mt-1 text-lg font-bold tabular-nums text-foreground">{EUR_BN.format(BRUT_TYPE)}</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 text-xs text-muted-foreground">
                     <span className="hidden sm:block">→</span>
-                    <span className="text-center">− cotisations salariales<br />(~22 %)</span>
+                    <span className="text-center">− cotisations salariales<br />({tauxCotisationsType} %)</span>
                     <span className="hidden sm:block">→</span>
                   </div>
                   <div className="flex h-28 w-52 flex-col items-center justify-center rounded-xl border-2 border-accent bg-white p-4 text-center shadow-sm">
                     <span className="text-sm font-bold text-accent">Net avant impôt</span>
                     <span className="mt-1 text-xs text-muted-foreground">Après cotisations</span>
-                    <span className="mt-1 text-lg font-bold tabular-nums text-foreground">2 340 €</span>
+                    <span className="mt-1 text-lg font-bold tabular-nums text-foreground">{EUR_BN.format(exemple.netAvantImpotMensuel)}</span>
                   </div>
                   <div className="flex flex-col items-center gap-1 text-xs text-muted-foreground">
                     <span className="hidden sm:block">→</span>
-                    <span className="text-center">− PAS<br />(ex. 7,5 %)</span>
+                    <span className="text-center">− PAS<br />(ex. {PAS_TYPE} %)</span>
                     <span className="hidden sm:block">→</span>
                   </div>
                   <div className="flex h-28 w-52 flex-col items-center justify-center rounded-xl border-2 border-foreground bg-white p-4 text-center shadow-sm">
                     <span className="text-sm font-bold text-foreground">Net après impôt</span>
                     <span className="mt-1 text-xs text-muted-foreground">Virement réel</span>
-                    <span className="mt-1 text-lg font-bold tabular-nums text-foreground">2 165 €</span>
+                    <span className="mt-1 text-lg font-bold tabular-nums text-foreground">{EUR_BN.format(exemple.netApresMensuel)}</span>
                   </div>
                 </div>
                 <p className="mt-4 text-center text-xs text-muted-foreground">
-                  Calcul approximatif : taux ~22 % de cotisations (non-cadre), PAS à 7,5 %.
+                  Calculé par notre simulateur : {tauxCotisationsType} % de cotisations
+                  salariales (non-cadre), PAS à {PAS_TYPE} %.
                 </p>
               </div>
             </section>
@@ -476,9 +532,9 @@ export default function GuideSalaireBrutNetPage() {
                       ["Retraite complémentaire", "AGIRC-ARRCO (unifié)", "AGIRC-ARRCO (unifié)"],
                       ["Cotisation APEC", "Non", "Oui (0,024 % salarial)"],
                       ["Prévoyance minimum", "Non obligatoire", "1,50 % T1 (dont 0,76 % salarial)"],
-                      ["Taux de cotisation total", "~22 %", "~23-23,5 %"],
-                      ["Ratio net/brut approximatif", "×0,78", "×0,77"],
-                      ["Écart de net mensuel (3 000 € brut)", "~2 340 €", "~2 310 €"],
+                      ["Taux de cotisation total", `${tauxCotisationsType} %`, `${tauxCotisationsCadre} %`],
+                      ["Ratio net/brut calculé", `×${ratioNonCadre}`, `×${ratioCadre}`],
+                      [`Net avant impôt (${EUR_BN.format(BRUT_TYPE)} brut)`, EUR_BN.format(exemple.netAvantImpotMensuel), EUR_BN.format(exempleCadre.netAvantImpotMensuel)],
                     ].map(([critere, noncadre, cadre]) => (
                       <tr key={critere} className="border-b border-border last:border-b-0">
                         <td className="px-5 py-2.5 font-semibold text-foreground">{critere}</td>
@@ -582,13 +638,7 @@ export default function GuideSalaireBrutNetPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {[
-                      ["2 000 € (SMIC+)", "~1 560 €", "~1 443 €"],
-                      ["2 500 €", "~1 950 €", "~1 804 €"],
-                      ["3 000 €", "~2 340 €", "~2 165 €"],
-                      ["4 000 €", "~3 120 €", "~2 886 €"],
-                      ["5 000 €", "~3 900 €", "~3 608 €"],
-                    ].map(([brut, net, netPas]) => (
+                    {tableauBrutNet.map(([brut, net, netPas]) => (
                       <tr key={brut} className="border-b border-border last:border-b-0">
                         <td className="px-5 py-3 font-semibold text-foreground">{brut}</td>
                         <td className="px-5 py-3 text-right tabular-nums text-foreground/80">{net}</td>
