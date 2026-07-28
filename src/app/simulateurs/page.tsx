@@ -45,7 +45,7 @@ interface SimulateurCard {
 const simulateurs: readonly SimulateurCard[] = [
   {
     nom: "Portage Salarial",
-    desc: "Calculez votre salaire net en portage et comparez 5 sociétés (ITG, OpenWork, ABC Portage, Cadres en Mission, CEGELEM).",
+    desc: "Calculez votre salaire net en portage et comparez 9 sociétés.",
     motsCles:
       "salaire portage 500€, simulateur portage 2026, comparaison sociétés portage",
     href: "/simulateurs/portage-salarial",
@@ -146,7 +146,7 @@ const faq = [
   },
   {
     q: "Je suis en portage salarial et je veux comparer les sociétés",
-    r: "Le simulateur Portage Salarial compare automatiquement 5 sociétés majeures (ITG, OpenWork, ABC Portage, Cadres en Mission, CEGELEM) et identifie celle qui maximise votre net selon vos paramètres.",
+    r: "Le simulateur Portage Salarial compare automatiquement 9 sociétés de portage et identifie celle qui maximise votre net selon vos paramètres.",
   },
   {
     q: "Je veux créer une SASU ou une EURL",

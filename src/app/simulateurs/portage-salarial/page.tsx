@@ -14,14 +14,14 @@ import PortageSimulator from "@/components/simulateurs/PortageSimulator";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
-  title: "Simulateur Portage Salarial 2026 · Comparez 5 sociétés en 30 secondes",
+  title: "Simulateur Portage Salarial 2026 · Comparez 9 sociétés en 30 secondes",
   description:
-    "Comparez votre salaire net réel chez 5 sociétés de portage salarial. Simulateur gratuit, neutre, taux 2026. Résultat en 30 secondes, sans email demandé.",
+    "Comparez votre salaire net réel chez 9 sociétés de portage salarial. Simulateur gratuit, neutre, taux 2026. Résultat en 30 secondes, sans email demandé.",
   alternates: { canonical: "/simulateurs/portage-salarial" },
   openGraph: {
-    title: "Simulateur Portage Salarial 2026 · Comparez 5 sociétés en 30 secondes",
+    title: "Simulateur Portage Salarial 2026 · Comparez 9 sociétés en 30 secondes",
     description:
-      "Comparez votre salaire net réel chez 5 sociétés de portage salarial. Simulateur gratuit, neutre, taux 2026. Résultat en 30 secondes, sans email demandé.",
+      "Comparez votre salaire net réel chez 9 sociétés de portage salarial. Simulateur gratuit, neutre, taux 2026. Résultat en 30 secondes, sans email demandé.",
     url: "/simulateurs/portage-salarial",
   },
 };
@@ -211,7 +211,7 @@ export default function PortageSalarialPage() {
                 Simulateur Portage Salarial 2026
               </h1>
               <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
-                Comparez le net réel de 5 sociétés en 30 secondes
+                Comparez le net réel de 9 sociétés en 30 secondes
               </p>
 
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-foreground/80">
@@ -224,9 +224,8 @@ export default function PortageSalarialPage() {
                 </p>
                 <p>
                   Ce simulateur estime votre salaire net mensuel à partir de
-                  votre TJM, et compare automatiquement cinq sociétés parmi
-                  les plus connues : ITG, Cadres en Mission, OpenWork, ABC
-                  Portage et CEGELEM. Taux moyens 2026.
+                  votre TJM, et compare automatiquement les 9 sociétés dont le taux est
+                  modélisable, classées du moins cher au plus cher. Taux 2026.
                 </p>
               </div>
             </div>

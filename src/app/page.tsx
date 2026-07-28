@@ -94,7 +94,7 @@ const personas = [
 const simulateurs = [
   {
     nom: "Portage Salarial",
-    desc: "Calculez votre net en portage et comparez 5 sociétés",
+    desc: "Calculez votre net en portage et comparez 9 sociétés",
     href: "/simulateurs/portage-salarial",
     categorie: "Freelance",
   },

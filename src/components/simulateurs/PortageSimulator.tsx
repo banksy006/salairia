@@ -323,7 +323,7 @@ export default function PortageSimulator() {
       <section id="comparatif" className="scroll-mt-24">
         <Card>
           <h3 className="text-2xl font-bold tracking-tight text-foreground">
-            Comparatif de 5 sociétés de portage
+            Comparatif de 9 sociétés de portage
           </h3>
           <p className="mt-2 max-w-2xl text-base text-muted-foreground">
             Salaire net estimé avec tes paramètres actuels, pour chaque
@@ -387,10 +387,10 @@ export default function PortageSimulator() {
 
           <div className="mt-6 rounded-xl border border-primary/20 bg-primary/5 p-5">
             <p className="text-base font-semibold text-foreground">
-              Ces 5 sociétés ne sont qu&apos;un échantillon
+              Ces 9 sociétés ne disent pas tout
             </p>
             <p className="mt-1 text-sm text-foreground/80">
-              Notre comparatif détaille 10 sociétés de portage sur 8 critères :
+              Notre comparatif détaille les 10 sociétés sur 8 critères :
               frais de gestion, services inclus, garanties, délais de paiement.
             </p>
             <Link

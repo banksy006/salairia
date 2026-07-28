@@ -41,7 +41,7 @@ const faq = [
   },
   {
     q: "Quels sont les frais de gestion moyens en portage salarial en 2026 ?",
-    r: "Les frais de gestion se situent entre 5 % et 10 % du chiffre d'affaires HT facturé. La moyenne du marché est autour de 7-8 %. Certaines sociétés proposent des frais plafonnés (par exemple 600 €/mois), ce qui devient très avantageux au-delà d'un certain CA. Une alternative récente est l'abonnement fixe (comme Jump à 99 €/mois), qui supprime la commission proportionnelle. Attention : des frais bas ne signifient pas toujours un meilleur salaire net — les services inclus et la qualité de l'accompagnement comptent aussi.",
+    r: "Les frais de gestion se situent entre 5 % et 10 % du chiffre d'affaires HT facturé. La moyenne du marché est autour de 7-8 %. Certaines sociétés proposent des frais plafonnés (par exemple 650 €/mois), ce qui devient très avantageux au-delà d'un certain CA. Une alternative récente est l'abonnement fixe (comme Jump à 99 €/mois), qui supprime la commission proportionnelle. Attention : des frais bas ne signifient pas toujours un meilleur salaire net — les services inclus et la qualité de l'accompagnement comptent aussi.",
   },
   {
     q: "Quelle est la différence entre portage salarial et auto-entrepreneur ?",
@@ -65,7 +65,7 @@ const faq = [
   },
   {
     q: "Frais en pourcentage ou abonnement fixe : lequel est plus avantageux ?",
-    r: "Le modèle en commission (4 à 10 % du CA) est linéaire avec votre chiffre d'affaires. L'abonnement fixe (par exemple Jump à 99 €/mois) supprime la commission mais inclut généralement moins de services. Le croisement se fait autour de 20 000-30 000 € de CA annuel : en deçà, la commission reste moins chère ; au-delà, le forfait fixe devient avantageux. Un troisième modèle, la commission plafonnée (par exemple Régie Portage à 5 % max 600 €/mois), cumule les deux approches : proportionnel en début de CA, plafonné au-delà.",
+    r: "Le modèle en commission (4 à 10 % du CA) est linéaire avec votre chiffre d'affaires. L'abonnement fixe (par exemple Jump à 99 €/mois) supprime la commission mais inclut généralement moins de services. Le croisement se fait autour de 20 000-30 000 € de CA annuel : en deçà, la commission reste moins chère ; au-delà, le forfait fixe devient avantageux. Un troisième modèle, la commission plafonnée (par exemple Régie Portage à 5 % plafonné à 650 €/mois), cumule les deux approches : proportionnel en début de CA, plafonné au-delà.",
   },
   {
     q: "Comment vérifier moi-même les informations de ce comparatif ?",
@@ -164,7 +164,7 @@ export default function PortageSalarialComparateurPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour avril 2026
+            À jour juillet 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -281,7 +281,7 @@ export default function PortageSalarialComparateurPage() {
                     <a href="#regie-portage" className="font-semibold text-primary hover:underline">
                       Régie Portage
                     </a>{" "}
-                    (5 % plafonné à 600 €, tu économises sur les frais dès que ton CA augmente)
+                    (5 % plafonné à 650 €, tu économises sur les frais dès que ton CA augmente)
                   </li>
                   <li>
                     <strong>Tu veux un accompagnement humain et de proximité ?</strong> →{" "}
@@ -417,6 +417,13 @@ export default function PortageSalarialComparateurPage() {
                       <div>
                         <dt className="text-xs text-muted-foreground">Frais</dt>
                         <dd className="text-foreground">{s.fraisDetail}</dd>
+                        {s.tarifPublie === false && (
+                          <dd className="mt-1 text-xs italic text-muted-foreground">
+                            Cette société ne publie pas de grille tarifaire :
+                            le taux indiqué est une estimation de marché, à
+                            confirmer lors de ton échange commercial.
+                          </dd>
+                        )}
                       </div>
                       {s.plafond && (
                         <div>
@@ -602,7 +609,7 @@ export default function PortageSalarialComparateurPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : avril 2026. Frais et avis relevés
+                  Dernière mise à jour : juillet 2026. Frais revérifiés sur les sites officiels le 28 juillet 2026. Avis relevés
                   sur les sites officiels de chaque société et les plateformes
                   d&apos;avis publics. Les offres peuvent évoluer sans
                   préavis.

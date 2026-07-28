@@ -8,6 +8,8 @@
  * de la mutuelle, de la prévoyance, et de la société de portage choisie.
  */
 
+import societesData from "@/data/societes-portage.json";
+
 export const PORTAGE_2026 = {
   // Plafond de la Sécurité sociale 2026, valeur mensuelle (annuel : 48 060 €).
   // Source : arrêté du 22 décembre 2025 (JORF), urssaf.fr. Revalidé le 27 juillet 2026.
@@ -115,13 +117,22 @@ export interface SocietePortage {
   url?: string;
 }
 
-export const SOCIETES_PORTAGE: readonly SocietePortage[] = [
-  { nom: "CEGELEM", tauxFraisGestion: 4 },
-  { nom: "ABC Portage", tauxFraisGestion: 5 },
-  { nom: "OpenWork", tauxFraisGestion: 6 },
-  { nom: "Cadres en Mission", tauxFraisGestion: 8 },
-  { nom: "ITG", tauxFraisGestion: 10 },
-] as const;
+// Source unique : src/data/societes-portage.json, qui alimente aussi le
+// comparateur. Les deux divergeaient (CEGELEM à 4 % ici et 5 % là-bas, entre
+// autres) : le simulateur et le comparateur affichaient des taux différents
+// pour la même société. Dériver du JSON supprime la duplication à la racine.
+// Les sociétés sans taux proportionnel modélisable (abonnement fixe) sont
+// écartées du comparatif du simulateur.
+export const SOCIETES_PORTAGE: readonly SocietePortage[] = (
+  societesData as { nom: string; site?: string; tauxEstimePct: number | null }[]
+)
+  .filter((s) => typeof s.tauxEstimePct === "number")
+  .map((s) => ({
+    nom: s.nom,
+    tauxFraisGestion: s.tauxEstimePct as number,
+    url: s.site,
+  }))
+  .sort((a, b) => a.tauxFraisGestion - b.tauxFraisGestion);
 
 export interface ComparatifLigne {
   societe: SocietePortage;

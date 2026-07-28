@@ -5,8 +5,8 @@
     "slug": "regie-portage",
     "creation": 2016,
     "fraisGestion": "5 %",
-    "fraisDetail": "5 % plafonné à 600 €/mois. Au-delà, les frais n'augmentent plus.",
-    "plafond": "600 €/mois",
+    "fraisDetail": "5 % plafonné à 650 €/mois. Au-delà, les frais n'augmentent plus. Taxes et assurances annoncées à 1 % en sus.",
+    "plafond": "650 €/mois",
     "avisPlateforme": "Google",
     "avisNote": 4.9,
     "avisNombre": 283,
@@ -14,12 +14,29 @@
     "portesTotal": "5 000+",
     "reseau": "National (principales villes)",
     "avanceSalaire": true,
-    "services": ["Frais plafonnés", "Avance sur salaire", "RC Pro", "Mutuelle", "Accompagnement personnalisé"],
+    "services": [
+      "Frais plafonnés",
+      "Avance sur salaire",
+      "RC Pro",
+      "Mutuelle",
+      "Accompagnement personnalisé"
+    ],
     "idealPour": "Hauts CA (>10k€/mois) grâce au plafonnement des frais",
-    "points_forts": ["5 % plafonné à 600 €/mois — imbattable pour les hauts CA", "4.9/5 Google sur 283 avis", "Champions de la croissance Les Échos 2022-2026", "Fondée par un ancien porté"],
-    "points_faibles": ["Société plus récente (2016)", "Moins de portés que les leaders historiques"],
+    "points_forts": [
+      "5 % plafonné à 600 €/mois — imbattable pour les hauts CA",
+      "4.9/5 Google sur 283 avis",
+      "Champions de la croissance Les Échos 2022-2026",
+      "Fondée par un ancien porté"
+    ],
+    "points_faibles": [
+      "Société plus récente (2016)",
+      "Moins de portés que les leaders historiques"
+    ],
     "site": "https://www.regie-portage.fr",
-    "choixSalairia": true
+    "choixSalairia": true,
+    "tarifPublie": true,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 5
   },
   {
     "id": "admissions",
@@ -36,12 +53,29 @@
     "portesTotal": "28 000+",
     "reseau": "18 agences régionales",
     "avanceSalaire": true,
-    "services": ["18 agences en face à face", "Accompagnement international", "Conseil juridique contrats", "RC Pro", "Mutuelle", "Formation"],
+    "services": [
+      "18 agences en face à face",
+      "Accompagnement international",
+      "Conseil juridique contrats",
+      "RC Pro",
+      "Mutuelle",
+      "Formation"
+    ],
     "idealPour": "Consultants souhaitant un accompagnement humain de proximité",
-    "points_forts": ["28 000 portés depuis 1997", "4.9/5 sur 431 avis Trustpilot", "18 agences pour accompagnement en présentiel", "Expertise missions internationales"],
-    "points_faibles": ["Frais potentiellement plus élevés que les pure players digitaux"],
+    "points_forts": [
+      "28 000 portés depuis 1997",
+      "4.9/5 sur 431 avis Trustpilot",
+      "18 agences pour accompagnement en présentiel",
+      "Expertise missions internationales"
+    ],
+    "points_faibles": [
+      "Frais potentiellement plus élevés que les pure players digitaux"
+    ],
     "site": "https://www.admissions.fr",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": false,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 6
   },
   {
     "id": "itg",
@@ -58,12 +92,31 @@
     "portesTotal": "15 000+",
     "reseau": "National (agences France entière)",
     "avanceSalaire": true,
-    "services": ["Mutuelle premium", "PEE/PERCO", "RC Pro", "Formation", "Réseau missions", "CESU", "Accompagnement dédié"],
+    "services": [
+      "Mutuelle premium",
+      "PEE/PERCO",
+      "RC Pro",
+      "Formation",
+      "Réseau missions",
+      "CESU",
+      "Accompagnement dédié"
+    ],
     "idealPour": "Consultants seniors, hauts CA, besoin d'accompagnement complet",
-    "points_forts": ["Leader historique depuis 1996", "Accompagnement premium personnalisé", "PEE/PERCO pour optimisation fiscale", "Large réseau de missions"],
-    "points_faibles": ["Frais parmi les plus élevés du marché", "Moins adapté aux petits CA"],
+    "points_forts": [
+      "Leader historique depuis 1996",
+      "Accompagnement premium personnalisé",
+      "PEE/PERCO pour optimisation fiscale",
+      "Large réseau de missions"
+    ],
+    "points_faibles": [
+      "Frais parmi les plus élevés du marché",
+      "Moins adapté aux petits CA"
+    ],
     "site": "https://www.itg.fr",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": false,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 10
   },
   {
     "id": "openwork",
@@ -80,12 +133,29 @@
     "portesTotal": "10 000+",
     "reseau": "National + digital",
     "avanceSalaire": true,
-    "services": ["Avance sur salaire sans frais", "Paiement garanti le 5 du mois", "Frais pro déductibles", "RC Pro", "Mutuelle"],
+    "services": [
+      "Avance sur salaire sans frais",
+      "Paiement garanti le 5 du mois",
+      "Frais pro déductibles",
+      "RC Pro",
+      "Mutuelle"
+    ],
     "idealPour": "Freelances recherchant transparence et frais réduits",
-    "points_forts": ["5 % fixe sans surprise", "Démarrage en moins de 24h", "Avance sur salaire sans frais", "Paiement garanti le 5"],
-    "points_faibles": ["Accompagnement moins personnalisé que ITG", "Pas de réseau physique d'agences"],
+    "points_forts": [
+      "5 % fixe sans surprise",
+      "Démarrage en moins de 24h",
+      "Avance sur salaire sans frais",
+      "Paiement garanti le 5"
+    ],
+    "points_faibles": [
+      "Accompagnement moins personnalisé que ITG",
+      "Pas de réseau physique d'agences"
+    ],
     "site": "https://www.openwork.co",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": false,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 6
   },
   {
     "id": "abc-portage",
@@ -102,12 +172,27 @@
     "portesTotal": "8 000+",
     "reseau": "National",
     "avanceSalaire": true,
-    "services": ["RC Pro", "Mutuelle", "Formation continue", "Accompagnement commercial"],
+    "services": [
+      "RC Pro",
+      "Mutuelle",
+      "Formation continue",
+      "Accompagnement commercial"
+    ],
     "idealPour": "Consultants IT et ingénierie",
-    "points_forts": ["Expertise IT et ingénierie", "Frais dégressifs compétitifs", "Accompagnement commercial actif"],
-    "points_faibles": ["Moins de visibilité que les leaders", "Avis clients moins nombreux"],
+    "points_forts": [
+      "Expertise IT et ingénierie",
+      "Frais dégressifs compétitifs",
+      "Accompagnement commercial actif"
+    ],
+    "points_faibles": [
+      "Moins de visibilité que les leaders",
+      "Avis clients moins nombreux"
+    ],
     "site": "https://www.abcportage.fr",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": false,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 5
   },
   {
     "id": "cadres-en-mission",
@@ -124,12 +209,28 @@
     "portesTotal": "45 000+",
     "reseau": "National",
     "avanceSalaire": true,
-    "services": ["Interlocuteur dédié", "Formation qualité", "Offres de missions", "RC Pro", "Mutuelle"],
+    "services": [
+      "Interlocuteur dédié",
+      "Formation qualité",
+      "Offres de missions",
+      "RC Pro",
+      "Mutuelle"
+    ],
     "idealPour": "Cadres expérimentés, profils seniors et managers de transition",
-    "points_forts": ["45 000 portés accompagnés depuis 1999", "Interlocuteur dédié", "Formations de qualité reconnues"],
-    "points_faibles": ["Frais dégressifs pas toujours transparents", "TJM minimum 300 € HT/jour"],
+    "points_forts": [
+      "45 000 portés accompagnés depuis 1999",
+      "Interlocuteur dédié",
+      "Formations de qualité reconnues"
+    ],
+    "points_faibles": [
+      "Frais dégressifs pas toujours transparents",
+      "TJM minimum 300 € HT/jour"
+    ],
     "site": "https://www.cadresenmission.com",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": false,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 8
   },
   {
     "id": "2i-portage",
@@ -146,20 +247,37 @@
     "portesTotal": "5 000+",
     "reseau": "Toulouse + national",
     "avanceSalaire": true,
-    "services": ["Slack communauté par technologie", "Rencontres réseau Paris", "Outils gestion activité", "RC Pro", "Mutuelle"],
+    "services": [
+      "Slack communauté par technologie",
+      "Rencontres réseau Paris",
+      "Outils gestion activité",
+      "RC Pro",
+      "Mutuelle"
+    ],
     "idealPour": "Consultants tech/IT qui veulent une communauté active",
-    "points_forts": ["4.8/5 sur 200+ avis", "Communauté Slack active entre portés", "Label PEPS", "15 ans d'expérience"],
-    "points_faibles": ["Basée à Toulouse, moins de présence hors Sud-Ouest", "Moins connue que ITG ou OpenWork"],
+    "points_forts": [
+      "4.8/5 sur 200+ avis",
+      "Communauté Slack active entre portés",
+      "Label PEPS",
+      "15 ans d'expérience"
+    ],
+    "points_faibles": [
+      "Basée à Toulouse, moins de présence hors Sud-Ouest",
+      "Moins connue que ITG ou OpenWork"
+    ],
     "site": "https://www.2iportage.com",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": false,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 5
   },
   {
     "id": "cegelem",
     "nom": "CEGELEM",
     "slug": "cegelem",
     "creation": 2018,
-    "fraisGestion": "5 %",
-    "fraisDetail": "Taux fixe 5 %.",
+    "fraisGestion": "4 %",
+    "fraisDetail": "Taux fixe 4 %, affiché publiquement sur le site.",
     "plafond": null,
     "avisPlateforme": "Google",
     "avisNote": 4.7,
@@ -168,20 +286,36 @@
     "portesTotal": "3 000+",
     "reseau": "Digital + agences",
     "avanceSalaire": false,
-    "services": ["RC Pro", "Mutuelle", "Accompagnement personnalisé", "Plateforme digitale"],
+    "services": [
+      "RC Pro",
+      "Mutuelle",
+      "Accompagnement personnalisé",
+      "Plateforme digitale"
+    ],
     "idealPour": "Indépendants recherchant simplicité et frais bas",
-    "points_forts": ["5 % fixe", "Note Google élevée 4.7/5", "Interface digitale moderne"],
-    "points_faibles": ["Pas de label PEPS", "Pas d'avance sur salaire", "Société récente"],
+    "points_forts": [
+      "5 % fixe",
+      "Note Google élevée 4.7/5",
+      "Interface digitale moderne"
+    ],
+    "points_faibles": [
+      "Pas de label PEPS",
+      "Pas d'avance sur salaire",
+      "Société récente"
+    ],
     "site": "https://www.cegelem.fr",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": true,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 4
   },
   {
     "id": "jump",
     "nom": "Jump",
     "slug": "jump",
     "creation": 2020,
-    "fraisGestion": "99 €/mois (fixe)",
-    "fraisDetail": "Abonnement fixe : 99 €/mois (engagement annuel) ou 149 €/mois (sans engagement). Aucune commission sur le CA.",
+    "fraisGestion": "99 € HT/mois",
+    "fraisDetail": "Abonnement fixe à partir de 99 € HT/mois, indépendant du chiffre d'affaires.",
     "plafond": "99 ou 149 €/mois fixe",
     "avisPlateforme": "Trustpilot",
     "avisNote": 4.0,
@@ -190,20 +324,42 @@
     "portesTotal": "5 000+",
     "reseau": "100 % digital",
     "avanceSalaire": false,
-    "services": ["CDI", "Mutuelle Alan", "Titres-restaurant", "Chèques culture", "RC Pro", "Frais pro déductibles", "Épargne salariale", "Plateforme 100% digitale"],
+    "services": [
+      "CDI",
+      "Mutuelle Alan",
+      "Titres-restaurant",
+      "Chèques culture",
+      "RC Pro",
+      "Frais pro déductibles",
+      "Épargne salariale",
+      "Plateforme 100% digitale"
+    ],
     "idealPour": "Freelances autonomes avec CA élevé, pas besoin d'accompagnement",
-    "points_forts": ["Modèle unique : abonnement fixe, 0 % commission sur CA", "Ultra-avantageux pour les CA >5 000 €/mois", "Plateforme digitale complète et moderne", "Nombreux avantages inclus (titres-restaurant, épargne)"],
-    "points_faibles": ["Pas d'avance sur salaire", "Pas de label PEPS", "Accompagnement humain limité", "Société jeune (2020)"],
+    "points_forts": [
+      "Modèle unique : abonnement fixe, 0 % commission sur CA",
+      "Ultra-avantageux pour les CA >5 000 €/mois",
+      "Plateforme digitale complète et moderne",
+      "Nombreux avantages inclus (titres-restaurant, épargne)"
+    ],
+    "points_faibles": [
+      "Pas d'avance sur salaire",
+      "Pas de label PEPS",
+      "Accompagnement humain limité",
+      "Société jeune (2020)"
+    ],
     "site": "https://www.join-jump.com",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": true,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": null
   },
   {
     "id": "coq-portage",
     "nom": "Coq Portage",
     "slug": "coq-portage",
     "creation": 2022,
-    "fraisGestion": "6 %",
-    "fraisDetail": "6 % plafonné à 700 €/mois.",
+    "fraisGestion": "5 %",
+    "fraisDetail": "5 % plafonnés à 700 €/mois.",
     "plafond": "700 €/mois",
     "avisPlateforme": "Google",
     "avisNote": 4.8,
@@ -212,11 +368,31 @@
     "portesTotal": "1 000+",
     "reseau": "Digital + accompagnement",
     "avanceSalaire": true,
-    "services": ["Frais plafonnés", "Optimisation fiscale", "Accompagnement patrimoine", "RC Pro", "Mutuelle", "CESU", "Chèques vacances"],
+    "services": [
+      "Frais plafonnés",
+      "Optimisation fiscale",
+      "Accompagnement patrimoine",
+      "RC Pro",
+      "Mutuelle",
+      "CESU",
+      "Chèques vacances"
+    ],
     "idealPour": "Consultants cherchant optimisation financière et conseil patrimonial",
-    "points_forts": ["6 % plafonné à 700 €/mois", "Expertise optimisation financière", "Souveraineté numérique revendiquée", "Conseil patrimonial inclus"],
-    "points_faibles": ["Très récente (2022)", "Peu d'avis clients encore", "Pas de label PEPS"],
+    "points_forts": [
+      "6 % plafonné à 700 €/mois",
+      "Expertise optimisation financière",
+      "Souveraineté numérique revendiquée",
+      "Conseil patrimonial inclus"
+    ],
+    "points_faibles": [
+      "Très récente (2022)",
+      "Peu d'avis clients encore",
+      "Pas de label PEPS"
+    ],
     "site": "https://www.coqportage.fr",
-    "choixSalairia": false
+    "choixSalairia": false,
+    "tarifPublie": true,
+    "dateVerification": "2026-07-28",
+    "tauxEstimePct": 5
   }
 ]
