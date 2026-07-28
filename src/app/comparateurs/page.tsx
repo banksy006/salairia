@@ -30,10 +30,12 @@ const comparateurs = [
   {
     titre: "Banques pro freelance",
     desc:
-      "Comparatif des néobanques pro pour micro-entrepreneurs et freelances : Qonto, Shine, Propulse, Revolut Business, Finom, Blank. Frais mensuels, frais par opération, plafonds, dépôt de capital, carte et virements internationaux, intégrations comptables.",
-    dispo: false,
-    acteurs: "Qonto, Shine, Propulse, Revolut Business, Finom, Blank",
-    critereCount: 12,
+      "Comparatif des comptes pro pour micro-entrepreneurs et freelances : Blank, Propulse by CA, Qonto, Shine, Finom. Offres d'entrée comparées ligne à ligne — prix mensuel HT, virements inclus, carte physique, IBAN français — avec les tarifs relevés sur les grilles officielles.",
+    href: "/comparateurs/banques-pro",
+    dispo: true,
+    acteurs: "Blank, Propulse by CA, Qonto, Shine, Finom",
+    critereCount: 5,
+    lastUpdate: "juillet 2026",
   },
   {
     titre: "Comptabilité freelance",

@@ -14,6 +14,7 @@ const simulateursLinks = [
 
 const comparateursLinks = [
   { label: "Portage salarial", href: "/comparateurs/portage-salarial" },
+  { label: "Banques pro freelance", href: "/comparateurs/banques-pro" },
   { label: "Tous les comparateurs", href: "/comparateurs" },
 ];
 

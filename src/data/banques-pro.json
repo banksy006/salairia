@@ -1,0 +1,76 @@
+{
+  "_source": "Tarifs relevés le 28 juillet 2026 sur les grilles tarifaires publiques de chaque acteur. Seules les OFFRES D'ENTRÉE sont comparées ligne à ligne : c'est le palier pertinent pour un freelance ou une micro-entreprise, et c'est celui que chaque éditeur documente publiquement de façon comparable. Les paliers supérieurs sont mentionnés à titre indicatif. Vérifier la grille officielle avant de souscrire, les tarifs évoluent.",
+  "dateReleve": "2026-07-28",
+  "banques": [
+    {
+      "slug": "blank",
+      "nom": "Blank",
+      "offreEntree": "Simple",
+      "prixMensuelHT": 6,
+      "gratuit": false,
+      "ibanFrancais": true,
+      "virementsInclus": "30 SEPA/mois",
+      "cartePhysique": "1 Visa Business",
+      "specificite": "Déclaration URSSAF automatisée, scan de justificatifs et notes de frais",
+      "autresPaliers": "Confort 17 € HT, Complète 39 € HT (virements illimités)",
+      "urlTarifs": "https://www.blank.app/tarifs",
+      "cible": "Micro-entrepreneurs"
+    },
+    {
+      "slug": "propulse",
+      "nom": "Propulse by CA",
+      "offreEntree": "Start",
+      "prixMensuelHT": 8,
+      "gratuit": false,
+      "ibanFrancais": true,
+      "virementsInclus": "Plafond 30 000 €/mois",
+      "cartePhysique": "1 Visa Business à débit immédiat",
+      "specificite": "Adossé au Crédit Agricole, aucun frais de tenue de compte ni commission de mouvement",
+      "autresPaliers": "Start+ (tarif supérieur)",
+      "urlTarifs": "https://www.propulsebyca.fr/tarifs",
+      "cible": "Indépendants cherchant un groupe bancaire établi"
+    },
+    {
+      "slug": "qonto",
+      "nom": "Qonto",
+      "offreEntree": "Basic",
+      "prixMensuelHT": 9,
+      "gratuit": false,
+      "ibanFrancais": true,
+      "virementsInclus": "SEPA instantanés",
+      "cartePhysique": "1 carte incluse",
+      "specificite": "Conformité facturation électronique, support client 24h/24 7j/7, outils de trésorerie",
+      "autresPaliers": "Smart 19 € HT (100 virements/mois, 1 sous-compte), Premium 39 € HT",
+      "urlTarifs": "https://qonto.com/fr/pricing",
+      "cible": "Freelances et sociétés en croissance"
+    },
+    {
+      "slug": "shine",
+      "nom": "Shine",
+      "offreEntree": "Free",
+      "prixMensuelHT": 0,
+      "gratuit": true,
+      "ibanFrancais": true,
+      "virementsInclus": "5 SEPA/mois puis 0,40 € HT",
+      "cartePhysique": "1 Mastercard Basic",
+      "specificite": "Offre réellement gratuite ; plafond carte 20 000 €/30 j, retraits et dépôt de chèques en option",
+      "autresPaliers": "Start 9 € HT (30 virements/mois, 2 IBAN, plafond 40 000 €/30 j)",
+      "urlTarifs": "https://www.shine.fr/tarifs/",
+      "cible": "Démarrage d'activité, faible volume"
+    },
+    {
+      "slug": "finom",
+      "nom": "Finom",
+      "offreEntree": "Solo",
+      "prixMensuelHT": 0,
+      "gratuit": true,
+      "ibanFrancais": true,
+      "virementsInclus": "2 500 € de SEPA sortants gratuits",
+      "cartePhysique": "Aucune incluse (carte virtuelle)",
+      "specificite": "Compte rémunéré 0,25 %, transferts internationaux à 1 %",
+      "autresPaliers": "Basic et Smart (tarifs non publiés en clair sur la page)",
+      "urlTarifs": "https://finom.co/fr-fr/pricing/",
+      "cible": "Indépendants à faible volume de virements"
+    }
+  ]
+}
