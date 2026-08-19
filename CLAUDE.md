@@ -107,6 +107,24 @@ Palette centralisée dans `src/app/globals.css`. Chaque couleur est exposée :
 
 **Police** : Inter via `next/font/google`, chargée dans `layout.tsx`, variable CSS `--font-inter` exposée à `@theme inline` en tant que `--font-sans`.
 
+## Favicon et icônes — ne pas y toucher
+
+Les icônes sont déclarées **une seule fois**, par la convention de fichiers de l'App Router, et s'appliquent automatiquement à **toutes les pages** — présentes et futures :
+
+| Fichier | Sert | Pour qui |
+|---|---|---|
+| `src/app/favicon.ico` | `/favicon.ico` (16, 32 et 48 px) | navigateurs qui réclament ce chemin d'office, Safari en tête |
+| `src/app/icon.svg` | `/icon.svg` | navigateurs modernes |
+| `src/app/apple-icon.tsx` | `/apple-icon` (PNG 180×180) | écrans d'accueil iOS, qui refusent le SVG |
+
+**Les trois sont nécessaires.** Le `.ico` en particulier : les navigateurs le demandent indépendamment de la balise `<link>`, et quand il renvoie 404 ils affichent une icône par défaut ou une version en cache. C'est ce qui faisait apparaître le logo Vercel sur certains onglets.
+
+Le `.ico` est généré à partir de la même géométrie que `icon.svg` (fond `#1E40AF`, trois barres ascendantes, la plus haute en `#6EE7B7`). Si le logo change, régénérer les trois.
+
+**Règle absolue : ne jamais déclarer de bloc `icons:` dans le `metadata` d'une page ni du layout.** Une déclaration explicite écrase la convention de fichiers et casse le favicon sur la page concernée — c'est exactement le bug qui a été corrigé le 28 juillet 2026.
+
+Aucune action n'est requise pour une nouvelle page : elle hérite des icônes automatiquement.
+
 ## Convention de commits
 
 Préfixes à utiliser (type conventional commits allégé) :
