@@ -26,6 +26,22 @@ const guides = [
     lecture: "12 min",
   },
   {
+    titre: "Portage salarial et chômage",
+    desc:
+      "Le salarié porté cotise à l'assurance chômage et ouvre de vrais droits à l'ARE — c'est l'argument numéro un du portage face à l'auto-entreprise. Ce guide détaille les conditions d'affiliation 2026, dont l'assouplissement du 1er avril pour les primo-entrants, le calcul de l'allocation, les modalités de rupture qui ouvrent des droits, et le cumul ARE-mission. Avec le point que presque personne n'explique : l'allocation se calcule sur le salaire brut, pas sur le chiffre d'affaires facturé.",
+    href: "/guides/portage-salarial-chomage",
+    audience: "Consultants en portage, entre deux missions ou en fin de contrat",
+    lecture: "8 min",
+  },
+  {
+    titre: "Congés payés en portage salarial",
+    desc:
+      "Le salarié porté acquiert 2,5 jours ouvrables par mois, comme tout salarié. L'indemnité correspond au plus avantageux entre le dixième de la rémunération brute et le maintien de salaire. Ce guide explique l'acquisition, le calcul, les deux modes de versement possibles, et la nuance propre au portage : les congés sont financés par votre propre facturation, pas par un employeur tiers.",
+    href: "/guides/conges-payes-portage-salarial",
+    audience: "Salariés portés, en mission ou en cours de signature",
+    lecture: "5 min",
+  },
+  {
     titre: "Auto-entrepreneur",
     desc:
       "L'auto-entreprise (micro-entreprise) est le statut le plus simple et le moins coûteux pour démarrer une activité en France. Ce guide détaille la création, les quatre catégories de cotisations URSSAF (BIC vente, BIC services, BNC régime général, BNC CIPAV), l'ACRE 2026, les plafonds de chiffre d'affaires, les seuils de franchise TVA et le versement libératoire.",

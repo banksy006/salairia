@@ -1,27 +1,40 @@
 # STATUS — état du site
 
 > Référence factuelle de ce qui existe. À relire avant toute tâche qui touche la structure du site, et à mettre à jour à chaque ajout de route.
-> **Dernière mise à jour : 28 juillet 2026.**
+> **Dernière mise à jour : 19 août 2026.**
 
 ## En un coup d'œil
 
 | | |
 |---|---|
-| Routes publiées | 32 |
-| URLs au sitemap | 32 |
-| Calculateurs | 9 |
+| Routes publiées | 34 |
+| URLs au sitemap | 34 |
+| Calculateurs | 10 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
 | Monétisation | **Non branchée** — liens partenaires encore en placeholder |
 
-## Indexation (Search Console, 24 juillet 2026)
+## Performance Search Console — 19 août 2026 (92 jours)
 
-- **4 pages indexées** sur 23 alors connues : `/`, `/simulateurs/net-apres-impot`, `/simulateurs/pouvoir-achat-ville`, `/guides/portage-salarial`
-- **17 pages** en « Détectée, actuellement non indexée »
-- 3 URLs en « page avec redirection » : variantes `http://` et `www` de la home, redirections 301 normales — **rien à corriger**
-- Sitemap soumis dans GSC le 28 juillet 2026
+**94 clics · 9 083 impressions · CTR 1,03 % · 14 pages servies**
 
-**Checkpoint M3 de la roadmap : ROUGE sur les deux critères** (17,4 % de pages indexées pour un seuil de 30 %, ~105 visites pour un seuil de 300). L'audit technique prescrit a été réalisé le 27 juillet : rendu serveur, canonicals, sitemap, robots, tout est propre. Le blocage est l'absence d'autorité externe, pas la technique — ne pas re-auditer.
+Évolution depuis les corrections du 28 juillet :
+
+| Quinzaine | Impressions | Clics |
+|---|---|---|
+| début juillet | 683 | 8 |
+| fin juillet | 1 644 | 18 |
+| début août | **3 723** | **29** |
+
+Les impressions ont été multipliées par 5,5 et le nombre de pages servies est passé de 4 à 14. La position moyenne se dégrade (9,9 → 45,3) : c'est **mécanique**, dix nouvelles pages entrent en position 40-90. Ne pas interpréter comme une régression — suivre les clics et le CTR par page.
+
+**AI Overviews : 1 231 impressions, 13,4 % du site.** `/simulateurs/net-apres-impot` en tire 934 sur 1 473, soit **63 % de ses impressions**. Conséquence : position 1,2 sur « remboursement impot 2026 » pour 374 impressions et 1 clic. Cette page ne convertira pas — ne pas y investir.
+
+**Leçon stratégique mesurée :** `/pouvoir-achat-ville` (9 % d'IA) fait 5,12 % de CTR et 71 clics ; `/net-apres-impot` (63 % d'IA) fait 0,34 % et 5 clics, à position comparable. Les réponses **personnalisées** résistent à l'IA, les réponses **factuelles** non. Orienter les futurs contenus vers « dans MA situation ».
+
+**Bruit de marque :** 406 impressions viennent de recherches « sprintjob », soit 63 % des impressions de la home. Le CTR de 0,93 % de la page d'accueil n'est donc pas un problème de titre.
+
+**Gisement portage : 3 454 impressions (38 % du site) pour 4 clics.** Sous-thèmes mesurés : chômage 620 impr (pos 64), comparatif/avis 757 (pos 33), TJM 533 (pos 90), fiche de paie 260 (pos 48), congés payés 175 (pos 81).
 
 ## Trafic (Plausible, 91 jours au 27 juillet 2026)
 
@@ -32,8 +45,10 @@
 ### Simulateurs — 9/9
 `/simulateurs` (hub) · portage-salarial · tjm-freelance · auto-entrepreneur · salaire-brut-net · sasu-eurl · net-apres-impot · negociation-salariale · pouvoir-achat-ville · ou-se-situe-mon-salaire
 
-### Guides — 5
-`/guides` (hub) · portage-salarial · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net
+### Guides — 7
+`/guides` (hub) · portage-salarial · **portage-salarial-chomage** · **conges-payes-portage-salarial** · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net
+
+Les deux guides en gras ont été créés le 19 août 2026 en réponse aux données Search Console : 620 et 175 impressions déjà servies, toutes en page 6 ou au-delà.
 
 ### Comparateurs — 4 (tous disponibles)
 `/comparateurs` (hub)

@@ -22,6 +22,8 @@ const comparateursLinks = [
 
 const guidesLinks = [
   { label: "Portage salarial", href: "/guides/portage-salarial" },
+  { label: "Portage et chômage", href: "/guides/portage-salarial-chomage" },
+  { label: "Congés payés en portage", href: "/guides/conges-payes-portage-salarial" },
   { label: "TJM freelance", href: "/guides/tjm-freelance" },
   { label: "Auto-entrepreneur", href: "/guides/auto-entrepreneur" },
   { label: "SASU vs EURL", href: "/guides/sasu-eurl" },
