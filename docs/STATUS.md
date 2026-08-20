@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 34 |
-| URLs au sitemap | 34 |
+| Routes publiées | 50 |
+| URLs au sitemap | 50 |
 | Calculateurs | 10 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -45,10 +45,15 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 ### Simulateurs — 9/9
 `/simulateurs` (hub) · portage-salarial · tjm-freelance · auto-entrepreneur · salaire-brut-net · sasu-eurl · net-apres-impot · negociation-salariale · pouvoir-achat-ville · ou-se-situe-mon-salaire
 
-### Guides — 7
-`/guides` (hub) · portage-salarial · **portage-salarial-chomage** · **conges-payes-portage-salarial** · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net
+### Guides — 17
+`/guides` (hub) · portage-salarial · portage-salarial-chomage · conges-payes-portage-salarial · **simulation-tjm-portage-salarial** · **fiche-de-paie-portage-salarial** · **portage-salarial-ou-cdi** · **frais-gestion-portage-salarial** · **frais-professionnels-portage-salarial** · **salaire-president-sasu** · **sasu-chomage-dirigeant** · **dividendes-sasu-ou-salaire** · **auto-entrepreneur-chomage** · **cumul-salarie-auto-entrepreneur** · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net
 
-Les deux guides en gras ont été créés le 19 août 2026 en réponse aux données Search Console : 620 et 175 impressions déjà servies, toutes en page 6 ou au-delà.
+Les 10 guides en gras (batch du 19 août 2026) ciblent les clusters mesurés dans GSC : simulation TJM portage (645 impr, pos 88), fiche de paie (143 impr), portage vs CDI (63 impr dont requalification), plus les angles morts SASU/AE à fort caractère conditionnel (résistants aux AI Overviews). Chrome partagé : `src/components/GuideShell.tsx`.
+
+### Villes — 6 (nouveau, 19 août 2026)
+`/villes` (hub) · paris · lyon · marseille · toulouse · bordeaux
+
+Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des clics du site) : réponse personnalisée-comparative, tous les montants dérivés de cout-vie-villes.json + calculerNetVersBrut + calculerPercentile. Route dynamique `/villes/[ville]` limitée volontairement à 5 villes — les 15 autres restent servies par le simulateur pour éviter le quasi-doublon à faible valeur.
 
 ### Comparateurs — 4 (tous disponibles)
 `/comparateurs` (hub)

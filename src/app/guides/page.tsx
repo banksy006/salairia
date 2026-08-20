@@ -42,6 +42,86 @@ const guides = [
     lecture: "5 min",
   },
   {
+    titre: "Simulation TJM en portage salarial",
+    desc:
+      "Le net réel calculé pour six niveaux de TJM, de 300 à 800 € par jour : chiffre d'affaires, brut, net avant impôt. Avec la mécanique complète du calcul — pourquoi les pourcentages se composent au lieu de s'additionner — et les trois paramètres qui changent vraiment le résultat : frais de gestion, jours facturés, frais professionnels.",
+    href: "/guides/simulation-tjm-portage-salarial",
+    audience: "Freelances qui évaluent le portage, consultants en négociation de TJM",
+    lecture: "7 min",
+  },
+  {
+    titre: "Fiche de paie en portage salarial",
+    desc:
+      "Le bulletin du salarié porté ressemble à celui d'un salarié classique, mais son brut est le résultat d'un calcul qui part de la facturation. Chaque ligne expliquée avec un exemple complet, les quatre points à contrôler chaque mois — salaire minimum conventionnel, cohérence CA-brut, frais refacturables, taux de PAS — et le rôle du relevé de compte d'activité.",
+    href: "/guides/fiche-de-paie-portage-salarial",
+    audience: "Salariés portés, en poste ou en cours de signature",
+    lecture: "7 min",
+  },
+  {
+    titre: "Portage salarial ou CDI",
+    desc:
+      "La seule comparaison honnête part du budget employeur : à dépense identique, le CDI verse davantage de net, et l'écart chiffre le prix de l'indépendance. Tableau des différences réelles — la protection sociale est identique, la garantie de revenu non —, le risque de requalification du faux portage, et les critères pour trancher selon votre situation.",
+    href: "/guides/portage-salarial-ou-cdi",
+    audience: "Salariés qui hésitent à se lancer, consultants qu'on veut internaliser",
+    lecture: "8 min",
+  },
+  {
+    titre: "Frais de gestion en portage",
+    desc:
+      "De 4 à 10 % du CA selon la société : c'est la seule variable du portage que vous choisissez, et l'écart atteint plusieurs milliers d'euros par an. Les trois modèles décryptés — pourcentage simple, plafonné, abonnement fixe —, l'impact calculé société par société, et les questions à poser avant de signer.",
+    href: "/guides/frais-gestion-portage-salarial",
+    audience: "Freelances qui comparent les sociétés de portage",
+    lecture: "7 min",
+  },
+  {
+    titre: "Frais professionnels en portage",
+    desc:
+      "Refacturables au client ou déduits du chiffre d'affaires : deux régimes aux effets très différents. 300 € de frais non refacturables ne coûtent qu'environ 150 € de net réel — le mécanisme chiffré, la récupération de TVA que peu de sociétés mettent en avant, et l'arbitrage avec vos droits futurs.",
+    href: "/guides/frais-professionnels-portage-salarial",
+    audience: "Salariés portés avec matériel, déplacements ou formation à financer",
+    lecture: "6 min",
+  },
+  {
+    titre: "Salaire du président de SASU",
+    desc:
+      "De zéro à la totalité du résultat : le président fixe librement sa rémunération, et chaque euro suit un chemin fiscal différent selon qu'il part en salaire ou en dividende. Trois scénarios calculés sur un cas type, les critères d'arbitrage — revenu régulier, retraite, couverture santé — et le piège du salaire zéro prolongé.",
+    href: "/guides/salaire-president-sasu",
+    audience: "Présidents de SASU, créateurs en réflexion sur leur rémunération",
+    lecture: "8 min",
+  },
+  {
+    titre: "SASU et chômage du dirigeant",
+    desc:
+      "« Assimilé salarié » ne veut pas dire assuré chômage : le président de SASU ne cotise pas à l'assurance chômage et n'ouvre aucun droit à l'ARE, quel que soit son salaire. Pourquoi, les exceptions réelles — cumul avec un contrat de travail, rescrit France Travail —, les alternatives, et la comparaison chiffrée avec le portage.",
+    href: "/guides/sasu-chomage-dirigeant",
+    audience: "Créateurs de SASU, dirigeants qui découvrent l'angle mort",
+    lecture: "7 min",
+  },
+  {
+    titre: "Dividendes en SASU",
+    desc:
+      "La flat tax de 30 % ne raconte que la moitié de l'histoire : un euro de bénéfice paie d'abord l'impôt sur les sociétés, puis le PFU — soit environ 40 % de prélèvements combinés sur la première tranche. Le trajet complet chiffré, l'option du barème avec abattement de 40 %, et la règle des 10 % du capital qui change tout en EURL.",
+    href: "/guides/dividendes-sasu-ou-salaire",
+    audience: "Dirigeants de SASU et d'EURL qui arbitrent leur distribution",
+    lecture: "7 min",
+  },
+  {
+    titre: "Auto-entrepreneur et chômage",
+    desc:
+      "Le micro-entrepreneur ne cotise pas à l'assurance chômage : pas d'ARE en cas d'arrêt. L'ATI existe — environ 600 à 800 € par mois pendant six mois — mais ses conditions excluent la plupart des candidats. Le mécanisme qui fonctionne vraiment : cumuler des droits ARE déjà acquis avec une micro-entreprise, ARE mensuelle ou ARCE en capital.",
+    href: "/guides/auto-entrepreneur-chomage",
+    audience: "Micro-entrepreneurs, demandeurs d'emploi qui créent leur activité",
+    lecture: "7 min",
+  },
+  {
+    titre: "Cumuler salariat et micro-entreprise",
+    desc:
+      "Légal, sans plafond, sans autorisation — mais trois clauses à vérifier avant la première facture : exclusivité, loyauté, non-concurrence. Le revenu combiné calculé sur un cas type CDI + side business, la question des cotisations doubles, et le cas d'école du versement libératoire quand le salaire occupe déjà les tranches basses du barème.",
+    href: "/guides/cumul-salarie-auto-entrepreneur",
+    audience: "Salariés avec un projet parallèle, side businesses en démarrage",
+    lecture: "7 min",
+  },
+  {
     titre: "Auto-entrepreneur",
     desc:
       "L'auto-entreprise (micro-entreprise) est le statut le plus simple et le moins coûteux pour démarrer une activité en France. Ce guide détaille la création, les quatre catégories de cotisations URSSAF (BIC vente, BIC services, BNC régime général, BNC CIPAV), l'ACRE 2026, les plafonds de chiffre d'affaires, les seuils de franchise TVA et le versement libératoire.",
