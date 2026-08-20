@@ -74,7 +74,7 @@ export default function MentionsLegalesPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="w-3.5 h-3.5" />
-            Mis à jour avril 2026
+            Mis à jour août 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -88,19 +88,26 @@ export default function MentionsLegalesPage() {
         <div className="mt-16 flex gap-12">
           <div className="min-w-0 flex-1 space-y-8">
             <Section title="Éditeur du site" id="editeur">
+              <p className="mb-4">Le site Salairia est édité par :</p>
               <ul className="space-y-2">
-                <Dt label="Nom">Nizar Laghrifi</Dt>
-                <Dt label="Statut">
-                  Entreprise individuelle en cours d&apos;immatriculation
+                <Dt label="Nom">Nizar LAGHRIFI</Dt>
+                <Dt label="Nom commercial">Polaris</Dt>
+                <Dt label="Forme juridique">
+                  Entrepreneur individuel (micro-entreprise)
                 </Dt>
-                <Dt label="Adresse">
-                  Paris, France (adresse précise communiquée sur demande à{" "}
-                  <MailLink />)
+                <Dt label="Adresse">229 rue Saint-Honoré, 75001 Paris, France</Dt>
+                <Dt label="SIREN">105 411 730</Dt>
+                <Dt label="SIRET">105 411 730 00010</Dt>
+                <Dt label="RCS">Paris 105 411 730 — Greffe de Paris</Dt>
+                <Dt label="Code APE">6201Z — Programmation informatique</Dt>
+                <Dt label="TVA">
+                  TVA non applicable, art. 293 B du CGI — n° TVA
+                  intracommunautaire : FR70105411730
                 </Dt>
                 <Dt label="Email">
                   <MailLink />
                 </Dt>
-                <Dt label="Directeur de la publication">Nizar Laghrifi</Dt>
+                <Dt label="Directeur de la publication">Nizar LAGHRIFI</Dt>
               </ul>
             </Section>
 
@@ -135,7 +142,7 @@ export default function MentionsLegalesPage() {
                 L&apos;ensemble des contenus présents sur Salairia (textes,
                 simulateurs, méthodologies de calcul, design, code source,
                 marque « Salairia ») sont la propriété exclusive de Nizar
-                Laghrifi, à l&apos;exception des données issues de sources
+                LAGHRIFI, à l&apos;exception des données issues de sources
                 publiques (URSSAF, BOSS, INSEE, Legifrance, DARES) qui restent
                 la propriété de leurs émetteurs respectifs et sont citées avec
                 attribution.

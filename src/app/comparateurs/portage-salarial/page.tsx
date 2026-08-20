@@ -164,7 +164,7 @@ export default function PortageSalarialComparateurPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour juillet 2026
+            À jour août 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -609,7 +609,7 @@ export default function PortageSalarialComparateurPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : juillet 2026. Frais revérifiés sur les sites officiels le 28 juillet 2026. Avis relevés
+                  Dernière mise à jour : août 2026. Frais revérifiés sur les sites officiels le 28 juillet 2026. Avis relevés
                   sur les sites officiels de chaque société et les plateformes
                   d&apos;avis publics. Les offres peuvent évoluer sans
                   préavis.

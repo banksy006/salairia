@@ -143,7 +143,7 @@ export default function AProposPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="w-3.5 h-3.5" />
-            Mis à jour avril 2026
+            Mis à jour août 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -219,8 +219,9 @@ export default function AProposPage() {
                 <div className="lg:col-span-8">
                   <div className="space-y-5 text-base leading-relaxed text-foreground sm:text-lg">
                     <p>
-                      Nizar est diplômé en 2025 d&apos;un Master Grande École en
-                      Responsable de Projet Innovant à Rennes School of Business.
+                      L&apos;éditeur du site est diplômé en 2025 d&apos;un Master Grande
+                      École en Responsable de Projet Innovant à Rennes School of
+                      Business.
                       Cette formation a été enrichie par un échange Erasmus à la
                       Sheffield Hallam University (Royaume-Uni), spécialisé en
                       International Strategic &amp; Brand Management.
@@ -242,7 +243,7 @@ export default function AProposPage() {
                       à prendre les meilleures décisions pour leur situation.
                     </p>
                     <p>
-                      Nizar est également fondateur de{" "}
+                      Il est également fondateur de{" "}
                       <a
                         href="https://sprintjob.co"
                         target="_blank"

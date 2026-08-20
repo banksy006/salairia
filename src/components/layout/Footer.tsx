@@ -102,9 +102,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-background/20 pt-6 text-xs leading-relaxed text-background/60">
-          © 2026 Salairia. Édité par Nizar, fondateur de SprintJob.co. Les
-          calculs sont indicatifs et ne se substituent pas aux décomptes
-          officiels.
+          © 2026 Salairia — édité par Polaris, entreprise individuelle (SIREN
+          105 411 730). Les calculs sont indicatifs et ne se substituent pas aux
+          décomptes officiels.
         </div>
       </div>
     </footer>

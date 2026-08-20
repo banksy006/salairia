@@ -1,8 +1,12 @@
 /**
  * Calcul de l'allocation d'aide au retour à l'emploi (ARE).
  *
- * Sources : Unédic, « Paramètres utiles » avril 2026 ; France Travail,
- * « Comment est calculé le montant de mon allocation ». Vérifié le 19 août 2026.
+ * Sources : Unédic, « Paramètres utiles » ; France Travail, « Comment est
+ * calculé le montant de mon allocation ». Vérifié le 20 août 2026.
+ *
+ * Les paramètres ci-dessous sont ceux en vigueur depuis le 1er juillet 2025 :
+ * le conseil d'administration de l'Unédic a décidé le 30 juin 2026 de ne pas
+ * revaloriser les allocations au 1er juillet 2026, donc de les reconduire.
  *
  * Attention : ce calcul est une estimation. Le montant réel dépend de la
  * période de référence exacte retenue par France Travail, des jours non

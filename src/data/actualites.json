@@ -2,6 +2,113 @@
   "_lisezmoi": "Veille réglementaire, pas blog. Un article n'entre ici que s'il documente un CHANGEMENT officiel (taux, plafond, barème, règle) avec sa source et sa date d'effet. Pas de listicles, pas de conseils génériques : ce format-là est absorbé par les AI Overviews et dilue l'autorité du site. Voir docs/actualites.md.",
   "articles": [
     {
+      "slug": "facturation-electronique-1er-septembre-2026",
+      "titre": "Facturation électronique : au 1er septembre 2026, tout le monde doit pouvoir recevoir une facture électronique",
+      "chapo": "La première marche de la réforme tombe le 1er septembre 2026 et concerne toutes les entreprises assujetties à la TVA — micro-entrepreneurs en franchise compris. À cette date, l'obligation n'est pas d'émettre mais de pouvoir recevoir : un PDF par e-mail ne suffira plus pour les échanges entre professionnels.",
+      "datePublication": "2026-08-20",
+      "dateModification": "2026-08-20",
+      "categorie": "Indépendants",
+      "tempsLecture": 5,
+      "sources": [
+        {
+          "label": "Urssaf — La facturation électronique : obligatoire au 1er septembre 2026",
+          "url": "https://www.urssaf.fr/accueil/actualites/facturation-electronique.html"
+        },
+        {
+          "label": "impots.gouv.fr — la facturation électronique entre entreprises",
+          "url": "https://www.impots.gouv.fr/professionnel/facturation-electronique"
+        },
+        {
+          "label": "Bpifrance — facturation électronique obligatoire, un tournant digital",
+          "url": "https://conseil.bpifrance.fr/publications/facturation-electronique-obligatoire-un-tournant-digital-pour-les-entreprises-francaises"
+        },
+        {
+          "label": "CGI article 289 bis — obligation de facturation électronique (Légifrance)",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047314739"
+        }
+      ],
+      "liens": [
+        {
+          "label": "Simulateur auto-entrepreneur",
+          "url": "/simulateurs/auto-entrepreneur"
+        },
+        {
+          "label": "Comparateur de comptabilité",
+          "url": "/comparateurs/comptabilite"
+        }
+      ]
+    },
+    {
+      "slug": "pas-de-revalorisation-allocations-chomage-juillet-2026",
+      "titre": "Assurance chômage : pas de revalorisation au 1er juillet 2026, les allocations restent au niveau de 2025",
+      "chapo": "Le conseil d'administration de l'Unédic a décidé le 30 juin 2026 de ne pas revaloriser les allocations. L'ARE minimale reste à 32,13 € par jour et la partie fixe à 13,18 € — les paramètres en vigueur depuis le 1er juillet 2025 sont reconduits. Ce que cela change concrètement sur une allocation mensuelle.",
+      "datePublication": "2026-08-20",
+      "dateModification": "2026-08-20",
+      "categorie": "Salariés",
+      "tempsLecture": 4,
+      "sources": [
+        {
+          "label": "Unédic — Allocations d'assurance chômage : pas de revalorisation au 1er juillet 2026",
+          "url": "https://www.unedic.org/actualites/allocations-dassurance-chomage-pas-de-revalorisation-au-1er-juillet-2026"
+        },
+        {
+          "label": "Unédic — Revalorisation des allocations d'assurance chômage, mode d'emploi",
+          "url": "https://www.unedic.org/publications/revalorisation-des-allocations-d-assurance-chomage-mode-d-emploi-juin-2025"
+        },
+        {
+          "label": "France Travail — l'allocation d'aide au retour à l'emploi (ARE)",
+          "url": "https://www.francetravail.fr/candidat/mes-droits-aux-aides-et-allocati/a-chaque-situation-son-allocatio/lallocation-daide-au-retour-a-le.html"
+        }
+      ],
+      "liens": [
+        {
+          "label": "Guide portage salarial et chômage",
+          "url": "/guides/portage-salarial-chomage"
+        },
+        {
+          "label": "Guide SASU et chômage du dirigeant",
+          "url": "/guides/sasu-chomage-dirigeant"
+        }
+      ]
+    },
+    {
+      "slug": "nouveau-taux-prelevement-source-septembre-2026",
+      "titre": "Prélèvement à la source : votre taux change au 1er septembre 2026, et le taux individualisé s'applique par défaut aux couples",
+      "chapo": "Chaque 1er septembre, l'administration applique le taux calculé à partir de la déclaration du printemps. Cette année, deux choses à vérifier sur votre bulletin de septembre : votre nouveau taux, et — si vous êtes marié ou pacsé — le taux individualisé désormais appliqué automatiquement à chacun.",
+      "datePublication": "2026-08-20",
+      "dateModification": "2026-08-20",
+      "categorie": "Salariés",
+      "tempsLecture": 5,
+      "sources": [
+        {
+          "label": "economie.gouv.fr — comment gérer votre taux de prélèvement à la source",
+          "url": "https://www.economie.gouv.fr/particuliers/impots-et-fiscalite/gerer-mon-impot-sur-le-revenu/comment-gerer-votre-taux-de-prelevement-la-source"
+        },
+        {
+          "label": "impots.gouv.fr — pourquoi mon taux a été modifié en septembre sans que j'intervienne ?",
+          "url": "https://www.impots.gouv.fr/particulier/questions/mon-taux-de-prelevement-la-source-ete-modifie-en-septembre-2020-sans-que"
+        },
+        {
+          "label": "CGI article 204 H — calcul du taux de prélèvement (Légifrance)",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049641730"
+        },
+        {
+          "label": "BOFiP BOI-BAREME-000037 — grilles de taux par défaut du PAS",
+          "url": "https://bofip.impots.gouv.fr/bofip/11255-PGP.html/identifiant=BOI-BAREME-000037-20260407"
+        }
+      ],
+      "liens": [
+        {
+          "label": "Simulateur net après impôt",
+          "url": "/simulateurs/net-apres-impot"
+        },
+        {
+          "label": "Simulateur salaire brut/net",
+          "url": "/simulateurs/salaire-brut-net"
+        }
+      ]
+    },
+    {
       "slug": "smic-juin-2026-et-bareme-pas-mai-2026",
       "titre": "Ce qui a changé dans votre paie en 2026 : SMIC au 1er juin, barème du prélèvement à la source au 1er mai",
       "chapo": "Deux changements sont intervenus en cours d'année et passent largement inaperçus : la revalorisation du SMIC au 1er juin et le réajustement des tranches du taux neutre au 1er mai. Voici leur impact chiffré.",

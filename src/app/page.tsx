@@ -165,7 +165,7 @@ const engagements = [
     emoji: "💬",
     titre: "Pensé par des indépendants",
     texte:
-      "Salairia est édité par Nizar, fondateur de SprintJob.co. Nous comprenons les vraies questions des salariés, freelances et entrepreneurs.",
+      "Salairia est édité par un indépendant, également fondateur de SprintJob.co. Nous connaissons les vraies questions des salariés, freelances et entrepreneurs.",
   },
 ];
 
@@ -248,7 +248,7 @@ export default function HomePage() {
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
               <CalendarIcon className="w-3.5 h-3.5" />
-              À jour juillet 2026
+              À jour août 2026
             </span>
 
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

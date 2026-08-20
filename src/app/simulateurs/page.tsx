@@ -255,7 +255,7 @@ export default function SimulateursPage() {
 
             <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
               <CalendarIcon className="w-3.5 h-3.5" />
-              Mis à jour juillet 2026
+              Mis à jour août 2026
             </span>
 
             <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -347,9 +347,8 @@ export default function SimulateursPage() {
               Les 9 simulateurs Salairia
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
-              Cliquez sur un simulateur pour le lancer. Les outils marqués
-              «&nbsp;Bientôt&nbsp;» sortiront progressivement d&apos;avril à
-              juillet 2026.
+              Cliquez sur un simulateur pour le lancer. Les neuf outils sont
+              en ligne et calculent avec les taux et barèmes 2026.
             </p>
           </div>
 

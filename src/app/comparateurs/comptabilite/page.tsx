@@ -217,7 +217,7 @@ export default function ComparateurComptabilitePage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour juillet 2026
+          À jour août 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -366,7 +366,7 @@ export default function ComparateurComptabilitePage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : juillet 2026. Comparatif limité aux
+                  Dernière mise à jour : août 2026. Comparatif limité aux
                   offres d&apos;entrée publiques. Salairia n&apos;est pas un
                   cabinet d&apos;expertise comptable : ces informations sont
                   documentaires et ne constituent pas un conseil. Une erreur ?{" "}

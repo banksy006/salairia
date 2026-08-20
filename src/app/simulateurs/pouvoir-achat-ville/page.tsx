@@ -133,7 +133,7 @@ export default function PouvoirAchatVillePage() {
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 <CalendarIcon className="h-3.5 w-3.5" />
-                À jour juillet 2026
+                À jour août 2026
               </span>
 
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -286,7 +286,7 @@ export default function PouvoirAchatVillePage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : juillet 2026 (loyers). Tarifs de transport : Paris et Lyon vérifiés à la source, les 18 autres sont des ordres de grandeur relevés en avril 2026. Ce poste pèse une cinquantaine d&apos;euros sur un budget mensuel d&apos;environ 2 000 € et n&apos;entre pas dans le revenu exigé par les bailleurs — quelques euros d&apos;écart n&apos;y changent rien. Estimations indicatives basées sur
+                    Dernière mise à jour : août 2026. Loyers relevés en juillet 2026. Tarifs de transport : Paris et Lyon vérifiés à la source, les 18 autres sont des ordres de grandeur relevés en avril 2026. Ce poste pèse une cinquantaine d&apos;euros sur un budget mensuel d&apos;environ 2 000 € et n&apos;entre pas dans le revenu exigé par les bailleurs — quelques euros d&apos;écart n&apos;y changent rien. Estimations indicatives basées sur
                     les moyennes de marché. Le coût réel dépend de votre quartier, mode de
                     vie et situation familiale.
                   </p>

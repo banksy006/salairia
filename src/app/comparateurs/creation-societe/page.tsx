@@ -136,7 +136,7 @@ export default function ComparateurCreationSocietePage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour juillet 2026
+          À jour août 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -365,7 +365,7 @@ export default function ComparateurCreationSocietePage() {
                   Montant des frais obligatoires : {data.sourceFraisIncompressibles}
                 </p>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : juillet 2026. Comparatif limité aux
+                  Dernière mise à jour : août 2026. Comparatif limité aux
                   offres d&apos;entrée publiques pour une SASU ou une EURL.
                   Salairia n&apos;exerce ni le conseil juridique ni
                   l&apos;expertise comptable : ces informations sont

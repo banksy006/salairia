@@ -76,7 +76,7 @@ export default function PolitiqueConfidentialitePage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="w-3.5 h-3.5" />
-            Mis à jour avril 2026
+            Mis à jour août 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -129,8 +129,10 @@ export default function PolitiqueConfidentialitePage() {
 
             <Section title="Responsable du traitement" id="responsable">
               <p>
-                Le responsable du traitement des données est Nizar Laghrifi,
-                éditeur de Salairia (voir{" "}
+                Le responsable du traitement des données est Nizar LAGHRIFI,
+                entrepreneur individuel exerçant sous le nom commercial
+                Polaris, éditeur de Salairia — SIREN 105 411 730, 229 rue
+                Saint-Honoré, 75001 Paris (voir{" "}
                 <Link
                   href="/mentions-legales"
                   className="text-primary underline-offset-4 transition hover:underline"
