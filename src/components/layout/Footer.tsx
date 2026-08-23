@@ -29,6 +29,7 @@ const guidesLinks = [
   { label: "Auto-entrepreneur", href: "/guides/auto-entrepreneur" },
   { label: "SASU vs EURL", href: "/guides/sasu-eurl" },
   { label: "Salaire brut/net", href: "/guides/salaire-brut-net" },
+  { label: "Tous les guides", href: "/guides" },
   { label: "Actualités", href: "/actualites" },
 ];
 

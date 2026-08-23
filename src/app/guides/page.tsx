@@ -42,6 +42,86 @@ const guides = [
     lecture: "5 min",
   },
   {
+    titre: "Remboursement d'impôt",
+    desc:
+      "Chaque été, la DGFiP rembourse les foyers qui ont payé trop d'impôt à la source ou détiennent des crédits d'impôt : 12,6 millions de foyers en 2026, 1 057 € en moyenne, virement du 24 ou 31 juillet. Qui est concerné, le calendrier complet de l'été fiscal, comment vérifier le montant — et le régime du solde à payer, étalé d'office au-delà de 300 €.",
+    href: "/guides/remboursement-impot",
+    audience: "Tous les foyers fiscaux, salariés au prélèvement à la source",
+    lecture: "6 min",
+  },
+  {
+    titre: "CFE auto-entrepreneur",
+    desc:
+      "L'impôt local que presque tous les micro-entrepreneurs découvrent trop tard : pas de courrier, un avis déposé en silence dans l'espace professionnel impots.gouv.fr, une échéance unique le 15 décembre. Le calcul par base minimale (243 à 2 433 € selon le CA), les trois exonérations — année de création, première imposition réduite de moitié, CA sous 5 000 € — et les réflexes anti-majoration.",
+    href: "/guides/cfe-auto-entrepreneur",
+    audience: "Micro-entrepreneurs, créateurs récents",
+    lecture: "7 min",
+  },
+  {
+    titre: "Heures supplémentaires",
+    desc:
+      "Majoration d'au moins 25 %, réduction de cotisations salariales de 11,31 points, zéro impôt jusqu'à 7 500 € par an : l'heure sup est l'heure la mieux payée de votre mois, et le guide le chiffre au centime sur un cas type. Avec les plafonds (contingent de 220 h, durées maximales), le cas des heures complémentaires, et le piège du repos compensateur.",
+    href: "/guides/heures-supplementaires",
+    audience: "Salariés du privé, employeurs de TPE-PME",
+    lecture: "8 min",
+  },
+  {
+    titre: "Indemnité de rupture conventionnelle",
+    desc:
+      "Un quart de mois de salaire par année d'ancienneté jusqu'à dix ans, un tiers au-delà : la formule exacte du minimum légal, cinq cas chiffrés de 3 à 15 ans d'ancienneté, la fiscalité de chaque tranche — et le différé France Travail que déclenche toute indemnité supra-légale, jusqu'à 150 jours sans ARE. De quoi négocier en net réel, pas en brut affiché.",
+    href: "/guides/indemnite-rupture-conventionnelle",
+    audience: "Salariés en négociation de départ, RH",
+    lecture: "8 min",
+  },
+  {
+    titre: "Salaire d'un apprenti",
+    desc:
+      "La grille légale croisant l'âge (16-17, 18-20, 21-25, 26 et plus) et l'année de contrat, convertie en euros avec le SMIC de juin 2026 : de 504 € à 1 867 € bruts. Pourquoi le net est quasi égal au brut (exonération jusqu'à 50 % du SMIC), la règle du changement de tranche au mois suivant l'anniversaire, et l'exonération d'impôt jusqu'au SMIC annuel.",
+    href: "/guides/salaire-apprenti",
+    audience: "Apprentis, alternants, employeurs et CFA",
+    lecture: "6 min",
+  },
+  {
+    titre: "Prime de partage de la valeur",
+    desc:
+      "Jusqu'à 3 000 € — 6 000 € avec un accord d'intéressement — et une exonération totale (impôt et CSG compris) qui vit ses quatre derniers mois : le régime de faveur des entreprises de moins de 50 salariés s'éteint le 31 décembre 2026. Qui est exonéré de quoi, l'option épargne salariale, et pourquoi une prime ne remplace jamais une augmentation.",
+    href: "/guides/prime-partage-valeur",
+    audience: "Salariés de TPE-PME, dirigeants employeurs",
+    lecture: "7 min",
+  },
+  {
+    titre: "13e mois",
+    desc:
+      "Aucune loi ne l'impose — mais dès qu'une convention, un accord, un contrat ou un usage le prévoit, c'est un droit. D'où vient le vôtre, le prorata d'année incomplète, les droits des temps partiels et des CDD, ce qu'il laisse en net, et les trois cas qui fâchent : salaire annoncé « sur 13 mois », prime substituée, condition de présence au versement.",
+    href: "/guides/13e-mois",
+    audience: "Salariés du privé, candidats en négociation d'embauche",
+    lecture: "7 min",
+  },
+  {
+    titre: "SMIC 2027",
+    desc:
+      "Le montant n'existe pas encore — le décret tombera mi-décembre — mais la formule qui le fixera est publique : inflation des ménages modestes plus la moitié du gain de pouvoir d'achat du salaire ouvrier moyen. Les valeurs en vigueur (1 867,02 € bruts, ~1 478 € nets), le calendrier jusqu'au 1er janvier, et ce qu'une hausse déclenche vraiment. Page mise à jour le jour du décret.",
+    href: "/guides/smic-2027",
+    audience: "Salariés au SMIC, employeurs, apprentis",
+    lecture: "7 min",
+  },
+  {
+    titre: "Barème de l'impôt 2027",
+    desc:
+      "Le barème des revenus 2026 sera voté fin décembre avec la loi de finances 2027. En attendant : les tranches en vigueur (0 à 45 %, seuils indexés de +0,9 % cette année), la différence entre tranche marginale et taux réel, l'enjeu de l'indexation — la « progression à froid » — et le calendrier parlementaire. Tranches 2027 publiées ici dès la promulgation.",
+    href: "/guides/bareme-impot-2027",
+    audience: "Tous les contribuables, salariés et indépendants",
+    lecture: "7 min",
+  },
+  {
+    titre: "Plafond de la Sécurité sociale 2027",
+    desc:
+      "Le paramètre le plus discret de la paie française : le PASS (4 005 €/mois en 2026) borne les cotisations plafonnées, découpe les tranches AGIRC-ARRCO, plafonne les indemnités de rupture exonérées et fixe les minima du portage salarial. Comment sa valeur 2027 sera fixée à l'automne, et tout ce qui bougera avec elle au 1er janvier.",
+    href: "/guides/plafond-securite-sociale-2027",
+    audience: "Cadres, salariés portés, gestionnaires de paie",
+    lecture: "7 min",
+  },
+  {
     titre: "Simulation TJM en portage salarial",
     desc:
       "Le net réel calculé pour six niveaux de TJM, de 300 à 800 € par jour : chiffre d'affaires, brut, net avant impôt. Avec la mécanique complète du calcul — pourquoi les pourcentages se composent au lieu de s'additionner — et les trois paramètres qui changent vraiment le résultat : frais de gestion, jours facturés, frais professionnels.",
