@@ -324,6 +324,14 @@ Constantes 2026 (`SASU_EURL_2026`) :
 Alertes : CA insuffisant → rouge, rémunération = 0 → orange (pas de sécu), dividendes EURL > seuil capital → orange, statut gagnant → info bleue.
 
 
+### Salarié ou freelance — `/simulateurs/salarie-ou-freelance`
+
+Route créée le 23 août 2026. Lib : `src/lib/calculators/salarie-freelance.ts`. UI : `SalarieFreelanceSimulator.tsx` + `SalarieFreelanceApercuCard.tsx` + `SalarieFreelanceContext.tsx`.
+
+**Aucune constante propre** : le côté CDI appelle `calculerBrutVersNet` (cotisations détaillées), le côté freelance `calculerTous` + `findTJMForNetCible` du calculateur TJM. Même `tauxPAS` des deux côtés pour isoler l'effet du statut. `MARGE_SECURITE_TJM = 0.25` est une heuristique de conseil (intermissions, chômage, mutuelle), pas une constante réglementaire.
+
+Règle produit : un statut portant un warning `danger` (plafond micro dépassé…) est `eligible: false`, affiché grisé « Inapplicable » et **exclu** de la désignation « meilleur net ». Sans cette règle, les valeurs par défaut (500 €/j × 18 j = 108 k€ de CA) couronnaient l'auto-entrepreneur hors plafond.
+
 ## Prochaines étapes
 
 Voir `docs/STATUS.md`, section « Backlog ». Le blocage du projet n'est pas technique : le site manque de backlinks, pas de fonctionnalités.

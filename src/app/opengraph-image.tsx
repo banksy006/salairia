@@ -10,6 +10,6 @@ export default function Image() {
     eyebrow: "À jour août 2026",
     title: "Sachez ce que vous touchez vraiment",
     subtitle:
-      "9 simulateurs gratuits, comparatifs indépendants et guides sourcés — salariés, freelances, auto-entrepreneurs, dirigeants.",
+      "10 simulateurs gratuits, comparatifs indépendants et guides sourcés — salariés, freelances, auto-entrepreneurs, dirigeants.",
   });
 }

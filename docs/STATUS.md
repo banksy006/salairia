@@ -7,9 +7,9 @@
 
 | | |
 |---|---|
-| Routes publiées | 63 |
-| URLs au sitemap | 63 |
-| Calculateurs | 10 |
+| Routes publiées | 64 |
+| URLs au sitemap | 64 |
+| Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
 | Monétisation | **Non branchée** — liens partenaires encore en placeholder |
@@ -44,6 +44,9 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 
 ### Simulateurs — 9/9
 `/simulateurs` (hub) · portage-salarial · tjm-freelance · auto-entrepreneur · salaire-brut-net · sasu-eurl · net-apres-impot · negociation-salariale · pouvoir-achat-ville · ou-se-situe-mon-salaire
+
+### Simulateur ajouté le 23 août 2026
+`/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
 
 ### Guides — 27
 `/guides` (hub) · portage-salarial · portage-salarial-chomage · conges-payes-portage-salarial · **simulation-tjm-portage-salarial** · **fiche-de-paie-portage-salarial** · **portage-salarial-ou-cdi** · **frais-gestion-portage-salarial** · **frais-professionnels-portage-salarial** · **salaire-president-sasu** · **sasu-chomage-dirigeant** · **dividendes-sasu-ou-salaire** · **auto-entrepreneur-chomage** · **cumul-salarie-auto-entrepreneur** · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title:
     "Simulateurs de rémunération 2026 : portage, TJM, salaire net",
   description:
-    "9 simulateurs gratuits pour calculer votre salaire net, TJM freelance, charges sociales et comparer les statuts (auto-entrepreneur, portage, SASU, EURL). Taux 2026.",
+    "10 simulateurs gratuits pour calculer votre salaire net, TJM freelance, charges sociales et comparer les statuts (auto-entrepreneur, portage, SASU, EURL). Taux 2026.",
   alternates: {
     canonical: "/simulateurs",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title:
       "Simulateurs de rémunération 2026 : portage, TJM, salaire net | Salairia",
     description:
-      "9 simulateurs gratuits pour calculer votre salaire net, TJM freelance, charges sociales et comparer les statuts (auto-entrepreneur, portage, SASU, EURL). Taux 2026.",
+      "10 simulateurs gratuits pour calculer votre salaire net, TJM freelance, charges sociales et comparer les statuts (auto-entrepreneur, portage, SASU, EURL). Taux 2026.",
     url: "/simulateurs",
   },
 };
@@ -49,6 +49,14 @@ const simulateurs: readonly SimulateurCard[] = [
     motsCles:
       "salaire portage 500€, simulateur portage 2026, comparaison sociétés portage",
     href: "/simulateurs/portage-salarial",
+    categorie: "Freelance",
+  },
+  {
+    nom: "Salarié ou freelance ?",
+    desc: "Votre net en CDI face à votre net en freelance (4 statuts), et le TJM exact à facturer pour ne rien perdre.",
+    motsCles:
+      "quitter son CDI pour devenir freelance, TJM équivalent salaire, salarié vs indépendant",
+    href: "/simulateurs/salarie-ou-freelance",
     categorie: "Freelance",
   },
   {
@@ -121,7 +129,7 @@ const quizLinks = [
   {
     emoji: "🚀",
     label: "Je suis freelance ou je veux le devenir",
-    href: "/simulateurs/tjm-freelance",
+    href: "/simulateurs/salarie-ou-freelance",
   },
   {
     emoji: "📦",
@@ -138,27 +146,33 @@ const quizLinks = [
 const faq = [
   {
     q: "Je suis salarié et je veux comprendre ma fiche de paie",
-    r: "Pour convertir votre brut en net (et inversement), utilisez bientôt notre simulateur Salaire Brut/Net (disponible mai 2026). En attendant, le simulateur officiel mon-entreprise.urssaf.fr peut vous aider, mais sans la pédagogie Salairia.",
+    r: "Le simulateur Salaire Brut/Net convertit dans les deux sens, détaille chaque cotisation de votre bulletin (Sécurité sociale, retraite complémentaire, CSG-CRDS) et compare cadre et non-cadre. Pour aller jusqu'au net réellement versé, le simulateur Net après impôt applique ensuite votre taux de prélèvement à la source.",
+    lien: { label: "Ouvrir le simulateur brut/net", href: "/simulateurs/salaire-brut-net" },
   },
   {
     q: "Je suis freelance et je veux savoir quel TJM facturer",
     r: "Le simulateur TJM Freelance est fait pour vous. Vous pouvez soit indiquer votre revenu net cible (le simulateur calcule le TJM nécessaire pour chaque statut), soit indiquer votre TJM (le simulateur calcule votre net pour chaque statut). C'est le simulateur le plus complet de Salairia.",
+    lien: { label: "Ouvrir le simulateur TJM", href: "/simulateurs/tjm-freelance" },
   },
   {
     q: "Je suis en portage salarial et je veux comparer les sociétés",
-    r: "Le simulateur Portage Salarial compare automatiquement 9 sociétés de portage et identifie celle qui maximise votre net selon vos paramètres.",
+    r: "Le simulateur Portage Salarial compare automatiquement les 9 sociétés de portage dont les frais de gestion sont publics et identifie celle qui maximise votre net selon vos paramètres. Le comparateur dédié va plus loin, sur 10 sociétés et 8 critères.",
+    lien: { label: "Ouvrir le simulateur portage", href: "/simulateurs/portage-salarial" },
   },
   {
     q: "Je veux créer une SASU ou une EURL",
-    r: "Le simulateur SASU/EURL (disponible juin 2026) calculera votre revenu disponible selon le ratio salaire/dividendes choisi. En attendant, le simulateur TJM Freelance compare déjà la SASU et l'EURL sur la base d'une rémunération 100 % en salaire (cas le plus courant pour démarrer).",
+    r: "Le simulateur SASU vs EURL compare les deux statuts côte à côte sur vos chiffres : IS, charges du dirigeant, flat tax sur les dividendes, et les trois répartitions salaire/dividendes possibles. Il signale aussi le piège des dividendes en EURL, soumis aux cotisations TNS au-delà de 10 % du capital.",
+    lien: { label: "Ouvrir le simulateur SASU / EURL", href: "/simulateurs/sasu-eurl" },
   },
   {
     q: "Je suis auto-entrepreneur et je veux anticiper mes charges",
-    r: "Le simulateur Auto-entrepreneur (disponible mai 2026) intègrera l'ACRE, le versement libératoire et la franchise TVA. Pour une estimation rapide, le simulateur TJM Freelance inclut déjà le statut auto-entrepreneur.",
+    r: "Le simulateur Auto-entrepreneur intègre les taux URSSAF 2026 par catégorie (vente, services, BNC, CIPAV), l'ACRE, le versement libératoire et les seuils de franchise de TVA, avec des alertes dès que vous approchez d'un plafond.",
+    lien: { label: "Ouvrir le simulateur auto-entrepreneur", href: "/simulateurs/auto-entrepreneur" },
   },
   {
     q: "J'hésite entre garder mon salariat et passer freelance",
-    r: "Aucun simulateur Salairia ne fait encore cette comparaison directement. Conseil pratique : utilisez le simulateur TJM Freelance pour estimer votre net si vous deveniez freelance, puis comparez avec votre fiche de paie actuelle. Pour une décision aussi importante, consultez aussi un expert-comptable.",
+    r: "C'est exactement l'objet du comparateur Salarié ou freelance : il met votre net annuel en CDI face à votre net dans quatre statuts d'indépendant, calcule le TJM exact à facturer pour ne rien perdre, et liste ce que les chiffres ne disent pas — chômage, congés, retraite, mutuelle, capacité d'emprunt.",
+    lien: { label: "Ouvrir le comparateur salarié ou freelance", href: "/simulateurs/salarie-ou-freelance" },
   },
 ];
 
@@ -262,7 +276,7 @@ export default function SimulateursPage() {
               Tous nos simulateurs de rémunération
             </h1>
             <p className="mt-4 text-xl leading-relaxed text-foreground/80 sm:text-2xl">
-              9 outils gratuits pour calculer précisément votre salaire net,
+              10 outils gratuits pour calculer précisément votre salaire net,
               votre TJM, vos charges et choisir le statut le plus rentable.
             </p>
 
@@ -344,10 +358,10 @@ export default function SimulateursPage() {
           <div className="max-w-2xl">
             <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
-              Les 9 simulateurs Salairia
+              Les 10 simulateurs Salairia
             </h2>
             <p className="mt-3 text-lg text-muted-foreground">
-              Cliquez sur un simulateur pour le lancer. Les neuf outils sont
+              Cliquez sur un simulateur pour le lancer. Les dix outils sont
               en ligne et calculent avec les taux et barèmes 2026.
             </p>
           </div>
@@ -519,6 +533,14 @@ export default function SimulateursPage() {
                 <p className="mt-4 text-base leading-relaxed text-foreground/80">
                   {item.r}
                 </p>
+                {"lien" in item && item.lien && (
+                  <Link
+                    href={item.lien.href}
+                    className="mt-4 inline-flex items-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
+                  >
+                    {item.lien.label} →
+                  </Link>
+                )}
               </details>
             ))}
           </div>

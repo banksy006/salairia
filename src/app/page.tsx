@@ -146,6 +146,12 @@ const simulateurs = [
     href: "/simulateurs/ou-se-situe-mon-salaire",
     categorie: "Tous statuts",
   },
+  {
+    nom: "Salarié ou freelance ?",
+    desc: "Votre net en CDI face à votre net en freelance, et le TJM pour ne rien perdre",
+    href: "/simulateurs/salarie-ou-freelance",
+    categorie: "Freelance",
+  },
 ] as const;
 
 const engagements = [
@@ -366,7 +372,7 @@ export default function HomePage() {
             Nos simulateurs
           </h2>
           <p className="mt-3 text-lg text-muted-foreground">
-            9 simulateurs gratuits pour calculer précisément votre rémunération
+            10 simulateurs gratuits pour calculer précisément votre rémunération
             selon votre statut. Mis à jour avec les taux 2026.
           </p>
         </div>

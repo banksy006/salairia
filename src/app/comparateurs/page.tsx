@@ -267,12 +267,12 @@ export default function ComparateursPage() {
             arbitrons chaque trimestre la prochaine catégorie à publier en
             fonction des demandes reçues et du volume de recherche.
           </p>
-          <a
-            href="mailto:contact@salairia.com"
+          <Link
+            href="/contact?sujet=comparateur"
             className="inline-flex items-center rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
           >
             Proposer un comparateur →
-          </a>
+          </Link>
         </section>
       </div>
     </>

@@ -3,6 +3,7 @@ import Link from "next/link";
 const simulateursLinks = [
   { label: "Portage salarial", href: "/simulateurs/portage-salarial" },
   { label: "TJM freelance", href: "/simulateurs/tjm-freelance" },
+  { label: "Salarié ou freelance", href: "/simulateurs/salarie-ou-freelance" },
   { label: "Auto-entrepreneur", href: "/simulateurs/auto-entrepreneur" },
   { label: "SASU / EURL", href: "/simulateurs/sasu-eurl" },
   { label: "Salaire brut/net", href: "/simulateurs/salaire-brut-net" },

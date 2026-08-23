@@ -271,6 +271,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/simulateurs/salarie-ou-freelance`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/simulateurs/sasu-eurl`,
       lastModified: now,
       changeFrequency: "monthly",

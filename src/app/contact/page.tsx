@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
+import CopyEmailButton from "@/components/CopyEmailButton";
 import {
   IconBadge,
   CalendarIcon,
@@ -120,13 +121,21 @@ export default function ContactPage() {
             <MailIcon className="h-7 w-7 shrink-0" />
             {EMAIL}
           </a>
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <CopyEmailButton email={EMAIL} />
+            <span className="text-xs text-muted-foreground">
+              Si le clic sur l&apos;adresse n&apos;ouvre rien, ton navigateur
+              n&apos;a pas de messagerie associée : copie-la dans ton outil
+              habituel.
+            </span>
+          </div>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80">
-            Salairia est édité par une seule personne,{" "}
+            Salairia est édité par{" "}
             <Link
               href="/a-propos"
               className="text-primary underline-offset-4 hover:underline"
             >
-              Nizar Laghrifi
+              une seule personne
             </Link>
             . Il n&apos;y a ni formulaire, ni service client, ni numéro de
             téléphone : tu écris, je lis. Compte en général deux à trois jours
