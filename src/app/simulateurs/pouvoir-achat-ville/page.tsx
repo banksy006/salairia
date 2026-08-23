@@ -17,7 +17,7 @@ import villesData from "@/data/cout-vie-villes.json";
 
 export const metadata: Metadata = {
   title:
-    "Pouvoir d'achat par ville 2026 — De quel salaire avez-vous besoin ? | Salairia",
+    "Pouvoir d'achat par ville 2026 — De quel salaire avez-vous besoin ?",
   description:
     "Comparez le coût de la vie dans 20 villes françaises : loyer, transport, alimentation. Calculez le salaire net nécessaire pour vivre confortablement.",
   alternates: { canonical: "/simulateurs/pouvoir-achat-ville" },

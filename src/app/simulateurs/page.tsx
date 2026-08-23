@@ -19,7 +19,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Simulateurs de rémunération 2026 : portage, TJM, salaire net | Salairia",
+    "Simulateurs de rémunération 2026 : portage, TJM, salaire net",
   description:
     "9 simulateurs gratuits pour calculer votre salaire net, TJM freelance, charges sociales et comparer les statuts (auto-entrepreneur, portage, SASU, EURL). Taux 2026.",
   alternates: {

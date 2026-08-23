@@ -20,7 +20,7 @@ import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
   title:
-    "Négociation salariale 2026 : estimez votre fourchette par métier | Salairia",
+    "Négociation salariale 2026 : estimez votre fourchette par métier",
   description:
     "Découvrez la fourchette salariale de votre métier en 2026 (20 profils, IDF/Province, 4 niveaux). Comparez votre salaire au marché et préparez votre négociation.",
   alternates: {

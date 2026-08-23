@@ -19,7 +19,7 @@ import data from "@/data/societes-portage.json";
 
 export const metadata: Metadata = {
   title:
-    "Comparatif portage salarial 2026 : 10 sociétés analysées | Salairia",
+    "Comparatif portage salarial 2026 : 10 sociétés analysées",
   description:
     "Comparatif indépendant des 10 meilleures sociétés de portage salarial en 2026. Frais, avis, services : trouvez la société adaptée à votre profil.",
   alternates: {

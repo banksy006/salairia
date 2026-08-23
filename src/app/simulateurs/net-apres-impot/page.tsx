@@ -19,7 +19,7 @@ import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
   title:
-    "Simulateur Net après impôt 2026 — Prélèvement à la source | Salairia",
+    "Simulateur Net après impôt 2026 — Prélèvement à la source",
   description:
     "Calculez votre salaire net après prélèvement à la source (PAS) en 2026. Barème taux neutre officiel ou taux personnalisé. Résultat instantané, mensuel et annuel.",
   alternates: { canonical: "/simulateurs/net-apres-impot" },
