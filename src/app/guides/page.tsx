@@ -42,6 +42,86 @@ const guides = [
     lecture: "5 min",
   },
   {
+    titre: "Ce qui change au 1er janvier 2027",
+    desc:
+      "SMIC, plafond de la Sécurité sociale, barème de l'impôt, fin du régime doré de la PPV, plafonds micro, retraites, titres-restaurant : le récapitulatif de tout ce qui bouge au 1er janvier 2027, avec les valeurs actuelles, le texte attendu pour chaque paramètre, et le calendrier des annonces de fin d'année. Mis à jour à chaque publication au Journal officiel.",
+    href: "/guides/ce-qui-change-1er-janvier-2027",
+    audience: "Tous — salariés, indépendants, employeurs, retraités",
+    lecture: "8 min",
+  },
+  {
+    titre: "Jours fériés 2027",
+    desc:
+      "Une année maigre : 4 fériés sur 11 tombent un week-end (1er mai, 8 mai, 15 août, Noël) et sont perdus pour la plupart des contrats. Le calendrier complet avec les jours de semaine calculés, les deux vrais ponts à poser — Ascension le jeudi 6 mai, Armistice le jeudi 11 novembre —, et le droit réel : férié ne veut ni dire chômé, ni payé double.",
+    href: "/guides/jours-feries-2027",
+    audience: "Salariés qui planifient leurs congés, RH",
+    lecture: "7 min",
+  },
+  {
+    titre: "Barème kilométrique",
+    desc:
+      "Le tableau complet du barème voiture en vigueur (gelé depuis 2024), la mécanique des trois tranches — une seule formule s'applique, pas un calcul par tranches successives —, la majoration de 20 % des électriques, la limite des 40 km domicile-travail, et l'arbitrage chiffré entre frais réels et déduction forfaitaire de 10 %.",
+    href: "/guides/bareme-kilometrique",
+    audience: "Salariés aux frais réels, dirigeants, indépendants au réel",
+    lecture: "7 min",
+  },
+  {
+    titre: "Plafonds micro-entreprise 2027",
+    desc:
+      "Les plafonds de CA sont triennaux et figés jusqu'en 2028 : 83 600 € services, 203 100 € vente — quiconque annonce de « nouveaux plafonds 2027 » se trompe. Ce qui peut vraiment bouger : les taux de cotisations (le BNC a déjà pris deux marches en 2025 et 2026) et les seuils de franchise de TVA, avec le calendrier des textes à surveiller.",
+    href: "/guides/plafonds-micro-entreprise-2027",
+    audience: "Micro-entrepreneurs, freelances en réflexion de statut",
+    lecture: "7 min",
+  },
+  {
+    titre: "Prime d'activité 2027",
+    desc:
+      "Plus de 4,5 millions de foyers la touchent, et environ 30 % des ayants droit ne la demandent jamais. Le calcul réel — forfait de 638,28 € + 61 % des revenus − ressources —, la revalorisation du 1er avril, le cas des indépendants dont le CA abattu compte comme revenu, et les trois profils qui y ont droit sans le savoir.",
+    href: "/guides/prime-activite-2027",
+    audience: "Salariés modestes, apprentis majeurs, indépendants en démarrage",
+    lecture: "7 min",
+  },
+  {
+    titre: "Prime de Noël 2026",
+    desc:
+      "152,45 € de base — un montant inchangé depuis 1998 —, majorés selon la famille pour les allocataires du RSA, versés mi-décembre automatiquement. Qui la touche (RSA, ASS, AER), qui n'y a pas droit contrairement aux idées reçues (ARE, AAH, ASPA, salariés), et le repère anti-arnaque : aucun formulaire de demande n'existe.",
+    href: "/guides/prime-de-noel-2026",
+    audience: "Bénéficiaires de minima sociaux, travailleurs sociaux",
+    lecture: "6 min",
+  },
+  {
+    titre: "Titres-restaurant",
+    desc:
+      "Plafond d'exonération patronale à 7,32 € par titre en 2026, valeur optimale du titre entre 12,20 et 14,64 €, 25 € d'utilisation par jour, droits du télétravailleur — et le dossier chaud de la fin d'année : la dérogation qui permet de payer toutes ses courses en titres expire le 31 décembre 2026.",
+    href: "/guides/titres-restaurant",
+    audience: "Salariés, employeurs qui calibrent leur politique d'avantages",
+    lecture: "7 min",
+  },
+  {
+    titre: "Revalorisation des retraites 2027",
+    desc:
+      "Deux hausses que tout le monde confond : l'Agirc-Arrco au 1er novembre 2026, décidée par les partenaires sociaux (~+1,4 % évoqué), et les pensions de base au 1er janvier 2027, indexées automatiquement sur l'inflation (~+1,6 % projeté). Les deux mécaniques, les précédents de gel, et l'effet chiffré sur une pension type.",
+    href: "/guides/revalorisation-retraites-2027",
+    audience: "Retraités du privé, actifs qui préparent leur départ",
+    lecture: "8 min",
+  },
+  {
+    titre: "Avance de crédits d'impôt de janvier",
+    desc:
+      "Le virement « AVANCE CREDIMPOT » de mi-janvier : 60 % de vos crédits récurrents — emploi à domicile, garde d'enfants, dons — calculés sur votre dernière déclaration. Le piège symétrique du trop-perçu à rembourser l'été suivant, et la fenêtre de modulation ouverte jusqu'à la mi-décembre, le réflexe de fin d'année le plus rentable.",
+    href: "/guides/avance-credit-impot-janvier",
+    audience: "Foyers avec emploi à domicile, garde d'enfants ou dons réguliers",
+    lecture: "6 min",
+  },
+  {
+    titre: "Calendrier des impôts 2027",
+    desc:
+      "L'année fiscale mois par mois : avance de janvier, déclaration du printemps, remboursements de juillet, nouveau taux au 1er septembre, solde à partir du 25 septembre, taxe foncière, CFE du 15 décembre. Sur neuf rendez-vous, trois seulement exigent une action de votre part — les autres sont automatiques, il suffit de vérifier les montants.",
+    href: "/guides/calendrier-impots-2027",
+    audience: "Tous les contribuables, indépendants pour les échéances propres",
+    lecture: "7 min",
+  },
+  {
     titre: "Remboursement d'impôt",
     desc:
       "Chaque été, la DGFiP rembourse les foyers qui ont payé trop d'impôt à la source ou détiennent des crédits d'impôt : 12,6 millions de foyers en 2026, 1 057 € en moyenne, virement du 24 ou 31 juillet. Qui est concerné, le calendrier complet de l'été fiscal, comment vérifier le montant — et le régime du solde à payer, étalé d'office au-delà de 300 €.",

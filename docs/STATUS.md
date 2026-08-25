@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 64 |
-| URLs au sitemap | 64 |
+| Routes publiées | 74 |
+| URLs au sitemap | 74 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -48,7 +48,11 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
 
-### Guides — 27
+### Guides — 37
+
+Batch « calendrier 2027 » du 25 août 2026, déclenché par la validation mesurée de la stratégie d'anticipation (smic-2027 : 30 visiteurs organiques/jour à J+2, première page Google) : **ce-qui-change-1er-janvier-2027** (hub d'agrégation) · **jours-feries-2027** (4 fériés perdus le week-end, jours calculés en code) · **bareme-kilometrique** (slug sans millésime, tableau vérifié BOFiP) · **plafonds-micro-entreprise-2027** (angle : plafonds triennaux figés jusqu'en 2028) · **prime-activite-2027** · **prime-de-noel-2026** · **titres-restaurant** (dérogation courses expire 31/12/2026) · **revalorisation-retraites-2027** (Agirc nov. vs base janv.) · **avance-credit-impot-janvier** (slug sans millésime) · **calendrier-impots-2027**. Estimations 2027 systématiquement présentées comme telles ; pages à compléter aux publications officielles (échéances listées dans chaque page).
+
+### Guides précédents — 27
 `/guides` (hub) · portage-salarial · portage-salarial-chomage · conges-payes-portage-salarial · **simulation-tjm-portage-salarial** · **fiche-de-paie-portage-salarial** · **portage-salarial-ou-cdi** · **frais-gestion-portage-salarial** · **frais-professionnels-portage-salarial** · **salaire-president-sasu** · **sasu-chomage-dirigeant** · **dividendes-sasu-ou-salaire** · **auto-entrepreneur-chomage** · **cumul-salarie-auto-entrepreneur** · tjm-freelance · auto-entrepreneur · sasu-eurl · salaire-brut-net
 
 Batch du 23 août 2026 (10 guides calendrier + evergreen) : **remboursement-impot** (slug sans millésime, mis à jour chaque été — répond au cluster GSC « remboursement impot 2026 », 600 impr. en position 1,4 sans page dédiée) · **cfe-auto-entrepreneur** (échéance 15 déc) · **heures-supplementaires** · **indemnite-rupture-conventionnelle** · **salaire-apprenti** · **prime-partage-valeur** (fin du régime de faveur 31 déc 2026) · **13e-mois** (pic de recherche nov-déc) · **smic-2027** · **bareme-impot-2027** · **plafond-securite-sociale-2027** (3 pages d'anticipation : mécanique + valeurs actuelles, à compléter à la publication des décrets/LF mi-déc 2026 et de l'arrêté PASS).
