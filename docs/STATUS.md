@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 74 |
-| URLs au sitemap | 74 |
+| Routes publiées | 107 |
+| URLs au sitemap | 107 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -48,7 +48,14 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
 
-### Guides — 37
+### Brut en net par montant — 31 (nouveau, 29 août 2026)
+`/salaire` (hub) + `/salaire/[montant]` × 30 (19 mensuels de 1 500 à 5 000 €, 11 annuels de 25 000 à 75 000 €).
+
+Déclenché par une anomalie GSC : le site est en **position 1** sur des dizaines de requêtes « X brut en net » (2000 : 18 impr, 1600 : 10, 33000/35000 : 5, plus ~40 requêtes à 1-3 impressions) avec **zéro clic** — aucune page ne répondait à l'intention, seul le simulateur générique remontait. Chaque page affiche la réponse dès le titre et le H1, puis le détail des cotisations, 3 scénarios de PAS, le percentile INSEE et le coût employeur. Liste des montants dans `src/lib/salaire-montants.ts`, tout dérivé de `calculerBrutVersNet`.
+
+Règle produit : sous le plafond de la Sécurité sociale, le net cadre est identique au non-cadre (seule l'APEC à 0,024 % les sépare). La page bascule alors sur une carte unique avec mention explicite — afficher deux montants identiques laisserait croire à un bug, et les FAQ affirmaient un écart inexistant.
+
+### Guides — 39
 
 Batch « calendrier 2027 » du 25 août 2026, déclenché par la validation mesurée de la stratégie d'anticipation (smic-2027 : 30 visiteurs organiques/jour à J+2, première page Google) : **ce-qui-change-1er-janvier-2027** (hub d'agrégation) · **jours-feries-2027** (4 fériés perdus le week-end, jours calculés en code) · **bareme-kilometrique** (slug sans millésime, tableau vérifié BOFiP) · **plafonds-micro-entreprise-2027** (angle : plafonds triennaux figés jusqu'en 2028) · **prime-activite-2027** · **prime-de-noel-2026** · **titres-restaurant** (dérogation courses expire 31/12/2026) · **revalorisation-retraites-2027** (Agirc nov. vs base janv.) · **avance-credit-impot-janvier** (slug sans millésime) · **calendrier-impots-2027**. Estimations 2027 systématiquement présentées comme telles ; pages à compléter aux publications officielles (échéances listées dans chaque page).
 
