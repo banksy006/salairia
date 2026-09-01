@@ -155,7 +155,7 @@ export default async function Page({
       url: `${SITE_URL}/salaire/${slug}`,
       inLanguage: "fr-FR",
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
-      dateModified: "2026-08-29",
+      dateModified: "2026-09-01",
     },
     {
       "@context": "https://schema.org",

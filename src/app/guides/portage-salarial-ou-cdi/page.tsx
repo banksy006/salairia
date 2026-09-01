@@ -48,7 +48,7 @@ const meta: GuideMeta = {
   chapo: `Comparer un TJM à un salaire n'a de sens qu'à budget identique : ce que l'entreprise dépense pour vous. Pour ${EUR.format(budgetMensuel)} mensuels, un CDI cadre verse ${EUR.format(cdi.netAvantImpotMensuel)} nets, le portage ${EUR.format(portage.salaireNetAvantImpot)}. L'écart finance une liberté réelle — et il faut savoir ce qu'elle coûte pour décider en connaissance de cause.`,
   filAriane: "Portage ou CDI",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "comparaison", label: "À budget égal" },
     { id: "differences", label: "Ce qui diffère vraiment" },

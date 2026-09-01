@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "Chaque automne, la même confusion : « les retraites augmentent-elles en novembre ou en janvier ? » Les deux — mais pas les mêmes. La complémentaire Agirc-Arrco est revalorisée au 1er novembre, sur décision des partenaires sociaux ; la pension de base au 1er janvier, automatiquement, sur l'inflation. Pour un retraité du privé, la hausse réelle est la moyenne pondérée des deux. Voici les mécaniques, les estimations disponibles à date, et le calendrier des annonces.",
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "La base : mécanique et estimation" },

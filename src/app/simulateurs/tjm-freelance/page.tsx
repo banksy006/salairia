@@ -198,7 +198,7 @@ export default function TJMFreelancePage() {
       operatingSystem: "Web",
       inLanguage: "fr-FR",
       datePublished: "2026-04-16",
-      dateModified: "2026-07-27",
+      dateModified: "2026-09-01",
       offers: {
         "@type": "Offer",
         price: "0",
@@ -276,7 +276,7 @@ export default function TJMFreelancePage() {
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 <CalendarIcon className="w-3.5 h-3.5" />
-                À jour août 2026
+                À jour septembre 2026
               </span>
 
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -524,7 +524,7 @@ export default function TJMFreelancePage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : août 2026. Calcul indicatif.
+                    Dernière mise à jour : septembre 2026. Calcul indicatif.
                     Pour une optimisation fiscale précise, consultez un
                     expert-comptable.
                   </p>

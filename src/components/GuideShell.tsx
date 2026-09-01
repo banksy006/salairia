@@ -99,7 +99,7 @@ export default function GuideShell({
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour août 2026
+          À jour septembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -150,7 +150,7 @@ export default function GuideShell({
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : août 2026. Les montants affichés sont
+                  Dernière mise à jour : septembre 2026. Les montants affichés sont
                   calculés par nos simulateurs à partir des taux 2026 — ils sont
                   indicatifs et ne constituent ni un conseil juridique ni un
                   conseil fiscal. Une erreur ?{" "}

@@ -35,7 +35,7 @@ const meta: GuideMeta = {
   chapo: `2027 est une mauvaise année pour les salariés : sur les 11 jours fériés légaux, ${perdus.length} tombent un samedi ou un dimanche — ${perdus.map((f) => f.nom).join(", ")} — et sont perdus pour la plupart des contrats. Voici le calendrier complet avec les jours de semaine, les deux vrais ponts à poser, et ce que dit le droit : férié ne veut ni dire chômé, ni dire payé double.`,
   filAriane: "Jours fériés 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "calendrier", label: "Le calendrier 2027" },
     { id: "ponts", label: "Les ponts à poser" },

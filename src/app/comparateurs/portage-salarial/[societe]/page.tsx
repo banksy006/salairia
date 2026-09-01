@@ -150,7 +150,7 @@ export default async function Page({
       author: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-08-29",
-      dateModified: "2026-08-29",
+      dateModified: "2026-09-01",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/comparateurs/portage-salarial/${slug}`,
     },

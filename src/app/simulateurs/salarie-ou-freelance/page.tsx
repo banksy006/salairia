@@ -100,7 +100,7 @@ export default function SalarieOuFreelancePage() {
       operatingSystem: "Web",
       inLanguage: "fr-FR",
       datePublished: "2026-08-23",
-      dateModified: "2026-08-23",
+      dateModified: "2026-09-01",
       offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
       description: "Compare le net annuel d'un CDI au net de quatre statuts d'indépendant, et calcule le TJM d'équivalence.",
     },
@@ -138,7 +138,7 @@ export default function SalarieOuFreelancePage() {
 
               <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
                 <CalendarIcon className="h-3.5 w-3.5" />
-                À jour août 2026
+                À jour septembre 2026
               </span>
 
               <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -294,7 +294,7 @@ export default function SalarieOuFreelancePage() {
                     ))}
                   </ul>
                   <p className="mt-6 text-xs italic text-muted-foreground">
-                    Dernière mise à jour : août 2026. Cet outil réutilise les
+                    Dernière mise à jour : septembre 2026. Cet outil réutilise les
                     calculs et constantes des simulateurs brut/net et TJM
                     freelance ; il ne se substitue pas à l&apos;avis d&apos;un
                     expert-comptable pour une décision de changement de statut.

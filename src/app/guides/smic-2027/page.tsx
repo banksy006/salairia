@@ -25,7 +25,7 @@ const meta: GuideMeta = {
   chapo: "Le montant du SMIC 2027 n'existe pas encore : il sera fixé par décret mi-décembre 2026, pour une entrée en vigueur au 1er janvier 2027. Mais la formule qui le déterminera, elle, est connue et publique. Cette page explique la mécanique de revalorisation, rappelle les valeurs en vigueur, et sera mise à jour le jour de la publication du décret avec les montants exacts.",
   filAriane: "SMIC 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "actuel", label: "Le SMIC aujourd'hui" },
     { id: "formule", label: "La formule de revalorisation" },

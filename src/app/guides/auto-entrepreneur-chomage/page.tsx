@@ -21,7 +21,7 @@ const meta: GuideMeta = {
   chapo: `Le micro-entrepreneur ne cotise pas à l'assurance chômage : arrêter son activité n'ouvre droit à aucune ARE. Il existe bien une allocation dédiée, l'ATI — plafonnée à environ ${EUR.format(ATI.MAX_JOUR * 30)} par mois pendant six mois, sous des conditions que peu remplissent. Le vrai jeu se joue dans l'autre sens : cumuler des droits au chômage déjà acquis avec une micro-entreprise. Les deux mécaniques, précisément.`,
   filAriane: "Auto-entrepreneur et chômage",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "pas-are", label: "Pourquoi pas d'ARE" },
     { id: "ati", label: "L'ATI en détail" },

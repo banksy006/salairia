@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 118 |
-| URLs au sitemap | 118 |
+| Routes publiées | 130 |
+| URLs au sitemap | 130 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -47,6 +47,14 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
+
+### Batch du 1er septembre 2026 — 12 guides
+
+**Approfondissement du cluster portage (6)**, qui concentre les impressions non exploitées : **portage-salarial-retraite** (213 impr GSC, aucune page auparavant — le plus gros gisement restant) · **contrat-portage-salarial** (~108 impr sur les variantes CDI/CDD/contrat) · **portage-salarial-etranger** (61, dont « portage salarial japon » à 53) · **requalification-portage-salarial** (37) · **tva-portage-salarial** (28) · **portage-salarial-fonctionnaire** (14, en synergie avec le guide point d'indice).
+
+**Extension au public salarié (6)** : **arret-maladie-salaire** (plafond IJSS abaissé de 1,8 à 1,4 SMIC en avril 2025, max 42,97 €/j depuis juillet 2026) · **retraite-brut-net** (4 taux de CSG selon le RFR, calcul distinct du salaire) · **net-imposable** (CSG non déductible, dérivé de calculerBrutVersNet) · **solde-de-tout-compte** · **indemnite-teletravail** (barèmes URSSAF 2,70 €/j) · **mutuelle-entreprise**.
+
+Dates d'actualisation passées en septembre 2026 sur 34 fichiers, dateModified JSON-LD au 2026-09-01 sur 57. Les dates de vérification des sources et les faits datés (chèques d'août, bulletin d'exemple) restent inchangés.
 
 ### Fiches sociétés de portage — 10 (nouveau, 29 août 2026)
 `/comparateurs/portage-salarial/[societe]` × 10, générées depuis `societes-portage.json`.

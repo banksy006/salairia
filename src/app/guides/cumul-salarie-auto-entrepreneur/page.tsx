@@ -33,7 +33,7 @@ const meta: GuideMeta = {
   chapo: `Le cumul d'un emploi salarié et d'une micro-entreprise est légal, sans plafond de revenus, et fiscalement simple. Les vrais obstacles sont ailleurs : la clause d'exclusivité de votre contrat de travail, l'obligation de loyauté envers l'employeur, et quelques professions incompatibles. Le point complet, avec le calcul du revenu combiné.`,
   filAriane: "Cumul salarié + micro",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "droit", label: "Ce que dit le droit" },
     { id: "clauses", label: "Les 3 clauses à vérifier" },

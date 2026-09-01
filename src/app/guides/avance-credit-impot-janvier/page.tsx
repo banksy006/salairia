@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "Chaque mi-janvier, la DGFiP verse à des millions de foyers un virement « AVANCE CREDIMPOT » qui surprend autant qu'il fait plaisir : 60 % des réductions et crédits d'impôt récurrents — emploi à domicile, garde d'enfants, dons — calculés sur la déclaration du printemps précédent. Le piège est symétrique : si vos dépenses ont chuté entre-temps, l'avance est trop grosse et devra être rendue l'été suivant. Voici la mécanique complète, et la fenêtre de fin d'année pour ajuster.",
   filAriane: "Avance crédits d'impôt",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "mecanique", label: "La mécanique des 60 %" },
     { id: "concernes", label: "Quels crédits sont concernés" },

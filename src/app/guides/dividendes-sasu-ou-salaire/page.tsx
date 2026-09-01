@@ -23,7 +23,7 @@ const meta: GuideMeta = {
   chapo: `Les dividendes ont la réputation d'être « moins taxés » que le salaire. La réalité est plus nuancée : un euro de bénéfice traverse deux prélèvements successifs — l'impôt sur les sociétés puis la flat tax de 30 % — pour un taux global d'environ ${PCT(tauxGlobal)} sur la première tranche. Voici le trajet complet, l'option du barème, et le cas particulier de l'EURL qui change tout.`,
   filAriane: "Dividendes SASU",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "trajet", label: "Le trajet d'un euro" },
     { id: "flat-tax", label: "Flat tax ou barème" },

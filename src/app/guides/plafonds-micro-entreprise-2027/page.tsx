@@ -14,7 +14,7 @@ const meta: GuideMeta = {
   chapo: "Contrairement au SMIC ou au barème de l'impôt, les plafonds de chiffre d'affaires de la micro-entreprise ne changent pas chaque 1er janvier : ils sont revalorisés tous les trois ans, et la période 2026-2028 est déjà fixée. La vraie question pour 2027 est ailleurs — dans les taux de cotisations, que la loi de financement de la Sécurité sociale peut modifier chaque année, et dans les seuils de TVA. Le point complet sur ce qui est verrouillé et ce qui reste ouvert.",
   filAriane: "Plafonds micro 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "figes", label: "Ce qui est figé jusqu'en 2028" },
     { id: "mobile", label: "Ce qui peut bouger en 2027" },

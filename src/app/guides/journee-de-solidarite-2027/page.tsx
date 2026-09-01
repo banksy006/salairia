@@ -17,7 +17,7 @@ const meta: GuideMeta = {
   chapo: "C'est l'une des règles les plus mal comprises du droit du travail français : la journée de solidarité n'est plus attachée au lundi de Pentecôte depuis 2008. En 2027, ce lundi tombe le 17 mai — beaucoup d'entreprises y positionneront la journée par habitude, d'autres la placeront ailleurs, d'autres encore l'auront déjà déduite de vos RTT sans que vous l'ayez remarqué. Voici la règle exacte, ce que ça coûte, et comment savoir ce qui s'applique chez vous.",
   filAriane: "Journée de solidarité 2027",
   datePublished: "2026-08-29",
-  dateModified: "2026-08-29",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "date", label: "La date en 2027" },
     { id: "regle", label: "Qui décide, et comment" },

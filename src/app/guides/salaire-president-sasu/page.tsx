@@ -25,7 +25,7 @@ const meta: GuideMeta = {
   chapo: `Le président de SASU fixe librement sa rémunération, de zéro à la totalité du résultat. Chaque euro versé en salaire coûte environ 42 % de charges patronales mais crée des droits sociaux ; chaque euro laissé en société subit l'impôt sur les sociétés puis 30 % de flat tax en dividende, sans créer aucun droit. Voici les trois scénarios calculés sur un cas type à ${EUR.format(CA)} de chiffre d'affaires.`,
   filAriane: "Salaire président SASU",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "libre", label: "Une liberté totale" },
     { id: "scenarios", label: "3 scénarios calculés" },

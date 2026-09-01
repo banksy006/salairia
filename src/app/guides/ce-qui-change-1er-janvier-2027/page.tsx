@@ -14,7 +14,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés — par décret, arrêté ou loi de finances, pour l'essentiel entre fin novembre et fin décembre. Cette page rassemble tout ce qui bougera au 1er janvier 2027, avec les valeurs actuelles, le texte attendu, et un lien vers notre analyse détaillée de chaque sujet. Elle est mise à jour au fil des publications officielles.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },

@@ -17,7 +17,7 @@ const meta: GuideMeta = {
   chapo: `Neuf millions de salariés utilisent des titres-restaurant, et deux échéances les concernent directement : le plafond d'exonération de la part patronale, porté à ${EUR2.format(PLAFOND_EXO)} par titre en 2026, et surtout la dérogation qui permet de payer toutes ses courses alimentaires en titres — prolongée jusqu'au 31 décembre 2026 seulement. Sans nouveau texte d'ici décembre, les caddies de supermarché redeviendront hors-jeu au 1er janvier 2027. Le point complet, côté salarié et côté employeur.`,
   filAriane: "Titres-restaurant",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "regles", label: "Les règles 2026" },
     { id: "valeur", label: "La valeur optimale d'un titre" },

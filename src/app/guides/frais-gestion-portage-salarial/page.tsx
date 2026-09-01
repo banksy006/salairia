@@ -30,7 +30,7 @@ const meta: GuideMeta = {
   chapo: `Les frais de gestion sont la seule variable du portage que vous choisissez vraiment — les charges sociales, elles, sont les mêmes partout. Trois modèles coexistent : le pourcentage simple, le pourcentage plafonné et l'abonnement fixe. À ${TJM} € de TJM, l'écart entre la société la moins chère et la plus chère atteint ${EUR.format(ecartMensuel)} nets par mois. Voici comment ces modèles fonctionnent et lequel correspond à votre niveau de facturation.`,
   filAriane: "Frais de gestion portage",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "couvrent", label: "Ce qu'ils couvrent" },
     { id: "impact", label: "L'impact chiffré" },

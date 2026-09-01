@@ -29,7 +29,7 @@ const meta: GuideMeta = {
   chapo: `Le portage salarial permet de déduire ses frais professionnels — matériel, déplacements, logiciels — d'une façon que ni le salariat classique ni la micro-entreprise n'offrent. Encore faut-il distinguer deux régimes très différents : les frais refacturés au client, remboursés intégralement hors charges, et les frais non refacturables, déduits du chiffre d'affaires avant cotisations. Les deux mécanismes, chiffrés.`,
   filAriane: "Frais pro en portage",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "deux-regimes", label: "Les deux régimes" },
     { id: "chiffres", label: "L'impact chiffré" },

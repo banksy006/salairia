@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "L'année fiscale française est une horloge : avance de crédits d'impôt mi-janvier, déclaration au printemps, avis et remboursements l'été, nouveau taux de prélèvement au 1er septembre, solde à l'automne, modulation de l'avance en décembre. Les dates précises de 2027 seront publiées par la DGFiP au fil de l'année — voici le calendrier complet avec les dates de référence 2026, mis à jour à chaque annonce officielle.",
   filAriane: "Calendrier impôts 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "calendrier", label: "L'année mois par mois" },
     { id: "declaration", label: "La déclaration du printemps" },

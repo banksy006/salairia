@@ -163,7 +163,7 @@ export default function GuideTjmFreelancePage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-04-23",
-      dateModified: "2026-07-27",
+      dateModified: "2026-09-01",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/tjm-freelance`,
     },
@@ -204,7 +204,7 @@ export default function GuideTjmFreelancePage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour août 2026
+            À jour septembre 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -832,7 +832,7 @@ export default function GuideTjmFreelancePage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : août 2026. Les fourchettes de TJM
+                  Dernière mise à jour : septembre 2026. Les fourchettes de TJM
                   varient selon la région, le client et la rareté de la
                   compétence. Ce guide est à vocation informative. Rédigé par{" "}
                   <Link href="/a-propos" className="text-primary hover:underline">Nizar Laghrifi</Link>,

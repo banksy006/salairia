@@ -24,7 +24,7 @@ const meta: GuideMeta = {
   chapo: "La rupture conventionnelle est le seul mode de départ négocié qui cumule une indemnité minimale garantie et le droit au chômage. Son plancher est l'indemnité légale de licenciement : un quart de mois de salaire par année d'ancienneté jusqu'à dix ans, un tiers au-delà. Voici la formule exacte, les subtilités d'assiette qui changent le résultat, et la fiscalité de ce que vous touchez.",
   filAriane: "Rupture conventionnelle",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "formule", label: "La formule légale" },
     { id: "exemples", label: "Cinq cas chiffrés" },

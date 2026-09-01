@@ -25,7 +25,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "ITG, Cadres en Mission, OpenWork, ABC Portage, CEGELEM, et 5 autres",
     critereCount: 8,
-    lastUpdate: "août 2026",
+    lastUpdate: "septembre 2026",
   },
   {
     titre: "Banques pro freelance",
@@ -35,7 +35,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "Blank, Propulse by CA, Qonto, Shine, Finom, Revolut",
     critereCount: 5,
-    lastUpdate: "août 2026",
+    lastUpdate: "septembre 2026",
   },
   {
     titre: "Comptabilité freelance",
@@ -45,7 +45,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "Indy, Pennylane, L'Expert-Comptable, Dougs, Keobiz",
     critereCount: 4,
-    lastUpdate: "août 2026",
+    lastUpdate: "septembre 2026",
   },
   {
     titre: "Création SASU / EURL",
@@ -55,7 +55,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "Legalstart, Captain Contrat, Qonto, Indy, Dougs",
     critereCount: 5,
-    lastUpdate: "août 2026",
+    lastUpdate: "septembre 2026",
   },
 ] as const;
 
@@ -105,7 +105,7 @@ export default function ComparateursPage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour août 2026
+          À jour septembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

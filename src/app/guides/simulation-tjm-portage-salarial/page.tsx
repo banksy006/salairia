@@ -42,7 +42,7 @@ const meta: GuideMeta = {
   chapo: `Une simulation de portage sérieuse ne se résume pas à « environ 50 % du CA ». Le net dépend du TJM, du nombre de jours facturés, des frais de gestion et des frais professionnels. Voici les résultats calculés pour six niveaux de TJM, la mécanique complète, et les trois paramètres qui changent vraiment le résultat.`,
   filAriane: "Simulation TJM portage",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "tableau", label: "Net par TJM" },
     { id: "mecanique", label: "La mécanique" },

@@ -12,7 +12,7 @@ const meta: GuideMeta = {
   chapo: "La directive européenne 2023/970 va renverser le rapport de force salarial : fourchette de rémunération obligatoire dans les offres d'emploi, interdiction pour l'employeur de demander votre salaire précédent, droit d'obtenir les niveaux moyens par catégorie et par sexe. La France devait la transposer avant le 7 juin 2026 ; le projet de loi a été transmis au Conseil d'État à cette date, pour un vote attendu fin 2026 et une entrée en vigueur visée au 1er janvier 2028. Voici ce que le texte prévoit, et ce que ça change concrètement pour votre prochaine négociation.",
   filAriane: "Transparence des salaires",
   datePublished: "2026-08-29",
-  dateModified: "2026-08-29",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "quoi", label: "Ce que la directive impose" },
     { id: "calendrier", label: "Où en est la France" },

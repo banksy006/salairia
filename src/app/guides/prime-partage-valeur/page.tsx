@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "L'ex-« prime Macron » vit sa dernière ligne droite sous son régime le plus favorable : dans les entreprises de moins de 50 salariés, elle reste exonérée de tout — cotisations, CSG et impôt — pour les salariés sous 3 SMIC, mais seulement jusqu'au 31 décembre 2026. À partir de 2027, CSG et impôt s'appliqueront partout. Ce qu'il faut savoir, côté salarié comme côté employeur, avant que la fenêtre se referme.",
   filAriane: "Prime de partage de la valeur",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "quoi", label: "Ce qu'est la PPV" },
     { id: "plafonds", label: "Plafonds 3 000 / 6 000 €" },

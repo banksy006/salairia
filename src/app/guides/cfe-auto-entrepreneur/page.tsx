@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "La cotisation foncière des entreprises est l'impôt que presque tous les nouveaux micro-entrepreneurs découvrent trop tard : pas de courrier, un avis déposé en silence dans l'espace professionnel impots.gouv.fr, et une échéance unique le 15 décembre. Voici comment elle se calcule, qui en est exonéré, et les réflexes qui évitent la majoration.",
   filAriane: "CFE auto-entrepreneur",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "quoi", label: "Ce qu'est la CFE" },
     { id: "combien", label: "Combien elle coûte" },

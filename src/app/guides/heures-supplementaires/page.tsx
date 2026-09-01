@@ -24,7 +24,7 @@ const meta: GuideMeta = {
   chapo: `Les heures supplémentaires cumulent trois avantages que peu de salariés savent chiffrer : une majoration d'au moins 10 % (25 % par défaut), une réduction de cotisations salariales jusqu'à 11,31 points, et zéro impôt sur le revenu jusqu'à 7 500 € par an. Résultat : l'heure sup est, de loin, l'heure la mieux payée de votre mois. Le détail du calcul, les plafonds, et les pièges.`,
   filAriane: "Heures supplémentaires",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "majoration", label: "Les majorations" },
     { id: "exonerations", label: "Les deux exonérations" },

@@ -12,7 +12,7 @@ const meta: GuideMeta = {
   chapo: "Chaque été, la DGFiP rembourse les foyers qui ont payé trop d'impôt à la source ou qui ont droit à des crédits d'impôt. En 2026, le virement « REMB IMPOT REVENUS » est parti le 24 ou le 31 juillet pour 12,6 millions de foyers — 1 057 € en moyenne. Voici qui est concerné, le calendrier complet, et comment vérifier que le montant est le bon.",
   filAriane: "Remboursement d'impôt",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "qui", label: "Qui est remboursé" },
     { id: "calendrier", label: "Le calendrier 2026" },

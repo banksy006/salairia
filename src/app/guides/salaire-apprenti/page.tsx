@@ -26,7 +26,7 @@ const meta: GuideMeta = {
   chapo: `La rémunération d'un apprenti est un pourcentage du SMIC, fixé par une grille légale croisant l'âge et l'année de contrat. Depuis la revalorisation du SMIC au 1er juin 2026 (1 867,02 € bruts), tous les montants ont bougé. Voici la grille complète en euros, la règle du changement de tranche en cours de contrat, et pourquoi le net d'un apprenti est si proche de son brut.`,
   filAriane: "Salaire apprenti",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "grille", label: "La grille 2026" },
     { id: "net", label: "Du brut au net" },

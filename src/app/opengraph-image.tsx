@@ -7,7 +7,7 @@ export const contentType = OG_CONTENT_TYPE;
 
 export default function Image() {
   return renderOgImage({
-    eyebrow: "À jour août 2026",
+    eyebrow: "À jour septembre 2026",
     title: "Sachez ce que vous touchez vraiment",
     subtitle:
       "10 simulateurs gratuits, comparatifs indépendants et guides sourcés — salariés, freelances, auto-entrepreneurs, dirigeants.",

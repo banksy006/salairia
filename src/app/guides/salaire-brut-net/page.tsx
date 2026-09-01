@@ -157,7 +157,7 @@ export default function GuideSalaireBrutNetPage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-15",
-      dateModified: "2026-07-27",
+      dateModified: "2026-09-01",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/salaire-brut-net`,
     },
@@ -198,7 +198,7 @@ export default function GuideSalaireBrutNetPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour août 2026
+            À jour septembre 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -856,7 +856,7 @@ export default function GuideSalaireBrutNetPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : août 2026. Ce guide est à vocation informative et ne
+                  Dernière mise à jour : septembre 2026. Ce guide est à vocation informative et ne
                   constitue pas un conseil fiscal ou juridique. Pour une analyse adaptée à votre
                   situation, consultez un expert-comptable ou un conseiller fiscal.
                   Rédigé par{" "}

@@ -26,7 +26,7 @@ const meta: GuideMeta = {
   chapo: `La fiche de paie d'un salarié porté ressemble à celle d'un salarié classique — avec une différence de taille : le « salaire brut » n'y est pas un montant négocié, c'est le résultat d'un calcul qui part de votre facturation. Voici chaque ligne expliquée, avec un exemple complet à ${TJM} € de TJM.`,
   filAriane: "Fiche de paie portage",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "difference", label: "La différence clé" },
     { id: "lignes", label: "Le bulletin ligne à ligne" },

@@ -42,6 +42,102 @@ const guides = [
     lecture: "5 min",
   },
   {
+    titre: "Portage salarial et retraite",
+    desc:
+      "C'est l'argument le moins connu et le plus solide du portage : le salarié porté relève du régime général et de l'AGIRC-ARRCO, pas du régime des indépendants. Trimestres validés, points accumulés sur tout le salaire, relevé de carrière identique à celui d'un cadre. Le seuil de CA pour valider ses quatre trimestres, l'effet des frais de gestion sur vos droits futurs, et le cumul emploi-retraite.",
+    href: "/guides/portage-salarial-retraite",
+    audience: "Consultants en portage, indépendants qui arbitrent leur statut",
+    lecture: "8 min",
+  },
+  {
+    titre: "Contrat de portage salarial",
+    desc:
+      "Le portage repose sur deux contrats distincts, pas un : le contrat de travail avec la société de portage (CDI ou CDD de mission, 18 mois maximum) et le contrat commercial de prestation avec le client. Les mentions que le Code du travail impose, les minima conventionnels indexés sur le plafond Sécu, la réserve financière du CDI et les règles de rupture.",
+    href: "/guides/contrat-portage-salarial",
+    audience: "Consultants avant signature, salariés portés en poste",
+    lecture: "8 min",
+  },
+  {
+    titre: "Requalification du portage en CDI",
+    desc:
+      "Le portage est légal et encadré, mais il a une frontière : dès que le consultant travaille dans les conditions d'un salarié du client, un juge peut requalifier la relation en contrat de travail. Les six signaux qui font basculer un dossier, les activités interdites, qui peut agir et dans quels délais — et ce que la requalification coûte au client comme au consultant.",
+    href: "/guides/requalification-portage-salarial",
+    audience: "Consultants en mission longue, entreprises clientes, RH",
+    lecture: "8 min",
+  },
+  {
+    titre: "TVA et portage salarial",
+    desc:
+      "Le salarié porté n'est pas assujetti : c'est la société de portage qui facture en TTC, collecte et reverse. Votre TJM s'entend toujours HT, et votre salaire se calcule dessus. Reste un point qui vaut vraiment de l'argent et que peu de sociétés mettent en avant : qui récupère la TVA sur vos frais professionnels — 20 % sur tous vos achats.",
+    href: "/guides/tva-portage-salarial",
+    audience: "Salariés portés, freelances qui comparent avec la micro",
+    lecture: "6 min",
+  },
+  {
+    titre: "Portage salarial et missions à l'étranger",
+    desc:
+      "Trois situations que tout le monde confond : facturer un client étranger depuis la France (simple et courant), être détaché en Europe avec un certificat A1 (24 mois maximum), ou s'installer durablement à l'étranger (régime local, visa, résidence fiscale). Le portage ne délivre aucun titre de séjour — et la fiscalité suit des règles indépendantes du social.",
+    href: "/guides/portage-salarial-etranger",
+    audience: "Consultants à clientèle internationale, missions expatriées",
+    lecture: "8 min",
+  },
+  {
+    titre: "Portage salarial et fonction publique",
+    desc:
+      "Un agent public peut exercer en portage, mais le statut pose un principe d'exclusivité assorti de dérogations précises. Selon que vous êtes à temps plein, à temps partiel sous 70 %, en disponibilité ou démissionnaire, la réponse change complètement — et une activité exercée sans autorisation expose à sanction disciplinaire et reversement des sommes perçues.",
+    href: "/guides/portage-salarial-fonctionnaire",
+    audience: "Agents des trois fonctions publiques, enseignants, experts",
+    lecture: "7 min",
+  },
+  {
+    titre: "Arrêt maladie : ce que vous touchez",
+    desc:
+      "Un arrêt ne coupe pas le salaire mais le réduit fortement, et davantage qu'avant : depuis avril 2025, le plafond de calcul est passé de 1,8 à 1,4 SMIC, soit 22 % de moins sur l'indemnité maximale. Trois jours de carence, 50 % du salaire journalier, trois cas chiffrés — et le maintien de salaire employeur, qui fait toute la différence selon votre convention.",
+    href: "/guides/arret-maladie-salaire",
+    audience: "Tous les salariés du privé, employeurs et RH",
+    lecture: "8 min",
+  },
+  {
+    titre: "Retraite brut en net",
+    desc:
+      "Convertir une pension ne suit pas les règles du salaire : un retraité ne cotise plus ni à la retraite ni au chômage, seules la CSG, la CRDS et la CASA s'appliquent. L'écart brut-net va de 0 % à 9,1 % selon le revenu fiscal de référence — contre 22 % pour un actif. Les quatre taux, les seuils 2026, trois pensions calculées et les effets de seuil.",
+    href: "/guides/retraite-brut-net",
+    audience: "Retraités, futurs retraités, aidants familiaux",
+    lecture: "7 min",
+  },
+  {
+    titre: "Net imposable",
+    desc:
+      "La ligne du bulletin qui déclenche le plus de questions aux RH : pourquoi déclare-t-on plus que ce qu'on a touché ? Parce qu'une partie de la CSG et toute la CRDS sont prélevées sans être déductibles, et que la part patronale de la mutuelle y est réintégrée. Le mécanisme chiffré, les trois « nets » du bulletin, et le contrôle à faire chaque printemps.",
+    href: "/guides/net-imposable",
+    audience: "Tous les salariés, au moment de la déclaration",
+    lecture: "7 min",
+  },
+  {
+    titre: "Solde de tout compte",
+    desc:
+      "Le dernier document qu'on signe en partant, souvent trop vite : sa signature réduit le délai de contestation à six mois, contre trois ans sans elle. Les six lignes qui doivent y figurer, les oublis les plus coûteux — congés de la période en cours, contrepartie de non-concurrence, 13e mois au prorata — et la mention manuscrite qui préserve vos droits.",
+    href: "/guides/solde-de-tout-compte",
+    audience: "Salariés en fin de contrat, quel que soit le motif",
+    lecture: "7 min",
+  },
+  {
+    titre: "Indemnité de télétravail",
+    desc:
+      "Aucune loi n'oblige l'employeur à la verser, mais l'URSSAF fixe les plafonds jusqu'auxquels elle est exonérée : 2,70 € par jour télétravaillé, ou 10,70 € par mois pour chaque jour hebdomadaire régulier. Ce que ça représente sur l'année, pourquoi c'est plus efficace qu'une augmentation à coût employeur égal, et le droit aux titres-restaurant en télétravail.",
+    href: "/guides/indemnite-teletravail",
+    audience: "Télétravailleurs, employeurs, candidats en négociation",
+    lecture: "6 min",
+  },
+  {
+    titre: "Mutuelle d'entreprise",
+    desc:
+      "Obligatoire depuis 2016, financée à 50 % minimum par l'employeur — et pourtant mal comprise : l'adhésion s'impose sauf dispense limitativement prévue, la part patronale est réintégrée dans votre net imposable, et la portabilité vous couvre gratuitement jusqu'à 12 mois après le départ. Les cas de dispense, l'effet fiscal chiffré et ce qui change en devenant indépendant.",
+    href: "/guides/mutuelle-entreprise",
+    audience: "Salariés du privé, employeurs, futurs indépendants",
+    lecture: "7 min",
+  },
+  {
     titre: "Transparence des salaires",
     desc:
       "La directive européenne 2023/970 va renverser le rapport de force salarial : fourchette de rémunération obligatoire dans les offres d'emploi, interdiction pour l'employeur de demander votre salaire actuel, droit d'obtenir les niveaux moyens par catégorie et par sexe, et charge de la preuve qui bascule sur l'entreprise. Où en est la transposition française et ce que ça change concrètement pour négocier.",
@@ -383,7 +479,7 @@ export default function GuidesPage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour août 2026
+          À jour septembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

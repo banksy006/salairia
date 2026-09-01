@@ -254,7 +254,7 @@ export default function HomePage() {
           <div className="lg:col-span-7">
             <span className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
               <CalendarIcon className="w-3.5 h-3.5" />
-              À jour août 2026
+              À jour septembre 2026
             </span>
 
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

@@ -26,7 +26,7 @@ const meta: GuideMeta = {
   chapo: "C'est l'angle mort le plus coûteux du statut SASU. Le président cotise au régime général, reçoit un bulletin de paie, paie des charges comparables à celles d'un salarié — mais ne cotise pas à l'assurance chômage et n'ouvre aucun droit à l'ARE si la société s'arrête. Voici pourquoi, les exceptions réelles, et les alternatives qui existent.",
   filAriane: "SASU et chômage",
   datePublished: "2026-08-19",
-  dateModified: "2026-08-19",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "pourquoi", label: "Pourquoi pas de chômage" },
     { id: "exceptions", label: "Les vraies exceptions" },

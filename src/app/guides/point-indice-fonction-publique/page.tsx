@@ -30,7 +30,7 @@ const meta: GuideMeta = {
   chapo: `Le traitement d'un fonctionnaire ne se négocie pas : il se calcule. Indice majoré multiplié par la valeur du point, point final. Cette valeur est gelée à ${EUR2.format(POINT_MENSUEL)} depuis le 1er juillet 2023 — trois années consécutives sans revalorisation, alors que les prix, eux, ont continué de monter. Voici la formule exacte, ce qu'elle donne pour six niveaux de carrière, et l'état des discussions pour 2027.`,
   filAriane: "Point d'indice",
   datePublished: "2026-08-29",
-  dateModified: "2026-08-29",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "valeur", label: "La valeur du point" },
     { id: "calcul", label: "Calculer son traitement" },

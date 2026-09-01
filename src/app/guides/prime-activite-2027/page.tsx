@@ -14,7 +14,7 @@ const meta: GuideMeta = {
   chapo: "La prime d'activité complète chaque mois les revenus de plus de 4,5 millions de foyers de travailleurs modestes — salariés, indépendants, apprentis majeurs. Sa prochaine revalorisation légale tombera au 1er avril 2027, pas au 1er janvier, et la réforme des bases de calcul votée en loi de finances 2026 continue de déployer ses effets. Qui y a droit, comment le montant se calcule vraiment, et pourquoi tant d'ayants droit ne la demandent jamais.",
   filAriane: "Prime d'activité 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "qui", label: "Qui y a droit" },
     { id: "calcul", label: "Comment elle se calcule" },

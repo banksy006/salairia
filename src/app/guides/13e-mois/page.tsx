@@ -23,7 +23,7 @@ const meta: GuideMeta = {
   chapo: "Le 13e mois n'est prévu par aucune loi : il naît d'une convention collective, d'un accord d'entreprise, du contrat de travail ou d'un usage. Mais dès qu'il existe, il devient un droit — pas un geste. Qui peut y prétendre, comment se calcule le prorata en cas d'arrivée ou de départ en cours d'année, ce qu'il laisse en net, et les questions qui fâchent : prime remplacée, embauche « avec » ou « sans », mensualisation.",
   filAriane: "13e mois",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "droit", label: "D'où vient le droit" },
     { id: "calcul", label: "Calcul et prorata" },

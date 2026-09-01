@@ -21,7 +21,7 @@ const meta: GuideMeta = {
   chapo: "Le barème qui s'appliquera à vos revenus 2026 — celui de la déclaration du printemps 2027 — sera voté avec la loi de finances pour 2027, fin décembre 2026. Les taux ne bougent presque jamais ; ce qui se joue chaque année, c'est l'indexation des seuils sur l'inflation. Voici le barème en vigueur, la mécanique, le calendrier — et cette page affichera les tranches 2027 dès leur publication au Journal officiel.",
   filAriane: "Barème impôt 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-08-23",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "actuel", label: "Le barème en vigueur" },
     { id: "mecanique", label: "Comment il fonctionne" },

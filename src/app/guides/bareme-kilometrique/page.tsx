@@ -31,7 +31,7 @@ const meta: GuideMeta = {
   chapo: `Le barème kilométrique permet de déduire de son revenu imposable — ou de se faire rembourser par son entreprise — les trajets professionnels effectués avec son véhicule personnel. Le barème en vigueur est inchangé depuis 2024 ; les véhicules électriques bénéficient d'une majoration de 20 %. Voici le tableau complet, la mécanique des trois tranches, et le match frais réels contre déduction forfaitaire de 10 %.`,
   filAriane: "Barème kilométrique",
   datePublished: "2026-08-25",
-  dateModified: "2026-08-25",
+  dateModified: "2026-09-01",
   tocItems: [
     { id: "tableau", label: "Le tableau complet" },
     { id: "calcul", label: "Comment calculer" },
