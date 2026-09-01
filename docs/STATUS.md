@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 107 |
-| URLs au sitemap | 107 |
+| Routes publiées | 118 |
+| URLs au sitemap | 118 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -47,6 +47,17 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
+
+### Fiches sociétés de portage — 10 (nouveau, 29 août 2026)
+`/comparateurs/portage-salarial/[societe]` × 10, générées depuis `societes-portage.json`.
+
+Requêtes de marque mesurées dans GSC (~300 impressions cumulées, positions 15-58) : « abc portage » et variantes ~110 impr, « umalis portage avis » 79, « innoven portage simulation » 52, « cipres » 24, « ventoris » 23, « coq portage » 3 impr et 1 clic en position 17,7. Intentions d'achat = le bas de l'entonnoir qui convertira en affiliation.
+
+Deux règles produit :
+1. **Aucune fiche pour une société sans données vérifiées** (umalis, cipres, ventoris, innoven, infoportage, agc ne sont pas dans le JSON — pas de page inventée).
+2. **Pas d'avis maison, pas d'AggregateRating** : les notes sont reprises des plateformes tierces, attribuées et datées, avec une mention explicite « Salairia ne collecte pas d'avis ». Le JSON-LD est un `Article`, jamais un `Review`.
+
+Différenciateur : chaque fiche calcule le net réel avec le taux de frais de la société (cas type commun 500 €/j × 18 j) et le compare aux neuf autres. Jump, qui facture un abonnement fixe, est converti en taux équivalent (1,1 % sur 9 000 € de CA) pour rester comparable.
 
 ### Brut en net par montant — 31 (nouveau, 29 août 2026)
 `/salaire` (hub) + `/salaire/[montant]` × 30 (19 mensuels de 1 500 à 5 000 €, 11 annuels de 25 000 à 75 000 €).

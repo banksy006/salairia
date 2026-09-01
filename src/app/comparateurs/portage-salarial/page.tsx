@@ -518,6 +518,12 @@ export default function PortageSalarialComparateurPage() {
                     >
                       Découvrir {s.nom} ↗
                     </a>
+                    <Link
+                      href={`/comparateurs/portage-salarial/${s.slug}`}
+                      className="text-sm font-semibold text-primary underline-offset-4 transition hover:underline"
+                    >
+                      Analyse détaillée de {s.nom} →
+                    </Link>
                     <a
                       href="#comparatif"
                       className="text-sm text-muted-foreground transition hover:text-primary"

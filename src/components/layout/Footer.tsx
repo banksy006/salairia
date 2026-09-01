@@ -11,6 +11,7 @@ const simulateursLinks = [
   { label: "Négociation salariale", href: "/simulateurs/negociation-salariale" },
   { label: "Pouvoir d'achat par ville", href: "/simulateurs/pouvoir-achat-ville" },
   { label: "Salaire par ville", href: "/villes" },
+  { label: "Brut en net par montant", href: "/salaire" },
   { label: "Où se situe mon salaire", href: "/simulateurs/ou-se-situe-mon-salaire" },
 ];
 

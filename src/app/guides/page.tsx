@@ -42,6 +42,30 @@ const guides = [
     lecture: "5 min",
   },
   {
+    titre: "Transparence des salaires",
+    desc:
+      "La directive européenne 2023/970 va renverser le rapport de force salarial : fourchette de rémunération obligatoire dans les offres d'emploi, interdiction pour l'employeur de demander votre salaire actuel, droit d'obtenir les niveaux moyens par catégorie et par sexe, et charge de la preuve qui bascule sur l'entreprise. Où en est la transposition française et ce que ça change concrètement pour négocier.",
+    href: "/guides/transparence-salaires",
+    audience: "Salariés en négociation, candidats, RH et dirigeants",
+    lecture: "8 min",
+  },
+  {
+    titre: "Point d'indice de la fonction publique",
+    desc:
+      "Le traitement d'un fonctionnaire ne se négocie pas, il se calcule : indice majoré × 4,92278 €. Cette valeur est gelée depuis le 1er juillet 2023 — trois années consécutives, soit 8 à 10 % de pouvoir d'achat perdu pour un agent dont l'indice n'a pas bougé. La formule, six exemples chiffrés de l'IM 366 à l'IM 800, et l'état réel des discussions pour 2027.",
+    href: "/guides/point-indice-fonction-publique",
+    audience: "Agents des trois fonctions publiques, candidats aux concours",
+    lecture: "7 min",
+  },
+  {
+    titre: "Journée de solidarité 2027",
+    desc:
+      "Elle tombe le lundi 17 mai 2027 — mais uniquement par défaut : depuis 2008, l'employeur peut la placer n'importe quel autre jour, ou la déduire d'un RTT sans que vous le remarquiez. Sept heures non payées, proratisées à temps partiel, absentes du bulletin de paie. La règle exacte, le coût des deux côtés, et les cas particuliers.",
+    href: "/guides/journee-de-solidarite-2027",
+    audience: "Salariés du privé et du public, employeurs",
+    lecture: "6 min",
+  },
+  {
     titre: "Ce qui change au 1er janvier 2027",
     desc:
       "SMIC, plafond de la Sécurité sociale, barème de l'impôt, fin du régime doré de la PPV, plafonds micro, retraites, titres-restaurant : le récapitulatif de tout ce qui bouge au 1er janvier 2027, avec les valeurs actuelles, le texte attendu pour chaque paramètre, et le calendrier des annonces de fin d'année. Mis à jour à chaque publication au Journal officiel.",
