@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 130 |
-| URLs au sitemap | 130 |
+| Routes publiées | 151 |
+| URLs au sitemap | 151 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -66,6 +66,13 @@ Deux règles produit :
 2. **Pas d'avis maison, pas d'AggregateRating** : les notes sont reprises des plateformes tierces, attribuées et datées, avec une mention explicite « Salairia ne collecte pas d'avis ». Le JSON-LD est un `Article`, jamais un `Review`.
 
 Différenciateur : chaque fiche calcule le net réel avec le taux de frais de la société (cas type commun 500 €/j × 18 j) et le compare aux neuf autres. Jump, qui facture un abonnement fixe, est converti en taux équivalent (1,1 % sur 9 000 € de CA) pour rester comparable.
+
+### Salaires par métier — 21 (nouveau, 1er septembre 2026)
+`/metiers` (hub) + `/metiers/[metier]` × 20, générées depuis `salaires-metiers.json` via `src/lib/metiers.ts`.
+
+Inspiré de l'analyse du concurrent salerya.fr (742 URLs, dont 273 pages métiers) — mais avec deux angles qu'il n'a pas : la **conversion en net** de chaque fourchette (calculerBrutVersNet, taux cadres) et surtout le **TJM freelance d'équivalence** calculé par bissection (findTJMForNetCible en portage, 18 j/mois, 150 € de frais pro), affiché pour les 4 niveaux avec la marge conseillée de 25 %.
+
+Seules les fourchettes de brut viennent du JSON ; net, percentile INSEE, coût employeur et TJM sont calculés — une mise à jour des constantes se propage donc aux 20 pages. Le disclaimer distingue explicitement les estimations de marché (fourchettes, ancrées APEC) des valeurs calculées.
 
 ### Brut en net par montant — 31 (nouveau, 29 août 2026)
 `/salaire` (hub) + `/salaire/[montant]` × 30 (19 mensuels de 1 500 à 5 000 €, 11 annuels de 25 000 à 75 000 €).

@@ -12,6 +12,7 @@ const simulateursLinks = [
   { label: "Pouvoir d'achat par ville", href: "/simulateurs/pouvoir-achat-ville" },
   { label: "Salaire par ville", href: "/villes" },
   { label: "Brut en net par montant", href: "/salaire" },
+  { label: "Salaires par métier", href: "/metiers" },
   { label: "Où se situe mon salaire", href: "/simulateurs/ou-se-situe-mon-salaire" },
 ];
 
