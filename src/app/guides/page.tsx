@@ -298,6 +298,46 @@ const guides = [
     lecture: "7 min",
   },
   {
+    titre: "Seuil d'imposition 2027",
+    desc:
+      "Le revenu maximal sans impôt, recalculé pour six situations familiales en empilant barème, décote et seuil de recouvrement : 17 595 € pour un célibataire, 32 863 € pour un couple. Pourquoi ce n'est pas 11 600 €, la traduction en salaire net mensuel, et trois hypothèses d'indexation pour la loi de finances 2027.",
+    href: "/guides/seuil-imposition-2027",
+    audience: "Salariés modestes, temps partiels, jeunes actifs, retraités",
+    lecture: "7 min",
+  },
+  {
+    titre: "Gratification de stage 2027",
+    desc:
+      "15 % du plafond horaire de la Sécurité sociale : 4,50 € de l'heure en 2026, 693 € pour 22 jours. Le seuil des deux mois, la franchise de cotisations, l'exonération d'impôt — et pourquoi le montant 2027 ne peut prendre que deux valeurs, selon que le plafond horaire reste à 30 € ou passe à 31 €.",
+    href: "/guides/gratification-stage-2027",
+    audience: "Étudiants, stagiaires, tuteurs et services RH",
+    lecture: "7 min",
+  },
+  {
+    titre: "Salaire d'un apprenti en 2027",
+    desc:
+      "La grille légale (27 % à 100 % du SMIC) suit mécaniquement le SMIC 2027, fixé mi-décembre. Les montants en vigueur, l'effet chiffré de chaque point de hausse case par case, le régime de cotisations et d'impôt, l'aide employeur suspendue à la loi de finances, et le calendrier jusqu'à la paie de janvier.",
+    href: "/guides/salaire-apprenti-2027",
+    audience: "Apprentis, parents, CFA, employeurs",
+    lecture: "7 min",
+  },
+  {
+    titre: "Calendrier de paiement des retraites 2027",
+    desc:
+      "Les 24 dates de versement de l'année, calculées depuis les règles des caisses : Assurance retraite le 9 du mois suivant (avancé si week-end ou férié), Agirc-Arrco le premier jour ouvré. Les dernières échéances 2026, la différence terme échu / terme d'avance, et les quatre causes d'un virement en retard.",
+    href: "/guides/calendrier-paiement-retraite-2027",
+    audience: "Retraités du privé, futurs retraités",
+    lecture: "6 min",
+  },
+  {
+    titre: "Augmentation de salaire 2027",
+    desc:
+      "Budgets entre 2 et 3 % selon WTW, Mercer et Michael Page, mais distribués à 97 % au mérite : 17 % d'augmentations générales contre 61 % l'année précédente. Le gain net calculé pour quatre profils, ce qu'il reste après 1,7 % d'inflation, et le calendrier pour peser sur l'enveloppe avant qu'elle soit répartie.",
+    href: "/guides/augmentation-salaire-2027",
+    audience: "Salariés en NAO, cadres en entretien annuel, managers",
+    lecture: "8 min",
+  },
+  {
     titre: "SMIC 2027",
     desc:
       "Le montant n'existe pas encore — le décret tombera mi-décembre — mais la formule qui le fixera est publique : inflation des ménages modestes plus la moitié du gain de pouvoir d'achat du salaire ouvrier moyen. Les valeurs en vigueur (1 867,02 € bruts, ~1 478 € nets), le calendrier jusqu'au 1er janvier, et ce qu'une hausse déclenche vraiment. Page mise à jour le jour du décret.",

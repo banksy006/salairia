@@ -7,7 +7,7 @@
 
 | | |
 |---|---|
-| Routes publiées | 151 |
+| Routes publiées | 156 |
 | URLs au sitemap | 151 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
@@ -47,6 +47,10 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
+
+### Batch du 19 septembre 2026 — 5 guides dérivés du cluster 2027
+
+Déclencheur : Plausible 28 j (22 août → 18 sept) — 2 088 visiteurs, 88 % sur les pages d'anticipation 2027 (smic-2027 seul : 1 336). Les pages construites sont des **dérivés calculés** des trois pages qui rankent : **seuil-imposition-2027** (bissection barème + décote + seuil de recouvrement, 6 foyers, 3 hypothèses d'indexation ; dérivé de bareme-impot-2027) · **gratification-stage-2027** (15 % du plafond horaire SS = 4,50 €/h ; seuil arithmétique de +1,98 % du PASS pour passer à 4,65 € ; dérivé de plafond-securite-sociale-2027) · **salaire-apprenti-2027** (grille en % du SMIC, sensibilité +1/+1,5/+2 % ; dérivé de smic-2027) · **calendrier-paiement-retraite-2027** (24 dates calculées depuis les règles Cnav « 9 du mois suivant, avancé » et Agirc-Arrco « 1er jour ouvré », contrôlées sur le calendrier officiel 2026) · **augmentation-salaire-2027** (enquêtes WTW 3 %, Mercer 2,5 %, Michael Page 2-2,5 % ; gain net calculé par calculerBrutVersNet pour 4 profils ; pont vers négociation-salariale). Le cluster métiers/villes/salaire (81 pages) n'a pas encore de trafic mesurable : indexation en cours.
 
 ### Batch du 1er septembre 2026 — 12 guides
 
