@@ -18,7 +18,7 @@ import {
   LightbulbIcon,
 } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
-import { calculerBrutVersNet } from "@/lib/calculators/salaire-brut-net";
+import { calculerBrutVersNet, SALAIRE_2026 } from "@/lib/calculators/salaire-brut-net";
 
 // Cas type du schéma brut → net → net après impôt, calculé et non saisi.
 const BRUT_TYPE = 3_000;
@@ -691,8 +691,9 @@ export default function GuideSalaireBrutNetPage() {
               <div className="mt-6 space-y-3 text-base leading-relaxed text-foreground/80">
                 <p>
                   Ces coefficients sont des approximations valables pour un salaire inférieur au
-                  plafond annuel de la Sécurité sociale (PASS = 47 100 € brut annuel en 2026, soit
-                  3 925 € brut mensuel). Au-delà, certaines cotisations plafonnées ne s&apos;appliquent
+                  plafond annuel de la Sécurité sociale (PASS ={" "}
+                  {SALAIRE_2026.PASS_ANNUEL.toLocaleString("fr-FR")} € brut annuel en 2026, soit{" "}
+                  {SALAIRE_2026.PASS_MENSUEL.toLocaleString("fr-FR")} € brut mensuel). Au-delà, certaines cotisations plafonnées ne s&apos;appliquent
                   plus sur la partie dépassant le PASS, ce qui modifie légèrement le ratio.
                 </p>
                 <p>
