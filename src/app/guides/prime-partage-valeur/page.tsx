@@ -2,15 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
 import { IconBadge, EuroIcon, CalendarIcon, ScaleIcon, AlertTriangleIcon } from "@/components/icons";
+import { SALAIRE_2026 } from "@/lib/calculators/salaire-brut-net";
+
+// PLFSS 2027, art. 7 (Assemblée nationale n° 3211, déposé le 1er octobre 2026) :
+// exonération de cotisations inscrite au code de la Sécurité sociale, dans une
+// limite fixée par décret qui ne peut excéder 1/15 du PASS (doublée avec un
+// accord d'intéressement) ; dans les entreprises de moins de 50 salariés,
+// exonération de CSG-CRDS prolongée aux primes versées jusqu'au 31 décembre
+// 2027, sans l'exonération d'impôt. Vérifié le 8 octobre 2026.
+// PASS 2027 estimé à 48 900 € (Commission des comptes de la Sécurité sociale).
+const PLAFOND_MAX_2026 = SALAIRE_2026.PASS_ANNUEL / 15;
+const PLAFOND_MAX_2027 = 48_900 / 15;
+const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
 const meta: GuideMeta = {
   slug: "prime-partage-valeur",
-  titre: "Prime de partage de la valeur : les 4 derniers mois du régime doré",
-  sousTitre: "Jusqu'à 3 000 ou 6 000 € — et une exonération totale qui disparaît le 31 décembre 2026",
-  chapo: "L'ex-« prime Macron » vit sa dernière ligne droite sous son régime le plus favorable : dans les entreprises de moins de 50 salariés, elle reste exonérée de tout — cotisations, CSG et impôt — pour les salariés sous 3 SMIC, mais seulement jusqu'au 31 décembre 2026. À partir de 2027, CSG et impôt s'appliqueront partout. Ce qu'il faut savoir, côté salarié comme côté employeur, avant que la fenêtre se referme.",
+  titre: "Prime de partage de la valeur : ce qui change au 1er janvier 2027",
+  sousTitre: "Jusqu'à 3 000 ou 6 000 € aujourd'hui — et un budget 2027 qui pérennise l'exonération de cotisations, épargne la CSG un an de plus dans les TPE, mais fait revenir l'impôt",
+  chapo: "L'ex-« prime Macron » vit ses derniers mois sous son régime le plus favorable : dans les entreprises de moins de 50 salariés, elle reste exonérée de tout — cotisations, CSG et impôt — pour les salariés sous 3 SMIC jusqu'au 31 décembre 2026. Le projet de loi de financement de la Sécurité sociale pour 2027, déposé le 1er octobre, adoucit la sortie : exonération de cotisations pérennisée, CSG-CRDS toujours épargnée en 2027 dans les petites entreprises — mais l'exonération d'impôt sur le revenu n'est pas prolongée. Ce qu'il faut savoir, côté salarié comme côté employeur, avant le 31 décembre.",
   filAriane: "Prime de partage de la valeur",
   datePublished: "2026-08-23",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-08",
   tocItems: [
     { id: "quoi", label: "Ce qu'est la PPV" },
     { id: "plafonds", label: "Plafonds 3 000 / 6 000 €" },
@@ -28,7 +40,11 @@ const meta: GuideMeta = {
     },
     {
       q: "Que se passe-t-il au 1er janvier 2027 ?",
-      r: "Le régime de faveur des petites entreprises s'éteint : la PPV sera partout exonérée de cotisations sociales uniquement, et soumise à la CSG-CRDS ainsi qu'à l'impôt sur le revenu, quels que soient la taille de l'entreprise et le salaire. Concrètement, une prime de 1 000 € versée en décembre 2026 à un salarié à 2 SMIC d'une TPE arrive intacte ; la même prime versée en janvier 2027 sera rognée de 9,7 % de CSG-CRDS puis imposée à son taux marginal. Pour les employeurs de TPE-PME qui hésitent sur le calendrier, l'arbitrage est limpide.",
+      r: "Sans nouveau texte, le régime de faveur des petites entreprises s'éteint : la PPV serait partout exonérée de cotisations sociales uniquement, et soumise à la CSG-CRDS ainsi qu'à l'impôt sur le revenu. Le projet de LFSS 2027 (article 7) change en partie la donne : dans les entreprises de moins de 50 salariés, la CSG-CRDS resterait exonérée sur les primes versées en 2027 aux salariés sous 3 SMIC — mais pas l'impôt sur le revenu, dont l'exonération n'est pas reconduite. Concrètement, une prime de 1 000 € versée en décembre 2026 à un salarié à 2 SMIC d'une TPE arrive intacte ; versée en janvier 2027, elle serait imposée à son taux marginal, et rognée en plus de 97 € de CSG-CRDS si le texte n'est pas adopté. Dans les deux cas, verser avant le 31 décembre reste l'option la plus favorable.",
+    },
+    {
+      q: "Le plafond de 3 000 € va-t-il changer ?",
+      r: `Peut-être, à la marge. Le PLFSS 2027 inscrit l'exonération de cotisations dans le code de la Sécurité sociale, avec un plafond fixé par décret qui ne pourra pas dépasser un quinzième du plafond annuel de la Sécurité sociale : ${EUR.format(PLAFOND_MAX_2026)} sur la base du PASS 2026, environ ${EUR.format(PLAFOND_MAX_2027)} avec le PASS 2027 estimé. Le plafond resterait doublé pour les entreprises dotées d'un accord d'intéressement ou de participation volontaire. Le montant exact dépendra du décret : 3 000 € reste la référence tant qu'il n'est pas publié.`,
     },
     {
       q: "Peut-on placer sa PPV pour éviter l'impôt ?",
@@ -44,16 +60,17 @@ const meta: GuideMeta = {
     { label: "URSSAF — la prime de partage de la valeur", href: "https://www.urssaf.fr/accueil/employeur/verser-remuneration/prime-partage-valeur.html" },
     { label: "service-public.fr — prime de partage de la valeur (PPV)", href: "https://www.service-public.fr/particuliers/vosdroits/F35275" },
     { label: "economie.gouv.fr — prime de partage de la valeur", href: "https://www.economie.gouv.fr/particuliers/prime-partage-valeur" },
+    { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211, art. 7 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
   ],
 };
 
 export const metadata: Metadata = {
-  title: "Prime de partage de la valeur 2026 : plafonds, exonérations, fin du régime au 31 décembre",
-  description: "PPV : 3 000 € (6 000 € avec accord d'intéressement), exonération totale — impôt et CSG compris — jusqu'au 31 décembre 2026 dans les entreprises de moins de 50 salariés pour les salaires sous 3 SMIC. Ce qui change au 1er janvier 2027, et l'option épargne salariale.",
+  title: "Prime de partage de la valeur : plafonds 2026 et ce qui change en 2027",
+  description: "PPV : 3 000 € (6 000 € avec accord d'intéressement), exonération totale jusqu'au 31 décembre 2026 dans les entreprises de moins de 50 salariés sous 3 SMIC. Ce que prévoit le PLFSS 2027 : cotisations pérennisées, CSG épargnée un an de plus dans les TPE, retour de l'impôt sur le revenu — et l'option épargne salariale.",
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
-    title: "PPV : les 4 derniers mois du régime doré",
-    description: "Exonération totale jusqu'au 31 décembre 2026 en TPE-PME — puis CSG et impôt pour tous.",
+    title: "PPV : ce qui change au 1er janvier 2027",
+    description: "Exonération totale jusqu'au 31 décembre 2026 en TPE — puis le retour de l'impôt, selon le PLFSS 2027.",
     url: `/guides/${meta.slug}`,
   },
 };
@@ -165,21 +182,61 @@ export default function Page() {
       <section id="fin" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><AlertTriangleIcon className="w-4 h-4" /></IconBadge>
-          Le 1er janvier 2027, le régime doré s&apos;éteint
+          Le 1er janvier 2027 : ce qui s&apos;éteint, ce que le budget prolonge
         </h2>
-        <div className="mt-4 rounded-2xl border-l-4 border-amber-500 bg-amber-50 p-6 text-amber-900">
+        <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-white shadow-md">
+          <table className="w-full min-w-[36rem] text-left text-sm">
+            <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <tr>
+                <th className="px-5 py-4">PPV versée en 2027, entreprise &lt; 50 salariés, salarié &lt; 3 SMIC</th>
+                <th className="px-5 py-4 text-center">Cotisations</th>
+                <th className="px-5 py-4 text-center">CSG-CRDS</th>
+                <th className="px-5 py-4 text-center">Impôt sur le revenu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-border">
+                <td className="px-5 py-3 font-semibold text-foreground">Droit actuel (sans nouveau texte)</td>
+                <td className="px-5 py-3 text-center text-accent">exonérée</td>
+                <td className="px-5 py-3 text-center text-destructive">due (9,7 %)</td>
+                <td className="px-5 py-3 text-center text-destructive">imposée</td>
+              </tr>
+              <tr className="bg-amber-50/60">
+                <td className="border-l-4 border-amber-500 px-5 py-3 font-semibold text-foreground">Si le PLFSS 2027 est adopté en l&apos;état</td>
+                <td className="px-5 py-3 text-center text-accent">exonérée</td>
+                <td className="px-5 py-3 text-center text-accent">exonérée</td>
+                <td className="px-5 py-3 text-center text-destructive">imposée</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-6 rounded-2xl border-l-4 border-amber-500 bg-amber-50 p-6 text-amber-900">
           <p className="text-base leading-relaxed">
-            À compter du 1er janvier 2027, le régime le moins favorable est
-            généralisé : la PPV restera exonérée de cotisations sociales, mais
-            supportera <strong>partout</strong> la CSG-CRDS et l&apos;impôt sur
-            le revenu. Pour un salarié à 2 SMIC dans une TPE, une prime de
-            1 000 € versée en décembre 2026 arrive entière ; la même prime en
-            janvier 2027 perd 97 € de CSG-CRDS puis subit le taux marginal
-            d&apos;imposition — souvent 11 %, parfois 30 %. Employeurs de
+            Dans les deux scénarios, l&apos;<strong>exonération d&apos;impôt
+            sur le revenu disparaît</strong> au 1er janvier 2027 pour les
+            primes perçues directement — seul le placement sur un plan
+            d&apos;épargne salariale la préserve. Pour un salarié à 2 SMIC dans
+            une TPE, une prime de 1 000 € versée en décembre 2026 arrive
+            entière ; la même prime en janvier 2027 subit son taux marginal
+            d&apos;imposition — souvent 11 %, parfois 30 % —, et 97 € de
+            CSG-CRDS en plus si le PLFSS n&apos;est pas adopté. Employeurs de
             moins de 50 salariés : si une prime est prévue « prochainement »,
-            <strong> la verser avant le 31 décembre a une valeur mesurable</strong>.
+            <strong> la verser avant le 31 décembre garde une valeur mesurable</strong>.
           </p>
         </div>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+          Le texte pérennise par ailleurs l&apos;exonération de cotisations
+          pour toutes les entreprises, dans une limite fixée par décret —
+          au plus un quinzième du plafond de la Sécurité sociale, soit environ{" "}
+          {EUR.format(PLAFOND_MAX_2027)} en 2027, doublée avec un accord
+          d&apos;intéressement. Ces mesures sont celles d&apos;un projet de
+          loi, déposé le 1er octobre 2026 : cette page sera mise à jour au vote
+          définitif, comme notre{" "}
+          <Link href="/guides/ce-qui-change-1er-janvier-2027" className="text-primary underline-offset-4 hover:underline">
+            récapitulatif du 1er janvier 2027
+          </Link>
+          .
+        </p>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
           Côté salarié, le bon réflexe reste inchangé : une prime ne remplace
           pas une augmentation — elle ne crée aucun droit et peut disparaître

@@ -29,6 +29,10 @@ export interface GuideMeta {
   tocItems: readonly { id: string; label: string }[];
 }
 
+// Le badge « À jour » suit la date de mise à jour réelle de chaque guide :
+// une page révisée en octobre l'affiche, les autres gardent leur mois.
+const fmtMoisMaj = new Intl.DateTimeFormat("fr-FR", { month: "long", year: "numeric", timeZone: "UTC" });
+
 /**
  * Chrome commun des guides : fil d'Ariane, badge, titres, sommaire flottant,
  * FAQ, sources et JSON-LD (Article + FAQPage + BreadcrumbList). Les sections
@@ -42,6 +46,7 @@ export default function GuideShell({
   children: React.ReactNode;
 }) {
   const url = `${SITE_URL}/guides/${meta.slug}`;
+  const moisMaj = fmtMoisMaj.format(new Date(`${meta.dateModified}T12:00:00Z`));
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -99,7 +104,7 @@ export default function GuideShell({
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour septembre 2026
+          À jour {moisMaj}
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -150,7 +155,7 @@ export default function GuideShell({
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : septembre 2026. Les montants affichés sont
+                  Dernière mise à jour : {moisMaj}. Les montants affichés sont
                   calculés par nos simulateurs à partir des taux 2026 — ils sont
                   indicatifs et ne constituent ni un conseil juridique ni un
                   conseil fiscal. Une erreur ?{" "}

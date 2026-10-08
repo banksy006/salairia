@@ -5,16 +5,19 @@ import { IconBadge, EuroIcon, CalendarIcon, InfoIcon, CalculatorIcon } from "@/c
 
 // Montant forfaitaire depuis le 1er avril 2026 (+0,8 %) — CAF, décret de revalorisation.
 const FORFAIT_2026 = 638.28;
+// PLF 2027, art. 74 (Assemblée nationale n° 3210, déposé le 1er octobre 2026) :
+// la revalorisation annuelle du montant forfaitaire (CSS, art. L842-3) n'est
+// pas appliquée en 2027 ; un décret peut la rétablir. Vérifié le 8 octobre 2026.
 const EUR2 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 2 });
 
 const meta: GuideMeta = {
   slug: "prime-activite-2027",
   titre: "Prime d'activité 2027 : montants, conditions, revalorisation",
-  sousTitre: `Base de calcul à ${EUR2.format(FORFAIT_2026)} depuis avril 2026 — et une réforme qui monte en charge`,
-  chapo: "La prime d'activité complète chaque mois les revenus de plus de 4,5 millions de foyers de travailleurs modestes — salariés, indépendants, apprentis majeurs. Sa prochaine revalorisation légale tombera au 1er avril 2027, pas au 1er janvier, et la réforme des bases de calcul votée en loi de finances 2026 continue de déployer ses effets. Qui y a droit, comment le montant se calcule vraiment, et pourquoi tant d'ayants droit ne la demandent jamais.",
+  sousTitre: `Base de calcul à ${EUR2.format(FORFAIT_2026)} depuis avril 2026 — et pas de revalorisation en avril 2027 si le budget est voté en l'état`,
+  chapo: "La prime d'activité complète chaque mois les revenus de plus de 4,5 millions de foyers de travailleurs modestes — salariés, indépendants, apprentis majeurs. Son rendez-vous annuel est le 1er avril, pas le 1er janvier ; mais le projet de loi de finances pour 2027, déposé le 1er octobre 2026, prévoit de sauter la revalorisation d'avril 2027, sauf décret contraire. Qui y a droit, comment le montant se calcule vraiment, ce que prévoit le budget, et pourquoi tant d'ayants droit ne la demandent jamais.",
   filAriane: "Prime d'activité 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-08",
   tocItems: [
     { id: "qui", label: "Qui y a droit" },
     { id: "calcul", label: "Comment elle se calcule" },
@@ -32,7 +35,7 @@ const meta: GuideMeta = {
     },
     {
       q: "La prime d'activité sera-t-elle revalorisée en 2027 ?",
-      r: "Oui, mécaniquement : le montant forfaitaire est revalorisé chaque 1er avril en fonction de l'inflation constatée. La hausse d'avril 2026 était de +0,8 % ; celle d'avril 2027 dépendra de l'inflation moyenne mesurée d'ici là. S'y ajoute un chantier plus structurel issu de la loi de finances 2026 : la réforme dite de la « solidarité à la source », qui modifie les bases de calcul avec des déclarations pré-remplies à partir du « montant net social » des bulletins de paie — objectif affiché : moins d'erreurs, moins de non-recours.",
+      r: "Probablement pas, si le budget est voté en l'état. Le montant forfaitaire est normalement revalorisé chaque 1er avril sur l'inflation — +0,8 % en avril 2026 —, mais l'article 74 du projet de loi de finances pour 2027 prévoit de ne pas appliquer cette revalorisation en 2027, un décret pouvant la rétablir. Le gouvernement en attend 332 millions d'euros d'économies. Le RSA, l'AAH et l'ASPA, eux, resteraient indexés sur l'inflation. S'y ajoute un chantier plus structurel issu de la loi de finances 2026 : la réforme dite de la « solidarité à la source », qui modifie les bases de calcul avec des déclarations pré-remplies à partir du « montant net social » des bulletins de paie — objectif affiché : moins d'erreurs, moins de non-recours.",
     },
     {
       q: "Les indépendants et micro-entrepreneurs y ont-ils droit ?",
@@ -48,12 +51,13 @@ const meta: GuideMeta = {
     { label: "CAF — le simulateur officiel de la prime d'activité", href: "https://www.caf.fr/allocataires/aides-et-demarches/droits-et-prestations/vie-professionnelle/la-prime-d-activite" },
     { label: "service-public.fr — prime d'activité", href: "https://www.service-public.fr/particuliers/vosdroits/F2882" },
     { label: "Code de la sécurité sociale, art. L841-1 et suivants (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006073189/" },
+    { label: "Projet de loi de finances pour 2027, n° 3210, art. 74 — prime d'activité et APL (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
   ],
 };
 
 export const metadata: Metadata = {
-  title: `Prime d'activité 2027 : montant forfaitaire ${EUR2.format(FORFAIT_2026)}, conditions, revalorisation d'avril`,
-  description: "Qui a droit à la prime d'activité, comment le montant se calcule (forfait + 61 % des revenus − ressources), la revalorisation du 1er avril 2027, le cas des indépendants — et le non-recours qui prive des centaines de milliers d'ayants droit.",
+  title: `Prime d'activité 2027 : montant ${EUR2.format(FORFAIT_2026)}, conditions, et le gel prévu par le budget`,
+  description: "Qui a droit à la prime d'activité, comment le montant se calcule (forfait + 61 % des revenus − ressources), l'absence de revalorisation en avril 2027 prévue par le projet de loi de finances, le cas des indépendants — et le non-recours qui prive des centaines de milliers d'ayants droit.",
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Prime d'activité 2027 : montants et conditions",
@@ -145,7 +149,8 @@ export default function Page() {
             <tbody>
               {[
                 ["Chaque trimestre", "Déclaration trimestrielle de ressources — le montant est recalculé pour les trois mois suivants. Progressivement pré-remplie avec le « montant net social » du bulletin de paie."],
-                ["1er avril 2027", "Revalorisation légale du montant forfaitaire sur l'inflation constatée (avril 2026 : +0,8 %). Le chiffre sera publié par décret fin mars — page mise à jour à ce moment."],
+                ["Fin décembre 2026", "Vote de la loi de finances : l'article 74 du projet supprime la revalorisation d'avril 2027 de la prime d'activité. Il peut être amendé, et un décret peut rétablir la hausse."],
+                ["1er avril 2027", `Date habituelle de revalorisation sur l'inflation (avril 2026 : +0,8 %). Sans revalorisation, le montant forfaitaire resterait à ${EUR2.format(FORFAIT_2026)} — page mise à jour au vote, puis fin mars.`],
                 ["Courant 2027", "Poursuite du déploiement de la « solidarité à la source » (LF 2026) : bases de calcul harmonisées, déclarations pré-remplies, avec pour objectif déclaré de réduire erreurs et non-recours."],
               ].map(([d, t]) => (
                 <tr key={d} className="border-b border-border last:border-b-0">

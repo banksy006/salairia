@@ -164,7 +164,7 @@ const guides = [
   {
     titre: "Ce qui change au 1er janvier 2027",
     desc:
-      "SMIC, plafond de la Sécurité sociale, barème de l'impôt, fin du régime doré de la PPV, plafonds micro, retraites, titres-restaurant : le récapitulatif de tout ce qui bouge au 1er janvier 2027, avec les valeurs actuelles, le texte attendu pour chaque paramètre, et le calendrier des annonces de fin d'année. Mis à jour à chaque publication au Journal officiel.",
+      "Barème de l'impôt +2,1 %, retraites revalorisées sous 1 260 € seulement, PASS estimé à 4 075 €, indemnités de rupture plafonnées à 1 PASS, PPV, titres-restaurant, micro-entreprise : tout ce qui bouge au 1er janvier 2027, avec le statut de chaque mesure — acquise, en projet, estimée ou attendue. Mis à jour à chaque étape du budget.",
     href: "/guides/ce-qui-change-1er-janvier-2027",
     audience: "Tous — salariés, indépendants, employeurs, retraités",
     lecture: "8 min",
@@ -188,7 +188,7 @@ const guides = [
   {
     titre: "Plafonds micro-entreprise 2027",
     desc:
-      "Les plafonds de CA sont triennaux et figés jusqu'en 2028 : 83 600 € services, 203 100 € vente — quiconque annonce de « nouveaux plafonds 2027 » se trompe. Ce qui peut vraiment bouger : les taux de cotisations (le BNC a déjà pris deux marches en 2025 et 2026) et les seuils de franchise de TVA, avec le calendrier des textes à surveiller.",
+      "Plafonds figés jusqu'en 2028 (83 600 € services, 203 100 € vente), et ni le PLF ni le PLFSS 2027 ne touchent aux taux de cotisations ou aux seuils de TVA — le seuil à 25 000 € est abrogé. Le vrai changement de 2027 : la fin du régime simplifié de TVA et le passage aux déclarations trimestrielles.",
     href: "/guides/plafonds-micro-entreprise-2027",
     audience: "Micro-entrepreneurs, freelances en réflexion de statut",
     lecture: "7 min",
@@ -196,7 +196,7 @@ const guides = [
   {
     titre: "Prime d'activité 2027",
     desc:
-      "Plus de 4,5 millions de foyers la touchent, et environ 30 % des ayants droit ne la demandent jamais. Le calcul réel — forfait de 638,28 € + 61 % des revenus − ressources —, la revalorisation du 1er avril, le cas des indépendants dont le CA abattu compte comme revenu, et les trois profils qui y ont droit sans le savoir.",
+      "Plus de 4,5 millions de foyers la touchent, et environ 30 % des ayants droit ne la demandent jamais. Le calcul réel — forfait de 638,28 € + 61 % des revenus − ressources —, la revalorisation d'avril 2027 que le projet de loi de finances prévoit de supprimer, le cas des indépendants dont le CA abattu compte comme revenu, et les trois profils qui y ont droit sans le savoir.",
     href: "/guides/prime-activite-2027",
     audience: "Salariés modestes, apprentis majeurs, indépendants en démarrage",
     lecture: "7 min",
@@ -212,7 +212,7 @@ const guides = [
   {
     titre: "Titres-restaurant",
     desc:
-      "Plafond d'exonération patronale à 7,32 € par titre en 2026, valeur optimale du titre entre 12,20 et 14,64 €, 25 € d'utilisation par jour, droits du télétravailleur — et le dossier chaud de la fin d'année : la dérogation qui permet de payer toutes ses courses en titres expire le 31 décembre 2026.",
+      "Plafond d'exonération patronale à 7,32 € par titre en 2026, valeur optimale du titre entre 12,20 et 14,64 €, 25 € d'utilisation par jour, droits du télétravailleur — et le dossier chaud de la fin d'année : la dérogation qui permet de payer toutes ses courses en titres expire le 31 décembre 2026, et la proposition de loi qui la pérenniserait est examinée à l'Assemblée le 12 octobre.",
     href: "/guides/titres-restaurant",
     audience: "Salariés, employeurs qui calibrent leur politique d'avantages",
     lecture: "7 min",
@@ -220,7 +220,7 @@ const guides = [
   {
     titre: "Revalorisation des retraites 2027",
     desc:
-      "Deux hausses que tout le monde confond : l'Agirc-Arrco au 1er novembre 2026, décidée par les partenaires sociaux (~+1,4 % évoqué), et les pensions de base au 1er janvier 2027, indexées automatiquement sur l'inflation (~+1,6 % projeté). Les deux mécaniques, les précédents de gel, et l'effet chiffré sur une pension type.",
+      "Le PLFSS 2027 réserve la revalorisation de janvier aux retraités dont l'ensemble des pensions ne dépasse pas 1 260 € par mois, avec un gel par défaut au-delà de 1 281 € ; l'Agirc-Arrco décide seule pour le 1er novembre. Le mécanisme exact, l'abattement de 10 % plafonné à 3 000 €, et l'effet chiffré profil par profil.",
     href: "/guides/revalorisation-retraites-2027",
     audience: "Retraités du privé, actifs qui préparent leur départ",
     lecture: "8 min",
@@ -268,7 +268,7 @@ const guides = [
   {
     titre: "Indemnité de rupture conventionnelle",
     desc:
-      "Un quart de mois de salaire par année d'ancienneté jusqu'à dix ans, un tiers au-delà : la formule exacte du minimum légal, cinq cas chiffrés de 3 à 15 ans d'ancienneté, la fiscalité de chaque tranche — et le différé France Travail que déclenche toute indemnité supra-légale, jusqu'à 150 jours sans ARE. De quoi négocier en net réel, pas en brut affiché.",
+      "Un quart de mois de salaire par année d'ancienneté jusqu'à dix ans, un tiers au-delà : la formule exacte du minimum légal, cinq cas chiffrés de 3 à 15 ans d'ancienneté, la fiscalité de chaque tranche — et le différé France Travail que déclenche toute indemnité supra-légale, jusqu'à 150 jours sans ARE. Avec le plafond unique d'exonération d'1 PASS prévu par le budget 2027, chiffré sur deux départs.",
     href: "/guides/indemnite-rupture-conventionnelle",
     audience: "Salariés en négociation de départ, RH",
     lecture: "8 min",
@@ -284,7 +284,7 @@ const guides = [
   {
     titre: "Prime de partage de la valeur",
     desc:
-      "Jusqu'à 3 000 € — 6 000 € avec un accord d'intéressement — et une exonération totale (impôt et CSG compris) qui vit ses quatre derniers mois : le régime de faveur des entreprises de moins de 50 salariés s'éteint le 31 décembre 2026. Qui est exonéré de quoi, l'option épargne salariale, et pourquoi une prime ne remplace jamais une augmentation.",
+      "Jusqu'à 3 000 € — 6 000 € avec un accord d'intéressement — et une exonération totale (impôt et CSG compris) dans les entreprises de moins de 50 salariés jusqu'au 31 décembre 2026. Ce que le PLFSS 2027 prolonge (cotisations, CSG un an de plus) et ce qui disparaît (l'exonération d'impôt), l'option épargne salariale, et pourquoi une prime ne remplace jamais une augmentation.",
     href: "/guides/prime-partage-valeur",
     audience: "Salariés de TPE-PME, dirigeants employeurs",
     lecture: "7 min",
@@ -300,7 +300,7 @@ const guides = [
   {
     titre: "Seuil d'imposition 2027",
     desc:
-      "Le revenu maximal sans impôt, recalculé pour six situations familiales en empilant barème, décote et seuil de recouvrement : 17 595 € pour un célibataire, 32 863 € pour un couple. Pourquoi ce n'est pas 11 600 €, la traduction en salaire net mensuel, et trois hypothèses d'indexation pour la loi de finances 2027.",
+      "Le revenu maximal sans impôt, recalculé pour six situations familiales avec le barème du projet de loi de finances 2027 : 17 952 € pour un célibataire, 33 539 € pour un couple. Pourquoi ce n'est pas 11 844 €, l'écart avec 2026, et la traduction en salaire net mensuel.",
     href: "/guides/seuil-imposition-2027",
     audience: "Salariés modestes, temps partiels, jeunes actifs, retraités",
     lecture: "7 min",
@@ -308,7 +308,7 @@ const guides = [
   {
     titre: "Gratification de stage 2027",
     desc:
-      "15 % du plafond horaire de la Sécurité sociale : 4,50 € de l'heure en 2026, 693 € pour 22 jours. Le seuil des deux mois, la franchise de cotisations, l'exonération d'impôt — et pourquoi le montant 2027 ne peut prendre que deux valeurs, selon que le plafond horaire reste à 30 € ou passe à 31 €.",
+      "15 % du plafond horaire de la Sécurité sociale : 4,50 € de l'heure en 2026, 693 € pour 22 jours. Le seuil des deux mois, la franchise de cotisations, l'exonération d'impôt — et pourquoi le montant 2027 ne peut prendre que deux valeurs : avec le PASS 2027 estimé, le plafond horaire resterait à 30 € et la gratification à 4,50 €.",
     href: "/guides/gratification-stage-2027",
     audience: "Étudiants, stagiaires, tuteurs et services RH",
     lecture: "7 min",
@@ -348,7 +348,7 @@ const guides = [
   {
     titre: "Barème de l'impôt 2027",
     desc:
-      "Le barème des revenus 2026 sera voté fin décembre avec la loi de finances 2027. En attendant : les tranches en vigueur (0 à 45 %, seuils indexés de +0,9 % cette année), la différence entre tranche marginale et taux réel, l'enjeu de l'indexation — la « progression à froid » — et le calendrier parlementaire. Tranches 2027 publiées ici dès la promulgation.",
+      "Le projet de loi de finances déposé le 1er octobre 2026 relève toutes les tranches de 2,1 % : 0 % jusqu'à 11 844 €, puis 11, 30, 41 et 45 %. Décote, quotient familial et taux neutre du prélèvement à la source, l'effet chiffré sur votre impôt — et ce qu'aurait coûté un gel —, les autres mesures du texte et le calendrier jusqu'au vote.",
     href: "/guides/bareme-impot-2027",
     audience: "Tous les contribuables, salariés et indépendants",
     lecture: "7 min",
@@ -356,7 +356,7 @@ const guides = [
   {
     titre: "Plafond de la Sécurité sociale 2027",
     desc:
-      "Le paramètre le plus discret de la paie française : le PASS (4 005 €/mois en 2026) borne les cotisations plafonnées, découpe les tranches AGIRC-ARRCO, plafonne les indemnités de rupture exonérées et fixe les minima du portage salarial. Comment sa valeur 2027 sera fixée à l'automne, et tout ce qui bougera avec elle au 1er janvier.",
+      "Le paramètre le plus discret de la paie française : le PASS (4 005 €/mois en 2026, 4 075 € estimés pour 2027) borne les cotisations plafonnées, découpe les tranches AGIRC-ARRCO, fixe les minima du portage salarial et la gratification des stagiaires — et, avec le budget 2027, plafonnerait les indemnités de rupture exonérées. Tout ce qui bougera avec lui au 1er janvier.",
     href: "/guides/plafond-securite-sociale-2027",
     audience: "Cadres, salariés portés, gestionnaires de paie",
     lecture: "7 min",

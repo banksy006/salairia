@@ -29,7 +29,7 @@ const meta: GuideMeta = {
   chapo: `Un arrêt maladie ne coupe pas le salaire, mais il le réduit fortement — et davantage qu'avant. Depuis avril 2025, le salaire pris en compte pour calculer les indemnités journalières est plafonné à 1,4 SMIC au lieu de 1,8, soit une baisse de 22 % du montant maximum. S'y ajoutent trois jours de carence et une indemnisation limitée à 50 % du salaire journalier. Le complément employeur, quand il existe, fait toute la différence. Voici le calcul, chiffré.`,
   filAriane: "Arrêt maladie",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-08",
   tocItems: [
     { id: "calcul", label: "Le calcul des indemnités" },
     { id: "plafond", label: "Le plafond abaissé" },
@@ -55,7 +55,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Les indemnités journalières sont-elles imposables ?",
-      r: "Oui, les indemnités journalières de maladie ordinaire sont soumises à l'impôt sur le revenu et au prélèvement à la source, ainsi qu'à la CSG-CRDS à taux réduit. Elles figurent sur votre déclaration pré-remplie. Exception notable : les indemnités versées au titre d'une affection de longue durée sont exonérées d'impôt sur le revenu. Les indemnités d'accident du travail ou de maladie professionnelle, elles, ne sont imposables qu'à hauteur de 50 %.",
+      r: "Oui, les indemnités journalières de maladie ordinaire sont soumises à l'impôt sur le revenu et au prélèvement à la source, ainsi qu'à la CSG-CRDS à taux réduit. Elles figurent sur votre déclaration pré-remplie. Exception notable : les indemnités versées au titre d'une affection de longue durée sont exonérées d'impôt sur le revenu. Les indemnités d'accident du travail ou de maladie professionnelle, elles, ne sont imposables qu'à hauteur de 50 %. Ces règles pourraient changer : le projet de loi de finances pour 2027 (article 2) propose de rendre les IJ d'ALD imposables à 50 % et celles d'AT/MP en totalité dès les revenus 2026, et de porter la CSG des indemnités journalières de 6,2 % à 9,2 % pour celles versées à partir du 1er janvier 2027. Rien n'est voté à ce stade.",
     },
   ],
   sources: [
@@ -63,6 +63,7 @@ const meta: GuideMeta = {
     { label: "ameli.fr — indemnités journalières en cas d'arrêt maladie", href: "https://www.ameli.fr/assure/remboursements/indemnites-journalieres" },
     { label: "Code du travail, art. L1226-1 — maintien de salaire (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000019071106" },
     { label: "service-public.fr — arrêt maladie d'un salarié du privé", href: "https://www.service-public.fr/particuliers/vosdroits/F3053" },
+    { label: "Projet de loi de finances pour 2027, n° 3210, art. 2 — fiscalité des indemnités journalières (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
   ],
 };
 

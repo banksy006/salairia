@@ -70,7 +70,7 @@ const meta: GuideMeta = {
   chapo: `Deux caisses, deux logiques : la pension de base (Assurance retraite, MSA) arrive le 9 du mois suivant, à terme échu ; la complémentaire Agirc-Arrco le premier jour ouvré du mois, à terme d'avance. Quand ces dates tombent un week-end ou un férié, le versement bouge — et 2027 en compte plusieurs. Voici le calendrier complet, calculé mois par mois depuis les règles officielles, avec les dernières échéances 2026, et ce qui explique un virement qui tarde.`,
   filAriane: "Calendrier retraites 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-09-19",
+  dateModified: "2026-10-08",
   tocItems: [
     { id: "calendrier", label: "Le calendrier 2027" },
     { id: "fin-2026", label: "Les dernières dates 2026" },
@@ -88,7 +88,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Quand la revalorisation apparaît-elle sur le virement ?",
-      r: `Pour l'Agirc-Arrco, la revalorisation décidée à l'automne s'applique aux pensions à compter du 1er novembre 2026 : elle est visible sur le virement du ${LIGNES_FIN_2026[1].agirc} 2026. Pour la pension de base, la revalorisation du 1er janvier 2027 concerne la pension de janvier — payée le ${LIGNES_2027[0].base} 2027 : le virement du 8 janvier, lui, rémunère décembre 2026 à l'ancien montant. Ce décalage d'un mois surprend chaque année ; notre guide sur la revalorisation des retraites 2027 détaille les deux mécaniques.`,
+      r: `Pour l'Agirc-Arrco, la revalorisation décidée à l'automne s'applique aux pensions à compter du 1er novembre 2026 : elle est visible sur le virement du ${LIGNES_FIN_2026[1].agirc} 2026. Pour la pension de base, la revalorisation du 1er janvier 2027 concerne la pension de janvier — payée le ${LIGNES_2027[0].base} 2027 : le virement du 8 janvier, lui, rémunère décembre 2026 à l'ancien montant. Attention pour 2027 : le projet de loi de financement de la Sécurité sociale ne prévoit une revalorisation de la pension de base que si l'ensemble de vos pensions ne dépasse pas 1 260 € par mois, avec un gel par défaut au-delà de 1 281 €. Notre guide sur la revalorisation des retraites 2027 détaille les deux mécaniques.`,
     },
     {
       q: "Mon virement n'est pas arrivé à la date prévue, que faire ?",
@@ -191,7 +191,9 @@ export default function Page() {
           revalorisé, si le conseil d&apos;administration décide d&apos;une
           hausse au 1er novembre — après une année 2025 sans revalorisation.
           Et celui de l&apos;Assurance retraite du {LIGNES_2027[0].base} 2027,
-          qui paie janvier 2027 au montant revalorisé du 1er janvier. Les deux
+          qui paie janvier 2027 au montant revalorisé du 1er janvier — si
+          revalorisation il y a : le PLFSS 2027 la réserve aux retraités dont
+          l&apos;ensemble des pensions ne dépasse pas 1 260 € par mois. Les deux
           mécaniques, leurs bases de calcul et les ordres de grandeur attendus
           sont dans notre guide de la{" "}
           <Link href="/guides/revalorisation-retraites-2027" className="text-primary underline-offset-4 hover:underline">

@@ -23,6 +23,13 @@ const SMIC_ANNUEL = SALAIRE_2026.SMIC_MENSUEL_BRUT * 12;
 // Pour que le plafond horaire passe à 31 € en 2027, le PASS annuel doit
 // atteindre 30,5 × 1 607 : on en déduit la hausse minimale nécessaire.
 const PASS_POUR_31 = 30.5 * HEURES_PAR_PLAFOND;
+// PASS 2027 estimé à 48 900 € (+1,7 %) par la Commission des comptes de la
+// Sécurité sociale, octobre 2026 (Revue fiduciaire, 7 octobre 2026). Estimation,
+// pas encore l'arrêté officiel.
+const PASS_2027_ESTIME = 48_900;
+const HAUSSE_ESTIMEE = (PASS_2027_ESTIME / SALAIRE_2026.PASS_ANNUEL - 1) * 100;
+const PLAFOND_HORAIRE_ESTIME = Math.round(PASS_2027_ESTIME / HEURES_PAR_PLAFOND);
+const GRATIF_ESTIMEE = PLAFOND_HORAIRE_ESTIME * TAUX_GRATIFICATION;
 const HAUSSE_POUR_31 = (PASS_POUR_31 / SALAIRE_2026.PASS_ANNUEL - 1) * 100;
 
 const MOIS_TYPES = [
@@ -43,7 +50,7 @@ const meta: GuideMeta = {
   chapo: `La gratification minimale d'un stagiaire n'est pas un salaire et ne suit pas le SMIC : elle vaut 15 % du plafond horaire de la Sécurité sociale, soit ${EUR2.format(GRATIF_HORAIRE)} par heure en 2026. Son montant 2027 sera donc connu avec l'arrêté fixant le plafond 2027, fin décembre — et une particularité arithmétique fait qu'il pourrait ne pas bouger du tout. Voici le calcul exact, les montants mensuels, les règles de déclenchement, et les deux scénarios pour l'an prochain.`,
   filAriane: "Gratification stage 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-09-19",
+  dateModified: "2026-10-08",
   tocItems: [
     { id: "montant", label: "Le montant 2026" },
     { id: "calcul", label: "Le calcul mois par mois" },
@@ -57,7 +64,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Quel sera le montant de la gratification en 2027 ?",
-      r: `Il dépendra du plafond horaire de la Sécurité sociale 2027, fixé par arrêté fin décembre 2026 en même temps que le plafond annuel. Comme ce plafond horaire est arrondi à l'euro, deux issues seulement sont possibles : s'il reste à ${EUR.format(PLAFOND_HORAIRE_SS)}, la gratification demeure à ${EUR2.format(GRATIF_HORAIRE)} ; s'il passe à ${EUR.format(PLAFOND_HORAIRE_SS + 1)}, elle monte à ${EUR2.format((PLAFOND_HORAIRE_SS + 1) * TAUX_GRATIFICATION)}. D'après nos calculs, le passage à ${EUR.format(PLAFOND_HORAIRE_SS + 1)} suppose une revalorisation du plafond annuel d'au moins ${PCT1(HAUSSE_POUR_31)} %. Cette page sera mise à jour dès la publication de l'arrêté.`,
+      r: `Il dépendra du plafond horaire de la Sécurité sociale 2027, fixé par arrêté fin décembre 2026 en même temps que le plafond annuel. Comme ce plafond horaire est arrondi à l'euro, deux issues seulement sont possibles : s'il reste à ${EUR.format(PLAFOND_HORAIRE_SS)}, la gratification demeure à ${EUR2.format(GRATIF_HORAIRE)} ; s'il passe à ${EUR.format(PLAFOND_HORAIRE_SS + 1)}, elle monte à ${EUR2.format((PLAFOND_HORAIRE_SS + 1) * TAUX_GRATIFICATION)}. D'après nos calculs, le passage à ${EUR.format(PLAFOND_HORAIRE_SS + 1)} suppose une revalorisation du plafond annuel d'au moins ${PCT1(HAUSSE_POUR_31)} %. Or la Commission des comptes de la Sécurité sociale estime la hausse 2027 à ${PCT1(HAUSSE_ESTIMEE)} % (${EUR.format(PASS_2027_ESTIME)} par an) : le plafond horaire resterait à ${EUR.format(PLAFOND_HORAIRE_ESTIME)}, et la gratification à ${EUR2.format(GRATIF_ESTIMEE)} de l'heure. Cette page sera mise à jour dès la publication de l'arrêté.`,
     },
     {
       q: "À partir de quelle durée la gratification est-elle obligatoire ?",
@@ -77,6 +84,7 @@ const meta: GuideMeta = {
     { label: "URSSAF — la gratification des stagiaires", href: "https://www.urssaf.fr/accueil/employeur/embaucher-gerer-salaries/statuts-particuliers/stagiaire.html" },
     { label: "service-public.fr — gratification et avantages du stagiaire", href: "https://www.service-public.fr/particuliers/vosdroits/F32131" },
     { label: "URSSAF — plafonds de la Sécurité sociale 2026", href: "https://www.urssaf.fr/accueil/outils-documentation/taux-baremes/plafonds-securite-sociale.html" },
+    { label: "Revue fiduciaire — le plafond de la Sécurité sociale pour 2027 pourrait s'établir à 4 075 € par mois (7 octobre 2026)", href: "https://www.revue-fiduciaire.com/actualite/article/le-plafond-de-la-securite-sociale-pour-2027-pourrait-s-etablir-a-4-075-par-mois" },
   ],
 };
 
@@ -235,7 +243,7 @@ export default function Page() {
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Scénario 1 — plafond horaire inchangé</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Scénario 1 — plafond horaire inchangé · le plus probable</p>
             <p className="mt-2 text-3xl font-bold tabular-nums text-primary">{EUR2.format(GRATIF_HORAIRE)}</p>
             <p className="mt-2 text-sm leading-relaxed text-foreground/80">
               Si le plafond annuel 2027 progresse de moins de {PCT1(HAUSSE_POUR_31)} %,
@@ -259,7 +267,13 @@ export default function Page() {
           <p className="flex items-start gap-3 text-sm leading-relaxed">
             <InfoIcon className="mt-0.5 h-5 w-5 flex-shrink-0" />
             <span>
-              Le seuil de {PCT1(HAUSSE_POUR_31)} % est une déduction arithmétique
+              Première indication officielle : la Commission des comptes de la
+              Sécurité sociale estime le plafond 2027 à{" "}
+              {EUR.format(PASS_2027_ESTIME)} (+{PCT1(HAUSSE_ESTIMEE)} %), sous le
+              seuil de bascule — {EUR.format(PASS_2027_ESTIME)} ÷ 1 607 heures
+              = {(PASS_2027_ESTIME / HEURES_PAR_PLAFOND).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} €,
+              arrondi à {EUR.format(PLAFOND_HORAIRE_ESTIME)}. Le scénario 1 est
+              donc le plus probable. Le seuil de {PCT1(HAUSSE_POUR_31)} % est une déduction arithmétique
               de la règle d&apos;arrondi, pas une prévision sur la revalorisation
               du plafond. Celle-ci suit l&apos;évolution du salaire moyen par
               tête et sera connue avec l&apos;arrêté de fin décembre 2026 —

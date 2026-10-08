@@ -48,6 +48,16 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
 
+### Mise à jour PLF / PLFSS 2027 — 8 octobre 2026 (13 guides, aucune nouvelle route)
+
+Sources primaires lues : PLF 2027 (AN n° 3210, art. 2, 3, 33, 74 + évaluations préalables), PLFSS 2027 (AN n° 3211, art. 6, 7, 35 + annexe), loi n° 2025-1044 du 3 nov. 2025 (seuils TVA), impots.gouv.fr (fin du régime simplifié de TVA, LF 2025 art. 38), estimation PASS 2027 de la CCSS (4 075 €/mois, Revue fiduciaire 7 oct.).
+
+Pages du rappel calendrier : **bareme-impot-2027** (tranches PLF 11 844 / 30 200 / 86 353 / 185 737, décote 915 / 1 513 — texte, pas +2,1 % pile —, effet chiffré vs gel) · **plafonds-micro-entreprise-2027** (rien ne bouge ; seuil 25 000 € abrogé ; vrai changement = CA3 trimestrielles au 1er janv. 2027) · **ce-qui-change-1er-janvier-2027** (statut par ligne : acquis / projet / estimation / attendu).
+
+Pages impactées mises en cohérence : seuil-imposition-2027 (seuils recalculés : 17 952 € / 33 539 €) · plafond-securite-sociale-2027 (PASS 2027 estimé) · revalorisation-retraites-2027 (revalorisation différenciée : pleine ≤ 1 260 €, gel par défaut > 1 281 €) · indemnite-rupture-conventionnelle (plafond unique 1 PASS ; **correction** : contribution patronale 40 % depuis la LFSS 2026, la page disait 30 %) · prime-partage-valeur (CSG prolongée 2027 en < 50 salariés, IR non reconduit) · titres-restaurant (PPL n° 2892, séance AN 12 oct.) · prime-activite-2027 (pas de revalorisation 2027, PLF art. 74) · gratification-stage-2027 (PASS estimé → 4,50 €/h inchangé) · calendrier-paiement-retraite-2027 · arret-maladie-salaire (fiscalité et CSG des IJ).
+
+`GuideShell` : le badge « À jour » et la mention « Dernière mise à jour » sont désormais dérivés de `dateModified` (plus de mois codé en dur) — une page révisée affiche son mois réel.
+
 ### Batch du 19 septembre 2026 — 5 guides dérivés du cluster 2027
 
 Déclencheur : Plausible 28 j (22 août → 18 sept) — 2 088 visiteurs, 88 % sur les pages d'anticipation 2027 (smic-2027 seul : 1 336). Les pages construites sont des **dérivés calculés** des trois pages qui rankent : **seuil-imposition-2027** (bissection barème + décote + seuil de recouvrement, 6 foyers, 3 hypothèses d'indexation ; dérivé de bareme-impot-2027) · **gratification-stage-2027** (15 % du plafond horaire SS = 4,50 €/h ; seuil arithmétique de +1,98 % du PASS pour passer à 4,65 € ; dérivé de plafond-securite-sociale-2027) · **salaire-apprenti-2027** (grille en % du SMIC, sensibilité +1/+1,5/+2 % ; dérivé de smic-2027) · **calendrier-paiement-retraite-2027** (24 dates calculées depuis les règles Cnav « 9 du mois suivant, avancé » et Agirc-Arrco « 1er jour ouvré », contrôlées sur le calendrier officiel 2026) · **augmentation-salaire-2027** (enquêtes WTW 3 %, Mercer 2,5 %, Michael Page 2-2,5 % ; gain net calculé par calculerBrutVersNet pour 4 profils ; pont vers négociation-salariale). Le cluster métiers/villes/salaire (81 pages) n'a pas encore de trafic mesurable : indexation en cours.
@@ -131,6 +141,7 @@ Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des c
 | Frais du comparateur portage | 28 juillet 2026 | ✅ à jour |
 | Fourchettes de négociation | 28 juillet 2026 | ◻️ ancrées sur l'APEC 2025, fourchettes par métier estimées |
 | Percentiles de salaires | 28 juillet 2026 | ✅ INSEE 2024, seules les valeurs publiées sont stockées |
+| Mesures PLF / PLFSS 2027 (pages guides) | 8 octobre 2026 | ⏳ projets déposés le 1er oct. — à reprendre au vote final ; valeurs locales aux pages, aucune constante de calculateur modifiée |
 
 ## Identité visuelle
 

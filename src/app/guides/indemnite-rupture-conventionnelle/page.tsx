@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
-import { IconBadge, CalculatorIcon, ScaleIcon, CalendarIcon, AlertTriangleIcon } from "@/components/icons";
+import { IconBadge, CalculatorIcon, ScaleIcon, CalendarIcon, AlertTriangleIcon, InfoIcon } from "@/components/icons";
+import { SALAIRE_2026 } from "@/lib/calculators/salaire-brut-net";
 
 // Indemnité légale de licenciement (plancher de la rupture conventionnelle) :
 // 1/4 de mois de salaire par année jusqu'à 10 ans, 1/3 au-delà (C. trav. R1234-2).
@@ -17,6 +18,38 @@ const EXEMPLES = [
 ];
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
+// Contribution patronale spécifique sur la part exonérée de cotisations : 40 %
+// pour les ruptures prenant effet à compter du 1er janvier 2026 (LFSS 2026,
+// art. 15 ; 30 % auparavant). Source : France Travail, employeurs, 2026.
+const CONTRIBUTION_PATRONALE = 0.4;
+const CSG_CRDS = 0.097;
+const PASS = SALAIRE_2026.PASS_ANNUEL;
+// Budget 2027 (projets déposés le 1er octobre 2026) : plafond unique
+// d'exonération égal à 1 PASS pour les cotisations, la CSG et l'impôt —
+// PLFSS 2027, art. 6, pour les ruptures prenant effet à compter du 1er janvier
+// 2027 ; PLF 2027, art. 2, pour l'impôt. PASS 2027 estimé à 48 900 € par la
+// Commission des comptes de la Sécurité sociale (octobre 2026).
+const PASS_2027_ESTIME = 48_900;
+
+// Deux départs négociés. Règles actuelles simplifiées (rupture conventionnelle
+// hors PSE) : impôt exonéré jusqu'au plus élevé du montant légal, de 2 ans de
+// rémunération ou de 50 % de l'indemnité, dans la limite de 6 PASS ;
+// cotisations exonérées dans la limite de 2 PASS ; CSG-CRDS due au-delà du
+// montant légal.
+const CAS_2027 = [
+  { label: "Employé, 8 ans à 2 800 €", salaire: 2_800, annees: 8, indemnite: 15_000 },
+  { label: "Cadre, 20 ans à 6 000 €", salaire: 6_000, annees: 20, indemnite: 90_000 },
+].map((c) => {
+  const legal = indemniteLegale(c.salaire, c.annees);
+  const exoImpot = Math.min(Math.max(legal, 2 * c.salaire * 12, 0.5 * c.indemnite), 6 * PASS);
+  const exoCotis = Math.min(exoImpot, 2 * PASS);
+  const csgAujourdhui = Math.max(0, c.indemnite - legal);
+  const cotisAujourdhui = Math.max(0, c.indemnite - exoCotis);
+  const impotAujourdhui = Math.max(0, c.indemnite - exoImpot);
+  const soumis2027 = Math.max(0, c.indemnite - PASS_2027_ESTIME);
+  return { ...c, legal, csgAujourdhui, cotisAujourdhui, impotAujourdhui, soumis2027 };
+});
+
 const meta: GuideMeta = {
   slug: "indemnite-rupture-conventionnelle",
   titre: "Indemnité de rupture conventionnelle : le calcul exact",
@@ -24,11 +57,12 @@ const meta: GuideMeta = {
   chapo: "La rupture conventionnelle est le seul mode de départ négocié qui cumule une indemnité minimale garantie et le droit au chômage. Son plancher est l'indemnité légale de licenciement : un quart de mois de salaire par année d'ancienneté jusqu'à dix ans, un tiers au-delà. Voici la formule exacte, les subtilités d'assiette qui changent le résultat, et la fiscalité de ce que vous touchez.",
   filAriane: "Rupture conventionnelle",
   datePublished: "2026-08-23",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-08",
   tocItems: [
     { id: "formule", label: "La formule légale" },
     { id: "exemples", label: "Cinq cas chiffrés" },
     { id: "fiscalite", label: "Impôts et cotisations" },
+    { id: "budget-2027", label: "Ce que change le budget 2027" },
     { id: "chomage", label: "Chômage et délais" },
   ],
   faq: [
@@ -42,7 +76,11 @@ const meta: GuideMeta = {
     },
     {
       q: "L'indemnité de rupture conventionnelle est-elle imposable ?",
-      r: "La part correspondant à l'indemnité légale ou conventionnelle de licenciement est exonérée d'impôt sur le revenu. Au-delà, l'exonération continue dans la limite du plus élevé de : 2 fois la rémunération annuelle brute de l'année précédente, ou 50 % de l'indemnité totale — le tout plafonné à 6 fois le plafond annuel de la Sécurité sociale. Côté cotisations sociales, l'exonération est plafonnée à 2 PASS, et la CSG-CRDS reprend dès que l'indemnité dépasse le montant légal. Une contribution patronale de 30 % s'applique par ailleurs sur la part exonérée — elle pèse sur le coût employeur, donc sur votre marge de négociation.",
+      r: "La part correspondant à l'indemnité légale ou conventionnelle de licenciement est exonérée d'impôt sur le revenu. Au-delà, l'exonération continue dans la limite du plus élevé de : 2 fois la rémunération annuelle brute de l'année précédente, ou 50 % de l'indemnité totale — le tout plafonné à 6 fois le plafond annuel de la Sécurité sociale. Côté cotisations sociales, l'exonération est plafonnée à 2 PASS, et la CSG-CRDS reprend dès que l'indemnité dépasse le montant légal. Une contribution patronale de 40 % (30 % avant 2026) s'applique par ailleurs sur la part exonérée — elle pèse sur le coût employeur, donc sur votre marge de négociation. Attention : le budget 2027 propose de remplacer tous ces plafonds par une limite unique égale au plafond annuel de la Sécurité sociale, pour l'impôt comme pour les cotisations et la CSG.",
+    },
+    {
+      q: "Qu'est-ce que le budget 2027 change pour les indemnités de rupture ?",
+      r: "Le projet de loi de financement de la Sécurité sociale (article 6) et le projet de loi de finances (article 2), déposés le 1er octobre 2026, remplacent les règles actuelles par un plafond unique : l'indemnité serait exonérée de cotisations, de CSG-CRDS et d'impôt dans la limite d'un plafond annuel de la Sécurité sociale — 48 060 € en 2026, environ 48 900 € en 2027 — et soumise à tout au-delà. Le volet social viserait les ruptures prenant effet à compter du 1er janvier 2027. Le volet fiscal, dans la version déposée, s'appliquerait dès l'imposition des revenus 2026 ; des amendements proposent de l'aligner sur la même date. Selon le gouvernement, 95 % des salariés ne seraient pas pénalisés.",
     },
     {
       q: "La rupture conventionnelle ouvre-t-elle droit au chômage ?",
@@ -59,12 +97,15 @@ const meta: GuideMeta = {
     { label: "service-public.fr — indemnité spécifique de rupture conventionnelle", href: "https://www.service-public.fr/particuliers/vosdroits/F19030" },
     { label: "Code du travail numérique — simulateur officiel d'indemnité", href: "https://code.travail.gouv.fr/outils/indemnite-licenciement" },
     { label: "Unédic — différé d'indemnisation", href: "https://www.unedic.org/la-reglementation/fiches-thematiques/differes-dindemnisation-et-delai-dattente" },
+    { label: "France Travail — rupture conventionnelle en 2026 : contribution patronale portée à 40 % (LFSS 2026)", href: "https://www.francetravail.org/accueil/actualites/2026/rupture-conventionnelle-en-2026-quelles-nouvelles-regles-et-impacts-pour-employeurs-et-salaries.html?type=article" },
+    { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211, art. 6 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
+    { label: "Projet de loi de finances pour 2027, n° 3210, art. 2 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
   ],
 };
 
 export const metadata: Metadata = {
-  title: "Indemnité rupture conventionnelle 2026 : calcul, minimum légal, fiscalité",
-  description: `1/4 de mois par année jusqu'à 10 ans, 1/3 au-delà : la formule exacte du minimum légal avec 5 cas chiffrés — de ${EUR.format(indemniteLegale(2000, 3))} pour 3 ans à ${EUR.format(indemniteLegale(4000, 15))} pour 15 ans. Fiscalité, différé France Travail, procédure.`,
+  title: "Indemnité rupture conventionnelle : calcul, fiscalité et plafond 2027",
+  description: `1/4 de mois par année jusqu'à 10 ans, 1/3 au-delà : la formule exacte du minimum légal avec 5 cas chiffrés — de ${EUR.format(indemniteLegale(2000, 3))} pour 3 ans à ${EUR.format(indemniteLegale(4000, 15))} pour 15 ans. Fiscalité actuelle, contribution patronale à 40 %, plafond unique d'1 PASS prévu par le budget 2027, différé France Travail.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Indemnité de rupture conventionnelle : le calcul exact",
@@ -176,9 +217,90 @@ export default function Page() {
             </li>
             <li className="flex gap-3">
               <span aria-hidden className="text-amber-600">ℹ️</span>
-              <span><strong>Côté employeur</strong>, une contribution patronale de 30 % frappe la part exonérée de cotisations. Quand vous négociez « un mois de plus », il en coûte 1,3 à l&apos;entreprise — connaître ce chiffre aide à cadrer la discussion.</span>
+              <span><strong>Côté employeur</strong>, une contribution patronale de {Math.round(CONTRIBUTION_PATRONALE * 100)} % frappe la part exonérée de cotisations, pour les ruptures depuis le 1er janvier 2026 (30 % auparavant). Quand vous négociez « un mois de plus », il en coûte {(1 + CONTRIBUTION_PATRONALE).toLocaleString("fr-FR")} à l&apos;entreprise — connaître ce chiffre aide à cadrer la discussion.</span>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section id="budget-2027" className="scroll-mt-24">
+        <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
+          <IconBadge><InfoIcon className="w-4 h-4" /></IconBadge>
+          Ce que le budget 2027 changerait : un plafond unique d&apos;1 PASS
+        </h2>
+        <div className="mt-4 rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
+          <p className="text-base leading-relaxed text-foreground/80">
+            Les projets de lois de finances et de financement de la Sécurité
+            sociale déposés le 1er octobre 2026 balaient le régime actuel :
+            l&apos;indemnité serait exonérée de cotisations, de CSG-CRDS et
+            d&apos;impôt <strong>dans la limite d&apos;un plafond annuel de la
+            Sécurité sociale</strong> — {EUR.format(PASS)} en 2026, environ{" "}
+            {EUR.format(PASS_2027_ESTIME)} en 2027 — et soumise à tout
+            au-delà, y compris pour la part correspondant au minimum légal.
+            Une indemnité supérieure à 10 PASS resterait soumise dès le premier
+            euro.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-foreground/80">
+            Effet sur deux départs négociés, en montants soumis à prélèvements
+            (règles actuelles simplifiées, PASS 2027 estimé) :
+          </p>
+        </div>
+        <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-white shadow-md">
+          <table className="w-full min-w-[42rem] text-left text-sm">
+            <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <tr>
+                <th className="px-5 py-4">Cas</th>
+                <th className="px-5 py-4 text-right">Indemnité</th>
+                <th className="px-5 py-4">Aujourd&apos;hui, soumis à</th>
+                <th className="px-5 py-4">Budget 2027, soumis à tout sur</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CAS_2027.map((c) => (
+                <tr key={c.label} className="border-b border-border align-top last:border-b-0">
+                  <td className="px-5 py-3 font-semibold text-foreground">
+                    {c.label}
+                    <span className="block text-xs font-normal text-muted-foreground">minimum légal {EUR.format(c.legal)}</span>
+                  </td>
+                  <td className="px-5 py-3 text-right tabular-nums text-foreground/80">{EUR.format(c.indemnite)}</td>
+                  <td className="px-5 py-3 text-foreground/80">
+                    CSG-CRDS : {EUR.format(c.csgAujourdhui)} (soit {EUR.format(c.csgAujourdhui * CSG_CRDS)})
+                    <span className="block text-xs text-muted-foreground">
+                      cotisations : {EUR.format(c.cotisAujourdhui)} · impôt : {EUR.format(c.impotAujourdhui)}
+                    </span>
+                  </td>
+                  <td className="px-5 py-3 font-semibold text-foreground">
+                    {c.soumis2027 === 0 ? "Rien — indemnité entièrement exonérée" : `${EUR.format(c.soumis2027)} (cotisations, CSG-CRDS et impôt)`}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+          Lecture : pour la plupart des départs, la réforme serait neutre, voire
+          favorable — dans le premier cas, la CSG-CRDS due aujourd&apos;hui sur
+          la part supra-légale disparaîtrait. Elle pénalise en revanche les
+          indemnités au-delà d&apos;un PASS, typiquement les cadres à forte
+          ancienneté : la fraction excédentaire supporterait cotisations,
+          CSG-CRDS et impôt, alors qu&apos;elle est aujourd&apos;hui largement
+          exonérée.
+        </p>
+        <div className="mt-6 rounded-r-lg border-l-4 border-amber-500 bg-amber-50 p-5 text-amber-900">
+          <p className="flex items-start gap-3 text-sm leading-relaxed">
+            <AlertTriangleIcon className="mt-0.5 h-5 w-5 flex-shrink-0" />
+            <span>
+              Ce sont des <strong>projets de loi</strong>. Le volet social
+              viserait les ruptures prenant effet à compter du 1er janvier
+              2027 ; le volet fiscal, dans la version déposée, s&apos;appliquerait
+              dès l&apos;imposition des revenus 2026, selon l&apos;évaluation
+              préalable du gouvernement — des amendements proposent de le
+              réserver aux ruptures de 2027. Si vous négociez un départ
+              important d&apos;ici la fin de l&apos;année, faites vérifier la
+              date de rupture et de versement par un professionnel : cette page
+              sera mise à jour à chaque étape du vote.
+            </span>
+          </p>
         </div>
       </section>
 
