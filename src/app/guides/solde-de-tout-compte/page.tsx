@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "Le solde de tout compte est le dernier document que l'on signe en quittant une entreprise — souvent vite, dans un moment où l'on a la tête ailleurs. C'est une erreur : sa signature déclenche un délai de contestation de six mois seulement, contre trois ans sans elle. Voici les six lignes qui doivent y figurer, ce qui est souvent oublié, et la marche à suivre si le compte n'y est pas.",
   filAriane: "Solde de tout compte",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "contenu", label: "Ce qu'il doit contenir" },
     { id: "oublis", label: "Les oublis fréquents" },

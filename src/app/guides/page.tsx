@@ -212,7 +212,7 @@ const guides = [
   {
     titre: "Titres-restaurant",
     desc:
-      "Plafond d'exonération patronale à 7,32 € par titre en 2026, valeur optimale du titre entre 12,20 et 14,64 €, 25 € d'utilisation par jour, droits du télétravailleur — et le dossier chaud de la fin d'année : la dérogation qui permet de payer toutes ses courses en titres expire le 31 décembre 2026, et la proposition de loi qui la pérenniserait est examinée à l'Assemblée le 12 octobre.",
+      "Plafond d'exonération patronale à 7,32 € par titre en 2026, valeur optimale du titre entre 12,20 et 14,64 €, 25 € d'utilisation par jour, droits du télétravailleur — et le dossier chaud de la fin d'année : la dérogation qui permet de payer toutes ses courses en titres expire le 31 décembre 2026, et la loi qui la pérenniserait a été votée par l'Assemblée le 12 octobre, en attendant le Sénat le 19 novembre.",
     href: "/guides/titres-restaurant",
     audience: "Salariés, employeurs qui calibrent leur politique d'avantages",
     lecture: "7 min",
@@ -519,7 +519,7 @@ export default function GuidesPage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour septembre 2026
+          À jour octobre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

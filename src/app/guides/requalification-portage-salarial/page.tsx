@@ -14,7 +14,7 @@ const meta: GuideMeta = {
   chapo: "Le portage salarial est parfaitement légal et strictement encadré depuis l'ordonnance de 2015. Mais il a une frontière : dès lors que le consultant se comporte comme un salarié du client — horaires imposés, lien de subordination, intégration dans les équipes —, un juge peut requalifier la relation en contrat de travail avec l'entreprise cliente. Voici ce qui déclenche la requalification, qui la demande, et ce qu'elle coûte de chaque côté.",
   filAriane: "Requalification",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "cadre", label: "Ce que la loi autorise" },
     { id: "signaux", label: "Les six signaux de risque" },

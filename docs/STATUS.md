@@ -48,6 +48,16 @@ Les impressions ont été multipliées par 5,5 et le nombre de pages servies est
 ### Simulateur ajouté le 23 août 2026
 `/simulateurs/salarie-ou-freelance` — comparateur CDI vs 4 statuts d'indépendant à taux d'impôt égal, avec TJM d'équivalence par bissection (+25 % de marge conseillée). Lib `src/lib/calculators/salarie-freelance.ts` sans constante propre : réutilise brut/net et TJM. Répond à la FAQ du hub qui disait « aucun simulateur ne fait cette comparaison ».
 
+### Revue d'octobre — 14 octobre 2026 (aucune nouvelle route)
+
+Déclencheur : deux demandes entrantes de sociétés de portage (Umalis Group le 29 sept., 2i Portage le 22 sept.) et un signalement de 2i sur CEGELEM. Vérifié à la source : BODACC (open data) — jugement d'ouverture d'un **redressement judiciaire** de CEGELEM le 17 septembre 2026 (TAE Nanterre, cessation des paiements au 31 mai 2026, administrateur désigné). Conséquences : champ `alerte` ajouté dans `societes-portage.json` (null pour les 9 autres), bandeau rouge sur la fiche et dans le comparateur, **exclusion des classements** (`SOCIETES_PORTAGE` du simulateur, « moins chère du panel » des fiches). Fiche **2i Portage** corrigée sur données de la société (création 2018, avis Trustpilot 4,6/5 sur 19 avis au 14 oct.). Umalis non ajouté : avis et label PEPS non vérifiables publiquement — en attente des pièces demandées.
+
+Actualité intégrée : titres-restaurant adoptés à l'Assemblée le 12 oct. (Sénat le 19 nov.) sur titres-restaurant, ce-qui-change et le hub ; Agirc-Arrco : conseil du 14 oct., résultat non publié au moment de la mise à jour (phrasé en conséquence) ; point d'indice : PLF déposé sans mesure de dégel.
+
+Contrôle des chiffres : constantes 2026 revérifiées (SMIC inchangé depuis le 1er juin, PASS, taux micro 25,6 %, seuils TVA, ARE non revalorisée) ; scan de tous les montants typés dans `src/app` contre une liste de valeurs 2025 — une seule anomalie, corrigée le 8 oct. (PASS 47 100 € dans le guide brut/net). Badges « À jour / Mis à jour » passés en octobre 2026 sur 59 emplacements et `dateModified` au 14 octobre sur 64 pages ; `CLAUDE.md` corrigé (constantes TJM : 25,6 %, 83 600 €, 37 500 €).
+
+Trafic (Plausible, 15 juil. → 13 oct.) : 6 133 visiteurs, 3 588 en septembre, 92 % Google ; 83 % sur le cluster « 2027 », 1,9 % sur les pages monétisables. Le chiffre « 6 000 visites organiques/mois » avancé dans les réponses aux partenaires est au-dessus du réel (3 671 visites en septembre, ~4 300 en rythme d'octobre).
+
 ### Mise à jour PLF / PLFSS 2027 — 8 octobre 2026 (13 guides, aucune nouvelle route)
 
 Sources primaires lues : PLF 2027 (AN n° 3210, art. 2, 3, 33, 74 + évaluations préalables), PLFSS 2027 (AN n° 3211, art. 6, 7, 35 + annexe), loi n° 2025-1044 du 3 nov. 2025 (seuils TVA), impots.gouv.fr (fin du régime simplifié de TVA, LF 2025 art. 38), estimation PASS 2027 de la CCSS (4 075 €/mois, Revue fiduciaire 7 oct.).
@@ -138,10 +148,10 @@ Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des c
 | Tarifs création de société | 28 juillet 2026 | ✅ à jour |
 | Tarif Navigo | janvier 2026 | ✅ à jour |
 | Transports (18 villes hors Paris et Lyon) | avril 2026 | ◻️ ordres de grandeur, impact non matériel |
-| Frais du comparateur portage | 28 juillet 2026 | ✅ à jour |
+| Frais du comparateur portage | 28 juillet 2026 (fiches 2i Portage et CEGELEM : 14 octobre 2026) | ⚠️ CEGELEM en redressement judiciaire depuis le 17 sept. 2026 — alerte affichée, exclue des classements |
 | Fourchettes de négociation | 28 juillet 2026 | ◻️ ancrées sur l'APEC 2025, fourchettes par métier estimées |
 | Percentiles de salaires | 28 juillet 2026 | ✅ INSEE 2024, seules les valeurs publiées sont stockées |
-| Mesures PLF / PLFSS 2027 (pages guides) | 8 octobre 2026 | ⏳ projets déposés le 1er oct. — à reprendre au vote final ; valeurs locales aux pages, aucune constante de calculateur modifiée |
+| Mesures PLF / PLFSS 2027 (pages guides) | 14 octobre 2026 | ⏳ projets déposés le 1er oct. — à reprendre au vote final ; valeurs locales aux pages, aucune constante de calculateur modifiée |
 
 ## Identité visuelle
 

@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "Un fonctionnaire peut-il être salarié porté ? La réponse tient en une nuance : le statut général de la fonction publique pose un principe d'exclusivité, assorti de dérogations précises. Selon que vous êtes à temps plein, à temps partiel, en disponibilité ou sur le départ, la réponse change complètement — et une activité exercée sans autorisation expose à des sanctions disciplinaires et au reversement des sommes perçues.",
   filAriane: "Portage et fonction publique",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "principe", label: "Le principe d'exclusivité" },
     { id: "cas", label: "Les quatre situations" },

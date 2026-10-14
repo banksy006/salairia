@@ -105,7 +105,7 @@ export default async function Page({
       author: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-09-01",
-      dateModified: "2026-09-01",
+      dateModified: "2026-10-14",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/metiers/${slug}`,
     },
@@ -144,7 +144,7 @@ export default async function Page({
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour septembre 2026 · {m.categorie}
+          À jour octobre 2026 · {m.categorie}
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">

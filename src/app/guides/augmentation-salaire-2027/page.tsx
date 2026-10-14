@@ -40,7 +40,7 @@ const meta: GuideMeta = {
   chapo: `Les enveloppes d'augmentation pour 2027 se dessinent : 3 % en moyenne selon WTW, 2,5 % de médiane chez Mercer, 2 à 2,5 % pour Michael Page — un léger mieux après une année 2026 au plus bas depuis quatre ans. Mais la vraie information est ailleurs : seules 17 % des entreprises pratiquent encore des augmentations générales. Le budget se joue désormais entretien par entretien. Voici ce que ces pourcentages représentent en net, ce qu'il en reste après inflation, et comment se placer au-dessus de la moyenne lors des NAO.`,
   filAriane: "Augmentation 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-09-19",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "enquetes", label: "Ce que disent les enquêtes" },
     { id: "net", label: "En net, ça donne quoi" },

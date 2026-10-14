@@ -104,7 +104,7 @@ export default function PortageSalarialComparateurPage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-04-23",
-      dateModified: "2026-09-01",
+      dateModified: "2026-10-14",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/comparateurs/portage-salarial`,
     },
@@ -164,7 +164,7 @@ export default function PortageSalarialComparateurPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour septembre 2026
+            À jour octobre 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -395,6 +395,17 @@ export default function PortageSalarialComparateurPage() {
                       <p className="mt-1 text-sm text-muted-foreground">
                         Fondée en {s.creation}
                       </p>
+                      {s.alerte && (
+                        <p className="mt-3 flex items-start gap-2 rounded-r-lg border-l-4 border-destructive bg-destructive/10 p-3 text-sm font-semibold text-destructive">
+                          <AlertTriangleIcon className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                          <span>
+                            {s.alerte.titre} — ne pas signer tant que la procédure est en cours.{" "}
+                            <Link href={`/comparateurs/portage-salarial/${s.slug}`} className="underline underline-offset-4">
+                              Détails et source
+                            </Link>
+                          </span>
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-col items-end gap-1">
                       <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary">
@@ -615,7 +626,7 @@ export default function PortageSalarialComparateurPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : septembre 2026. Frais revérifiés sur les sites officiels le 28 juillet 2026. Avis relevés
+                  Dernière mise à jour : octobre 2026. Frais revérifiés sur les sites officiels le 28 juillet 2026 ; fiches 2i Portage et CEGELEM actualisées le 14 octobre 2026. Avis relevés
                   sur les sites officiels de chaque société et les plateformes
                   d&apos;avis publics. Les offres peuvent évoluer sans
                   préavis.

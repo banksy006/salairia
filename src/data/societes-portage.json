@@ -36,7 +36,8 @@
     "choixSalairia": true,
     "tarifPublie": true,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 5
+    "tauxEstimePct": 5,
+    "alerte": null
   },
   {
     "id": "admissions",
@@ -75,7 +76,8 @@
     "choixSalairia": false,
     "tarifPublie": false,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 6
+    "tauxEstimePct": 6,
+    "alerte": null
   },
   {
     "id": "itg",
@@ -116,7 +118,8 @@
     "choixSalairia": false,
     "tarifPublie": false,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 10
+    "tauxEstimePct": 10,
+    "alerte": null
   },
   {
     "id": "openwork",
@@ -155,7 +158,8 @@
     "choixSalairia": false,
     "tarifPublie": false,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 6
+    "tauxEstimePct": 6,
+    "alerte": null
   },
   {
     "id": "abc-portage",
@@ -192,7 +196,8 @@
     "choixSalairia": false,
     "tarifPublie": false,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 5
+    "tauxEstimePct": 5,
+    "alerte": null
   },
   {
     "id": "cadres-en-mission",
@@ -230,19 +235,20 @@
     "choixSalairia": false,
     "tarifPublie": false,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 8
+    "tauxEstimePct": 8,
+    "alerte": null
   },
   {
     "id": "2i-portage",
     "nom": "2i Portage",
     "slug": "2i-portage",
-    "creation": 2009,
+    "creation": 2018,
     "fraisGestion": "À partir de 5 %",
     "fraisDetail": "Dégressif à partir de 5 %. Transparent et sans frais cachés.",
     "plafond": null,
-    "avisPlateforme": "Avis vérifiés",
-    "avisNote": 4.8,
-    "avisNombre": 200,
+    "avisPlateforme": "Trustpilot",
+    "avisNote": 4.6,
+    "avisNombre": 19,
     "labelPEPS": true,
     "portesTotal": "5 000+",
     "reseau": "Toulouse + national",
@@ -256,20 +262,22 @@
     ],
     "idealPour": "Consultants tech/IT qui veulent une communauté active",
     "points_forts": [
-      "4.8/5 sur 200+ avis",
+      "4,6/5 sur Trustpilot (19 avis au 14 octobre 2026)",
       "Communauté Slack active entre portés",
       "Label PEPS",
-      "15 ans d'expérience"
+      "Filiale du groupe 2i, implanté à Toulouse et au national"
     ],
     "points_faibles": [
       "Basée à Toulouse, moins de présence hors Sud-Ouest",
+      "Peu d'avis publics après le changement de plateforme d'avis en 2026",
       "Moins connue que ITG ou OpenWork"
     ],
     "site": "https://www.2iportage.com",
     "choixSalairia": false,
     "tarifPublie": false,
-    "dateVerification": "2026-07-28",
-    "tauxEstimePct": 5
+    "dateVerification": "2026-10-14",
+    "tauxEstimePct": 5,
+    "alerte": null
   },
   {
     "id": "cegelem",
@@ -292,22 +300,30 @@
       "Accompagnement personnalisé",
       "Plateforme digitale"
     ],
-    "idealPour": "Indépendants recherchant simplicité et frais bas",
+    "idealPour": "Personne tant que la procédure collective est en cours",
     "points_forts": [
-      "5 % fixe",
-      "Note Google élevée 4.7/5",
+      "4 % fixe, affiché publiquement",
       "Interface digitale moderne"
     ],
     "points_faibles": [
+      "Redressement judiciaire ouvert le 17 septembre 2026 (BODACC du 27 septembre)",
+      "Retards et défauts de paiement de salaires signalés par des portés depuis mai 2026",
       "Pas de label PEPS",
-      "Pas d'avance sur salaire",
-      "Société récente"
+      "Pas d'avance sur salaire"
     ],
     "site": "https://www.cegelem.fr",
     "choixSalairia": false,
     "tarifPublie": true,
-    "dateVerification": "2026-07-28",
-    "tauxEstimePct": 4
+    "dateVerification": "2026-10-14",
+    "tauxEstimePct": 4,
+    "alerte": {
+      "type": "redressement-judiciaire",
+      "date": "2026-09-17",
+      "titre": "Redressement judiciaire ouvert le 17 septembre 2026",
+      "texte": "Le tribunal des activités économiques de Nanterre a ouvert une procédure de redressement judiciaire à l'encontre de CEGELEM par jugement du 17 septembre 2026 (BODACC du 27 septembre 2026), avec une date de cessation des paiements fixée au 31 mai 2026 et la désignation d'un administrateur judiciaire. Des consultants portés signalent depuis le printemps 2026 des salaires versés en retard ou non versés. Tant que la procédure est en cours, nous déconseillons de signer un nouveau contrat de portage avec cette société ; les salariés concernés doivent déclarer leurs créances auprès du mandataire judiciaire, l'AGS garantissant les salaires impayés.",
+      "source": "https://bodacc-datadila.opendatasoft.com/explore/dataset/annonces-commerciales/table/?q=834746034",
+      "sourceLabel": "BODACC — annonces concernant CEGELEM (SIREN 834 746 034)"
+    }
   },
   {
     "id": "jump",
@@ -351,7 +367,8 @@
     "choixSalairia": false,
     "tarifPublie": true,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": null
+    "tauxEstimePct": null,
+    "alerte": null
   },
   {
     "id": "coq-portage",
@@ -393,6 +410,7 @@
     "choixSalairia": false,
     "tarifPublie": true,
     "dateVerification": "2026-07-28",
-    "tauxEstimePct": 5
+    "tauxEstimePct": 5,
+    "alerte": null
   }
 ]

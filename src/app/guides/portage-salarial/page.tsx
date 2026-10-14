@@ -166,7 +166,7 @@ export default function GuidePortageSalarialPage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-17",
-      dateModified: "2026-09-01",
+      dateModified: "2026-10-14",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/portage-salarial`,
     },
@@ -207,7 +207,7 @@ export default function GuidePortageSalarialPage() {
 
           <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
             <CalendarIcon className="h-3.5 w-3.5" />
-            À jour septembre 2026
+            À jour octobre 2026
           </span>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -370,7 +370,7 @@ export default function GuidePortageSalarialPage() {
                     <li>• <strong>Services inclus</strong> — mutuelle, prévoyance, assurance RC pro, formation continue.</li>
                   </ul>
                   <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                    Notre <Link href="/comparateurs/portage-salarial" className="font-semibold text-primary hover:underline">comparateur de 10 sociétés de portage salarial</Link> croise ces critères sur les acteurs les plus connus (ITG, Cadres en Mission, OpenWork, ABC Portage, CEGELEM et 5 autres).
+                    Notre <Link href="/comparateurs/portage-salarial" className="font-semibold text-primary hover:underline">comparateur de 10 sociétés de portage salarial</Link> croise ces critères sur les acteurs les plus connus (ITG, Cadres en Mission, OpenWork, ABC Portage, Régie Portage et 5 autres).
                   </p>
                 </div>
 
@@ -1030,7 +1030,7 @@ export default function GuidePortageSalarialPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : septembre 2026. Ce guide est à vocation informative. Pour une
+                  Dernière mise à jour : octobre 2026. Ce guide est à vocation informative. Pour une
                   analyse adaptée à votre situation, consultez un expert-comptable ou un avocat spécialisé.
                   Rédigé par{" "}
                   <Link href="/a-propos" className="text-primary hover:underline">Nizar Laghrifi</Link>,

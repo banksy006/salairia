@@ -27,7 +27,7 @@ const meta: GuideMeta = {
   chapo: `C'est la ligne du bulletin de paie qui déclenche le plus de messages aux services RH : « pourquoi je déclare plus que ce que j'ai reçu ? ». La réponse tient à une particularité française — une partie de la CSG et la totalité de la CRDS sont prélevées sur votre salaire mais restent imposables. Le net imposable est donc structurellement supérieur au net versé. Voici le mécanisme, chiffré, et ce qui s'y ajoute encore.`,
   filAriane: "Net imposable",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "definition", label: "Trois nets, pas un" },
     { id: "csg", label: "La CSG non déductible" },

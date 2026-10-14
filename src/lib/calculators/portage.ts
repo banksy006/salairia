@@ -122,11 +122,13 @@ export interface SocietePortage {
 // autres) : le simulateur et le comparateur affichaient des taux différents
 // pour la même société. Dériver du JSON supprime la duplication à la racine.
 // Les sociétés sans taux proportionnel modélisable (abonnement fixe) sont
-// écartées du comparatif du simulateur.
+// écartées du comparatif du simulateur, ainsi que celles sous alerte
+// (procédure collective) : un net « meilleur » n'a aucun sens si les
+// salaires ne sont pas versés.
 export const SOCIETES_PORTAGE: readonly SocietePortage[] = (
-  societesData as { nom: string; site?: string; tauxEstimePct: number | null }[]
+  societesData as { nom: string; site?: string; tauxEstimePct: number | null; alerte: unknown }[]
 )
-  .filter((s) => typeof s.tauxEstimePct === "number")
+  .filter((s) => typeof s.tauxEstimePct === "number" && !s.alerte)
   .map((s) => ({
     nom: s.nom,
     tauxFraisGestion: s.tauxEstimePct as number,

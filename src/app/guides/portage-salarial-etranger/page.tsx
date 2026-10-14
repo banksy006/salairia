@@ -10,7 +10,7 @@ const meta: GuideMeta = {
   chapo: "Le portage salarial est souvent présenté comme la solution évidente pour travailler avec des clients étrangers. C'est vrai dans un cas — facturer depuis la France — et beaucoup plus nuancé dès qu'il s'agit de s'installer ailleurs. La confusion vient de ce que trois situations très différentes portent le même nom. Voici ce que chacune implique en matière de sécurité sociale, de fiscalité et de contrat.",
   filAriane: "Portage à l'étranger",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "trois", label: "Trois situations distinctes" },
     { id: "detachement", label: "Le détachement en Europe" },

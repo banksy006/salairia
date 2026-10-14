@@ -116,7 +116,7 @@ export default function OuSeSitueMonSalairePage() {
       operatingSystem: "Web",
       inLanguage: "fr-FR",
       datePublished: "2026-04-22",
-      dateModified: "2026-04-23",
+      dateModified: "2026-10-14",
       offers: {
         "@type": "Offer",
         price: "0",

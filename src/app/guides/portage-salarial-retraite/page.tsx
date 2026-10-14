@@ -30,7 +30,7 @@ const meta: GuideMeta = {
   chapo: `C'est l'argument le moins connu et le plus solide du portage salarial : le salarié porté relève du régime général et de l'AGIRC-ARRCO, pas du régime des indépendants. Trimestres validés, points de retraite complémentaire accumulés sur tout le salaire, relevé de carrière identique à celui d'un cadre. La contrepartie est visible sur le bulletin — mais elle achète des droits que ni la micro-entreprise ni l'EURL ne procurent au même niveau. Voici le mécanisme, chiffré.`,
   filAriane: "Portage et retraite",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "regime", label: "Quel régime s'applique" },
     { id: "trimestres", label: "Valider ses trimestres" },

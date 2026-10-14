@@ -38,6 +38,14 @@ interface Societe {
   tarifPublie: boolean;
   dateVerification: string;
   tauxEstimePct: number | null;
+  alerte: {
+    type: string;
+    date: string;
+    titre: string;
+    texte: string;
+    source: string;
+    sourceLabel: string;
+  } | null;
 }
 
 const societes = societesData as unknown as Societe[];
@@ -64,9 +72,9 @@ function simuler(taux: number) {
   });
 }
 
-/** Sociétés dont le taux est connu, triées par frais croissants. */
+/** Sociétés dont le taux est connu et sans alerte, triées par frais croissants. */
 const avecTaux = societes
-  .filter((s) => typeof s.tauxEstimePct === "number")
+  .filter((s) => typeof s.tauxEstimePct === "number" && !s.alerte)
   .sort((a, b) => (a.tauxEstimePct as number) - (b.tauxEstimePct as number));
 
 export function generateStaticParams() {
@@ -86,7 +94,7 @@ export async function generateMetadata({
 
   return {
     title: `${s.nom} : frais, services et avis clients (2026)`,
-    description: `${s.nom}, société de portage salarial créée en ${s.creation} : frais de gestion ${s.fraisGestion}, ${s.labelPEPS ? "label PEPS" : "sans label PEPS"}, note ${s.avisNote}/5 sur ${s.avisNombre} avis ${s.avisPlateforme}.${net ? ` Net calculé : ${EUR.format(net)} par mois pour ${EUR.format(CA_MENSUEL)} facturés.` : ""} Analyse indépendante Salairia.`,
+    description: `${s.alerte ? `${s.alerte.titre}. ` : ""}${s.nom}, société de portage salarial créée en ${s.creation} : frais de gestion ${s.fraisGestion}, ${s.labelPEPS ? "label PEPS" : "sans label PEPS"}, note ${s.avisNote}/5 sur ${s.avisNombre} avis ${s.avisPlateforme}.${net ? ` Net calculé : ${EUR.format(net)} par mois pour ${EUR.format(CA_MENSUEL)} facturés.` : ""} Analyse indépendante Salairia.`,
     alternates: { canonical: `/comparateurs/portage-salarial/${slug}` },
     openGraph: {
       title: `${s.nom} : frais, services et avis clients`,
@@ -129,7 +137,7 @@ export default async function Page({
     },
     {
       q: `${s.nom} est-elle une société fiable ?`,
-      r: `Quelques repères objectifs : créée en ${s.creation}, ${s.portesTotal} consultants accompagnés, ${s.labelPEPS ? "titulaire du label PEPS (délivré par la fédération professionnelle du portage salarial, il atteste du respect de la convention collective et de garanties financières)" : "non titulaire du label PEPS — ce qui ne présume pas de la qualité, mais retire un repère de vérification externe"}. Côté satisfaction, la note publique relevée est de ${s.avisNote}/5 sur ${s.avisNombre} avis ${s.avisPlateforme}. Salairia ne collecte pas d'avis : ce chiffre est repris de la plateforme citée, à la date de vérification, et doit être lu comme tel.`,
+      r: `${s.alerte ? `Attention : ${s.alerte.texte} ` : ""}Quelques repères objectifs : créée en ${s.creation}, ${s.portesTotal} consultants accompagnés, ${s.labelPEPS ? "titulaire du label PEPS (délivré par la fédération professionnelle du portage salarial, il atteste du respect de la convention collective et de garanties financières)" : "non titulaire du label PEPS — ce qui ne présume pas de la qualité, mais retire un repère de vérification externe"}. Côté satisfaction, la note publique relevée est de ${s.avisNote}/5 sur ${s.avisNombre} avis ${s.avisPlateforme}. Salairia ne collecte pas d'avis : ce chiffre est repris de la plateforme citée, à la date de vérification, et doit être lu comme tel.`,
     },
     {
       q: `Pour quel profil ${s.nom} est-elle adaptée ?`,
@@ -150,7 +158,7 @@ export default async function Page({
       author: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-08-29",
-      dateModified: "2026-09-01",
+      dateModified: "2026-10-14",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/comparateurs/portage-salarial/${slug}`,
     },
@@ -216,6 +224,23 @@ export default async function Page({
             </div>
           ))}
         </div>
+
+        {s.alerte && (
+          <div className="mt-8 rounded-r-lg border-l-4 border-destructive bg-destructive/10 p-6 text-destructive">
+            <p className="flex items-start gap-3 text-base font-semibold">
+              <AlertTriangleIcon className="mt-0.5 h-5 w-5 flex-shrink-0" />
+              <span>{s.alerte.titre}</span>
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground/80">{s.alerte.texte}</p>
+            <p className="mt-3 text-xs text-muted-foreground">
+              Source :{" "}
+              <a href={s.alerte.source} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                {s.alerte.sourceLabel}
+              </a>
+              . Vérifié le {new Date(s.dateVerification).toLocaleDateString("fr-FR")} ; cette alerte sera levée à la clôture de la procédure.
+            </p>
+          </div>
+        )}
 
         <div className="mt-12 space-y-16">
           <section id="net" className="scroll-mt-24">
@@ -449,6 +474,13 @@ export default async function Page({
                     PEPS — fédération des professionnels du portage salarial<span aria-hidden> ↗</span>
                   </a>
                 </li>
+                {s.alerte && (
+                  <li>
+                    <a href={s.alerte.source} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                      {s.alerte.sourceLabel}<span aria-hidden> ↗</span>
+                    </a>
+                  </li>
+                )}
               </ul>
               <p className="mt-6 text-xs italic text-muted-foreground">
                 Frais et informations relevés le{" "}

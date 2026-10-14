@@ -242,7 +242,7 @@ Route créée session 3. Lib : `src/lib/calculators/tjm-freelance.ts`. UI : `src
 
 Constantes 2026 (`TJM_2026`, codées en dur, à mettre à jour chaque année) :
 
-- **Auto-entrepreneur (BNC libéral)** : cotisations 21,8 %, plafond CA 77 700 €, franchise TVA 39 100 €
+- **Auto-entrepreneur (BNC libéral)** : cotisations 25,6 % (aligné sur `AE_2026`), plafond CA 83 600 €, franchise TVA 37 500 €
 - **Portage salarial** : frais gestion 8 %, charges patronales 43 %, charges salariales 22 % (alignés sur le simulateur Portage)
 - **SASU** : charges patronales 42 %, charges salariales 22 %, frais compta 1 500 €/an
 - **EURL** : cotisations TNS 45 %, frais compta 1 500 €/an
@@ -252,12 +252,12 @@ Constantes 2026 (`TJM_2026`, codées en dur, à mettre à jour chaque année) :
 - **TJM cible** : l'utilisateur indique un TJM, on calcule le net annuel pour chaque statut via `calculerTous`. Tri par net décroissant.
 
 Ordre des calculs par statut (à ne pas modifier) :
-1. **Auto-entrepreneur** : CA = TJM × j × 12 → cotisations = CA × 21,8 % → net = CA − cotisations − frais pro
+1. **Auto-entrepreneur** : CA = TJM × j × 12 → cotisations = CA × 25,6 % → net = CA − cotisations − frais pro
 2. **Portage salarial** : CA → frais gestion 8 % → base = CA − gestion − frais pro → charges pat 43 % → brut → charges sal 22 % → net
 3. **SASU** : résultat = CA − frais pro − frais compta → brut = résultat / 1,42 → charges sal 22 % → net
 4. **EURL (TNS)** : résultat = CA − frais pro − frais compta → rém nette = résultat / 1,45, cotisations = rém nette × 45 %
 
-Alertes UI : AE > 77 700 € → rouge (plafond dépassé) ; AE > 39 100 € → orange (TVA obligatoire) ; TJM < 250 € → orange global ; CA max > 200 000 € → info global (optimisation expert-comptable).
+Alertes UI : AE > 83 600 € → rouge (plafond dépassé) ; AE > 37 500 € → orange (TVA obligatoire) ; TJM < 250 € → orange global ; CA max > 200 000 € → info global (optimisation expert-comptable).
 
 Section « 🚀 Choisir votre solution » (après le comparatif) : 4 cards partenaires (portage, compte pro Qonto, compta Indy, création société Legalstart) avec disclosure d'affiliation. Ces liens sont des placeholders — à remplacer par les vrais liens d'affiliation quand les partenariats sont actifs.
 

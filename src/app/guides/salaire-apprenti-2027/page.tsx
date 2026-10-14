@@ -30,7 +30,7 @@ const meta: GuideMeta = {
   chapo: `Le salaire d'un apprenti ne se négocie pas : c'est un pourcentage du SMIC, fixé par une grille légale selon l'âge et l'année de contrat. Chaque revalorisation du SMIC se répercute donc automatiquement, au premier jour, sur toutes les cases de la grille. Le SMIC 2027 sera fixé par décret mi-décembre 2026 : voici la grille en vigueur en euros, ce que chaque point de hausse du SMIC représente case par case, et les trois autres paramètres — cotisations, impôt, aides — qui peuvent bouger au 1er janvier.`,
   filAriane: "Salaire apprenti 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-09-19",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "grille", label: "La grille en vigueur" },
     { id: "2027", label: "Ce qu'une hausse du SMIC change" },

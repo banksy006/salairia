@@ -30,7 +30,7 @@ const meta: GuideMeta = {
   chapo: `Le traitement d'un fonctionnaire ne se négocie pas : il se calcule. Indice majoré multiplié par la valeur du point, point final. Cette valeur est gelée à ${EUR2.format(POINT_MENSUEL)} depuis le 1er juillet 2023 — trois années consécutives sans revalorisation, alors que les prix, eux, ont continué de monter. Voici la formule exacte, ce qu'elle donne pour six niveaux de carrière, et l'état des discussions pour 2027.`,
   filAriane: "Point d'indice",
   datePublished: "2026-08-29",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "valeur", label: "La valeur du point" },
     { id: "calcul", label: "Calculer son traitement" },
@@ -56,7 +56,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Le point d'indice va-t-il augmenter en 2027 ?",
-      r: "Aucun calendrier officiel de dégel n'a été annoncé à ce jour. Le sujet dépend du projet de loi de finances 2027, présenté fin septembre 2026, et des négociations salariales de la fonction publique. Les organisations syndicales demandent une indexation sur l'inflation ; le débat porte plutôt, côté gouvernement, sur des mesures ciblées. Cette page sera mise à jour dès qu'un texte ou une annonce officielle intervient — comme les autres échéances suivies dans notre récapitulatif du 1er janvier 2027.",
+      r: "Aucun calendrier officiel de dégel n'a été annoncé à ce jour. Le projet de loi de finances 2027, déposé le 1er octobre 2026, ne contient aucune mesure de dégel ; le sujet dépend désormais des amendements et des négociations salariales de la fonction publique. Les organisations syndicales demandent une indexation sur l'inflation ; le débat porte plutôt, côté gouvernement, sur des mesures ciblées. Cette page sera mise à jour dès qu'un texte ou une annonce officielle intervient — comme les autres échéances suivies dans notre récapitulatif du 1er janvier 2027.",
     },
   ],
   sources: [
@@ -213,7 +213,7 @@ export default function Page() {
           <ul className="mt-5 space-y-3 text-base text-foreground/80">
             <li className="flex gap-3">
               <span aria-hidden className="text-primary">→</span>
-              <span><strong>Fin septembre 2026</strong> : présentation du PLF 2027 — c&apos;est là qu&apos;apparaîtrait une éventuelle enveloppe de revalorisation.</span>
+              <span><strong>1er octobre 2026 ✓</strong> : dépôt du PLF 2027 — aucune enveloppe de revalorisation du point dans le texte déposé ; une mesure ne pourrait plus venir que par amendement.</span>
             </li>
             <li className="flex gap-3">
               <span aria-hidden className="text-primary">→</span>

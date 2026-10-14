@@ -66,7 +66,7 @@ const meta: GuideMeta = {
   chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. Les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, est revalorisée séparément au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-08",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "La base : ce que prévoit le PLFSS" },
@@ -89,7 +89,7 @@ const meta: GuideMeta = {
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",
-      r: "Non : l'article 35 vise les régimes de base. La complémentaire Agirc-Arrco est pilotée par les partenaires sociaux, qui fixent la valeur du point au 1er novembre dans le cadre de leur accord — l'inflation prévue, minorée le cas échéant d'un facteur de soutenabilité pouvant aller jusqu'à 0,4 point. La décision pour le 1er novembre 2026 est attendue mi-octobre, après une année 2025 sans revalorisation. En revanche, le montant de votre Agirc-Arrco compte dans le total qui détermine si votre pension de base est revalorisée.",
+      r: "Non : l'article 35 vise les régimes de base. La complémentaire Agirc-Arrco est pilotée par les partenaires sociaux, qui fixent la valeur du point au 1er novembre dans le cadre de leur accord — l'inflation prévue, minorée le cas échéant d'un facteur de soutenabilité pouvant aller jusqu'à 0,4 point. Le conseil d'administration se réunit le 14 octobre 2026 pour fixer la valeur du point au 1er novembre, après une année 2025 sans revalorisation ; cette page sera mise à jour à l'annonce. En revanche, le montant de votre Agirc-Arrco compte dans le total qui détermine si votre pension de base est revalorisée.",
     },
     {
       q: "Les retraités paieront-ils plus d'impôt en 2027 ?",
@@ -138,7 +138,7 @@ export default function Page() {
                 ["Date", "1er janvier 2027", "1er novembre 2026"],
                 ["Qui décide", "La loi — mais le PLFSS 2027 déroge à l'indexation automatique pour 2027", "Le conseil d'administration paritaire du régime"],
                 ["Sur quelle base", "Inflation moyenne hors tabac, novembre 2025 → octobre 2026 (chiffre connu mi-novembre)", "Inflation prévue, minorée d'un facteur de soutenabilité (jusqu'à −0,4 pt)"],
-                ["Ce qui est prévu", `Hausse pleine si pensions totales ≤ ${EUR.format(SEUIL_PLEIN)}/mois ; gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}, sauf décret`, "Décision attendue mi-octobre 2026"],
+                ["Ce qui est prévu", `Hausse pleine si pensions totales ≤ ${EUR.format(SEUIL_PLEIN)}/mois ; gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}, sauf décret`, "Conseil d'administration du 14 octobre 2026, entre +1,2 % et +2 % selon l'accord de 2023"],
                 ["Précédents récents", "Gel proposé pour 2026 puis abandonné : +0,9 % au 1er janvier 2026", "0 % en novembre 2025"],
               ].map(([k, a, b]) => (
                 <tr key={k} className="border-b border-border align-top last:border-b-0">
@@ -215,7 +215,7 @@ export default function Page() {
             La conséquence pratique : l&apos;Agirc-Arrco peut décider{" "}
             <strong>zéro</strong> — elle l&apos;a fait en novembre 2025.
             L&apos;article 35 du PLFSS ne la concerne pas : sa décision pour le
-            1er novembre 2026, attendue mi-octobre, sera intégrée ici dès sa
+            1er novembre 2026, prise lors de son conseil du 14 octobre, sera intégrée ici dès sa
             publication. Rappel utile : la valeur d&apos;<em>achat</em> du point
             (pour les actifs qui cotisent) évolue séparément — une hausse de la
             première n&apos;améliore pas le rendement de la seconde.

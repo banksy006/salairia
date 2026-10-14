@@ -25,7 +25,7 @@ const meta: GuideMeta = {
   chapo: "Convertir une pension brute en net ne suit pas les règles du salaire. Un retraité ne cotise plus ni à la retraite, ni au chômage : il ne supporte que la CSG, la CRDS et la CASA. Résultat, l'écart brut-net va de 0 % à 9,1 % selon votre revenu fiscal de référence — contre environ 22 % pour un salarié. Voici les quatre taux, les seuils, et le calcul sur trois niveaux de pension.",
   filAriane: "Retraite brut/net",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "difference", label: "Pourquoi c'est différent" },
     { id: "taux", label: "Les quatre taux de CSG" },

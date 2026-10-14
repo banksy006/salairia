@@ -14,7 +14,7 @@ const meta: GuideMeta = {
   chapo: "Depuis 2016, tout employeur du privé doit proposer une complémentaire santé collective et en financer au moins la moitié. C'est l'un des avantages les mieux valorisés du salariat — et l'un des plus mal compris : l'adhésion est obligatoire sauf cas de dispense précis, la part patronale est imposable même si vous ne la touchez pas, et la portabilité vous couvre gratuitement après le départ. Le point complet.",
   filAriane: "Mutuelle d'entreprise",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "obligation", label: "Ce que l'employeur doit" },
     { id: "dispenses", label: "Les cas de dispense" },

@@ -16,7 +16,7 @@ const meta: GuideMeta = {
   chapo: "Le portage salarial repose sur une relation à trois, formalisée par deux contrats distincts : un contrat de travail entre vous et la société de portage, et un contrat commercial de prestation entre elle et votre client. Le premier peut être un CDI ou un CDD dit « de mission », avec des règles très différentes. Voici ce que chacun contient, les mentions que la loi impose, et les clauses à lire avant de signer.",
   filAriane: "Contrat de portage",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "deux", label: "Deux contrats distincts" },
     { id: "cdi-cdd", label: "CDI ou CDD de mission" },

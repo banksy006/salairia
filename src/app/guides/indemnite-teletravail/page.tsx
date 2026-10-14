@@ -20,7 +20,7 @@ const meta: GuideMeta = {
   chapo: `Aucune loi n'oblige l'employeur à verser une indemnité de télétravail. Mais s'il le fait, l'URSSAF fixe des plafonds jusqu'auxquels cette allocation est exonérée de cotisations et d'impôt : ${EUR2.format(PAR_JOUR)} par jour, ou ${EUR2.format(PAR_JOUR_HEBDO_MENSUEL)} par mois pour chaque jour de télétravail hebdomadaire régulier. Comprendre ces barèmes, c'est savoir ce qu'on peut demander — et vérifier ce qu'on reçoit.`,
   filAriane: "Indemnité de télétravail",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "baremes", label: "Les deux barèmes" },
     { id: "obligation", label: "Est-ce obligatoire ?" },

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import data from "@/data/societes-portage.json";
-import { ShieldIcon } from "@/components/icons";
+import { ShieldIcon, AlertTriangleIcon } from "@/components/icons";
 
 type Societe = (typeof data)[number];
 type SortKey = "frais" | "avis" | "anciennete";
@@ -25,7 +25,13 @@ const sortLabels: Record<SortKey, string> = {
 
 export default function PortageTable() {
   const [sort, setSort] = useState<SortKey>("frais");
-  const sorted = useMemo(() => [...data].sort(sortFns[sort]), [sort]);
+  // Une société sous alerte (procédure collective) reste visible mais passe
+  // en fin de tableau quel que soit le tri : ses frais bas ne doivent pas la
+  // placer en tête.
+  const sorted = useMemo(
+    () => [...data].sort((a, b) => Number(!!a.alerte) - Number(!!b.alerte) || sortFns[sort](a, b)),
+    [sort],
+  );
 
   return (
     <div>
@@ -88,6 +94,11 @@ export default function PortageTable() {
                       ({s.creation})
                     </span>
                   </div>
+                  {s.alerte && (
+                    <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-xs font-semibold text-destructive">
+                      <AlertTriangleIcon className="h-3 w-3" /> Redressement judiciaire
+                    </span>
+                  )}
                 </td>
                 <td className="whitespace-nowrap px-4 py-3">
                   <div className="flex flex-col gap-0.5">

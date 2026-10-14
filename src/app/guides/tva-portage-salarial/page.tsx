@@ -25,7 +25,7 @@ const meta: GuideMeta = {
   chapo: `La TVA est l'une des grandes simplifications du portage salarial, et pourtant l'une de ses questions les plus fréquentes. La réponse tient en une phrase : vous n'êtes pas assujetti, c'est la société de portage qui facture le client en TTC, collecte la TVA et la reverse. Votre chiffre d'affaires de référence est toujours le HT, votre salaire se calcule dessus. Reste un point qui vaut de l'argent : la récupération de TVA sur vos frais professionnels.`,
   filAriane: "TVA et portage",
   datePublished: "2026-09-01",
-  dateModified: "2026-09-01",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "qui", label: "Qui facture la TVA" },
     { id: "calcul", label: "HT, TTC et votre salaire" },

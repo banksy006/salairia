@@ -14,10 +14,10 @@ const meta: GuideMeta = {
   slug: "titres-restaurant",
   titre: "Titres-restaurant : plafonds 2026 et la question qui fâche pour 2027",
   sousTitre: `Exonération patronale jusqu'à ${EUR2.format(PLAFOND_EXO)} par titre — et la fin annoncée des courses en supermarché`,
-  chapo: `Neuf millions de salariés utilisent des titres-restaurant, et deux échéances les concernent directement : le plafond d'exonération de la part patronale, porté à ${EUR2.format(PLAFOND_EXO)} par titre en 2026, et surtout la dérogation qui permet de payer toutes ses courses alimentaires en titres — valable jusqu'au 31 décembre 2026 seulement. Une proposition de loi qui la pérenniserait, et rendrait le titre entièrement dématérialisé, arrive en séance à l'Assemblée nationale le 12 octobre 2026, en procédure accélérée. Tant qu'elle n'est pas définitivement adoptée, la date butoir reste le 1er janvier 2027. Le point complet, côté salarié et côté employeur.`,
+  chapo: `Neuf millions de salariés utilisent des titres-restaurant, et deux échéances les concernent directement : le plafond d'exonération de la part patronale, porté à ${EUR2.format(PLAFOND_EXO)} par titre en 2026, et surtout la dérogation qui permet de payer toutes ses courses alimentaires en titres — valable jusqu'au 31 décembre 2026 seulement. L'Assemblée nationale a adopté le 12 octobre 2026, en première lecture et sans voix contre, la proposition de loi qui la pérenniserait et rendrait le titre entièrement dématérialisé ; le Sénat l'examine le 19 novembre. Tant qu'elle n'est pas promulguée, la date butoir reste le 1er janvier 2027. Le point complet, côté salarié et côté employeur.`,
   filAriane: "Titres-restaurant",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-08",
+  dateModified: "2026-10-14",
   tocItems: [
     { id: "regles", label: "Les règles 2026" },
     { id: "valeur", label: "La valeur optimale d'un titre" },
@@ -31,7 +31,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Pourra-t-on encore payer ses courses en titres-restaurant en 2027 ?",
-      r: "C'est en bonne voie, sans être acquis. Par dérogation née en 2022 et prolongée plusieurs fois — la dernière fois jusqu'au 31 décembre 2026 —, les titres permettent d'acheter tous les produits alimentaires en grande surface, y compris non directement consommables (pâtes, riz, farine, conserves). La proposition de loi n° 2892 « visant à moderniser et rééquilibrer le fonctionnement du titre-restaurant », sur laquelle le gouvernement a engagé la procédure accélérée, est examinée en séance à l'Assemblée le 12 octobre 2026 : elle pérenniserait l'achat de tout produit alimentaire, hors exceptions fixées par décret (alcool, confiserie…), et rendrait le titre exclusivement dématérialisé. Elle doit encore passer au Sénat. Sans adoption définitive d'ici décembre, retour au régime de base au 1er janvier 2027 : uniquement les préparations directement consommables. Cette page suit chaque étape.",
+      r: "Très probablement, mais ce n'est pas encore acquis. Par dérogation née en 2022 et prolongée plusieurs fois — la dernière fois jusqu'au 31 décembre 2026 —, les titres permettent d'acheter tous les produits alimentaires en grande surface, y compris non directement consommables (pâtes, riz, farine, conserves). L'Assemblée nationale a adopté le 12 octobre 2026, en première lecture et sans voix contre, la proposition de loi n° 2892 « visant à moderniser et rééquilibrer le fonctionnement du titre-restaurant » : la dérogation serait prolongée sur 2027 puis pérennisée à partir de 2028, hors exceptions fixées par décret (alcool, confiserie…), le titre deviendrait exclusivement dématérialisé au 1er janvier 2028 et utilisable les dimanches et jours fériés par tous. Le Sénat l'examine le 19 novembre 2026, et le texte doit ensuite être promulgué. Sans promulgation d'ici fin décembre, retour au régime de base au 1er janvier 2027 : uniquement les préparations directement consommables. Cette page suit chaque étape.",
     },
     {
       q: "Combien puis-je dépenser par jour en titres-restaurant ?",
@@ -52,6 +52,7 @@ const meta: GuideMeta = {
     { label: "service-public.fr — titres-restaurant : utilisation", href: "https://www.service-public.fr/particuliers/vosdroits/F21059" },
     { label: "economie.gouv.fr — prolongation de l'utilisation dérogatoire jusqu'au 31 décembre 2026", href: "https://www.economie.gouv.fr/actualites/titres-restaurant-produits-alimentaires" },
     { label: "Assemblée nationale — proposition de loi n° 2892 visant à moderniser et rééquilibrer le fonctionnement du titre-restaurant", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2892_proposition-loi" },
+    { label: "Assemblée nationale — adoption en première lecture le 12 octobre 2026", href: "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/adoption-de-la-proposition-de-loi-visant-a-moderniser-et-reequilibrer-le-fonctionnement-du-titre-restaurant" },
   ],
 };
 
@@ -151,16 +152,19 @@ export default function Page() {
             manque à gagner se chiffrerait en dizaines d&apos;euros par mois.
           </p>
           <p className="mt-4 text-base leading-relaxed">
-            Le texte qui doit l&apos;éviter est sur la table : la{" "}
-            <strong>proposition de loi n° 2892</strong>, en procédure
-            accélérée, examinée en séance à l&apos;Assemblée nationale le 12
-            octobre 2026. Elle pérenniserait l&apos;achat de tout produit
-            alimentaire — hors exceptions à fixer par décret, comme
-            l&apos;alcool ou la confiserie — et ferait du titre-restaurant un
-            titre exclusivement dématérialisé, carte ou application. Il lui
-            reste à franchir le Sénat avant la fin de l&apos;année : tant
-            qu&apos;elle n&apos;est pas promulguée, la date butoir du 31
-            décembre tient. Cette page sera mise à jour à chaque vote —
+            Le texte qui doit l&apos;éviter a franchi la première étape : la{" "}
+            <strong>proposition de loi n° 2892</strong> a été adoptée par
+            l&apos;Assemblée nationale le 12 octobre 2026, en première lecture
+            et sans voix contre. Elle prolonge la dérogation sur toute
+            l&apos;année 2027 puis la pérennise à partir de 2028 — hors
+            exceptions à fixer par décret, comme l&apos;alcool ou la
+            confiserie —, fait du titre-restaurant un titre exclusivement
+            dématérialisé au 1er janvier 2028, ouvre son usage les dimanches
+            et jours fériés à tous les salariés et permet de plafonner par
+            décret les commissions des émetteurs. Il lui reste à franchir le
+            Sénat, qui l&apos;examine le 19 novembre, puis la promulgation :
+            tant que ce n&apos;est pas fait, la date butoir du 31 décembre
+            tient. Cette page sera mise à jour à chaque vote —
             c&apos;est l&apos;un des dossiers suivis dans notre{" "}
             <Link href="/guides/ce-qui-change-1er-janvier-2027" className="underline underline-offset-4">
               récapitulatif du 1er janvier 2027
