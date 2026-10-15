@@ -242,9 +242,9 @@
     "id": "2i-portage",
     "nom": "2i Portage",
     "slug": "2i-portage",
-    "creation": 2018,
+    "creation": 2008,
     "fraisGestion": "À partir de 5 %",
-    "fraisDetail": "Dégressif à partir de 5 %. Transparent et sans frais cachés.",
+    "fraisDetail": "Dégressif à partir de 5 %. Transparent et sans frais cachés. Société immatriculée en 2008, activité de portage sous la marque 2i Portage depuis 2018.",
     "plafond": null,
     "avisPlateforme": "Google",
     "avisNote": 4.9,
@@ -265,7 +265,7 @@
       "4,9/5 sur Google (80 avis au 15 octobre 2026)",
       "Communauté Slack active entre portés",
       "Label PEPS",
-      "Filiale du groupe 2i, implanté à Toulouse et au national"
+      "Filiale du groupe 2i (catégorie ETI), implantée à Toulouse et au national"
     ],
     "points_faibles": [
       "Basée à Toulouse, moins de présence hors Sud-Ouest",
