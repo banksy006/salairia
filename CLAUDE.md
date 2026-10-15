@@ -225,8 +225,8 @@ Ordre de calcul (à ne pas modifier) :
 1. CA HT = TJM × jours travaillés
 2. Frais de gestion = CA HT × taux (4 à 10 %, défaut 8 %)
 3. Base cotisations = CA HT − frais gestion − frais pro non refacturables
-4. Charges patronales = base × 43 %
-5. Salaire brut = base − charges patronales
+4. Salaire brut = base / 1,43 (les charges patronales s'expriment en % du brut)
+5. Charges patronales = base − salaire brut (= brut × 43 %) — jusqu'au 15 octobre 2026 le code appliquait 43 % à la base, soit 75 % du brut : le net était sous-estimé d'un cinquième
 6. Charges salariales = brut × 22 %
 7. Net avant impôt = brut − charges salariales
 8. Net après impôt = net avant impôt × (1 − taux PAS), seulement si PAS > 0
@@ -253,7 +253,7 @@ Constantes 2026 (`TJM_2026`, codées en dur, à mettre à jour chaque année) :
 
 Ordre des calculs par statut (à ne pas modifier) :
 1. **Auto-entrepreneur** : CA = TJM × j × 12 → cotisations = CA × 25,6 % → net = CA − cotisations − frais pro
-2. **Portage salarial** : CA → frais gestion 8 % → base = CA − gestion − frais pro → charges pat 43 % → brut → charges sal 22 % → net
+2. **Portage salarial** : CA → frais gestion 8 % → base = CA − gestion − frais pro → brut = base / 1,43 → charges sal 22 % → net
 3. **SASU** : résultat = CA − frais pro − frais compta → brut = résultat / 1,42 → charges sal 22 % → net
 4. **EURL (TNS)** : résultat = CA − frais pro − frais compta → rém nette = résultat / 1,45, cotisations = rém nette × 45 %
 

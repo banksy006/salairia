@@ -31,7 +31,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés. Pour 2027, la photo s'est précisée le 1er octobre 2026 avec le dépôt du projet de loi de finances et du projet de loi de financement de la Sécurité sociale : barème de l'impôt relevé de 2,1 %, revalorisation des retraites réservée aux petites pensions, plafond unique pour les indemnités de rupture, prime d'activité gelée. Cette page distingue ce qui est acquis, ce qui n'est encore qu'un projet, et ce qui reste à publier — avec un lien vers notre analyse détaillée de chaque sujet.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-15",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },
@@ -57,7 +57,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Et pour les retraités ?",
-      r: "Deux rendez-vous distincts. La complémentaire Agirc-Arrco est revalorisée au 1er novembre 2026, sur décision des partenaires sociaux réunis le 14 octobre. Pour les pensions de base du 1er janvier 2027, le PLFSS déroge à la règle d'indexation : revalorisation sur l'inflation seulement si le total de vos pensions (base et complémentaires) ne dépasse pas 1 260 € par mois, lissage jusqu'à 1 281 €, et au-delà gel par défaut, sauf coefficients fixés par décret. S'y ajoute, côté impôt, le plafonnement à 3 000 € par foyer de l'abattement de 10 % sur les pensions, dès les revenus 2026.",
+      r: "Deux rendez-vous distincts. La complémentaire Agirc-Arrco est revalorisée de 1,4 % au 1er novembre 2026, par décision des partenaires sociaux du 14 octobre. Pour les pensions de base du 1er janvier 2027, le PLFSS déroge à la règle d'indexation : revalorisation sur l'inflation seulement si le total de vos pensions (base et complémentaires) ne dépasse pas 1 260 € par mois, lissage jusqu'à 1 281 €, et au-delà gel par défaut, sauf coefficients fixés par décret. S'y ajoute, côté impôt, le plafonnement à 3 000 € par foyer de l'abattement de 10 % sur les pensions, dès les revenus 2026.",
     },
     {
       q: "Quand tous les montants seront-ils connus ?",
@@ -265,7 +265,7 @@ export default function Page() {
             quoi: "Pensions de retraite de base",
             statut: "projet",
             actuel: "Revalorisation annuelle automatique sur l'inflation (novembre à octobre)",
-            prevu: "PLFSS (art. 35) : revalorisation sur l'inflation seulement si le total des pensions ne dépasse pas 1 260 €/mois, lissage jusqu'à 1 281 € ; au-delà, gel par défaut sauf décret. L'Agirc-Arrco décide séparément pour le 1er novembre 2026.",
+            prevu: "PLFSS (art. 35) : revalorisation sur l'inflation seulement si le total des pensions ne dépasse pas 1 260 €/mois, lissage jusqu'à 1 281 € ; au-delà, gel par défaut sauf décret. L'Agirc-Arrco a décidé +1,4 % au 1er novembre 2026.",
             href: "/guides/revalorisation-retraites-2027",
             lien: "Les deux revalorisations",
           },
@@ -300,7 +300,7 @@ export default function Page() {
                 ["1er octobre 2026 ✓", "Dépôt du PLF 2027 et du PLFSS 2027 à l'Assemblée nationale : premiers chiffres officiels."],
                 ["Début octobre 2026 ✓", "Rapport de la Commission des comptes de la Sécurité sociale : PASS 2027 estimé à 4 075 € par mois."],
                 ["12 octobre 2026 ✓", "Titres-restaurant : proposition de loi adoptée par l'Assemblée en première lecture ; Sénat le 19 novembre."],
-                ["14 octobre 2026", "Conseil d'administration de l'Agirc-Arrco : valeur du point au 1er novembre."],
+                ["14 octobre 2026 ✓", "Agirc-Arrco : +1,4 % au 1er novembre, après vingt mois de gel du point."],
                 ["Mi-novembre 2026", "Inflation d'octobre publiée par l'INSEE : coefficient légal de revalorisation des retraites."],
                 ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : premier chiffrage de la hausse de janvier."],
                 ["Mi-décembre 2026", "Décret SMIC et arrêté PASS au Journal officiel. Date limite pour moduler l'avance de crédits d'impôt."],

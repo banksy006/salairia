@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { calculerPortage } from "@/lib/calculators/portage";
 import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
 import {
@@ -26,10 +27,14 @@ export const metadata: Metadata = {
   },
 };
 
+// Cas type de la FAQ, calculé par le simulateur pour ne jamais diverger de lui.
+const EXEMPLE = calculerPortage({ tjm: 500, joursTravailles: 18, tauxFraisGestion: 8, fraisProRefacturables: 0, fraisProNonRefacturables: 0, statut: "senior", tauxPAS: 0 });
+const EUR_FAQ = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+
 const faq = [
   {
     q: "Combien je touche en portage avec un TJM de 500 € ?",
-    r: "Avec un TJM de 500 € HT et 18 jours travaillés par mois, vous réalisez 9 000 € de chiffre d'affaires HT. Après 8 % de frais de gestion, environ 43 % de charges patronales puis 22 % de charges salariales, il vous reste environ 3 700 € nets avant impôt. Ce montant varie selon la société de portage, votre mutuelle et votre prévoyance.",
+    r: `Avec un TJM de 500 € HT et 18 jours travaillés par mois, vous réalisez 9 000 € de chiffre d'affaires HT. Après 8 % de frais de gestion, des charges patronales d'environ 43 % du brut puis 22 % de charges salariales, il vous reste environ ${EUR_FAQ.format(EXEMPLE.salaireNetAvantImpot)} nets avant impôt, soit la moitié du chiffre d'affaires. Ce montant varie selon la société de portage, votre mutuelle et votre prévoyance.`,
   },
   {
     q: "Quel est le salaire minimum en portage salarial ?",
@@ -63,7 +68,7 @@ const etapes = [
   {
     n: 3,
     t: "Charges patronales",
-    d: "Environ 43 % sont prélevés sur la base restante (CA − frais de gestion − frais professionnels non refacturables). Ce sont les cotisations employeur : URSSAF, retraite, chômage, prévoyance.",
+    d: "Les cotisations employeur (URSSAF, retraite, chômage, prévoyance) représentent environ 43 % du salaire brut. La base restante (CA − frais de gestion − frais professionnels non refacturables) se partage donc entre le brut, égal à cette base divisée par 1,43, et ces charges.",
   },
   {
     n: 4,

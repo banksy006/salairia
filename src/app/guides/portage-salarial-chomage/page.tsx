@@ -139,7 +139,7 @@ export default function GuidePortageChomagePage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-08-19",
-      dateModified: "2026-10-14",
+      dateModified: "2026-10-15",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/portage-salarial-chomage`,
     },
@@ -356,7 +356,7 @@ export default function GuidePortageChomagePage() {
                 <BarChart
                   caption={`Du CA facturé à l'allocation — TJM ${TJM} €, ${JOURS} jours/mois, ${FRAIS_GESTION} % de frais de gestion`}
                   data={cascade}
-                  footnote="Cascade calculée par notre simulateur de portage puis par notre calculateur d'ARE, avec les paramètres Unédic d'avril 2026. Estimation indicative : seule France Travail détermine votre droit réel."
+                  footnote="Cascade calculée par notre simulateur de portage puis par notre calculateur d'ARE, avec les paramètres Unédic en vigueur depuis le 1er juillet 2025, reconduits le 30 juin 2026. Estimation indicative : seule France Travail détermine votre droit réel."
                 />
               </div>
 
@@ -367,8 +367,8 @@ export default function GuidePortageChomagePage() {
                   <strong>{EUR.format(are.allocationMensuelle)}</strong> bruts,
                   soit {EUR2.format(are.allocationJournaliere)} par jour
                   indemnisé. Rapportée au chiffre d&apos;affaires facturé, elle
-                  représente moins de{" "}
-                  {Math.round((are.allocationMensuelle * 12 / caAnnuel) * 100)} %.
+                  représente environ{" "}
+                  {Math.round((are.allocationJournaliere * 365 / caAnnuel) * 100)} %.
                   Rapportée au salaire brut, elle atteint en revanche{" "}
                   {Math.round(are.tauxRemplacement * 100)} % — le taux de
                   remplacement réel.
@@ -495,7 +495,7 @@ export default function GuidePortageChomagePage() {
                 <p className="mt-6 text-xs italic text-muted-foreground">
                   Dernière mise à jour : octobre 2026. Les montants d&apos;allocation
                   présentés sont des estimations calculées avec les paramètres
-                  Unédic d&apos;avril 2026 ; seule France Travail détermine votre
+                  Unédic en vigueur depuis juillet 2025 (reconduits en juin 2026) ; seule France Travail détermine votre
                   droit réel, en fonction de votre parcours exact. Ce guide est
                   informatif et ne constitue pas un conseil juridique. Une
                   erreur ?{" "}

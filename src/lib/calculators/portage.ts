@@ -74,9 +74,13 @@ export function calculerPortage(
     caHT - fraisGestion - inputs.fraisProNonRefacturables,
   );
 
-  const chargesPatronales =
-    baseCotisations * PORTAGE_2026.CHARGES_PATRONALES_TAUX;
-  const salaireBrut = baseCotisations - chargesPatronales;
+  // Les charges patronales s'expriment en % du salaire brut (convention paie) :
+  // brut + charges = base, donc brut = base / 1,43. Les appliquer à la base
+  // revenait à prélever 75 % du brut et sous-estimait le net d'un cinquième —
+  // corrigé le 15 octobre 2026.
+  const salaireBrut =
+    baseCotisations / (1 + PORTAGE_2026.CHARGES_PATRONALES_TAUX);
+  const chargesPatronales = baseCotisations - salaireBrut;
 
   const chargesSalariales =
     salaireBrut * PORTAGE_2026.CHARGES_SALARIALES_TAUX;

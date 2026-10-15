@@ -21,16 +21,19 @@ const EXEMPLES = [
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const EUR2 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 2 });
+// La valeur officielle du point a cinq décimales : l'afficher arrondie à 4,92 € fait
+// apparaître des écarts de 1 à 2 € dans le tableau par rapport au calcul exact.
+const EUR5 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 5, maximumFractionDigits: 5 });
 const brut = (im: number) => im * POINT_MENSUEL;
 
 const meta: GuideMeta = {
   slug: "point-indice-fonction-publique",
   titre: "Point d'indice de la fonction publique : valeur, calcul et gel",
-  sousTitre: `${EUR2.format(POINT_MENSUEL)} par point et par mois — inchangé depuis le 1er juillet 2023`,
-  chapo: `Le traitement d'un fonctionnaire ne se négocie pas : il se calcule. Indice majoré multiplié par la valeur du point, point final. Cette valeur est gelée à ${EUR2.format(POINT_MENSUEL)} depuis le 1er juillet 2023 — trois années consécutives sans revalorisation, alors que les prix, eux, ont continué de monter. Voici la formule exacte, ce qu'elle donne pour six niveaux de carrière, et l'état des discussions pour 2027.`,
+  sousTitre: `${EUR5.format(POINT_MENSUEL)} par point et par mois — inchangé depuis le 1er juillet 2023`,
+  chapo: `Le traitement d'un fonctionnaire ne se négocie pas : il se calcule. Indice majoré multiplié par la valeur du point, point final. Cette valeur est gelée à ${EUR5.format(POINT_MENSUEL)} depuis le 1er juillet 2023 — trois années consécutives sans revalorisation, alors que les prix, eux, ont continué de monter. Voici la formule exacte, ce qu'elle donne pour six niveaux de carrière, et l'état des discussions pour 2027.`,
   filAriane: "Point d'indice",
   datePublished: "2026-08-29",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-15",
   tocItems: [
     { id: "valeur", label: "La valeur du point" },
     { id: "calcul", label: "Calculer son traitement" },
@@ -40,11 +43,11 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Quelle est la valeur du point d'indice de la fonction publique ?",
-      r: `${EUR2.format(POINT_MENSUEL)} bruts par point et par mois, soit ${EUR2.format(POINT_ANNUEL)} en valeur annuelle. Cette valeur est identique dans les trois versants — fonction publique d'État, territoriale et hospitalière — et n'a pas bougé depuis le 1er juillet 2023, date de la dernière revalorisation (+1,5 %). Le gel a été confirmé pour 2026, ce qui en fait la troisième année consécutive sans hausse.`,
+      r: `${EUR5.format(POINT_MENSUEL)} bruts par point et par mois, soit ${EUR2.format(POINT_ANNUEL)} en valeur annuelle. Cette valeur est identique dans les trois versants — fonction publique d'État, territoriale et hospitalière — et n'a pas bougé depuis le 1er juillet 2023, date de la dernière revalorisation (+1,5 %). Le gel a été confirmé pour 2026, ce qui en fait la troisième année consécutive sans hausse.`,
     },
     {
       q: "Comment calculer son traitement brut à partir de son indice ?",
-      r: `La formule est simple : traitement brut mensuel = indice majoré × ${EUR2.format(POINT_MENSUEL)}. Un agent à l'indice majoré 400 perçoit donc ${EUR.format(brut(400))} bruts par mois, un agent à l'IM 600 ${EUR.format(brut(600))}. Attention à ne pas confondre l'indice brut (celui de la grille statutaire, souvent le plus visible) et l'indice majoré (celui qui sert au calcul) : une table de correspondance officielle relie les deux. C'est l'indice majoré, et lui seul, qui figure sur votre bulletin de paie et qu'il faut utiliser.`,
+      r: `La formule est simple : traitement brut mensuel = indice majoré × ${EUR5.format(POINT_MENSUEL)}. Un agent à l'indice majoré 400 perçoit donc ${EUR.format(brut(400))} bruts par mois, un agent à l'IM 600 ${EUR.format(brut(600))}. Attention à ne pas confondre l'indice brut (celui de la grille statutaire, souvent le plus visible) et l'indice majoré (celui qui sert au calcul) : une table de correspondance officielle relie les deux. C'est l'indice majoré, et lui seul, qui figure sur votre bulletin de paie et qu'il faut utiliser.`,
     },
     {
       q: "Le traitement indiciaire, est-ce tout mon salaire ?",
@@ -68,8 +71,8 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: `Point d'indice fonction publique : ${EUR2.format(POINT_MENSUEL)}, gelé depuis 2023`,
-  description: `La valeur du point d'indice majoré est de ${EUR2.format(POINT_MENSUEL)} bruts par mois, inchangée depuis le 1er juillet 2023. La formule de calcul du traitement, six exemples chiffrés de l'IM 366 à l'IM 800, l'effet du gel sur le pouvoir d'achat et l'état des discussions pour 2027.`,
+  title: `Point d'indice fonction publique : ${EUR5.format(POINT_MENSUEL)}, gelé depuis 2023`,
+  description: `La valeur du point d'indice majoré est de ${EUR5.format(POINT_MENSUEL)} bruts par mois, inchangée depuis le 1er juillet 2023. La formule de calcul du traitement, six exemples chiffrés de l'IM 366 à l'IM 800, l'effet du gel sur le pouvoir d'achat et l'état des discussions pour 2027.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Point d'indice fonction publique : valeur, calcul et gel",
@@ -88,7 +91,7 @@ export default function Page() {
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
-            { v: EUR2.format(POINT_MENSUEL), l: "valeur mensuelle du point d'indice majoré" },
+            { v: EUR5.format(POINT_MENSUEL), l: "valeur mensuelle du point d'indice majoré" },
             { v: EUR2.format(POINT_ANNUEL), l: "valeur annuelle correspondante" },
             { v: "1er juillet 2023", l: "date de la dernière revalorisation (+1,5 %)" },
           ].map((c) => (
@@ -115,7 +118,7 @@ export default function Page() {
         </h2>
         <div className="mt-4 rounded-xl bg-muted p-5 text-center">
           <p className="text-lg font-semibold text-foreground">
-            Traitement brut mensuel = indice majoré × {EUR2.format(POINT_MENSUEL)}
+            Traitement brut mensuel = indice majoré × {EUR5.format(POINT_MENSUEL)}
           </p>
         </div>
         <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-white shadow-md">

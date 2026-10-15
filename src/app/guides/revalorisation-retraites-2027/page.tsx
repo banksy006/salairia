@@ -14,6 +14,11 @@ const SEUIL_HAUT = 2_034;
 // proposé par le PLF 2027, art. 3, dès l'imposition des revenus 2026.
 const PLAFOND_ABATTEMENT_ACTUEL = 4_439;
 const PLAFOND_ABATTEMENT_PLF = 3_000;
+// Agirc-Arrco : +1,4 % au 1er novembre 2026, décidé par le conseil
+// d'administration du 14 octobre 2026 (communiqué agirc-arrco.fr du même
+// jour). Formule de référence de l'accord de 2023 : 2,0 % d'inflation hors
+// tabac − 0,4 pt = 1,6 % ; le conseil a retenu 0,2 pt de moins.
+const AGIRC_HAUSSE = 0.014;
 
 // Barème proposé par le PLF 2027 (art. 2) pour l'impôt sur les revenus 2026,
 // décote « couple » comprise — utilisé pour l'exemple de l'abattement.
@@ -53,7 +58,7 @@ const PROFILS = [
   { label: "Ancien cadre", base: 1_400, compl: 1_400 },
 ].map((p) => {
   const total = p.base + p.compl;
-  return { ...p, total, parPoint: p.base * 0.01, plein: total <= SEUIL_PLEIN };
+  return { ...p, total, parPoint: p.base * 0.01, agirc: p.compl * AGIRC_HAUSSE, plein: total <= SEUIL_PLEIN };
 });
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
@@ -62,11 +67,11 @@ const EUR2 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR"
 const meta: GuideMeta = {
   slug: "revalorisation-retraites-2027",
   titre: "Revalorisation des retraites 2027 : qui sera augmenté, qui sera gelé",
-  sousTitre: `Le budget 2027 réserve la hausse de janvier aux pensions jusqu'à ${EUR.format(SEUIL_PLEIN)} par mois et gèle par défaut les autres — l'Agirc-Arrco, elle, décide seule pour le 1er novembre`,
-  chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. Les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, est revalorisée séparément au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
+  sousTitre: `Le budget 2027 réserve la hausse de janvier aux pensions jusqu'à ${EUR.format(SEUIL_PLEIN)} par mois et gèle par défaut les autres — l'Agirc-Arrco, elle, a tranché : +1,4 % au 1er novembre`,
+  chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. Les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, a décidé le 14 octobre 2026 une hausse de 1,4 % au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-15",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "La base : ce que prévoit le PLFSS" },
@@ -89,7 +94,7 @@ const meta: GuideMeta = {
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",
-      r: "Non : l'article 35 vise les régimes de base. La complémentaire Agirc-Arrco est pilotée par les partenaires sociaux, qui fixent la valeur du point au 1er novembre dans le cadre de leur accord — l'inflation prévue, minorée le cas échéant d'un facteur de soutenabilité pouvant aller jusqu'à 0,4 point. Le conseil d'administration se réunit le 14 octobre 2026 pour fixer la valeur du point au 1er novembre, après une année 2025 sans revalorisation ; cette page sera mise à jour à l'annonce. En revanche, le montant de votre Agirc-Arrco compte dans le total qui détermine si votre pension de base est revalorisée.",
+      r: "Non : l'article 35 vise les régimes de base. La complémentaire Agirc-Arrco est pilotée par les partenaires sociaux, qui fixent la valeur du point au 1er novembre dans le cadre de leur accord — l'inflation prévue, minorée le cas échéant d'un facteur de soutenabilité pouvant aller jusqu'à 0,4 point. Réuni le 14 octobre 2026, le conseil d'administration a décidé une hausse de 1,4 % au 1er novembre 2026 — 0,2 point sous la formule de référence de 1,6 % (2 % d'inflation prévue moins 0,4 point de soutenabilité), après une année 2025 sans revalorisation. En revanche, le montant de votre Agirc-Arrco compte dans le total qui détermine si votre pension de base est revalorisée.",
     },
     {
       q: "Les retraités paieront-ils plus d'impôt en 2027 ?",
@@ -100,6 +105,7 @@ const meta: GuideMeta = {
     { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211, art. 35 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
     { label: "Projet de loi de finances pour 2027, n° 3210, art. 3 — abattement des retraités (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
     { label: "Code de la sécurité sociale, art. L161-25 — revalorisation sur l'inflation (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033715437" },
+    { label: "Agirc-Arrco — communiqué du 14 octobre 2026 : revalorisation de +1,4 % au 1er novembre 2026", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
     { label: "Agirc-Arrco — la valeur du point", href: "https://www.agirc-arrco.fr/ma-retraite/valeur-du-point/" },
     { label: "service-public.fr — montant et revalorisation de la retraite", href: "https://www.service-public.fr/particuliers/vosdroits/N381" },
   ],
@@ -107,7 +113,7 @@ const meta: GuideMeta = {
 
 export const metadata: Metadata = {
   title: "Revalorisation des retraites 2027 : hausse sous 1 260 €, gel au-delà (PLFSS)",
-  description: `Le PLFSS 2027 réserve la revalorisation de janvier aux retraités dont l'ensemble des pensions ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois, avec un gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}. L'Agirc-Arrco décide séparément pour le 1er novembre. Abattement de 10 % plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Mécanisme, seuils et effet chiffré par profil.`,
+  description: `Le PLFSS 2027 réserve la revalorisation de janvier aux retraités dont l'ensemble des pensions ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois, avec un gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}. L'Agirc-Arrco a décidé +1,4 % au 1er novembre. Abattement de 10 % plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Mécanisme, seuils et effet chiffré par profil.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Retraites 2027 : qui sera augmenté, qui sera gelé",
@@ -138,7 +144,7 @@ export default function Page() {
                 ["Date", "1er janvier 2027", "1er novembre 2026"],
                 ["Qui décide", "La loi — mais le PLFSS 2027 déroge à l'indexation automatique pour 2027", "Le conseil d'administration paritaire du régime"],
                 ["Sur quelle base", "Inflation moyenne hors tabac, novembre 2025 → octobre 2026 (chiffre connu mi-novembre)", "Inflation prévue, minorée d'un facteur de soutenabilité (jusqu'à −0,4 pt)"],
-                ["Ce qui est prévu", `Hausse pleine si pensions totales ≤ ${EUR.format(SEUIL_PLEIN)}/mois ; gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}, sauf décret`, "Conseil d'administration du 14 octobre 2026, entre +1,2 % et +2 % selon l'accord de 2023"],
+                ["Ce qui est décidé", `Hausse pleine si pensions totales ≤ ${EUR.format(SEUIL_PLEIN)}/mois ; gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}, sauf décret (projet de loi)`, "+1,4 % au 1er novembre 2026, décidé le 14 octobre (formule de référence : 1,6 %)"],
                 ["Précédents récents", "Gel proposé pour 2026 puis abandonné : +0,9 % au 1er janvier 2026", "0 % en novembre 2025"],
               ].map(([k, a, b]) => (
                 <tr key={k} className="border-b border-border align-top last:border-b-0">
@@ -213,10 +219,12 @@ export default function Page() {
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
             La conséquence pratique : l&apos;Agirc-Arrco peut décider{" "}
-            <strong>zéro</strong> — elle l&apos;a fait en novembre 2025.
-            L&apos;article 35 du PLFSS ne la concerne pas : sa décision pour le
-            1er novembre 2026, prise lors de son conseil du 14 octobre, sera intégrée ici dès sa
-            publication. Rappel utile : la valeur d&apos;<em>achat</em> du point
+            <strong>zéro</strong> — elle l&apos;a fait en novembre 2025. Pour
+            2026, son conseil d&apos;administration a tranché le 14 octobre :{" "}
+            <strong>+1,4 % au 1er novembre</strong>, soit 0,2 point sous la
+            formule de référence (2 % d&apos;inflation prévue moins 0,4 point),
+            visible sur le virement du 2 novembre. L&apos;article 35 du PLFSS
+            ne la concerne pas. Rappel utile : la valeur d&apos;<em>achat</em> du point
             (pour les actifs qui cotisent) évolue séparément — une hausse de la
             première n&apos;améliore pas le rendement de la seconde.
           </p>
@@ -272,6 +280,7 @@ export default function Page() {
               <tr>
                 <th className="px-5 py-4">Profil</th>
                 <th className="px-5 py-4 text-right">Base + complémentaire</th>
+                <th className="px-5 py-4 text-right">Agirc-Arrco +1,4 % (nov. 2026)</th>
                 <th className="px-5 py-4 text-right">1 point d&apos;inflation vaut</th>
                 <th className="px-5 py-4 text-right">En janvier 2027, par défaut</th>
               </tr>
@@ -284,6 +293,7 @@ export default function Page() {
                     {EUR.format(p.base)} + {EUR.format(p.compl)}
                     <span className="block text-xs text-muted-foreground">total {EUR.format(p.total)}</span>
                   </td>
+                  <td className="px-5 py-3 text-right tabular-nums text-accent">+{EUR2.format(p.agirc)} / mois</td>
                   <td className="px-5 py-3 text-right tabular-nums text-foreground/80">+{EUR2.format(p.parPoint)} / mois</td>
                   <td className="px-5 py-3 text-right">
                     {p.plein ? (

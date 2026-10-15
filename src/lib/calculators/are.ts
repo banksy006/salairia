@@ -2,7 +2,7 @@
  * Calcul de l'allocation d'aide au retour à l'emploi (ARE).
  *
  * Sources : Unédic, « Paramètres utiles » ; France Travail, « Comment est
- * calculé le montant de mon allocation ». Vérifié le 20 août 2026.
+ * calculé le montant de mon allocation ». Vérifié le 15 octobre 2026.
  *
  * Les paramètres ci-dessous sont ceux en vigueur depuis le 1er juillet 2025 :
  * le conseil d'administration de l'Unédic a décidé le 30 juin 2026 de ne pas
@@ -30,7 +30,12 @@ export const ARE_2026 = {
   HEURES_REQUISES_PRIMO_ENTRANT: 758,
   PERIODE_REFERENCE_MOIS: 24,
   PERIODE_REFERENCE_MOIS_SENIOR: 36,
-  AGE_PERIODE_ALLONGEE: 53,
+  // Période de référence de 36 mois à partir de 55 ans à la fin du contrat
+  // (57 ans avant le 1er avril 2025 ; 53 ans n'a jamais été le seuil de la
+  // période de référence). Source : circulaire Unédic n° 2025-03 du 1er avril
+  // 2025 ; fiche Unédic « Durée d'indemnisation », avril 2025. Vérifié le
+  // 15 octobre 2026.
+  AGE_PERIODE_ALLONGEE: 55,
 } as const;
 
 export interface AreResult {

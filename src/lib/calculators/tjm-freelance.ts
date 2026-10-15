@@ -127,8 +127,9 @@ export function calculerStatut(
     case "portage": {
       fraisGestion = caHT * TJM_2026.PORTAGE_FRAIS_GESTION;
       const base = Math.max(0, caHT - fraisGestion - fraisProAnnuel);
-      const chargesPat = base * TJM_2026.PORTAGE_CHARGES_PATRONALES;
-      const salaireBrut = base - chargesPat;
+      // Charges patronales en % du brut, comme pour la SASU : brut = base / 1,43.
+      const salaireBrut = base / (1 + TJM_2026.PORTAGE_CHARGES_PATRONALES);
+      const chargesPat = base - salaireBrut;
       const chargesSal = salaireBrut * TJM_2026.PORTAGE_CHARGES_SALARIALES;
       netAvantImpot = salaireBrut - chargesSal;
       cotisations = chargesPat + chargesSal;

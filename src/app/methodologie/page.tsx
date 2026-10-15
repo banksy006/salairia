@@ -8,8 +8,7 @@ import {
   CalculatorIcon,
   AlertTriangleIcon,
   SearchIcon,
-  ZapIcon,
-} from "@/components/icons";
+  ZapIcon, ShieldIcon } from "@/components/icons";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
@@ -105,6 +104,7 @@ const tocItems = [
   { id: "sources", label: "Nos sources" },
   { id: "processus", label: "Processus de calcul" },
   { id: "frequence", label: "Mises à jour" },
+  { id: "mesure", label: "Audience et cookies" },
   { id: "limites", label: "Limites" },
   { id: "erreur", label: "Signaler une erreur" },
 ] as const;
@@ -299,6 +299,41 @@ export default function MethodologiePage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </section>
+
+            {/* Audience et cookies */}
+            <section id="mesure" className="scroll-mt-24">
+              <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                <IconBadge><ShieldIcon className="w-4 h-4" /></IconBadge>
+                Comment nous mesurons l&apos;audience
+              </h2>
+
+              <div className="mt-8 rounded-2xl bg-muted/50 p-8 sm:p-10">
+                <p className="text-base leading-relaxed text-foreground/80">
+                  Salairia ne dépose <strong>aucun cookie</strong> et ne charge
+                  aucun script publicitaire. La fréquentation est mesurée avec{" "}
+                  <a href="https://plausible.io" target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                    Plausible Analytics
+                  </a>
+                  , un outil européen (hébergé en Allemagne) qui compte les pages
+                  vues sans identifiant individuel, sans cookie et sans suivi
+                  d&apos;un site à l&apos;autre — ce qui nous dispense de
+                  bandeau de consentement, et vous d&apos;avoir à le refuser.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-foreground/80">
+                  Ce que vous saisissez dans un simulateur reste dans votre
+                  navigateur : rien n&apos;est envoyé à nos serveurs ni
+                  conservé. Le détail figure dans notre{" "}
+                  <Link href="/politique-cookies" className="text-primary underline-offset-4 hover:underline">
+                    politique cookies
+                  </Link>{" "}
+                  et notre{" "}
+                  <Link href="/politique-confidentialite" className="text-primary underline-offset-4 hover:underline">
+                    politique de confidentialité
+                  </Link>
+                  .
+                </p>
               </div>
             </section>
 
