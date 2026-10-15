@@ -246,9 +246,9 @@
     "fraisGestion": "À partir de 5 %",
     "fraisDetail": "Dégressif à partir de 5 %. Transparent et sans frais cachés.",
     "plafond": null,
-    "avisPlateforme": "Trustpilot",
-    "avisNote": 4.6,
-    "avisNombre": 19,
+    "avisPlateforme": "Google",
+    "avisNote": 4.9,
+    "avisNombre": 80,
     "labelPEPS": true,
     "portesTotal": "5 000+",
     "reseau": "Toulouse + national",
@@ -262,20 +262,19 @@
     ],
     "idealPour": "Consultants tech/IT qui veulent une communauté active",
     "points_forts": [
-      "4,6/5 sur Trustpilot (19 avis au 14 octobre 2026)",
+      "4,9/5 sur Google (80 avis au 15 octobre 2026)",
       "Communauté Slack active entre portés",
       "Label PEPS",
       "Filiale du groupe 2i, implanté à Toulouse et au national"
     ],
     "points_faibles": [
       "Basée à Toulouse, moins de présence hors Sud-Ouest",
-      "Peu d'avis publics après le changement de plateforme d'avis en 2026",
       "Moins connue que ITG ou OpenWork"
     ],
     "site": "https://www.2iportage.com",
     "choixSalairia": false,
     "tarifPublie": false,
-    "dateVerification": "2026-10-14",
+    "dateVerification": "2026-10-15",
     "tauxEstimePct": 5,
     "alerte": null
   },
