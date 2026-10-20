@@ -125,6 +125,20 @@ Le `.ico` est généré à partir de la même géométrie que `icon.svg` (fond `
 
 Aucune action n'est requise pour une nouvelle page : elle hérite des icônes automatiquement.
 
+## Email du domaine — signature et DMARC
+
+La signature Gmail de `nizar@salairia.com` charge ses images depuis `public/email/` : `nizar-laghrifi.png` (192 px, affichée à 96) et `salairia-logo.png` (48 px, affichée à 24). Chaque mail envoyé pointe vers ces URL : **ne jamais les renommer ni les supprimer**, sinon les images cassent dans tous les mails déjà partis. Pour changer une image, la remplacer sous le même nom et incrémenter le `?v=` dans la signature.
+
+Le DNS est chez **name.com**, pas chez Vercel. La réception passe par la redirection name.com (MX `mx*.name.com`) ; SPF actuel : `v=spf1 a mx ~all`.
+
+**Rappel — DMARC absent (vérifié le 20 octobre 2026).** À ajouter chez name.com avant le lancement de la newsletter Brevo et des mails de prospection envoyés depuis `nizar@salairia.com` :
+
+```
+_dmarc.salairia.com  TXT  "v=DMARC1; p=none; rua=mailto:contact@salairia.com"
+```
+
+`p=none` ne bloque aucun mail : on lit les rapports deux à quatre semaines, puis on passe à `p=quarantine`. Si Brevo propose sa propre valeur DMARC à l'authentification du domaine, prendre la sienne — un seul enregistrement `_dmarc`, jamais deux. Supprimer ce rappel une fois l'enregistrement en place (`dig +short TXT _dmarc.salairia.com`).
+
 ## Convention de commits
 
 Préfixes à utiliser (type conventional commits allégé) :
