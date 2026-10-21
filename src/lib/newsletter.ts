@@ -79,8 +79,10 @@ export function verifier(action: "confirmer" | "desinscrire", token: string): st
 // Supabase : la table est fermée (RLS sans policy). Seules trois fonctions
 // SECURITY DEFINER sont exposées à la clé publique, appelées ici en RPC.
 async function rpc<T>(fn: string, args: Record<string, string>): Promise<T> {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
+  // Le dashboard Supabase affiche l'URL tantôt nue, tantôt suivie de
+  // /rest/v1/ : on accepte les deux pour ne pas dépendre du copier-coller.
+  const url = process.env.SUPABASE_URL?.trim().replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
+  const key = process.env.SUPABASE_ANON_KEY?.trim();
   if (!url || !key) throw new Error("SUPABASE_URL / SUPABASE_ANON_KEY manquants");
   const res = await fetch(`${url}/rest/v1/rpc/${fn}`, {
     method: "POST",
