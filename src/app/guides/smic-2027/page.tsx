@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import NewsletterForm from "@/components/NewsletterForm";
 import { IconBadge, CalendarIcon, CalculatorIcon, PercentIcon, InfoIcon } from "@/components/icons";
 import { SALAIRE_2026, calculerBrutVersNet } from "@/lib/calculators/salaire-brut-net";
 
@@ -25,7 +26,7 @@ const meta: GuideMeta = {
   chapo: "Le montant du SMIC 2027 n'existe pas encore : il sera fixé par décret mi-décembre 2026, pour une entrée en vigueur au 1er janvier 2027. Mais la formule qui le déterminera, elle, est connue et publique. Cette page explique la mécanique de revalorisation, rappelle les valeurs en vigueur, et sera mise à jour le jour de la publication du décret avec les montants exacts.",
   filAriane: "SMIC 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-21",
   tocItems: [
     { id: "actuel", label: "Le SMIC aujourd'hui" },
     { id: "formule", label: "La formule de revalorisation" },
@@ -158,6 +159,14 @@ export default function Page() {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="mt-6">
+          <NewsletterForm
+            categorie="smic"
+            titre="Reçois le SMIC 2027 le jour du décret"
+            texte="Le montant brut, le net calculé par notre simulateur et le lien vers le Journal officiel, dans ta boîte mail à la minute où il devient officiel."
+            page="/guides/smic-2027"
+          />
         </div>
       </section>
 

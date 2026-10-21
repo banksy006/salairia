@@ -1,17 +1,18 @@
 # STATUS — état du site
 
 > Référence factuelle de ce qui existe. À relire avant toute tâche qui touche la structure du site, et à mettre à jour à chaque ajout de route.
-> **Dernière mise à jour : 19 août 2026.**
+> **Dernière mise à jour : 21 octobre 2026.**
 
 ## En un coup d'œil
 
 | | |
 |---|---|
-| Routes publiées | 156 |
-| URLs au sitemap | 151 |
+| Routes publiées | 159 |
+| URLs au sitemap | 152 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
+| Newsletter | Capture d'email en ligne sur 4 pages 2027 + `/newsletter` (Supabase + Resend, double opt-in) — ajoutée le 21 octobre 2026, voir CLAUDE.md « Newsletter » |
 | Monétisation | **Non branchée** — liens partenaires encore en placeholder |
 
 ## Performance Search Console — 19 août 2026 (92 jours)
@@ -142,6 +143,10 @@ Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des c
 
 ### Institutionnel et légal
 `/a-propos` · `/methodologie` · `/contact` · `/mentions-legales` · `/politique-confidentialite` · `/politique-cookies`
+
+## Newsletter — 21 octobre 2026
+
+Blocs `NewsletterForm` sur smic-2027, plafond-securite-sociale-2027, bareme-impot-2027 et calendrier-paiement-retraite-2027, hub `/newsletter`, pages `/newsletter/confirmee` et `/newsletter/desinscrite` (noindex), routes `/api/newsletter*`. Liste stockée dans Supabase (`docs/newsletter.sql`), confirmation envoyée par Resend. Objectif : 150 à 300 inscrits confirmés avant le décret SMIC de mi-décembre ; premier envoi ce jour-là. Mesure : objectif Plausible « Inscription newsletter » (propriété `categorie`).
 
 ## Fraîcheur des données
 

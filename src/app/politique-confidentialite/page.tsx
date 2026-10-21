@@ -172,8 +172,38 @@ export default function PolitiqueConfidentialitePage() {
                 Pas de réutilisation marketing, pas de transfert à des tiers.
               </p>
 
+              <h3 id="newsletter" className="scroll-mt-24 pt-2 text-lg font-semibold text-foreground">
+                3. Newsletter et alertes par email
+              </h3>
+              <p>
+                Si vous vous inscrivez à nos alertes (SMIC 2027, plafond de la
+                Sécurité sociale, barème de l&apos;impôt, retraites…), nous
+                conservons votre adresse email, la catégorie d&apos;alerte
+                choisie, la page depuis laquelle vous vous êtes inscrit et les
+                dates d&apos;inscription et de confirmation. Base légale : votre
+                consentement, recueilli en deux temps (formulaire puis lien de
+                confirmation reçu par email). Une adresse non confirmée
+                n&apos;est jamais utilisée et est supprimée.
+              </p>
+              <p>
+                Ces données servent uniquement à vous envoyer les alertes
+                demandées et, pour la liste générale, un récapitulatif mensuel.
+                Elles ne sont ni revendues ni transmises à des annonceurs.
+                Elles sont stockées chez Supabase (base de données hébergée en
+                Europe) et les emails sont envoyés via Resend ; ces deux
+                prestataires agissent comme sous-traitants et n&apos;utilisent
+                pas vos données pour leur propre compte.
+              </p>
+              <p>
+                Chaque email contient un lien de désinscription en un clic. La
+                désinscription retire immédiatement votre adresse de la liste ;
+                elle est ensuite supprimée définitivement. Vous pouvez aussi
+                demander l&apos;accès, la rectification ou la suppression de
+                ces données à <MailLink />.
+              </p>
+
               <h3 className="pt-2 text-lg font-semibold text-foreground">
-                3. Données NON collectées
+                4. Données NON collectées
               </h3>
               <ul className="ml-6 list-disc space-y-1">
                 <li>
@@ -304,8 +334,10 @@ export default function PolitiqueConfidentialitePage() {
                   Données analytics hébergées en Europe (Plausible, Allemagne)
                 </li>
                 <li>
-                  Aucun stockage de données utilisateur côté Salairia (pas de
-                  base de données contenant des informations personnelles)
+                  La seule donnée personnelle stockée est l&apos;adresse email
+                  des abonnés à la newsletter, dans une base fermée accessible
+                  uniquement par nos fonctions d&apos;inscription, de
+                  confirmation et de désinscription
                 </li>
               </ul>
             </Section>

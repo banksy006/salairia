@@ -139,6 +139,28 @@ _dmarc.salairia.com  TXT  "v=DMARC1; p=none; rua=mailto:contact@salairia.com"
 
 `p=none` ne bloque aucun mail : on lit les rapports deux à quatre semaines, puis on passe à `p=quarantine`. Si Brevo propose sa propre valeur DMARC à l'authentification du domaine, prendre la sienne — un seul enregistrement `_dmarc`, jamais deux. Supprimer ce rappel une fois l'enregistrement en place (`dig +short TXT _dmarc.salairia.com`).
 
+## Newsletter — capture d'email (21 octobre 2026)
+
+Objectif : transformer les lecteurs des pages « chiffre 2027 » (SMIC, PASS, barème, retraites) en liste possédée, avant le décret SMIC de mi-décembre. Pas de pop-up : un bloc `NewsletterForm` en ligne, placé là où la page dit que le chiffre définitif n'est pas encore connu, avec une promesse datée par page.
+
+| Pièce | Fichier |
+|---|---|
+| Formulaire client (états idle / envoi / confirmé / déjà inscrit / erreur, honeypot `site`) | `src/components/NewsletterForm.tsx` |
+| Catégories, validation, jetons HMAC, appels Supabase (RPC) et Resend (REST) | `src/lib/newsletter.ts` (`server-only`) |
+| Routes | `POST /api/newsletter` · `GET /api/newsletter/confirmer?t=` · `GET /api/newsletter/desinscrire?t=` |
+| Pages | `/newsletter` (hub, indexée) · `/newsletter/confirmee` et `/newsletter/desinscrite` (noindex) |
+| Blocs en page | smic-2027 (section calendrier), plafond-securite-sociale-2027 (revalorisation), bareme-impot-2027 (calendrier), calendrier-paiement-retraite-2027 (fin-2026) |
+
+**Données** : table `public.abonnes` (email unique, categorie, page, cree_le, confirme_le, desinscrit_le), RLS activée **sans policy**. Seules trois fonctions `SECURITY DEFINER` (`newsletter_inscrire`, `newsletter_confirmer`, `newsletter_desinscrire`) sont exécutables par la clé publique, ce qui suffit aux routes serveur. Le SQL de référence est dans `docs/newsletter.sql`.
+
+**Double opt-in obligatoire** : une adresse non confirmée (`confirme_le` null) ne reçoit jamais de newsletter. Les jetons de confirmation et de désinscription sont des HMAC-SHA256 sans état (`NEWSLETTER_SECRET`), donc rien à stocker ni à expirer.
+
+**Variables Vercel** : `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `RESEND_API_KEY`, `NEWSLETTER_SECRET` (32 octets aléatoires), `NEWSLETTER_FROM` (défaut `Salairia <newsletter@salairia.com>`). Aucune dépendance npm ajoutée : Supabase et Resend sont appelés en `fetch`.
+
+**Mesure** : événement Plausible `Inscription newsletter` avec la propriété `categorie`, déclenché côté client au premier succès. À déclarer comme objectif dans le dashboard Plausible. Aucun cookie.
+
+**Règles** : chaque mail envoyé doit contenir le lien de désinscription signé (`signer("desinscrire", email)`) ; la politique de confidentialité (section « Newsletter et alertes par email ») cite Supabase et Resend comme sous-traitants — la mettre à jour si l'un des deux change. Tutoiement dans les formulaires et les mails, comme le reste de l'interface.
+
 ## Convention de commits
 
 Préfixes à utiliser (type conventional commits allégé) :
@@ -177,6 +199,7 @@ Décisions prises et à ne **pas** remettre en question sans discussion explicit
 
 - **Pas de base de données au MVP.**
   Contenu en JSON statique, rendu statique + ISR. Introduire une DB change le modèle de déploiement et se décide explicitement.
+  **Exception décidée le 21 octobre 2026** : la liste des abonnés newsletter vit dans une table Supabase (`abonnes`), parce que le système de fichiers Vercel est en lecture seule. Le contenu du site, lui, reste statique. Voir la section « Newsletter ».
 
 - **Mode clair uniquement.**
   Pas de dark mode tant que le besoin n'est pas prouvé. Éviter d'ajouter des classes `dark:*` sans discussion.

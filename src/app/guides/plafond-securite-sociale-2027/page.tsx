@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import NewsletterForm from "@/components/NewsletterForm";
 import { IconBadge, ShieldIcon, CalculatorIcon, CalendarIcon, InfoIcon } from "@/components/icons";
 import { SALAIRE_2026 } from "@/lib/calculators/salaire-brut-net";
 import { salaireMinimumMensuel } from "@/lib/calculators/portage";
@@ -34,7 +35,7 @@ const meta: GuideMeta = {
   chapo: "C'est le paramètre le plus discret et le plus structurant de la paie française : le plafond de la Sécurité sociale borne les cotisations plafonnées, découpe les tranches de retraite complémentaire, plafonne les indemnités exonérées et fixe les minima du portage salarial. Sa valeur 2027 est désormais estimée : 4 075 € par mois selon la Commission des comptes de la Sécurité sociale, avant l'arrêté de fin décembre. Et le budget 2027 lui confie un rôle de plus — plafonner les indemnités de rupture. Voici à quoi il sert, ligne par ligne, et ce que sa revalorisation changera.",
   filAriane: "PASS 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-08",
+  dateModified: "2026-10-21",
   tocItems: [
     { id: "quoi", label: "Ce qu'est le PASS" },
     { id: "usages", label: "Tout ce qu'il pilote" },
@@ -194,6 +195,14 @@ export default function Page() {
             marge. Nos simulateurs continuent d&apos;appliquer{" "}
             {EUR.format(PASS_M)} jusqu&apos;au 1er janvier.
           </p>
+        </div>
+        <div className="mt-6">
+          <NewsletterForm
+            categorie="pass"
+            titre="Reçois le PASS 2027 dès la parution de l'arrêté"
+            texte="Le plafond mensuel et annuel définitif, l'écart avec l'estimation, et ce qu'il change sur la paie, le jour de la publication au Journal officiel."
+            page="/guides/plafond-securite-sociale-2027"
+          />
         </div>
       </section>
 

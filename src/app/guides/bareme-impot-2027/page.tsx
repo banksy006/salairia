@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import NewsletterForm from "@/components/NewsletterForm";
 import { IconBadge, PercentIcon, CalendarIcon, CalculatorIcon, InfoIcon, ScaleIcon } from "@/components/icons";
 
 interface Tranche {
@@ -94,7 +95,7 @@ const meta: GuideMeta = {
   chapo: "Le projet de loi de finances pour 2027, déposé à l'Assemblée nationale le 1er octobre 2026, donne la première version officielle du barème qui s'appliquera à vos revenus de 2026, déclarés au printemps 2027 : toutes les tranches relevées de 2,1 %, l'inflation que le gouvernement prévoit pour 2026. La décote, le quotient familial et les grilles du prélèvement à la source suivent le mouvement. Rien n'est définitif avant le vote — mais voici le barème proposé, son effet chiffré sur votre impôt, et les autres mesures du texte qui touchent salariés et retraités.",
   filAriane: "Barème impôt 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-08",
+  dateModified: "2026-10-21",
   tocItems: [
     { id: "plf", label: "Le barème proposé" },
     { id: "effet", label: "L'effet sur votre impôt" },
@@ -360,6 +361,14 @@ export default function Page() {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="mt-6">
+          <NewsletterForm
+            categorie="bareme"
+            titre="Reçois le barème 2027 définitif après le vote"
+            texte="Les tranches votées, la décote et l'effet sur ton impôt, envoyés dès la promulgation de la loi de finances — y compris si elle glisse en février."
+            page="/guides/bareme-impot-2027"
+          />
         </div>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
           La fin décembre n&apos;est pas garantie : les budgets 2025 et 2026

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import NewsletterForm from "@/components/NewsletterForm";
 import { IconBadge, CalendarIcon, InfoIcon, ScaleIcon, CoinIcon } from "@/components/icons";
 
 // Règles de versement (lassuranceretraite.fr, agirc-arrco.fr, vérifiées le
@@ -70,7 +71,7 @@ const meta: GuideMeta = {
   chapo: `Deux caisses, deux logiques : la pension de base (Assurance retraite, MSA) arrive le 9 du mois suivant, à terme échu ; la complémentaire Agirc-Arrco le premier jour ouvré du mois, à terme d'avance. Quand ces dates tombent un week-end ou un férié, le versement bouge — et 2027 en compte plusieurs. Voici le calendrier complet, calculé mois par mois depuis les règles officielles, avec les dernières échéances 2026, et ce qui explique un virement qui tarde.`,
   filAriane: "Calendrier retraites 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-10-15",
+  dateModified: "2026-10-21",
   tocItems: [
     { id: "calendrier", label: "Le calendrier 2027" },
     { id: "fin-2026", label: "Les dernières dates 2026" },
@@ -201,6 +202,14 @@ export default function Page() {
           </Link>
           .
         </p>
+        <div className="mt-6">
+          <NewsletterForm
+            categorie="retraite"
+            titre="Reçois le montant revalorisé de ta pension en janvier"
+            texte="Le taux de revalorisation définitif de la pension de base, ce que donne l'Agirc-Arrco, et les 24 dates de virement de 2027, dès leur publication."
+            page="/guides/calendrier-paiement-retraite-2027"
+          />
+        </div>
       </section>
 
       <section id="regles" className="scroll-mt-24">

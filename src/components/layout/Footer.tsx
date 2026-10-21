@@ -39,6 +39,7 @@ const guidesLinks = [
 const ressourcesLinks = [
   { label: "À propos", href: "/a-propos" },
   { label: "Méthodologie", href: "/methodologie" },
+  { label: "Newsletter", href: "/newsletter" },
   { label: "Contact", href: "/contact" },
 ];
 
