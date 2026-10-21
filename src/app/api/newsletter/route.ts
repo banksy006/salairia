@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import {
-  envoyerConfirmation,
+  confirmer,
+  envoyerBienvenue,
   inscrire,
   isCategorie,
   normaliserEmail,
@@ -32,7 +33,9 @@ export async function POST(req: Request) {
   try {
     const etat = await inscrire(email, categorie, page);
     if (etat !== "deja_confirme") {
-      await envoyerConfirmation(email, categorie);
+      // Simple opt-in : le formulaire et sa mention valent consentement.
+      await confirmer(email);
+      await envoyerBienvenue(email, categorie);
     }
     return NextResponse.json({ etat });
   } catch (e) {

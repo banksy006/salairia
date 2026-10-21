@@ -153,7 +153,7 @@ Objectif : transformer les lecteurs des pages « chiffre 2027 » (SMIC, PASS, ba
 
 **Données** : table `public.abonnes` (email unique, categorie, page, cree_le, confirme_le, desinscrit_le), RLS activée **sans policy**. Seules trois fonctions `SECURITY DEFINER` (`newsletter_inscrire`, `newsletter_confirmer`, `newsletter_desinscrire`) sont exécutables par la clé publique, ce qui suffit aux routes serveur. Le SQL de référence est dans `docs/newsletter.sql`.
 
-**Double opt-in obligatoire** : une adresse non confirmée (`confirme_le` null) ne reçoit jamais de newsletter. Les jetons de confirmation et de désinscription sont des HMAC-SHA256 sans état (`NEWSLETTER_SECRET`), donc rien à stocker ni à expirer.
+**Simple opt-in + mail de bienvenue immédiat** (décidé le 21 octobre 2026, la double confirmation coûtait 20 à 30 % des inscrits) : le formulaire et sa mention valent consentement, l'adresse est marquée confirmée à l'inscription et un mail de bienvenue part aussitôt. Ce mail sert de filet : les adresses mal tapées rebondissent une par une, pas en masse le jour du premier envoi — important, le compte Resend est partagé avec DUERP et se fait suspendre au-delà d'environ 4 % de rebonds. Chaque mail porte les en-têtes `List-Unsubscribe` + `List-Unsubscribe-Post` (désinscription en un clic, `POST /api/newsletter/desinscrire`). Les jetons de désinscription (et l'ancienne route `confirmer`, gardée pour les liens déjà envoyés) sont des HMAC-SHA256 sans état (`NEWSLETTER_SECRET`).
 
 **Variables Vercel** : `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `RESEND_API_KEY`, `NEWSLETTER_SECRET` (32 octets aléatoires), `NEWSLETTER_FROM` (défaut `Salairia <newsletter@salairia.com>`). Aucune dépendance npm ajoutée : Supabase et Resend sont appelés en `fetch`.
 

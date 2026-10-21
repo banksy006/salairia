@@ -77,7 +77,7 @@ export default function NewsletterForm({
             <p className="mt-5 rounded-xl border-l-4 border-accent bg-accent/10 px-4 py-3 text-sm font-medium text-foreground">
               {etat === "deja_confirme"
                 ? "Tu es déjà inscrit : rien à faire, tu recevras le mail le jour J."
-                : "C'est presque fini : ouvre ta boîte mail et clique sur le lien de confirmation. Pense à vérifier les spams."}
+                : "C'est noté ! Un mail de bienvenue vient de partir. Si tu ne le vois pas, regarde dans les spams."}
             </p>
           ) : (
             <form onSubmit={onSubmit} className="mt-5">

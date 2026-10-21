@@ -181,9 +181,9 @@ export default function PolitiqueConfidentialitePage() {
                 conservons votre adresse email, la catégorie d&apos;alerte
                 choisie, la page depuis laquelle vous vous êtes inscrit et les
                 dates d&apos;inscription et de confirmation. Base légale : votre
-                consentement, recueilli en deux temps (formulaire puis lien de
-                confirmation reçu par email). Une adresse non confirmée
-                n&apos;est jamais utilisée et est supprimée.
+                consentement, donné en remplissant le formulaire. Un email de
+                bienvenue vous est envoyé aussitôt : si vous ne l&apos;avez pas
+                demandé, son lien de désinscription supprime l&apos;adresse.
               </p>
               <p>
                 Ces données servent uniquement à vous envoyer les alertes
