@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import GuideCta from "@/components/guides/GuideCta";
 import NewsletterForm from "@/components/NewsletterForm";
-import { IconBadge, CalendarIcon, InfoIcon, ScaleIcon, CoinIcon } from "@/components/icons";
+import { IconBadge, CalendarIcon, InfoIcon, ScaleIcon, CoinIcon, CalculatorIcon, PercentIcon, BriefcaseIcon, RocketIcon } from "@/components/icons";
 
 // Règles de versement (lassuranceretraite.fr, agirc-arrco.fr, vérifiées le
 // 19 septembre 2026) :
@@ -71,7 +72,7 @@ const meta: GuideMeta = {
   chapo: `Deux caisses, deux logiques : la pension de base (Assurance retraite, MSA) arrive le 9 du mois suivant, à terme échu ; la complémentaire Agirc-Arrco le premier jour ouvré du mois, à terme d'avance. Quand ces dates tombent un week-end ou un férié, le versement bouge — et 2027 en compte plusieurs. Voici le calendrier complet, calculé mois par mois depuis les règles officielles, avec les dernières échéances 2026, et ce qui explique un virement qui tarde.`,
   filAriane: "Calendrier retraites 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-10-21",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "calendrier", label: "Le calendrier 2027" },
     { id: "fin-2026", label: "Les dernières dates 2026" },
@@ -153,6 +154,16 @@ function Tableau({ lignes }: { lignes: typeof LIGNES_2027 }) {
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <GuideCta
+        titre="Calculer ta pension nette"
+        intro="Les dates, c'est une chose ; le montant qui arrive sur le compte en est une autre."
+        liens={[
+          { href: "/guides/retraite-brut-net", label: "Pension brute en net", desc: "CSG, CRDS, Casa : les prélèvements sur ta retraite", icon: <CalculatorIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/net-apres-impot", label: "Net après impôt", desc: "Ce qui reste après le prélèvement à la source", icon: <PercentIcon className="h-4 w-4" /> },
+          { href: "/guides/revalorisation-retraites-2027", label: "Revalorisation 2027", desc: "Base et Agirc-Arrco : qui est concerné, de combien", icon: <CoinIcon className="h-4 w-4" /> },
+        ]}
+      />
+
       <section id="calendrier" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><CalendarIcon className="w-4 h-4" /></IconBadge>
@@ -290,6 +301,15 @@ export default function Page() {
           couvrent les échéances qui comptent.
         </p>
       </section>
+      <GuideCta
+        titre="Travailler pendant la retraite ?"
+        intro="Cumuler une activité et sa pension est possible, et souvent plus simple en portage ou en micro-entreprise."
+        accent
+        liens={[
+          { href: "/guides/portage-salarial-retraite", label: "Portage salarial et retraite", desc: "Cumuler une mission et sa pension", icon: <BriefcaseIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/auto-entrepreneur", label: "Auto-entrepreneur retraité", desc: "Ce que rapporte un complément d'activité", icon: <RocketIcon className="h-4 w-4" /> },
+        ]}
+      />
     </GuideShell>
   );
 }

@@ -1,7 +1,7 @@
 # STATUS — état du site
 
 > Référence factuelle de ce qui existe. À relire avant toute tâche qui touche la structure du site, et à mettre à jour à chaque ajout de route.
-> **Dernière mise à jour : 21 octobre 2026.**
+> **Dernière mise à jour : 24 octobre 2026.**
 
 ## En un coup d'œil
 
@@ -143,6 +143,12 @@ Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des c
 
 ### Institutionnel et légal
 `/a-propos` · `/methodologie` · `/contact` · `/mentions-legales` · `/politique-confidentialite` · `/politique-cookies`
+
+## Search Console — 24 octobre 2026 (92 jours)
+
+**6 010 clics · 163 513 impressions · CTR 3,7 %.** Semaines 39 → 43 : clics 975 → 898 → 719 → 637 → 641 pendant que les impressions montent (17 k → 22 k) : le CTR baisse, signature des AI Overviews (actifs en France depuis le 22 juillet 2026) et de l'arrivée des gros médias sur « smic 2027 ». `smic-2027` : 3 909 clics, position 2,8. Gisement portage toujours invisible : `/guides/portage-salarial` 11 592 impressions pour 3 clics (position 66), `/comparateurs/portage-salarial` 6 973 pour 29 (position 28). Opportunités en positions 5-15 : calendrier-impots-2027 (8 031 impr., CTR 1,2 %), plafonds-micro (6 241), bareme-impot (5 271), ou-se-situe (5 844).
+
+Réponse : blocs `GuideCta` sur les 7 pages de tête (voir CLAUDE.md) et événement Plausible « Clic partenaire ».
 
 ## Newsletter — 21 octobre 2026
 

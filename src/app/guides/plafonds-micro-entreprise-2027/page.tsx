@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
-import { IconBadge, ScaleIcon, CalendarIcon, PercentIcon, AlertTriangleIcon, ReceiptIcon } from "@/components/icons";
+import GuideCta from "@/components/guides/GuideCta";
+import { IconBadge, ScaleIcon, CalendarIcon, PercentIcon, AlertTriangleIcon, ReceiptIcon, RocketIcon, TargetIcon, CompassIcon, BuildingIcon, CoinIcon } from "@/components/icons";
 import { AE_2026 } from "@/lib/calculators/auto-entrepreneur";
 
 // Fin du régime simplifié de TVA : loi de finances pour 2025, art. 38.
@@ -20,7 +21,7 @@ const meta: GuideMeta = {
   chapo: "Les projets de loi de finances et de financement de la Sécurité sociale pour 2027, présentés le 1er octobre 2026, ne touchent ni aux plafonds de chiffre d'affaires, ni aux seuils de franchise de TVA, ni aux taux de cotisations du régime micro. Le seuil unique à 25 000 €, qui avait inquiété tant de freelances, a été définitivement abrogé en novembre 2025. Le changement qui attend vraiment les micro-entrepreneurs en 2027 est ailleurs : la fin du régime simplifié de TVA, qui fait passer ceux qui y sont soumis à des déclarations trimestrielles. Le point complet, texte par texte.",
   filAriane: "Plafonds micro 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-08",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "figes", label: "Les plafonds, figés jusqu'en 2028" },
     { id: "budget", label: "Ce que le budget 2027 prévoit" },
@@ -75,6 +76,16 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <GuideCta
+        titre="Simuler ton activité"
+        intro="Les plafonds sont figés ; ton chiffre d'affaires, lui, bouge. Trois outils pour voir où tu te situes."
+        liens={[
+          { href: "/simulateurs/auto-entrepreneur", label: "Simulateur auto-entrepreneur", desc: "Cotisations, ACRE, versement libératoire", icon: <RocketIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/tjm-freelance", label: "Calculer ton TJM", desc: "Le tarif pour atteindre ton net cible", icon: <TargetIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/salarie-ou-freelance", label: "Salarié ou freelance ?", desc: "Comparer ton CDI à l'indépendance", icon: <CompassIcon className="h-4 w-4" /> },
+        ]}
+      />
+
       <section id="figes" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><ScaleIcon className="w-4 h-4" /></IconBadge>
@@ -277,6 +288,16 @@ export default function Page() {
           </ul>
         </div>
       </section>
+      <GuideCta
+        titre="Tu approches du plafond ?"
+        intro="Au-delà de la micro, trois décisions à prendre : le statut, la banque, la compta."
+        accent
+        liens={[
+          { href: "/simulateurs/sasu-eurl", label: "SASU ou EURL", desc: "Le statut qui maximise ton net", icon: <BuildingIcon className="h-4 w-4" /> },
+          { href: "/comparateurs/banques-pro", label: "Banque pro", desc: "Comparatif des offres pour freelances", icon: <CoinIcon className="h-4 w-4" /> },
+          { href: "/comparateurs/comptabilite", label: "Comptabilité en ligne", desc: "Tarifs relevés sur les grilles officielles", icon: <ReceiptIcon className="h-4 w-4" /> },
+        ]}
+      />
     </GuideShell>
   );
 }

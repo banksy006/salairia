@@ -4,12 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { MailIcon } from "@/components/icons";
 
-declare global {
-  interface Window {
-    plausible?: (event: string, options?: { props?: Record<string, string> }) => void;
-  }
-}
-
 type Etat = "idle" | "envoi" | "nouveau" | "en_attente" | "deja_confirme" | "erreur";
 
 export default function NewsletterForm({

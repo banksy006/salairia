@@ -144,6 +144,7 @@ function Fiches({ lignes }: { lignes: LigneCompta[] }) {
             href={s.urlTarifs}
             target="_blank"
             rel="noopener noreferrer"
+            data-partenaire={s.nom}
             className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
           >
             Grille tarifaire officielle <span aria-hidden>↗</span>
@@ -359,7 +360,7 @@ export default function ComparateurComptabilitePage() {
                 <ul className="space-y-3">
                   {tous.map((s) => (
                     <li key={s.slug}>
-                      <a href={s.urlTarifs} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                      <a href={s.urlTarifs} target="_blank" rel="noopener noreferrer" data-partenaire={s.nom} className="text-primary underline-offset-4 hover:underline">
                         {s.nom} — grille tarifaire officielle<span aria-hidden> ↗</span>
                       </a>
                     </li>

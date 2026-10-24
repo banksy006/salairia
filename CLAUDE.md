@@ -161,6 +161,12 @@ Objectif : transformer les lecteurs des pages « chiffre 2027 » (SMIC, PASS, ba
 
 **Règles** : chaque mail envoyé doit contenir le lien de désinscription signé (`signer("desinscrire", email)`) ; la politique de confidentialité (section « Newsletter et alertes par email ») cite Supabase et Resend comme sous-traitants — la mettre à jour si l'un des deux change. Tutoiement dans les formulaires et les mails, comme le reste de l'interface.
 
+## Blocs de redirection « GuideCta » (24 octobre 2026)
+
+Search Console du 24 octobre : 84 % des clics viennent de 7 pages « chiffre 2027 » (SMIC, PASS, où se situe mon salaire, calendrier retraites, plafonds micro, calendrier impôts, barème), avec un lecteur qui lit un chiffre et repart. Chacune porte désormais deux blocs `GuideCta` (`src/components/guides/GuideCta.tsx`) : un bloc **en tête** (« dans ta situation ») vers 3 simulateurs, et un bloc **en fin** (`accent`) « Freelance ou indépendant ? » vers le comparateur portage, le TJM et les statuts. Les liens sont choisis par page selon l'intention des requêtes (ex. « smic net 2027 » → brut/net). Toute nouvelle page 2027 reprend ce moule.
+
+**Mesure** : événement Plausible `Clic partenaire` (props `partenaire`, `page`), émis par `src/components/PartenaireClicks.tsx` monté dans le layout, sur tout lien `a[data-partenaire]` ou `a[data-affiliate]`. Les liens sortants des 4 comparateurs et des fiches portent `data-partenaire={nom}`. À déclarer comme objectif dans Plausible. Les liens vers l'URSSAF ou impots.gouv restent dans « Outbound Link: Click ».
+
 ## Convention de commits
 
 Préfixes à utiliser (type conventional commits allégé) :

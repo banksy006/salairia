@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
-import { IconBadge, CalendarIcon, EuroIcon, InfoIcon, AlertTriangleIcon } from "@/components/icons";
+import GuideCta from "@/components/guides/GuideCta";
+import { IconBadge, CalendarIcon, EuroIcon, InfoIcon, AlertTriangleIcon, PercentIcon, CalculatorIcon, CoinIcon, ReceiptIcon, RocketIcon } from "@/components/icons";
 
 const meta: GuideMeta = {
   slug: "calendrier-impots-2027",
@@ -10,7 +11,7 @@ const meta: GuideMeta = {
   chapo: "L'année fiscale française est une horloge : avance de crédits d'impôt mi-janvier, déclaration au printemps, avis et remboursements l'été, nouveau taux de prélèvement au 1er septembre, solde à l'automne, modulation de l'avance en décembre. Les dates précises de 2027 seront publiées par la DGFiP au fil de l'année — voici le calendrier complet avec les dates de référence 2026, mis à jour à chaque annonce officielle.",
   filAriane: "Calendrier impôts 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "calendrier", label: "L'année mois par mois" },
     { id: "declaration", label: "La déclaration du printemps" },
@@ -73,6 +74,16 @@ const CALENDRIER = [
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <GuideCta
+        titre="Préparer ta déclaration"
+        intro="Avant les dates, les montants : ce que tu vas déclarer, et ce que tu vas payer ou récupérer."
+        liens={[
+          { href: "/guides/bareme-impot-2027", label: "Barème 2027", desc: "Les tranches du projet de loi de finances", icon: <PercentIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/net-apres-impot", label: "Net après impôt", desc: "Ton prélèvement à la source estimé", icon: <CalculatorIcon className="h-4 w-4" /> },
+          { href: "/guides/remboursement-impot", label: "Remboursement d'impôt", desc: "Dates et montants de la régularisation", icon: <CoinIcon className="h-4 w-4" /> },
+        ]}
+      />
+
       <section id="calendrier" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><CalendarIcon className="w-4 h-4" /></IconBadge>
@@ -229,6 +240,15 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <GuideCta
+        titre="Indépendant ?"
+        intro="Le calendrier d'un auto-entrepreneur a deux échéances de plus : l'URSSAF et la CFE."
+        accent
+        liens={[
+          { href: "/guides/cfe-auto-entrepreneur", label: "CFE auto-entrepreneur", desc: "Échéance de décembre et exonérations", icon: <ReceiptIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/auto-entrepreneur", label: "Simulateur auto-entrepreneur", desc: "Cotisations et impôt sur ton chiffre d'affaires", icon: <RocketIcon className="h-4 w-4" /> },
+        ]}
+      />
     </GuideShell>
   );
 }

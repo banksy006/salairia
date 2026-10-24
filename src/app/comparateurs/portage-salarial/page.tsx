@@ -416,6 +416,7 @@ export default function PortageSalarialComparateurPage() {
                         target="_blank"
                         rel="noopener nofollow sponsored"
                         data-affiliate="placeholder"
+                      data-partenaire={s.nom}
                         className="affiliate-cta hidden text-sm text-primary hover:underline sm:inline"
                       >
                         Visiter le site →
@@ -525,6 +526,7 @@ export default function PortageSalarialComparateurPage() {
                       target="_blank"
                       rel="noopener nofollow sponsored"
                       data-affiliate="placeholder"
+                      data-partenaire={s.nom}
                       className="affiliate-cta inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:opacity-90"
                     >
                       Découvrir {s.nom} ↗

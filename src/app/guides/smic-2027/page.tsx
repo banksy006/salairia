@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import GuideCta from "@/components/guides/GuideCta";
 import NewsletterForm from "@/components/NewsletterForm";
-import { IconBadge, CalendarIcon, CalculatorIcon, PercentIcon, InfoIcon } from "@/components/icons";
+import { IconBadge, CalendarIcon, CalculatorIcon, PercentIcon, InfoIcon, BarChartIcon, TargetIcon, ScaleIcon, CompassIcon } from "@/components/icons";
 import { SALAIRE_2026, calculerBrutVersNet } from "@/lib/calculators/salaire-brut-net";
 
 // Valeurs en vigueur (arrêté du 22 mai 2026, effet 1er juin 2026), depuis nos constantes.
@@ -26,7 +27,7 @@ const meta: GuideMeta = {
   chapo: "Le montant du SMIC 2027 n'existe pas encore : il sera fixé par décret mi-décembre 2026, pour une entrée en vigueur au 1er janvier 2027. Mais la formule qui le déterminera, elle, est connue et publique. Cette page explique la mécanique de revalorisation, rappelle les valeurs en vigueur, et sera mise à jour le jour de la publication du décret avec les montants exacts.",
   filAriane: "SMIC 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-21",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "actuel", label: "Le SMIC aujourd'hui" },
     { id: "formule", label: "La formule de revalorisation" },
@@ -77,6 +78,16 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <GuideCta
+        titre="Et dans ta situation ?"
+        intro="Le SMIC est un plancher. Trois outils pour passer du chiffre officiel à ta fiche de paie."
+        liens={[
+          { href: "/simulateurs/salaire-brut-net", label: "Ton brut en net", desc: "Cotisations détaillées, cadre ou non-cadre", icon: <CalculatorIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/ou-se-situe-mon-salaire", label: "Où se situe ton salaire ?", desc: "Ton percentile parmi les salariés français", icon: <BarChartIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/net-apres-impot", label: "Ton net après impôt", desc: "Avec le prélèvement à la source", icon: <PercentIcon className="h-4 w-4" /> },
+        ]}
+      />
+
       <section id="actuel" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
@@ -192,6 +203,16 @@ export default function Page() {
           </ul>
         </div>
       </section>
+      <GuideCta
+        titre="Freelance ou indépendant ?"
+        intro="Si tu factures, le SMIC ne te concerne pas directement : ce qui compte, c'est ton TJM et ton statut."
+        accent
+        liens={[
+          { href: "/simulateurs/tjm-freelance", label: "Calculer ton TJM", desc: "Le tarif journalier pour viser un net donné", icon: <TargetIcon className="h-4 w-4" /> },
+          { href: "/comparateurs/portage-salarial", label: "Comparer les sociétés de portage", desc: "Frais de gestion et net estimé, 10 sociétés", icon: <ScaleIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/salarie-ou-freelance", label: "Salarié ou freelance ?", desc: "Même net, deux statuts comparés", icon: <CompassIcon className="h-4 w-4" /> },
+        ]}
+      />
     </GuideShell>
   );
 }

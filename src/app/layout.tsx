@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import PartenaireClicks from "@/components/PartenaireClicks";
 import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
@@ -57,6 +58,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <PartenaireClicks />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import GuideCta from "@/components/guides/GuideCta";
 import NewsletterForm from "@/components/NewsletterForm";
-import { IconBadge, PercentIcon, CalendarIcon, CalculatorIcon, InfoIcon, ScaleIcon } from "@/components/icons";
+import { IconBadge, PercentIcon, CalendarIcon, CalculatorIcon, InfoIcon, ScaleIcon, RocketIcon, BuildingIcon } from "@/components/icons";
 
 interface Tranche {
   jusqu: number | null;
@@ -95,7 +96,7 @@ const meta: GuideMeta = {
   chapo: "Le projet de loi de finances pour 2027, déposé à l'Assemblée nationale le 1er octobre 2026, donne la première version officielle du barème qui s'appliquera à vos revenus de 2026, déclarés au printemps 2027 : toutes les tranches relevées de 2,1 %, l'inflation que le gouvernement prévoit pour 2026. La décote, le quotient familial et les grilles du prélèvement à la source suivent le mouvement. Rien n'est définitif avant le vote — mais voici le barème proposé, son effet chiffré sur votre impôt, et les autres mesures du texte qui touchent salariés et retraités.",
   filAriane: "Barème impôt 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-21",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "plf", label: "Le barème proposé" },
     { id: "effet", label: "L'effet sur votre impôt" },
@@ -148,6 +149,16 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <GuideCta
+        titre="Ton impôt dans ta situation"
+        intro="Le barème est le même pour tous ; ce qu'il te coûte dépend de ton revenu et de ta situation."
+        liens={[
+          { href: "/simulateurs/net-apres-impot", label: "Net après impôt", desc: "Le barème appliqué à ton salaire", icon: <CalculatorIcon className="h-4 w-4" /> },
+          { href: "/guides/seuil-imposition-2027", label: "Seuil d'imposition 2027", desc: "À partir de quel revenu on paie", icon: <ScaleIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/salaire-brut-net", label: "Brut en net", desc: "Pour connaître ton net imposable", icon: <PercentIcon className="h-4 w-4" /> },
+        ]}
+      />
+
       <section id="plf" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><PercentIcon className="w-4 h-4" /></IconBadge>
@@ -389,6 +400,15 @@ export default function Page() {
           .
         </p>
       </section>
+      <GuideCta
+        titre="Indépendant ?"
+        intro="Pour un auto-entrepreneur ou un dirigeant, le barème n'est qu'une option parmi d'autres."
+        accent
+        liens={[
+          { href: "/simulateurs/auto-entrepreneur", label: "Versement libératoire ou barème ?", desc: "Le simulateur compare les deux", icon: <RocketIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/sasu-eurl", label: "Salaire ou dividendes", desc: "IS, flat tax et barème comparés", icon: <BuildingIcon className="h-4 w-4" /> },
+        ]}
+      />
     </GuideShell>
   );
 }

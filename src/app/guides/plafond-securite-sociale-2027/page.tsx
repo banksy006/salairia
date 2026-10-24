@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
+import GuideCta from "@/components/guides/GuideCta";
 import NewsletterForm from "@/components/NewsletterForm";
-import { IconBadge, ShieldIcon, CalculatorIcon, CalendarIcon, InfoIcon } from "@/components/icons";
+import { IconBadge, ShieldIcon, CalculatorIcon, CalendarIcon, InfoIcon, BriefcaseIcon, BuildingIcon, ScaleIcon, TargetIcon, RocketIcon } from "@/components/icons";
 import { SALAIRE_2026 } from "@/lib/calculators/salaire-brut-net";
 import { salaireMinimumMensuel } from "@/lib/calculators/portage";
 
@@ -35,7 +36,7 @@ const meta: GuideMeta = {
   chapo: "C'est le paramètre le plus discret et le plus structurant de la paie française : le plafond de la Sécurité sociale borne les cotisations plafonnées, découpe les tranches de retraite complémentaire, plafonne les indemnités exonérées et fixe les minima du portage salarial. Sa valeur 2027 est désormais estimée : 4 075 € par mois selon la Commission des comptes de la Sécurité sociale, avant l'arrêté de fin décembre. Et le budget 2027 lui confie un rôle de plus — plafonner les indemnités de rupture. Voici à quoi il sert, ligne par ligne, et ce que sa revalorisation changera.",
   filAriane: "PASS 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-21",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "quoi", label: "Ce qu'est le PASS" },
     { id: "usages", label: "Tout ce qu'il pilote" },
@@ -88,6 +89,16 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <GuideCta
+        titre="Ce que le plafond change pour toi"
+        intro="Le PASS borne les cotisations, découpe les tranches de retraite et fixe le salaire minimum du portage."
+        liens={[
+          { href: "/simulateurs/salaire-brut-net", label: "Ton brut en net", desc: "Tranche 1 et tranche 2, calculées au PASS", icon: <CalculatorIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/portage-salarial", label: "Simuler le portage salarial", desc: "Le salaire minimum conventionnel dépend du PASS", icon: <BriefcaseIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/sasu-eurl", label: "SASU ou EURL", desc: "Cotisations du dirigeant, plafonnées ou non", icon: <BuildingIcon className="h-4 w-4" /> },
+        ]}
+      />
+
       <section id="quoi" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><ShieldIcon className="w-4 h-4" /></IconBadge>
@@ -232,6 +243,15 @@ export default function Page() {
           </ul>
         </div>
       </section>
+      <GuideCta
+        titre="Tu factures en indépendant ?"
+        accent
+        liens={[
+          { href: "/comparateurs/portage-salarial", label: "Comparer les sociétés de portage", desc: "Frais de gestion et net estimé, 10 sociétés", icon: <ScaleIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/tjm-freelance", label: "Calculer ton TJM", desc: "Le tarif journalier pour viser un net donné", icon: <TargetIcon className="h-4 w-4" /> },
+          { href: "/simulateurs/auto-entrepreneur", label: "Simulateur auto-entrepreneur", desc: "Cotisations, ACRE, versement libératoire", icon: <RocketIcon className="h-4 w-4" /> },
+        ]}
+      />
     </GuideShell>
   );
 }

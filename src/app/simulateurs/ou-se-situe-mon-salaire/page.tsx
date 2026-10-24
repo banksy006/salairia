@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/site";
 import Link from "next/link";
-import {
-  IconBadge,
-  CalendarIcon,
-  BarChartIcon,
-  CalculatorIcon,
-  MessageCircleIcon,
-  ExternalLinkIcon,
-} from "@/components/icons";
+import { IconBadge, CalendarIcon, BarChartIcon, CalculatorIcon, MessageCircleIcon, ExternalLinkIcon, TargetIcon, RocketIcon } from "@/components/icons";
 import PercentileApercuCard from "@/components/simulateurs/PercentileApercuCard";
+import GuideCta from "@/components/guides/GuideCta";
 import { PercentileProvider } from "@/components/simulateurs/PercentileContext";
 import PercentileSimulator from "@/components/simulateurs/PercentileSimulator";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
@@ -277,6 +271,16 @@ export default function OuSeSitueMonSalairePage() {
                   </p>
                 </div>
               </section>
+
+              <GuideCta
+                titre="Et maintenant ?"
+                intro="Tu sais où tu te situes. Trois façons d'en faire quelque chose."
+                liens={[
+                  { href: "/simulateurs/negociation-salariale", label: "Négocier une augmentation", desc: "Fourchettes et arguments selon ton métier", icon: <TargetIcon className="h-4 w-4" /> },
+                  { href: "/simulateurs/salaire-brut-net", label: "Ton brut en net", desc: "Pour comparer à salaire brut égal", icon: <CalculatorIcon className="h-4 w-4" /> },
+                  { href: "/simulateurs/tjm-freelance", label: "Et en freelance ?", desc: "Le TJM équivalent à ton salaire", icon: <RocketIcon className="h-4 w-4" /> },
+                ]}
+              />
 
               <section id="comprendre" className="scroll-mt-24">
                 <div className="rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">

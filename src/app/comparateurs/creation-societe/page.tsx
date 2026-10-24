@@ -221,7 +221,7 @@ export default function ComparateurCreationSocietePage() {
                       </p>
                     )}
                     <p className="mt-3 text-sm text-muted-foreground">Autres options : {p.autresPaliers}</p>
-                    <a href={p.urlTarifs} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
+                    <a href={p.urlTarifs} target="_blank" rel="noopener noreferrer" data-partenaire={p.nom} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
                       Page tarifaire officielle <span aria-hidden>↗</span>
                     </a>
                   </div>
@@ -355,7 +355,7 @@ export default function ComparateurCreationSocietePage() {
                 <ul className="space-y-3">
                   {plateformes.map((p) => (
                     <li key={p.slug}>
-                      <a href={p.urlTarifs} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                      <a href={p.urlTarifs} target="_blank" rel="noopener noreferrer" data-partenaire={p.nom} className="text-primary underline-offset-4 hover:underline">
                         {p.nom} — page tarifaire officielle<span aria-hidden> ↗</span>
                       </a>
                     </li>

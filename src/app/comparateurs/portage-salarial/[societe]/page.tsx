@@ -460,7 +460,7 @@ export default async function Page({
             <div className="mt-4 rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
               <ul className="space-y-3">
                 <li>
-                  <a href={s.site} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                  <a href={s.site} target="_blank" rel="noopener noreferrer" data-partenaire={s.nom} className="text-primary underline-offset-4 hover:underline">
                     Site officiel de {s.nom}<span aria-hidden> ↗</span>
                   </a>
                 </li>

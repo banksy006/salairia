@@ -243,6 +243,7 @@ export default function ComparateurBanquesProPage() {
                       href={b.urlTarifs}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-partenaire={b.nom}
                       className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
                     >
                       Grille tarifaire officielle
@@ -387,6 +388,7 @@ export default function ComparateurBanquesProPage() {
                         href={b.urlTarifs}
                         target="_blank"
                         rel="noopener noreferrer"
+                        data-partenaire={b.nom}
                         className="text-primary underline-offset-4 hover:underline"
                       >
                         {b.nom} — grille tarifaire officielle
