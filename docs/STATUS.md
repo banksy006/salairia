@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 159 |
-| URLs au sitemap | 152 |
+| Routes publiées | 163 |
+| URLs au sitemap | 156 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -143,6 +143,10 @@ Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des c
 
 ### Institutionnel et légal
 `/a-propos` · `/methodologie` · `/contact` · `/mentions-legales` · `/politique-confidentialite` · `/politique-cookies`
+
+## Pages 2027 ajoutées le 24 octobre 2026
+
+Quatre guides avec calculateur « dans ta situation » (client components sous `src/components/guides/`, logique pure sous `src/lib/calculators/`) : `allocations-familiales-2027` (barème CAF avril 2026, plafonds 2027 projetés à +0,9 %), `aspa-2027` (circulaire Cnav 2025-29, revalorisation 2027 estimée 1,7-1,8 %, récupération sur succession), `apl-2027` (arrêté du 28 septembre 2026 lu dans l'open data DILA, articles 74 et 78 du PLF 2027), `cheque-energie-2027` (barème 2026, réforme PDL, article 81 du PLF 2027). Chaque page porte deux blocs `GuideCta` et un `NewsletterForm`. Fait nouveau intégré : le PLFSS 2027 a été rejeté par l'Assemblée le 23 octobre 2026 (Sénat à partir du 9 novembre) ; le vote de la première partie du PLF, prévu le 20 octobre, a été reporté.
 
 ## Search Console — 24 octobre 2026 (92 jours)
 

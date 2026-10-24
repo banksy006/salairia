@@ -210,6 +210,38 @@ const guides = [
     lecture: "6 min",
   },
   {
+    titre: "Allocations familiales 2027",
+    desc:
+      "152,25 € par mois pour deux enfants au taux plein, 347,32 € pour trois, modulés par deux plafonds de ressources que la page projette pour 2027. Un calculateur dans votre situation (enfants, revenus, majoration pour âge, désormais à 18 ans pour les enfants nés depuis mars 2012), et l'état exact du gel voulu par le budget 2027 : inscrit dans la trajectoire mais dans aucun article, et un texte rejeté par l'Assemblée le 23 octobre.",
+    href: "/guides/allocations-familiales-2027",
+    audience: "Parents de deux enfants et plus, familles proches d'un plafond",
+    lecture: "9 min",
+  },
+  {
+    titre: "ASPA 2027 (minimum vieillesse)",
+    desc:
+      "1 043,59 € par mois pour une personne seule, 1 620,18 € pour un couple en 2026, et une hausse estimée entre 1,7 et 1,8 % au 1er janvier 2027. Le calcul par différence dans votre situation, les ressources comptées et exclues, la récupération sur succession chiffrée au-delà de 108 585 €, et pourquoi le gel des pensions prévu par le budget ne devrait pas s'appliquer à l'ASPA.",
+    href: "/guides/aspa-2027",
+    audience: "Retraités à petite pension, aidants, 65 ans et plus",
+    lecture: "9 min",
+  },
+  {
+    titre: "APL 2027",
+    desc:
+      "Les plafonds de loyer relevés de 1,15 % au 1er octobre 2026, lus dans l'arrêté du 28 septembre : 336,97 € à Paris pour une personne seule, 293,68 € en zone 2, 275,25 € ailleurs. Le calcul de la dépense retenue dans votre situation, la mécanique de l'aide, et les deux mesures du budget 2027 : aucune revalorisation en octobre 2027 et la fin de l'APL pour les étudiants rattachés à un foyer fiscal aisé.",
+    href: "/guides/apl-2027",
+    audience: "Locataires, étudiants, colocataires",
+    lecture: "9 min",
+  },
+  {
+    titre: "Chèque énergie 2027",
+    desc:
+      "De 48 à 277 € selon le revenu fiscal par unité de consommation, sous un plafond de 11 000 € inchangé depuis 2023. Le calcul dans votre situation, la réforme qui attribue le chèque au titulaire du contrat d'électricité (et a fait perdre un bénéficiaire sur quatre), la demande en ligne, et ce qui est connu pour 2027 : une campagne annoncée en janvier et des crédits en hausse de 7 %.",
+    href: "/guides/cheque-energie-2027",
+    audience: "Foyers modestes, retraités, étudiants salariés",
+    lecture: "8 min",
+  },
+  {
     titre: "Titres-restaurant",
     desc:
       "Plafond d'exonération patronale à 7,32 € par titre en 2026, valeur optimale du titre entre 12,20 et 14,64 €, 25 € d'utilisation par jour, droits du télétravailleur — et le dossier chaud de la fin d'année : la dérogation qui permet de payer toutes ses courses en titres expire le 31 décembre 2026, et la loi qui la pérenniserait a été votée par l'Assemblée le 12 octobre, en attendant le Sénat le 19 novembre.",

@@ -71,7 +71,7 @@ const meta: GuideMeta = {
   chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. Les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, a décidé le 14 octobre 2026 une hausse de 1,4 % au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-15",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "La base : ce que prévoit le PLFSS" },
@@ -90,7 +90,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Le gel est-il certain pour les pensions au-dessus de 1 281 € ?",
-      r: `Non, à deux titres. D'abord, c'est un projet : en 2025, le budget 2026 prévoyait déjà un gel des pensions, finalement abandonné au Parlement — les pensions de base ont été revalorisées de 0,9 % au 1er janvier 2026. Ensuite, le texte permet au gouvernement de fixer par décret une hausse partielle, entre 0 et l'inflation, éventuellement dégressive jusqu'à ${EUR.format(SEUIL_HAUT)} de pension totale. Un tel décret pourrait intervenir en cours d'année et s'appliquer rétroactivement au 1er janvier 2027. Sans décret au 31 octobre 2027, le gel deviendrait définitif pour l'année.`,
+      r: `Non, à trois titres. D'abord, c'est un projet, et il est en difficulté : le 23 octobre 2026, l'Assemblée nationale a rejeté le PLFSS en première lecture (partie recettes, 115 voix contre 1) sans examiner la partie dépenses où figure l'article 35 ; le Sénat l'examine à partir du 9 novembre. Le précédent plaide pour la prudence : en 2025, le budget 2026 prévoyait déjà un gel des pensions, finalement abandonné au Parlement — les pensions de base ont été revalorisées de 0,9 % au 1er janvier 2026. Ensuite, le texte permet au gouvernement de fixer par décret une hausse partielle, entre 0 et l'inflation, éventuellement dégressive jusqu'à ${EUR.format(SEUIL_HAUT)} de pension totale. Un tel décret pourrait intervenir en cours d'année et s'appliquer rétroactivement au 1er janvier 2027. Sans décret au 31 octobre 2027, le gel deviendrait définitif pour l'année.`,
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",

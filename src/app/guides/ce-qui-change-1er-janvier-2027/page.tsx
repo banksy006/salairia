@@ -31,7 +31,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés. Pour 2027, la photo s'est précisée le 1er octobre 2026 avec le dépôt du projet de loi de finances et du projet de loi de financement de la Sécurité sociale : barème de l'impôt relevé de 2,1 %, revalorisation des retraites réservée aux petites pensions, plafond unique pour les indemnités de rupture, prime d'activité gelée. Cette page distingue ce qui est acquis, ce qui n'est encore qu'un projet, et ce qui reste à publier — avec un lien vers notre analyse détaillée de chaque sujet.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-15",
+  dateModified: "2026-10-24",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },
@@ -301,6 +301,7 @@ export default function Page() {
                 ["Début octobre 2026 ✓", "Rapport de la Commission des comptes de la Sécurité sociale : PASS 2027 estimé à 4 075 € par mois."],
                 ["12 octobre 2026 ✓", "Titres-restaurant : proposition de loi adoptée par l'Assemblée en première lecture ; Sénat le 19 novembre."],
                 ["14 octobre 2026 ✓", "Agirc-Arrco : +1,4 % au 1er novembre, après vingt mois de gel du point."],
+                ["23 octobre 2026 ✓", "PLFSS 2027 rejeté par l'Assemblée en première lecture (partie recettes, 115 voix contre 1), partie dépenses non examinée ; le Sénat s'en saisit à partir du 9 novembre. PLF 2027 : vote de la première partie reporté."],
                 ["Mi-novembre 2026", "Inflation d'octobre publiée par l'INSEE : coefficient légal de revalorisation des retraites."],
                 ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : premier chiffrage de la hausse de janvier."],
                 ["Mi-décembre 2026", "Décret SMIC et arrêté PASS au Journal officiel. Date limite pour moduler l'avance de crédits d'impôt."],
