@@ -59,7 +59,7 @@ const cascadePortage = [
 const tauxRestitution = pct(resultatPortage.salaireNetAvantImpot);
 
 export const metadata: Metadata = {
-  title: "Portage salarial : le guide complet 2026",
+  title: "Portage salarial 2026 : fonctionnement, salaire net, avantages et pièges — le guide indépendant",
   description:
     "Tout savoir sur le portage salarial en 2026 : fonctionnement, salaire, avantages, inconvénients, cotisations, chômage. Guide indépendant + simulateur gratuit.",
   alternates: {

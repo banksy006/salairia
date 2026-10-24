@@ -6,7 +6,7 @@ import { IconBadge, CalendarIcon, EuroIcon, InfoIcon, AlertTriangleIcon, Percent
 
 const meta: GuideMeta = {
   slug: "calendrier-impots-2027",
-  titre: "Calendrier des impôts 2027 : toutes les dates qui comptent",
+  titre: "Déclaration d'impôts 2027 : dates et calendrier fiscal complet",
   sousTitre: "De l'avance de janvier au solde de décembre — l'année fiscale d'un particulier, mois par mois",
   chapo: "L'année fiscale française est une horloge : avance de crédits d'impôt mi-janvier, déclaration au printemps, avis et remboursements l'été, nouveau taux de prélèvement au 1er septembre, solde à l'automne, modulation de l'avance en décembre. Les dates précises de 2027 seront publiées par la DGFiP au fil de l'année — voici le calendrier complet avec les dates de référence 2026, mis à jour à chaque annonce officielle.",
   filAriane: "Calendrier impôts 2027",
@@ -49,8 +49,8 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: "Calendrier des impôts 2027 : déclaration, remboursement, solde — toutes les dates",
-  description: "L'année fiscale 2027 mois par mois : avance de crédits d'impôt (~15 janvier), déclaration (avril-juin), remboursements (fin juillet), nouveau taux de PAS (1er septembre), solde (dès le 25 septembre), impôts locaux et CFE (octobre-décembre). Mis à jour à chaque annonce DGFiP.",
+  title: "Déclaration d'impôts 2027 : dates d'ouverture, dates limites et calendrier fiscal complet",
+  description: "Quand déclarer ses impôts en 2027 ? Ouverture de la déclaration mi-avril, dates limites fin mai à début juin selon le département, avance de crédits d'impôt le 15 janvier, remboursements fin juillet, solde dès septembre, CFE en décembre. Les dates officielles dès leur annonce par la DGFiP.",
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Calendrier des impôts 2027 : toutes les dates qui comptent",

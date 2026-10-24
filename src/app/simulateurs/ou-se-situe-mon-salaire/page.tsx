@@ -10,9 +10,9 @@ import TocSidebar from "@/components/simulateurs/TocSidebar";
 
 export const metadata: Metadata = {
   title:
-    "O\u00f9 se situe mon salaire ? Comparez \u00e0 la distribution fran\u00e7aise 2026",
+    "Où se situe mon salaire ? Votre percentile dans la distribution des salaires en France",
   description:
-    "Comparez votre salaire net mensuel aux percentiles INSEE. D\u00e9couvrez si vous gagnez plus ou moins que la m\u00e9diane fran\u00e7aise, par cat\u00e9gorie socioprofessionnelle et tranche d\u2019\u00e2ge.",
+    "Entrez votre salaire net mensuel et découvrez votre place dans la distribution des salaires en France : percentile, écart à la médiane, comparaison par catégorie socioprofessionnelle et par âge. Données INSEE 2024, calcul instantané, sans inscription.",
   alternates: {
     canonical: "/simulateurs/ou-se-situe-mon-salaire",
   },

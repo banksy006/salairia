@@ -136,7 +136,7 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: "Barème impôt 2027 : les nouvelles tranches du PLF (+2,1 %)",
+  title: "Barème impôt 2027 : tranches et taux sur les revenus 2026 (PLF, +2,1 %)",
   description: `Le projet de loi de finances 2027 relève toutes les tranches de 2,1 % : 0 % jusqu'à 11 844 €, 11 % jusqu'à 30 200 €, 30 % jusqu'à 86 353 €, 41 % jusqu'à 185 737 €, 45 % au-delà. Décote à ${EUR.format(DECOTE_SEUL_2027)}, quotient familial, taux neutre du prélèvement à la source, effet chiffré sur votre impôt et calendrier du vote.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {

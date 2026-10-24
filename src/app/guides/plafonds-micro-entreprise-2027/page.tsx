@@ -63,8 +63,8 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: `Plafonds micro-entreprise 2027 : ${EUR.format(AE_2026.PLAFOND_BNC)} et ${EUR.format(AE_2026.PLAFOND_BIC_VENTE)}, ce que le budget change`,
-  description: `Plafonds micro figés jusqu'en 2028 (${EUR.format(AE_2026.PLAFOND_BNC)} services, ${EUR.format(AE_2026.PLAFOND_BIC_VENTE)} vente), taux de cotisations et seuils de TVA inchangés par le PLF et le PLFSS 2027, seuil à 25 000 € abrogé. Ce qui change vraiment au 1er janvier 2027 : la fin du régime simplifié de TVA et les déclarations trimestrielles.`,
+  title: `Auto-entrepreneur 2027 : plafonds (${EUR.format(AE_2026.PLAFOND_BNC)} / ${EUR.format(AE_2026.PLAFOND_BIC_VENTE)}), taux URSSAF et seuils de TVA`,
+  description: `Les chiffres de l'auto-entrepreneur en 2027 : plafonds de chiffre d'affaires figés (${EUR.format(AE_2026.PLAFOND_BNC)} services, ${EUR.format(AE_2026.PLAFOND_BIC_VENTE)} vente), taux de cotisations URSSAF par activité, seuils de franchise de TVA, et ce que le budget 2027 change vraiment : la fin du régime simplifié de TVA et les déclarations trimestrielles.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Plafonds micro-entreprise 2027 : ce que le budget change, et ce qu'il ne change pas",

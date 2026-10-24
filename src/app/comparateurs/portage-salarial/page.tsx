@@ -19,9 +19,9 @@ import data from "@/data/societes-portage.json";
 
 export const metadata: Metadata = {
   title:
-    "Comparatif portage salarial 2026 : 10 sociétés analysées",
+    "Comparatif portage salarial 2026 : frais, avis et net de 10 sociétés",
   description:
-    "Comparatif indépendant des 10 meilleures sociétés de portage salarial en 2026. Frais, avis, services : trouvez la société adaptée à votre profil.",
+    "Comparatif indépendant de 10 sociétés de portage salarial en 2026 : frais de gestion relevés ou estimés, avis clients vérifiés, services inclus, et le salaire net que chacune laisse pour un même TJM. Aucune société n'est classée contre paiement.",
   alternates: {
     canonical: "/comparateurs/portage-salarial",
   },
