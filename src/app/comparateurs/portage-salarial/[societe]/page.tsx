@@ -14,6 +14,7 @@ import {
 } from "@/components/icons";
 import { calculerPortage } from "@/lib/calculators/portage";
 import societesData from "@/data/societes-portage.json";
+import PartenaireEncart from "@/components/comparateurs/PartenaireEncart";
 
 interface Societe {
   id: string;
@@ -223,6 +224,10 @@ export default async function Page({
               <p className="mt-1 text-xs text-muted-foreground">{c.l}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-6">
+          <PartenaireEncart slugFiche={s.slug} />
         </div>
 
         {s.alerte && (

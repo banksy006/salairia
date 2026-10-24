@@ -167,6 +167,10 @@ Search Console du 24 octobre : 84 % des clics viennent de 7 pages « chiffre 202
 
 **Mesure** : événement Plausible `Clic partenaire` (props `partenaire`, `page`), émis par `src/components/PartenaireClicks.tsx` monté dans le layout, sur tout lien `a[data-partenaire]` ou `a[data-affiliate]`. Les liens sortants des 4 comparateurs et des fiches portent `data-partenaire={nom}`. À déclarer comme objectif dans Plausible. Les liens vers l'URSSAF ou impots.gouv restent dans « Outbound Link: Click ».
 
+## Emplacement « Partenaire Salairia » (24 octobre 2026)
+
+Offre vendue aux sociétés de portage (500 € HT par an, article partenaire 450 € HT, pack 850 € HT — grille unique, ne pas déroger d'un client à l'autre). Données dans `src/data/partenaires-portage.json` (`actif`, `debut`, `fin`, accroche, 3 avantages, URL avec UTM) ; composant `src/components/comparateurs/PartenaireEncart.tsx`, affiché au-dessus du tableau du comparateur portage et sur la fiche de la société, un seul partenaire à la fois. Règles non négociables : mention « emplacement rémunéré », lien `rel="sponsored"` + `data-partenaire`, classement du tableau intact, jamais de label éditorial (« choix Salairia ») acheté. La page méthodologie (section « partenariats ») l'explique publiquement. Pour activer un contrat : passer `actif` à `true` et poser les dates, rien d'autre.
+
 ## Convention de commits
 
 Préfixes à utiliser (type conventional commits allégé) :

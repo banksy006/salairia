@@ -105,6 +105,7 @@ const tocItems = [
   { id: "processus", label: "Processus de calcul" },
   { id: "frequence", label: "Mises à jour" },
   { id: "mesure", label: "Audience et cookies" },
+  { id: "partenariats", label: "Partenariats et affiliation" },
   { id: "limites", label: "Limites" },
   { id: "erreur", label: "Signaler une erreur" },
 ] as const;
@@ -338,6 +339,37 @@ export default function MethodologiePage() {
             </section>
 
             {/* Limites */}
+            <section id="partenariats" className="scroll-mt-24">
+              <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                <IconBadge><ShieldIcon className="w-4 h-4" /></IconBadge>
+                Partenariats, affiliation et emplacements rémunérés
+              </h2>
+              <div className="mt-8 rounded-2xl bg-muted/50 p-8 sm:p-10">
+                <p className="text-lg leading-relaxed text-foreground/80">
+                  Salairia est financé par des partenariats commerciaux avec
+                  certaines des sociétés qu&apos;il compare : liens
+                  d&apos;affiliation, emplacements « Partenaire » et articles
+                  partenaires. Trois règles s&apos;appliquent sans exception,
+                  conformément à l&apos;article L111-7 du Code de la
+                  consommation qui encadre les comparateurs en ligne.
+                </p>
+                <ul className="mt-6 space-y-3 text-base leading-relaxed text-foreground/80">
+                  <li className="flex gap-3">
+                    <span aria-hidden className="text-accent">✅</span>
+                    <span><strong>Le classement ne s&apos;achète pas.</strong> L&apos;ordre des comparatifs repose sur les frais, les services et les avis publics relevés ; une société partenaire y figure à la place que ces critères lui donnent, ni plus ni moins. Une société en difficulté avérée (procédure collective) est signalée et exclue des classements, qu&apos;elle soit partenaire ou non.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span aria-hidden className="text-accent">✅</span>
+                    <span><strong>Tout emplacement rémunéré est signalé.</strong> L&apos;encart « Partenaire Salairia » placé au-dessus d&apos;un comparatif porte la mention « emplacement rémunéré », vit à côté du tableau et jamais dedans, et ses liens sont marqués comme sponsorisés pour les moteurs de recherche. Un article financé par une société porte la mention « Article partenaire ».</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span aria-hidden className="text-accent">✅</span>
+                    <span><strong>Les chiffres restent les nôtres.</strong> Les frais, les montants et les nets affichés sont calculés par nos simulateurs ou relevés sur les grilles publiques ; aucun partenaire ne fournit ni ne valide le contenu éditorial qui le concerne.</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
             <section id="limites" className="scroll-mt-24">
               <h2 className="flex items-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 <IconBadge><AlertTriangleIcon className="w-4 h-4" /></IconBadge>

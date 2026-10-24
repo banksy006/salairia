@@ -14,6 +14,7 @@ import {
   InfoIcon,
 } from "@/components/icons";
 import PortageTable from "@/components/comparateurs/PortageTable";
+import PartenaireEncart from "@/components/comparateurs/PartenaireEncart";
 import TocSidebar from "@/components/simulateurs/TocSidebar";
 import data from "@/data/societes-portage.json";
 
@@ -184,8 +185,9 @@ export default function PortageSalarialComparateurPage() {
               Nous avons analysé chaque société sur 8 critères factuels :
               frais de gestion, plafonnement, avis clients, label PEPS,
               ancienneté, nombre de portés, services inclus et réseau
-              d&apos;agences. Aucune société ne nous rémunère pour apparaître
-              dans ce classement. Le badge « Choix Salairia » est attribué à
+              d&apos;agences. Aucune société ne peut acheter sa place dans ce
+              classement : les emplacements partenaires, quand il y en a, sont
+              signalés comme tels et vivent à côté du tableau. Le badge « Choix Salairia » est attribué à
               la société offrant le meilleur rapport qualité-prix objectif
               (frais plafonnés + note client élevée + label PEPS).
             </p>
@@ -265,6 +267,9 @@ export default function PortageSalarialComparateurPage() {
               Triez par frais, note client ou ancienneté. Cliquez sur un
               nom pour accéder à sa fiche détaillée.
             </p>
+            <div className="mt-6">
+              <PartenaireEncart />
+            </div>
             <div className="mt-6">
               <PortageTable />
             </div>
