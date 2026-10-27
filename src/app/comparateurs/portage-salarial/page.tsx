@@ -404,7 +404,7 @@ export default function PortageSalarialComparateurPage() {
                         <p className="mt-3 flex items-start gap-2 rounded-r-lg border-l-4 border-destructive bg-destructive/10 p-3 text-sm font-semibold text-destructive">
                           <AlertTriangleIcon className="mt-0.5 h-4 w-4 flex-shrink-0" />
                           <span>
-                            {s.alerte.titre} — ne pas signer tant que la procédure est en cours.{" "}
+                            {s.alerte.titre} — ne pas signer de contrat avec cette société.{" "}
                             <Link href={`/comparateurs/portage-salarial/${s.slug}`} className="underline underline-offset-4">
                               Détails et source
                             </Link>

@@ -131,7 +131,7 @@ Réplication de la formule de la page gagnante (/pouvoir-achat-ville, 76 % des c
 ### Comparateurs — 4 (tous disponibles)
 `/comparateurs` (hub)
 - **portage-salarial** — 10 sociétés, frais relevés avril 2026 ⚠️
-- **banques-pro** — 5 comptes, offres d'entrée, juillet 2026
+- **banques-pro** — 6 comptes dont 2 en extinction (Blank, Propulse by CA), offres d'entrée, juillet 2026
 - **comptabilite** — 5 solutions, séparées en outils autonomes / cabinets, juillet 2026
 - **creation-societe** — 5 plateformes, honoraires + frais obligatoires de 246,86 €, juillet 2026
 
@@ -164,12 +164,12 @@ Blocs `NewsletterForm` sur smic-2027, plafond-securite-sociale-2027, bareme-impo
 |---|---|---|
 | Constantes fiscales (URSSAF, IS, PASS, PAS, SMIC) | 27 juillet 2026 | ✅ à jour |
 | Loyers T2 des 20 villes (MeilleursAgents) | 1er juillet 2026 | ✅ à jour |
-| Tarifs banques pro | 28 juillet 2026 | ✅ à jour |
+| Tarifs banques pro | 28 juillet 2026 | ⚠️ Blank et Propulse by CA en extinction (annonce CA du 9 juillet 2026, migration vers Pro by CA d'ici janvier 2027) — hors classement, Pro by CA à ajouter une fois sa grille vérifiée |
 | Tarifs comptabilité | 28 juillet 2026 | ✅ à jour |
 | Tarifs création de société | 28 juillet 2026 | ✅ à jour |
 | Tarif Navigo | janvier 2026 | ✅ à jour |
 | Transports (18 villes hors Paris et Lyon) | avril 2026 | ◻️ ordres de grandeur, impact non matériel |
-| Frais du comparateur portage | 28 juillet 2026 (fiches 2i Portage et CEGELEM : 14 octobre 2026) | ⚠️ CEGELEM en redressement judiciaire depuis le 17 sept. 2026 — alerte affichée, exclue des classements |
+| Frais du comparateur portage | 28 juillet 2026 (fiches 2i Portage et CEGELEM : 14 octobre 2026) | ⚠️ CEGELEM en liquidation judiciaire (RJ du 17 sept. 2026 converti, BODACC du 25 oct. 2026) — alerte affichée, exclue des classements |
 | Fourchettes de négociation | 28 juillet 2026 | ◻️ ancrées sur l'APEC 2025, fourchettes par métier estimées |
 | Percentiles de salaires | 28 juillet 2026 | ✅ INSEE 2024, seules les valeurs publiées sont stockées |
 | Mesures PLF / PLFSS 2027 (pages guides) | 14 octobre 2026 | ⏳ projets déposés le 1er oct. — à reprendre au vote final ; valeurs locales aux pages, aucune constante de calculateur modifiée |

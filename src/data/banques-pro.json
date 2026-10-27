@@ -1,5 +1,5 @@
 {
-  "_source": "Tarifs relevés le 28 juillet 2026 sur les grilles tarifaires publiques de chaque acteur. Seules les OFFRES D'ENTRÉE sont comparées ligne à ligne : c'est le palier pertinent pour un freelance ou une micro-entreprise, et c'est celui que chaque éditeur documente publiquement de façon comparable. Les paliers supérieurs sont mentionnés à titre indicatif. Vérifier la grille officielle avant de souscrire, les tarifs évoluent.",
+  "_source": "Tarifs relevés le 28 juillet 2026 sur les grilles tarifaires publiques de chaque acteur. Seules les OFFRES D'ENTRÉE sont comparées ligne à ligne : c'est le palier pertinent pour un freelance ou une micro-entreprise, et c'est celui que chaque éditeur documente publiquement de façon comparable. Les paliers supérieurs sont mentionnés à titre indicatif. Vérifier la grille officielle avant de souscrire, les tarifs évoluent. Blank et Propulse by CA : le Crédit Agricole a annoncé le 9 juillet 2026 l'arrêt des deux marques, remplacées par Pro by CA ; les clients sont transférés jusqu'en janvier 2027 au plus tard. Leurs lignes sont conservées pour mémoire, hors classement.",
   "dateReleve": "2026-07-28",
   "banques": [
     {
@@ -14,7 +14,14 @@
       "specificite": "Déclaration URSSAF automatisée, scan de justificatifs et notes de frais",
       "autresPaliers": "Confort 17 € HT, Complète 39 € HT (virements illimités)",
       "urlTarifs": "https://www.blank.app/tarifs",
-      "cible": "Micro-entrepreneurs"
+      "cible": "Micro-entrepreneurs",
+      "arret": {
+        "annonce": "2026-07-09",
+        "remplacant": "Pro by CA (Crédit Agricole, plateforme Kolecto)",
+        "echeance": "janvier 2027",
+        "source": "https://www.moneyvox.fr/banque-pro/actualites/109623/le-credit-agricole-enterre-blank-sa-banque-en-ligne-pour-les-pro",
+        "sourceLabel": "MoneyVox, 9 juillet 2026"
+      }
     },
     {
       "slug": "propulse",
@@ -28,7 +35,14 @@
       "specificite": "Adossé au Crédit Agricole, aucun frais de tenue de compte ni commission de mouvement",
       "autresPaliers": "Start+ (tarif supérieur)",
       "urlTarifs": "https://www.propulsebyca.fr/tarifs",
-      "cible": "Indépendants cherchant un groupe bancaire établi"
+      "cible": "Indépendants cherchant un groupe bancaire établi",
+      "arret": {
+        "annonce": "2026-07-09",
+        "remplacant": "Pro by CA (Crédit Agricole, plateforme Kolecto)",
+        "echeance": "janvier 2027",
+        "source": "https://www.moneyvox.fr/banque-pro/actualites/109623/le-credit-agricole-enterre-blank-sa-banque-en-ligne-pour-les-pro",
+        "sourceLabel": "MoneyVox, 9 juillet 2026"
+      }
     },
     {
       "slug": "qonto",
@@ -42,7 +56,8 @@
       "specificite": "Conformité facturation électronique, support client 24h/24 7j/7, outils de trésorerie",
       "autresPaliers": "Smart 19 € HT (100 virements/mois, 1 sous-compte), Premium 39 € HT",
       "urlTarifs": "https://qonto.com/fr/pricing",
-      "cible": "Freelances et sociétés en croissance"
+      "cible": "Freelances et sociétés en croissance",
+      "arret": null
     },
     {
       "slug": "shine",
@@ -56,7 +71,8 @@
       "specificite": "Offre réellement gratuite ; plafond carte 20 000 €/30 j, retraits et dépôt de chèques en option",
       "autresPaliers": "Start 9 € HT (30 virements/mois, 2 IBAN, plafond 40 000 €/30 j)",
       "urlTarifs": "https://www.shine.fr/tarifs/",
-      "cible": "Démarrage d'activité, faible volume"
+      "cible": "Démarrage d'activité, faible volume",
+      "arret": null
     },
     {
       "slug": "finom",
@@ -70,7 +86,8 @@
       "specificite": "Compte rémunéré 0,25 %, transferts internationaux à 1 %",
       "autresPaliers": "Basic et Smart (tarifs non publiés en clair sur la page)",
       "urlTarifs": "https://finom.co/fr-fr/pricing/",
-      "cible": "Indépendants à faible volume de virements"
+      "cible": "Indépendants à faible volume de virements",
+      "arret": null
     },
     {
       "slug": "revolut-business",
@@ -84,7 +101,8 @@
       "specificite": "Plus de 35 devises, comptes locaux et internationaux, changes au taux interbancaire jusqu'à 1 000 €/mois, compte épargne rémunéré à 1,25 % brut, support client français 24h/24 et 7j/7",
       "autresPaliers": "Grow 35 €/mois (100 virements domestiques, 5 internationaux, 1 carte Metal, épargne 1,55 %), Scale 125 €/mois (1 000 virements domestiques, 25 internationaux, 2 cartes Metal, épargne 2 %), Enterprise sur demande",
       "urlTarifs": "https://www.revolut.com/fr-FR/business/business-account-plans/",
-      "cible": "Freelances et entreprises à activité multidevise"
+      "cible": "Freelances et entreprises à activité multidevise",
+      "arret": null
     }
   ]
 }

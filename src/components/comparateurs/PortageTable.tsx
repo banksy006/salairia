@@ -96,7 +96,8 @@ export default function PortageTable() {
                   </div>
                   {s.alerte && (
                     <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-xs font-semibold text-destructive">
-                      <AlertTriangleIcon className="h-3 w-3" /> Redressement judiciaire
+                      <AlertTriangleIcon className="h-3 w-3" />{" "}
+                      {s.alerte.type === "liquidation-judiciaire" ? "Liquidation judiciaire" : "Redressement judiciaire"}
                     </span>
                   )}
                 </td>

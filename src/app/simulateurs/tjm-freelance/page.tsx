@@ -130,7 +130,7 @@ const partners = [
   },
   {
     category: "Compte bancaire pro",
-    desc: "Qonto, Shine, Propulse — essentiel dès la création d'une SASU ou EURL.",
+    desc: "Qonto, Shine, Finom — essentiel dès la création d'une SASU ou EURL.",
     ctaLabel: "Découvrir Qonto",
     href: "https://www.qonto.com",
     internal: false,

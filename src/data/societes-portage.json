@@ -299,13 +299,13 @@
       "Accompagnement personnalisé",
       "Plateforme digitale"
     ],
-    "idealPour": "Personne tant que la procédure collective est en cours",
+    "idealPour": "Personne : la société est en liquidation judiciaire",
     "points_forts": [
       "4 % fixe, affiché publiquement",
       "Interface digitale moderne"
     ],
     "points_faibles": [
-      "Redressement judiciaire ouvert le 17 septembre 2026 (BODACC du 27 septembre)",
+      "Liquidation judiciaire prononcée en octobre 2026 (BODACC du 25 octobre), après un redressement ouvert le 17 septembre",
       "Retards et défauts de paiement de salaires signalés par des portés depuis mai 2026",
       "Pas de label PEPS",
       "Pas d'avance sur salaire"
@@ -313,13 +313,13 @@
     "site": "https://www.cegelem.fr",
     "choixSalairia": false,
     "tarifPublie": true,
-    "dateVerification": "2026-10-14",
+    "dateVerification": "2026-10-27",
     "tauxEstimePct": 4,
     "alerte": {
-      "type": "redressement-judiciaire",
-      "date": "2026-09-17",
-      "titre": "Redressement judiciaire ouvert le 17 septembre 2026",
-      "texte": "Le tribunal des activités économiques de Nanterre a ouvert une procédure de redressement judiciaire à l'encontre de CEGELEM par jugement du 17 septembre 2026 (BODACC du 27 septembre 2026), avec une date de cessation des paiements fixée au 31 mai 2026 et la désignation d'un administrateur judiciaire. Des consultants portés signalent depuis le printemps 2026 des salaires versés en retard ou non versés. Tant que la procédure est en cours, nous déconseillons de signer un nouveau contrat de portage avec cette société ; les salariés concernés doivent déclarer leurs créances auprès du mandataire judiciaire, l'AGS garantissant les salaires impayés.",
+      "type": "liquidation-judiciaire",
+      "date": "2026-10-25",
+      "titre": "Liquidation judiciaire prononcée en octobre 2026",
+      "texte": "Le tribunal des activités économiques de Nanterre avait ouvert une procédure de redressement judiciaire à l'encontre de CEGELEM par jugement du 17 septembre 2026 (BODACC du 27 septembre 2026), avec une date de cessation des paiements fixée au 31 mai 2026. Cette procédure a été convertie en liquidation judiciaire (jugement de conversion publié au BODACC le 25 octobre 2026) : la société cesse son activité et ne peut plus accueillir de nouveaux consultants. Les salariés portés concernés doivent déclarer leurs créances auprès du liquidateur judiciaire ; l'AGS garantit les salaires impayés dans les limites légales. Si tu étais porté par CEGELEM, la priorité est de sécuriser tes missions en cours auprès d'une autre société.",
       "source": "https://bodacc-datadila.opendatasoft.com/explore/dataset/annonces-commerciales/table/?q=834746034",
       "sourceLabel": "BODACC — annonces concernant CEGELEM (SIREN 834 746 034)"
     }

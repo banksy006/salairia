@@ -16,12 +16,12 @@ import data from "@/data/banques-pro.json";
 export const metadata: Metadata = {
   title: "Comparatif banques pro freelance 2026 : 6 comptes comparés",
   description:
-    "Comparatif indépendant des comptes pro pour freelances et micro-entrepreneurs : Blank, Propulse, Qonto, Shine, Finom, Revolut. Tarifs relevés en juillet 2026 sur les grilles officielles.",
+    "Comparatif indépendant des comptes pro pour freelances et micro-entrepreneurs : Qonto, Shine, Finom, Revolut, et le point sur la fermeture de Blank et Propulse by CA. Tarifs relevés sur les grilles officielles.",
   alternates: { canonical: "/comparateurs/banques-pro" },
   openGraph: {
     title: "Comparatif banques pro freelance 2026 : 6 comptes comparés",
     description:
-      "Blank, Propulse, Qonto, Shine, Finom, Revolut — offres d'entrée comparées ligne à ligne, tarifs officiels de juillet 2026.",
+      "Qonto, Shine, Finom, Revolut — offres d'entrée comparées ligne à ligne, tarifs officiels. Blank et Propulse by CA ferment : ce qu'il faut savoir.",
     url: "/comparateurs/banques-pro",
   },
 };
@@ -29,9 +29,14 @@ export const metadata: Metadata = {
 // Les acteurs dont la grille n'a pas pu être vérifiée sont relégués en fin de
 // tableau : les classer par un prix supposé serait leur donner un rang qu'on
 // ne peut pas justifier.
+// Les offres en cours de fermeture (Blank, Propulse) passent tout en bas :
+// on ne classe pas un compte qu'on ne peut plus ouvrir.
 const banques = [...data.banques].sort(
-  (a, b) => (a.prixMensuelHT ?? 9_999) - (b.prixMensuelHT ?? 9_999),
+  (a, b) =>
+    Number(!!a.arret) - Number(!!b.arret) ||
+    (a.prixMensuelHT ?? 9_999) - (b.prixMensuelHT ?? 9_999),
 );
+const fermetures = banques.filter((b) => b.arret);
 
 const faq = [
   {
@@ -48,7 +53,7 @@ const faq = [
   },
   {
     q: "Que valent les garanties de dépôt sur ces comptes ?",
-    r: "La distinction importante est celle entre établissement de crédit et établissement de paiement. Un établissement de crédit relève de la garantie des dépôts (FGDR, jusqu'à 100 000 € par déposant). Un établissement de paiement doit cantonner les fonds de ses clients sur des comptes séparés, ce qui protège différemment. Propulse est adossé au Crédit Agricole ; les néobanques relèvent de statuts variables. Cette information figure dans les conditions générales de chaque acteur.",
+    r: "La distinction importante est celle entre établissement de crédit et établissement de paiement. Un établissement de crédit relève de la garantie des dépôts (FGDR, jusqu'à 100 000 € par déposant). Un établissement de paiement doit cantonner les fonds de ses clients sur des comptes séparés, ce qui protège différemment. Pro by CA, qui remplace Blank et Propulse, est adossé au Crédit Agricole ; les néobanques relèvent de statuts variables. Cette information figure dans les conditions générales de chaque acteur.",
   },
   {
     q: "Comment ce comparatif est-il financé ?",
@@ -85,7 +90,7 @@ export default function ComparateurBanquesProPage() {
       },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-07-28",
-      dateModified: "2026-10-14",
+      dateModified: "2026-10-27",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/comparateurs/banques-pro`,
     },
@@ -146,7 +151,7 @@ export default function ComparateurBanquesProPage() {
           Comparatif des banques pro pour freelances
         </h1>
         <p className="mt-3 text-2xl font-semibold text-primary sm:text-3xl">
-          Six comptes, leurs offres d&apos;entrée, sans classement acheté
+          Quatre comptes actifs, deux offres en extinction, sans classement acheté
         </p>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-foreground/80">
           Nous comparons ici l&apos;<strong>offre d&apos;entrée</strong> de chaque
@@ -169,6 +174,27 @@ export default function ComparateurBanquesProPage() {
                 Le comparatif
               </h2>
 
+              {fermetures.length > 0 && (
+                <div className="mt-6 rounded-r-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-amber-900">
+                  <p className="text-sm leading-relaxed">
+                    <strong>
+                      {fermetures.map((b) => b.nom).join(" et ")} ferment.
+                    </strong>{" "}
+                    Le Crédit Agricole a annoncé le{" "}
+                    {new Date(fermetures[0].arret!.annonce).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}{" "}
+                    l&apos;arrêt des deux marques, remplacées par{" "}
+                    {fermetures[0].arret!.remplacant}, avec un transfert des clients
+                    d&apos;ici {fermetures[0].arret!.echeance} au plus tard. Nous
+                    gardons leurs lignes pour mémoire, hors classement, le temps de
+                    vérifier la grille de l&apos;offre de remplacement (
+                    <a href={fermetures[0].arret!.source} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+                      {fermetures[0].arret!.sourceLabel}
+                    </a>
+                    ).
+                  </p>
+                </div>
+              )}
+
               <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-white shadow-md">
                 <table className="w-full min-w-[46rem] text-left text-sm">
                   <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
@@ -186,11 +212,16 @@ export default function ComparateurBanquesProPage() {
                         key={b.slug}
                         id={b.slug}
                         className={`border-b border-border last:border-b-0 transition hover:bg-muted/50 ${
-                          b.gratuit ? "bg-accent/5" : ""
+                          b.gratuit ? "bg-accent/5" : b.arret ? "text-muted-foreground opacity-70" : ""
                         }`}
                       >
                         <td className={`px-5 py-4 font-semibold text-foreground ${b.gratuit ? "border-l-4 border-accent" : ""}`}>
                           {b.nom}
+                          {b.arret && (
+                            <span className="mt-1 block w-fit rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-900">
+                              Fermeture annoncée
+                            </span>
+                          )}
                         </td>
                         <td className="px-5 py-4 text-muted-foreground">{b.offreEntree}</td>
                         <td className="whitespace-nowrap px-5 py-4 text-right text-lg font-bold tabular-nums">
@@ -239,6 +270,12 @@ export default function ComparateurBanquesProPage() {
                     <p className="mt-3 text-sm text-muted-foreground">
                       Autres paliers : {b.autresPaliers}
                     </p>
+                    {b.arret && (
+                      <p className="mt-3 rounded-r-lg border-l-4 border-amber-500 bg-amber-50 p-3 text-sm text-amber-900">
+                        Offre en extinction : plus d&apos;ouverture à prévoir, clients
+                        transférés vers {b.arret.remplacant} d&apos;ici {b.arret.echeance}.
+                      </p>
+                    )}
                     <a
                       href={b.urlTarifs}
                       target="_blank"
