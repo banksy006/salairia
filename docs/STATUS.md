@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 163 |
-| URLs au sitemap | 156 |
+| Routes publiées | 166 |
+| URLs au sitemap | 159 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -112,7 +112,9 @@ Déclenché par une anomalie GSC : le site est en **position 1** sur des dizaine
 
 Règle produit : sous le plafond de la Sécurité sociale, le net cadre est identique au non-cadre (seule l'APEC à 0,024 % les sépare). La page bascule alors sur une carte unique avec mention explicite — afficher deux montants identiques laisserait croire à un bug, et les FAQ affirmaient un écart inexistant.
 
-### Guides — 39
+### Guides — 42
+
+Dossiers « TJM par métier » du 30 octobre 2026 : **tjm-developpeur-web** · **tjm-data-scientist** · **tjm-devops**. Composant partagé `src/components/guides/TjmMetierGuide.tsx`, config `src/data/tjm-metiers.ts` (TJM de marché repris de la grille du guide TJM freelance ; salaire, net, TJM d'équivalence et net par statut calculés par `src/lib/metiers.ts` et `tjm-freelance.ts`). Cibles : requêtes « tjm développeur », « tjm data scientist », « tjm devops » ; chaque dossier renvoie vers le comparateur portage, la compta et les banques pro. Prochains métiers du moule : consultant IT, product manager, designer UX, chef de projet IT.
 
 Batch « calendrier 2027 » du 25 août 2026, déclenché par la validation mesurée de la stratégie d'anticipation (smic-2027 : 30 visiteurs organiques/jour à J+2, première page Google) : **ce-qui-change-1er-janvier-2027** (hub d'agrégation) · **jours-feries-2027** (4 fériés perdus le week-end, jours calculés en code) · **bareme-kilometrique** (slug sans millésime, tableau vérifié BOFiP) · **plafonds-micro-entreprise-2027** (angle : plafonds triennaux figés jusqu'en 2028) · **prime-activite-2027** · **prime-de-noel-2026** · **titres-restaurant** (dérogation courses expire 31/12/2026) · **revalorisation-retraites-2027** (Agirc nov. vs base janv.) · **avance-credit-impot-janvier** (slug sans millésime) · **calendrier-impots-2027**. Estimations 2027 systématiquement présentées comme telles ; pages à compléter aux publications officielles (échéances listées dans chaque page).
 

@@ -505,6 +505,30 @@ const guides = [
     audience: "Freelances tech, consultants, designers, rédacteurs",
     lecture: "11 min",
   },
+  {
+    titre: "TJM développeur web freelance 2026",
+    desc:
+      "Le TJM d'un développeur web du junior au senior selon les baromètres 2026, le tarif qui égale un salaire de confirmé calculé par bissection, et ce que 550 € par jour deviennent en net selon le statut — micro, portage, SASU, EURL. Avec l'effet des jours facturés et les leviers propres au métier : stack, périmètre livré, contrat en direct.",
+    href: "/guides/tjm-developpeur-web",
+    audience: "Développeurs web et fullstack qui se lancent ou renégocient",
+    lecture: "9 min",
+  },
+  {
+    titre: "TJM data scientist freelance 2026",
+    desc:
+      "750 € par jour pour un data scientist confirmé : d'où vient ce chiffre, quel TJM égale le salaire du métier, et combien il reste en net selon le statut une fois le plafond micro dépassé. Mise en production, IA générative, temps partiel : les leviers qui déplacent la grille.",
+    href: "/guides/tjm-data-scientist",
+    audience: "Data scientists, ML engineers, analystes qui passent en freelance",
+    lecture: "9 min",
+  },
+  {
+    titre: "TJM DevOps freelance 2026",
+    desc:
+      "Le TJM d'un DevOps ou SRE en 2026, le tarif d'équivalence avec le salaire, le net statut par statut et la sensibilité aux jours facturés. Kubernetes, certifications cloud, astreintes facturées à part : ce qui fait monter la grille.",
+    href: "/guides/tjm-devops",
+    audience: "DevOps, SRE, administrateurs système en transition vers le freelance",
+    lecture: "9 min",
+  },
 ] as const;
 
 export default function GuidesPage() {

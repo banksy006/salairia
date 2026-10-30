@@ -48,7 +48,7 @@ const meta: GuideMeta = {
   chapo: `Comparer un TJM à un salaire n'a de sens qu'à budget identique : ce que l'entreprise dépense pour vous. Pour ${EUR.format(budgetMensuel)} mensuels, un CDI cadre verse ${EUR.format(cdi.netAvantImpotMensuel)} nets, le portage ${EUR.format(portage.salaireNetAvantImpot)}. L'écart finance une liberté réelle — et il faut savoir ce qu'elle coûte pour décider en connaissance de cause.`,
   filAriane: "Portage ou CDI",
   datePublished: "2026-08-19",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-30",
   tocItems: [
     { id: "comparaison", label: "À budget égal" },
     { id: "differences", label: "Ce qui diffère vraiment" },
@@ -62,7 +62,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Pourquoi le net est-il plus faible en portage qu'en CDI à coût égal ?",
-      r: `Deux prélèvements s'ajoutent : les frais de gestion de la société de portage (4 à 10 % du CA) et un taux de charges patronales légèrement supérieur en moyenne. Sur un budget de ${EUR.format(budgetMensuel)}, cela représente environ ${EUR.format(ecart)} nets mensuels d'écart. En contrepartie, le porté choisit ses clients, ses tarifs et son rythme — ce que le CDI n'offre pas.`,
+      r: `L'écart vient des frais de gestion de la société de portage (4 à 10 % du CA), prélevés avant tout calcul de paie. Les charges patronales, elles, sont du même ordre : environ 43 % du brut en portage contre 45 % pour un cadre en CDI dans notre calcul. Sur un budget de ${EUR.format(budgetMensuel)}, cela représente environ ${EUR.format(ecart)} nets mensuels d'écart. En contrepartie, le porté choisit ses clients, ses tarifs et son rythme — ce que le CDI n'offre pas.`,
     },
     {
       q: "Qu'est-ce que la requalification d'un portage en CDI ?",

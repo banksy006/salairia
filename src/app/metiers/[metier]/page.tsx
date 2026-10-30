@@ -24,6 +24,7 @@ import {
   memeCategorie,
   ANCRAGE_APEC,
 } from "@/lib/metiers";
+import { TJM_METIERS } from "@/data/tjm-metiers";
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const KEUR = (n: number) => `${Math.round(n / 1000)} k€`;
@@ -72,6 +73,7 @@ export default async function Page({
   const ecartRegion =
     (median(m.idf.confirme) / median(m.province.confirme) - 1) * 100;
   const voisins = memeCategorie(slug);
+  const dossierTjm = TJM_METIERS.find((t) => t.metierId === slug);
 
   const faq = [
     {
@@ -308,6 +310,15 @@ export default async function Page({
                   comparateur salarié ou freelance
                 </Link>
                 , qui compare les quatre statuts sur vos chiffres.
+                {dossierTjm && (
+                  <>
+                    {" "}Le TJM de marché, le net statut par statut et les leviers de négociation propres au métier sont dans notre{" "}
+                    <Link href={`/guides/${dossierTjm.slug}`} className="font-semibold text-primary underline-offset-4 hover:underline">
+                      dossier TJM {dossierTjm.nom}
+                    </Link>
+                    .
+                  </>
+                )}
               </p>
             </div>
           </section>

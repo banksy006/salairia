@@ -14,7 +14,7 @@ const scenario = (remunerationNette: number) =>
 
 const s0 = scenario(0);
 const s24 = scenario(24_000);
-const s42 = scenario(42_000);
+const s36 = scenario(36_000);
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
@@ -25,7 +25,7 @@ const meta: GuideMeta = {
   chapo: `Le président de SASU fixe librement sa rémunération, de zéro à la totalité du résultat. Chaque euro versé en salaire coûte environ 42 % de charges patronales mais crée des droits sociaux ; chaque euro laissé en société subit l'impôt sur les sociétés puis 30 % de flat tax en dividende, sans créer aucun droit. Voici les trois scénarios calculés sur un cas type à ${EUR.format(CA)} de chiffre d'affaires.`,
   filAriane: "Salaire président SASU",
   datePublished: "2026-08-19",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-30",
   tocItems: [
     { id: "libre", label: "Une liberté totale" },
     { id: "scenarios", label: "3 scénarios calculés" },
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 const rows = [
   { label: "100 % dividendes (salaire zéro)", s: s0, rem: 0 },
   { label: "Mix — 2 000 € nets/mois de salaire", s: s24, rem: 24_000 },
-  { label: "Salaire prioritaire — 3 500 € nets/mois", s: s42, rem: 42_000 },
+  { label: "Salaire prioritaire — 3 000 € nets/mois", s: s36, rem: 36_000 },
 ];
 
 export default function Page() {

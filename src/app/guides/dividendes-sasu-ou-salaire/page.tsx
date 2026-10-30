@@ -15,15 +15,16 @@ const tauxGlobal = 1 - netFinal / benefice;
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const PCT = (x: number) => `${Math.round(x * 100)} %`;
+const PCT1 = (x: number) => `${(x * 100).toFixed(1).replace(".", ",")} %`;
 
 const meta: GuideMeta = {
   slug: "dividendes-sasu-ou-salaire",
   titre: "Dividendes en SASU : fiscalité et arbitrage",
   sousTitre: `IS puis flat tax : sur ${EUR.format(benefice)} de bénéfice, ${EUR.format(netFinal)} arrivent dans la poche`,
-  chapo: `Les dividendes ont la réputation d'être « moins taxés » que le salaire. La réalité est plus nuancée : un euro de bénéfice traverse deux prélèvements successifs — l'impôt sur les sociétés puis la flat tax de 30 % — pour un taux global d'environ ${PCT(tauxGlobal)} sur la première tranche. Voici le trajet complet, l'option du barème, et le cas particulier de l'EURL qui change tout.`,
+  chapo: `Les dividendes ont la réputation d'être « moins taxés » que le salaire. La réalité est plus nuancée : un euro de bénéfice traverse deux prélèvements successifs — l'impôt sur les sociétés puis la flat tax de 30 % — pour un taux global d'environ ${PCT1(tauxGlobal)} sur la première tranche. Voici le trajet complet, l'option du barème, et le cas particulier de l'EURL qui change tout.`,
   filAriane: "Dividendes SASU",
   datePublished: "2026-08-19",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-30",
   tocItems: [
     { id: "trajet", label: "Le trajet d'un euro" },
     { id: "flat-tax", label: "Flat tax ou barème" },
@@ -61,12 +62,12 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: `Dividendes SASU 2026 : ${PCT(tauxGlobal)} de prélèvements réels, pas 30 %`,
+  title: `Dividendes SASU 2026 : ${PCT1(tauxGlobal)} de prélèvements réels, pas 30 %`,
   description: `IS puis flat tax : sur ${EUR.format(benefice)} de bénéfice, ${EUR.format(netFinal)} nets. Le trajet complet d'un euro de dividende, l'option barème, et la règle des 10 % du capital en EURL.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Dividendes en SASU : le vrai taux de prélèvement",
-    description: `La flat tax de 30 % ne raconte que la moitié de l'histoire — le taux combiné IS + PFU atteint ${PCT(tauxGlobal)}.`,
+    description: `La flat tax de 30 % ne raconte que la moitié de l'histoire — le taux combiné IS + PFU atteint ${PCT1(tauxGlobal)}.`,
     url: `/guides/${meta.slug}`,
   },
 };
@@ -112,7 +113,7 @@ export default function Page() {
               </tr>
               <tr className="bg-accent/5">
                 <td className="border-l-4 border-accent px-5 py-3 font-semibold text-foreground">Net dans la poche</td>
-                <td className="px-5 py-3 text-right tabular-nums text-muted-foreground">{PCT(tauxGlobal)} au total</td>
+                <td className="px-5 py-3 text-right tabular-nums text-muted-foreground">{PCT1(tauxGlobal)} au total</td>
                 <td className="px-5 py-3 text-right text-lg font-bold tabular-nums text-accent">{EUR.format(netFinal)}</td>
               </tr>
             </tbody>
@@ -120,7 +121,7 @@ export default function Page() {
         </div>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
           Le taux réel n&apos;est donc pas 30 % mais{" "}
-          <strong>{PCT(tauxGlobal)}</strong> — et il grimpe à environ 47,5 %
+          <strong>{PCT1(tauxGlobal)}</strong> — et il grimpe à environ 47,5 %
           pour la part de bénéfice au-delà de {EUR.format(S.IS_SEUIL_REDUIT)},
           taxée à l&apos;IS à {PCT(S.IS_TAUX_NORMAL)}. Comparer « 30 % de flat
           tax » à « 65 % de charges sur le salaire » revient à comparer des

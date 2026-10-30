@@ -21,6 +21,7 @@ import {
   calculerPortage,
   salaireMinimumMensuel,
 } from "@/lib/calculators/portage";
+import { calculerTous } from "@/lib/calculators/tjm-freelance";
 
 // Cascade CA -> net calculée par le simulateur, jamais saisie à la main.
 // Paramètres du cas type documentés ici pour être reproductibles.
@@ -58,6 +59,17 @@ const cascadePortage = [
 
 const tauxRestitution = pct(resultatPortage.salaireNetAvantImpot);
 
+// Même base pour les quatre statuts du tableau comparatif : part du CA qui
+// arrive en net avant impôt, calculée par le simulateur TJM. À 500 €/jour la
+// micro-entreprise dépasse son plafond, d'où un TJM plus bas pour ce tableau.
+const TJM_TABLEAU = 350;
+const partNet = Object.fromEntries(
+  calculerTous({ tjm: TJM_TABLEAU, joursTravailles: JOURS_TYPE, fraisProMensuels: 0, tauxPAS: 0 }).map((r) => [
+    r.statut,
+    `~${Math.round((r.netAvantImpot / r.caHT) * 100)} % du CA`,
+  ]),
+);
+
 export const metadata: Metadata = {
   title: "Portage salarial 2026 : fonctionnement, salaire net, avantages et pièges — le guide indépendant",
   description:
@@ -76,11 +88,11 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "Le portage salarial est-il fait pour moi ?",
-    r: "Si vous êtes consultant, formateur ou expert avec un TJM supérieur à 300 €/jour et que vous souhaitez bénéficier de la sécurité du salariat (chômage, retraite, mutuelle) sans créer de société, le portage est probablement adapté. Si votre CA est inférieur à 3 000 €/mois, l'auto-entreprise sera plus avantageuse financièrement.",
+    r: "Si vous êtes consultant, formateur ou expert avec un TJM d'au moins 300 €/jour (en dessous de 250 €, le portage est rarement viable) et que vous souhaitez bénéficier de la sécurité du salariat (chômage, retraite, mutuelle) sans créer de société, le portage est probablement adapté. Si votre CA est inférieur à 3 000 €/mois, l'auto-entreprise sera plus avantageuse financièrement.",
   },
   {
     q: "Combien coûte le portage salarial ?",
-    r: "Les frais de gestion varient de 5 à 10 % du CA selon la société. En ajoutant les cotisations sociales (~45 %), vous conservez environ 45-55 % de votre chiffre d'affaires en salaire net. Pour un TJM de 500 €, cela représente environ 3 700 € net mensuel.",
+    r: `Les frais de gestion varient de 4 à 10 % du CA selon la société. En ajoutant les cotisations sociales, vous conservez environ ${tauxRestitution} % de votre chiffre d'affaires en salaire net avant impôt. Pour un TJM de ${TJM_TYPE} € sur ${JOURS_TYPE} jours, cela représente ${EUR_PORTAGE.format(resultatPortage.salaireNetAvantImpot)} net mensuel avec ${FRAIS_GESTION_TYPE} % de frais de gestion.`,
   },
   {
     q: "Le portage salarial donne-t-il droit au chômage ?",
@@ -166,7 +178,7 @@ export default function GuidePortageSalarialPage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: `${SITE_URL}` },
       datePublished: "2026-04-17",
-      dateModified: "2026-10-14",
+      dateModified: "2026-10-30",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/guides/portage-salarial`,
     },
@@ -304,7 +316,7 @@ export default function GuidePortageSalarialPage() {
                   { t: "La société de portage contractualise", d: "Elle signe un contrat commercial avec votre client et un contrat de travail (CDI ou CDD) avec vous." },
                   { t: "Vous réalisez votre mission", d: "Vous travaillez en autonomie chez le client. Vous remplissez un compte-rendu d'activité mensuel (CRA)." },
                   { t: "La société facture et encaisse", d: "Elle émet la facture au client, gère les relances et le recouvrement." },
-                  { t: "Vous recevez votre salaire", d: "Après déduction des frais de gestion (5-10 % du CA) et des cotisations sociales (~45 % du restant), la société vous verse un salaire net chaque mois." },
+                  { t: "Vous recevez votre salaire", d: "Après déduction des frais de gestion (4 à 10 % du CA) et des cotisations sociales (~45 % du restant), la société vous verse un salaire net chaque mois." },
                 ].map((step, i) => (
                   <li key={i} className="flex gap-4 border-l-2 border-primary pb-8 pl-6 last:border-l-0 last:pb-0">
                     <div className="-ml-9 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground shadow-sm">
@@ -480,7 +492,7 @@ export default function GuidePortageSalarialPage() {
               <ul className="mt-6 space-y-4">
                 {[
                   { t: "Coût total élevé", d: "Entre les frais de gestion (5-10 %) et les cotisations sociales (~45 %), vous conservez environ 45-55 % de votre CA. En auto-entreprise, c'est 75-80 %." },
-                  { t: "TJM minimum requis", d: "La convention collective impose un salaire minimum (75 % du PASS). En pratique, un TJM inférieur à 300-350 €/jour rend le portage peu viable économiquement." },
+                  { t: "TJM minimum requis", d: "La convention collective impose un salaire minimum (70 % du PASS pour un junior, 75 % pour un senior). En pratique, un TJM inférieur à 250 €/jour rend le portage peu viable économiquement ; 300 € est un seuil confortable." },
                   { t: "Pas de patrimoine d'entreprise", d: "Contrairement à une SASU ou EURL, vous ne construisez pas de société que vous pouvez revendre ou transmettre." },
                   { t: "Limité aux prestations intellectuelles", d: "Le portage est réservé aux activités de conseil, formation, expertise. Pas d'activité commerciale, artisanale ou de négoce." },
                 ].map((inc) => (
@@ -800,7 +812,7 @@ export default function GuidePortageSalarialPage() {
                       ["Plafond CA", "Aucun", "83 600 €", "Aucun", "Aucun"],
                       ["Frais déductibles", "Oui", "Non", "Oui", "Oui"],
                       ["Gestion admin", "Zéro", "Simple", "Compta oblig.", "Compta oblig."],
-                      ["Coût total", "~50 % CA", "~26 % CA", "~60-65 % net", "~45 % net"],
+                      ["Net conservé*", partNet["portage"], partNet["auto-entrepreneur"], partNet["sasu"], partNet["eurl"]],
                       ["Patrimoine", "Non", "Non", "Oui", "Oui"],
                     ].map(([critere, ...vals]) => (
                       <tr key={critere} className="border-b border-border last:border-b-0">
@@ -813,6 +825,9 @@ export default function GuidePortageSalarialPage() {
                   </tbody>
                 </table>
               </div>
+              <p className="mt-3 text-xs text-muted-foreground">
+                * Net avant impôt rapporté au CA, cas type {TJM_TABLEAU} €/jour × {JOURS_TYPE} jours (sous le plafond micro), sans frais professionnels, calculé par notre simulateur TJM (SASU et EURL en rémunération intégrale, frais de comptabilité inclus).
+              </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 <Link href="/simulateurs/tjm-freelance" className="rounded-xl border border-border bg-white p-4 text-sm font-medium text-primary shadow-sm transition hover:shadow-md hover:border-primary">
@@ -836,7 +851,7 @@ export default function GuidePortageSalarialPage() {
               <div className="mt-4 space-y-3 text-base leading-relaxed text-foreground/80">
                 <p>
                   Le choix de votre société de portage repose sur 5 critères principaux :
-                  les frais de gestion (5 à 10 % du CA), le label PEPS (gage de sérieux),
+                  les frais de gestion (4 à 10 % du CA), le label PEPS (gage de sérieux),
                   la qualité de l&apos;accompagnement (interlocuteur dédié vs plateforme),
                   les avis des portés actuels et les services inclus (mutuelle, avance sur
                   salaire, RC Pro).

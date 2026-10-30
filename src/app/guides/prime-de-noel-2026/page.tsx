@@ -23,7 +23,7 @@ const meta: GuideMeta = {
   chapo: `Chaque décembre depuis 1998, l'État verse une prime de Noël aux foyers bénéficiaires de certains minima sociaux — 2,2 millions de ménages l'an dernier. Le montant de base n'a jamais bougé : ${EUR2.format(BASE)}, majorés selon la famille pour les allocataires du RSA. Qui la touche, qui ne la touche pas (les retraités et les salariés modestes en sont exclus), et le calendrier attendu pour 2026.`,
   filAriane: "Prime de Noël 2026",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-30",
   tocItems: [
     { id: "qui", label: "Qui la touche" },
     { id: "montants", label: "Les montants" },
@@ -84,8 +84,9 @@ export default function Page() {
             La prime est réservée aux foyers percevant, en novembre ou
             décembre, le <strong>RSA</strong>, l&apos;<strong>ASS</strong>{" "}
             (allocation de solidarité spécifique, versée aux chômeurs en fin
-            de droits) ou l&apos;<strong>AER</strong> (allocation équivalent
-            retraite, en extinction). Environ{" "}
+            de droits), l&apos;<strong>AER</strong> (allocation équivalent
+            retraite, en extinction) ou la <strong>prime forfaitaire de reprise
+            d&apos;activité</strong> versée par France Travail. Environ{" "}
             <strong>2,2 millions de foyers</strong> l&apos;ont reçue en 2025.
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">

@@ -358,6 +358,13 @@ export default function GuideTjmFreelancePage() {
                 junior-confirmé ; les profils seniors ou experts dépassent
                 régulièrement le haut de la fourchette.
               </p>
+              <p className="mt-3 text-base leading-relaxed text-foreground/80">
+                Trois métiers ont leur dossier complet, du TJM de marché au net
+                selon le statut :{" "}
+                <Link href="/guides/tjm-developpeur-web" className="text-primary hover:underline">développeur web</Link>,{" "}
+                <Link href="/guides/tjm-data-scientist" className="text-primary hover:underline">data scientist</Link> et{" "}
+                <Link href="/guides/tjm-devops" className="text-primary hover:underline">DevOps</Link>.
+              </p>
 
               <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-background">
                 <table className="w-full text-left text-sm">

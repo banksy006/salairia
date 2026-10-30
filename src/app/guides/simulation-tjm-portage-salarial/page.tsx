@@ -30,9 +30,9 @@ const tauxRestitution = Math.round((ref.salaireNetAvantImpot / ref.caHT) * 100);
 
 const cascade: BarDatum[] = [
   { label: "CA HT mensuel facturé", hint: `500 € × ${JOURS} jours`, value: Math.round(ref.caHT) },
-  { label: `− Frais de gestion (${FRAIS_GESTION} %)`, value: Math.round(ref.caHT - ref.fraisGestion) },
-  { label: `− Charges patronales (${Math.round(PORTAGE_2026.CHARGES_PATRONALES_TAUX * 100)} %)`, value: Math.round(ref.salaireBrut) },
-  { label: `− Charges salariales (${Math.round(PORTAGE_2026.CHARGES_SALARIALES_TAUX * 100)} %) = net avant impôt`, value: Math.round(ref.salaireNetAvantImpot), highlight: true },
+  { label: `Après frais de gestion (${FRAIS_GESTION} %, soit ${EUR.format(ref.fraisGestion)})`, value: Math.round(ref.caHT - ref.fraisGestion) },
+  { label: `Après charges patronales (${Math.round(PORTAGE_2026.CHARGES_PATRONALES_TAUX * 100)} %) = salaire brut`, value: Math.round(ref.salaireBrut) },
+  { label: `Après charges salariales (${Math.round(PORTAGE_2026.CHARGES_SALARIALES_TAUX * 100)} %) = net avant impôt`, value: Math.round(ref.salaireNetAvantImpot), highlight: true },
 ];
 
 const meta: GuideMeta = {
@@ -42,7 +42,7 @@ const meta: GuideMeta = {
   chapo: `Une simulation de portage sérieuse ne se résume pas à « environ 50 % du CA ». Le net dépend du TJM, du nombre de jours facturés, des frais de gestion et des frais professionnels. Voici les résultats calculés pour six niveaux de TJM, la mécanique complète, et les trois paramètres qui changent vraiment le résultat.`,
   filAriane: "Simulation TJM portage",
   datePublished: "2026-08-19",
-  dateModified: "2026-10-14",
+  dateModified: "2026-10-30",
   tocItems: [
     { id: "tableau", label: "Net par TJM" },
     { id: "mecanique", label: "La mécanique" },
