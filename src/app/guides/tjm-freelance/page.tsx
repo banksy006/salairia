@@ -359,11 +359,14 @@ export default function GuideTjmFreelancePage() {
                 régulièrement le haut de la fourchette.
               </p>
               <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                Trois métiers ont leur dossier complet, du TJM de marché au net
+                Six métiers ont leur dossier complet, du TJM de marché au net
                 selon le statut :{" "}
                 <Link href="/guides/tjm-developpeur-web" className="text-primary hover:underline">développeur web</Link>,{" "}
-                <Link href="/guides/tjm-data-scientist" className="text-primary hover:underline">data scientist</Link> et{" "}
-                <Link href="/guides/tjm-devops" className="text-primary hover:underline">DevOps</Link>.
+                <Link href="/guides/tjm-data-scientist" className="text-primary hover:underline">data scientist</Link>,{" "}
+                <Link href="/guides/tjm-devops" className="text-primary hover:underline">DevOps</Link>,{" "}
+                <Link href="/guides/tjm-product-manager" className="text-primary hover:underline">product manager</Link>,{" "}
+                <Link href="/guides/tjm-designer-ux" className="text-primary hover:underline">designer UX/UI</Link> et{" "}
+                <Link href="/guides/tjm-chef-de-projet-it" className="text-primary hover:underline">chef de projet IT</Link>.
               </p>
 
               <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-background">

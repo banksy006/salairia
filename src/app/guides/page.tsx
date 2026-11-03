@@ -529,6 +529,30 @@ const guides = [
     audience: "DevOps, SRE, administrateurs système en transition vers le freelance",
     lecture: "9 min",
   },
+  {
+    titre: "TJM product manager freelance 2026",
+    desc:
+      "700 € par jour pour un product manager confirmé, 500 à 600 € pour un product owner en régie : la grille 2026, le TJM qui égale le salaire du métier, et le net statut par statut. Discovery contre backlog, domaine, niveau d'interlocuteur, temps partiel : les leviers qui déplacent le tarif.",
+    href: "/guides/tjm-product-manager",
+    audience: "Product managers et product owners qui passent en freelance",
+    lecture: "9 min",
+  },
+  {
+    titre: "TJM designer UX/UI freelance 2026",
+    desc:
+      "Le TJM d'un designer UX/UI de 400 à 800 € par jour selon les baromètres, le tarif qui égale le salaire d'un confirmé, et le net en micro, portage ou SASU. Agence ou équipe produit, forfait ou journée, recherche et design system : ce qui fait monter la grille.",
+    href: "/guides/tjm-designer-ux",
+    audience: "Designers UX/UI indépendants ou en transition",
+    lecture: "9 min",
+  },
+  {
+    titre: "TJM chef de projet IT freelance 2026",
+    desc:
+      "Chef de projet, scrum master, PMO : 450 à 800 € par jour selon le niveau, le TJM d'équivalence avec le salaire, le net selon le statut et le poids des jours facturés. Chaîne d'intermédiation des ESN, secteurs réglementés, certifications : les leviers du tarif.",
+    href: "/guides/tjm-chef-de-projet-it",
+    audience: "Chefs de projet IT, scrum masters et PMO en régie",
+    lecture: "9 min",
+  },
 ] as const;
 
 export default function GuidesPage() {

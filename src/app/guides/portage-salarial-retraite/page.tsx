@@ -62,7 +62,7 @@ const meta: GuideMeta = {
   sources: [
     { label: "Code de la sécurité sociale, art. D351-2 — validation des trimestres (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038837657" },
     { label: "L'Assurance retraite — le calcul de la retraite de base", href: "https://www.lassuranceretraite.fr/portail-info/hors-menu/coff/retraite-de-base.html" },
-    { label: "AGIRC-ARRCO — acquisition et valeur du point", href: "https://www.agirc-arrco.fr/ma-retraite/valeur-du-point/" },
+    { label: "Agirc-Arrco — revalorisation de +1,4 % au 1er novembre 2026 (valeur de service du point)", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
     { label: "Convention collective du portage salarial, IDCC 3219 (Légifrance)", href: "https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000034362668/" },
   ],
 };

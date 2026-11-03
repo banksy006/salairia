@@ -15,10 +15,16 @@ const SEUIL_HAUT = 2_034;
 const PLAFOND_ABATTEMENT_ACTUEL = 4_439;
 const PLAFOND_ABATTEMENT_PLF = 3_000;
 // Agirc-Arrco : +1,4 % au 1er novembre 2026, décidé par le conseil
-// d'administration du 14 octobre 2026 (communiqué agirc-arrco.fr du même
-// jour). Formule de référence de l'accord de 2023 : 2,0 % d'inflation hors
-// tabac − 0,4 pt = 1,6 % ; le conseil a retenu 0,2 pt de moins.
+// d'administration du 14 octobre 2026 (communiqué de presse PDF du même
+// jour, lu le 3 novembre 2026). Formule de référence de l'accord de 2023 :
+// 2,0 % d'inflation hors tabac − 0,4 pt = 1,6 %, marge ±0,4 pt plafonnée par
+// le salaire moyen (+1,9 %) → fourchette 1,2 à 1,9 % ; le conseil a retenu
+// 1,4 %. Valeur de service du point : 1,4386 € depuis le 1er novembre 2024
+// (inchangée en 2025), la nouvelle valeur est dérivée du taux ci-dessous.
 const AGIRC_HAUSSE = 0.014;
+const AGIRC_POINT_AVANT = 1.4386;
+const AGIRC_POINT_APRES = Math.round(AGIRC_POINT_AVANT * (1 + AGIRC_HAUSSE) * 10_000) / 10_000;
+const EUR4 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 4, maximumFractionDigits: 4 });
 
 // Barème proposé par le PLF 2027 (art. 2) pour l'impôt sur les revenus 2026,
 // décote « couple » comprise — utilisé pour l'exemple de l'abattement.
@@ -71,7 +77,7 @@ const meta: GuideMeta = {
   chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. Les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, a décidé le 14 octobre 2026 une hausse de 1,4 % au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-24",
+  dateModified: "2026-11-03",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "La base : ce que prévoit le PLFSS" },
@@ -105,8 +111,8 @@ const meta: GuideMeta = {
     { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211, art. 35 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
     { label: "Projet de loi de finances pour 2027, n° 3210, art. 3 — abattement des retraités (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
     { label: "Code de la sécurité sociale, art. L161-25 — revalorisation sur l'inflation (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033715437" },
-    { label: "Agirc-Arrco — communiqué du 14 octobre 2026 : revalorisation de +1,4 % au 1er novembre 2026", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
-    { label: "Agirc-Arrco — la valeur du point", href: "https://www.agirc-arrco.fr/ma-retraite/valeur-du-point/" },
+    { label: "Agirc-Arrco — actualité du 14 octobre 2026 : revalorisation de +1,4 % au 1er novembre 2026", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
+    { label: "Agirc-Arrco — communiqué de presse du 14 octobre 2026 (PDF) : fourchette 1,2 à 1,9 %, valeur d'achat renvoyée à l'accord 2027-2030", href: "https://www.agirc-arrco.fr/storage/261014_Communique-de-presse_Revalorisation-valeur-du-point-Agirc-Arrco.pdf" },
     { label: "service-public.fr — montant et revalorisation de la retraite", href: "https://www.service-public.fr/particuliers/vosdroits/N381" },
   ],
 };
@@ -223,10 +229,17 @@ export default function Page() {
             2026, son conseil d&apos;administration a tranché le 14 octobre :{" "}
             <strong>+1,4 % au 1er novembre</strong>, soit 0,2 point sous la
             formule de référence (2 % d&apos;inflation prévue moins 0,4 point),
-            visible sur le virement du 2 novembre. L&apos;article 35 du PLFSS
-            ne la concerne pas. Rappel utile : la valeur d&apos;<em>achat</em> du point
-            (pour les actifs qui cotisent) évolue séparément — une hausse de la
-            première n&apos;améliore pas le rendement de la seconde.
+            dans une fourchette que l&apos;accord bornait entre 1,2 et 1,9 %.
+            La valeur de service du point passe ainsi de{" "}
+            {EUR4.format(AGIRC_POINT_AVANT)} à{" "}
+            <strong>{EUR4.format(AGIRC_POINT_APRES)}</strong> (1,4386 × 1,014),
+            après deux ans sans hausse — visible depuis le virement du 2 novembre.
+            L&apos;article 35 du PLFSS ne la concerne pas. Rappel utile : la
+            valeur d&apos;<em>achat</em> du point (pour les actifs qui cotisent)
+            évolue séparément — une hausse de la première n&apos;améliore pas le
+            rendement de la seconde. Fait nouveau : le conseil n&apos;a pas
+            fixé la valeur d&apos;achat 2027 en octobre comme d&apos;habitude ;
+            elle sera arrêtée dans la négociation de l&apos;accord 2027-2030.
           </p>
         </div>
       </section>

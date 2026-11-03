@@ -114,6 +114,96 @@ export const TJM_METIERS: TjmMetier[] = [
       },
     ],
   },
+  {
+    slug: "tjm-product-manager",
+    metierId: "product-manager",
+    nom: "product manager",
+    nomTitre: "Product manager",
+    ligneBarometre: "Product manager / Product owner",
+    marche: { junior: 500, confirme: 700, senior: 900 },
+    datePublished: "2026-11-03",
+    contexte: [
+      "Le product manager freelance est un profil plus récent sur le marché de l'indépendance que le développeur, et plus discuté : beaucoup d'entreprises considèrent encore le produit comme une fonction à internaliser. Le marché existe pourtant, porté par les scale-ups qui structurent une équipe produit, les grands comptes qui lancent un programme de transformation et les éditeurs qui cherchent un PM de transition entre deux recrutements. Un product manager confirmé facture autour de 700 € par jour, un head of product ou un PM senior sur un sujet plateforme ou data dépasse 900 €.",
+      "La frontière entre product owner et product manager pèse sur le tarif. Les missions de PO en régie, souvent dans des ESN ou des DSI de grands groupes, se négocient entre 500 et 600 € : elles consistent à tenir un backlog et animer les cérémonies. Les missions de product management — discovery, stratégie, arbitrage avec le business, pilotage des indicateurs — se vendent au prix du conseil. Le titre de la mission et le niveau d'interlocuteur (CPO, direction générale) sont les premiers signaux du budget.",
+      "À 700 € par jour, le plafond de la micro-entreprise est dépassé dès le septième mois d'activité pleine. Le product manager freelance travaille donc en portage salarial — fréquent pour les profils venus du salariat qui veulent garder le chômage entre deux missions longues — ou en SASU. Les missions à temps partiel, deux à quatre jours par semaine, sont plus courantes qu'en développement : le TJM y est plus élevé mais le nombre de jours facturés baisse.",
+    ],
+    leviers: [
+      { t: "Le périmètre produit, pas le backlog", d: "Une mission de discovery, de stratégie ou de pilotage d'indicateurs se facture 100 à 200 € de plus par jour qu'une mission de product owner qui tient un backlog." },
+      { t: "Le domaine", d: "Fintech, santé, B2B SaaS et marketplaces paient le haut de la grille ; les missions de PM en agence ou en e-commerce généraliste sont plus proches du bas." },
+      { t: "Le niveau d'interlocuteur", d: "Un PM qui reporte au CPO ou à la direction générale négocie au prix du conseil ; un PM rattaché à un chef de projet IT négocie au prix de la régie." },
+      { t: "Le temps partiel assumé", d: "Trois jours par semaine chez un client à 750 € valent souvent mieux que cinq jours à 650 € — à condition de remplir les deux autres jours, ou de les compter dans le net cible." },
+    ],
+    faqMetier: [
+      {
+        q: "Product owner ou product manager freelance : quelle différence de TJM ?",
+        r: "Les baromètres placent le product owner en régie entre 500 et 600 € par jour, le product manager confirmé autour de 700 € et le senior autour de 900 €. L'écart tient au périmètre : exécution et animation d'une équipe d'un côté, stratégie, discovery et responsabilité des résultats de l'autre. Beaucoup de missions dites « PM » sont en réalité des missions de PO : lisez le livrable attendu avant de fixer votre tarif.",
+      },
+      {
+        q: "Peut-on être product manager freelance sans expérience en poste ?",
+        r: "Rarement. Le product management s'apprend dans une équipe, avec des utilisateurs et des développeurs, et les clients achètent une expérience de cas similaires. Trois à cinq ans en poste, idéalement avec un lancement ou une refonte mesurable à présenter, sont le socle habituel d'une première mission à 600 € ou plus.",
+      },
+    ],
+  },
+  {
+    slug: "tjm-designer-ux",
+    metierId: "designer-ux",
+    nom: "designer UX/UI",
+    nomTitre: "Designer UX/UI",
+    ligneBarometre: "UX / UI designer",
+    marche: { junior: 400, confirme: 600, senior: 800 },
+    datePublished: "2026-11-03",
+    contexte: [
+      "Le design d'interface est l'un des métiers où le freelancing est le plus ancré : une part importante des designers UX/UI travaillent en indépendant, pour des agences, des studios, des éditeurs et des équipes produit. Un designer confirmé facture autour de 600 € par jour, un senior ou un lead design autour de 800 €. La grille est plus étalée vers le bas que celle des développeurs : les missions d'exécution graphique en agence se négocient parfois sous 400 €, les missions de recherche utilisateur et de design system chez un éditeur au-dessus de 700 €.",
+      "Deux marchés coexistent. Celui des agences et des studios, qui achètent des jours de production à des tarifs serrés mais avec un flux régulier. Celui des équipes produit, qui cherchent un designer intégré à une squad pour plusieurs mois, au prix d'un développeur confirmé. Le passage de l'un à l'autre est le principal levier de revenu d'un designer freelance, plus que l'ancienneté.",
+      "À 600 € sur 18 jours, le chiffre d'affaires annuel dépasse 129 000 € : la micro-entreprise ne tient qu'à temps partiel ou en début d'activité. Le designer en mission longue chez un éditeur se retrouve dans la même situation qu'un développeur, en portage salarial ou en société. Le designer qui enchaîne des projets courts pour plusieurs clients, lui, garde souvent la micro-entreprise sous le plafond, au prix d'un net plus bas et d'aucune déduction de matériel ni de logiciels.",
+    ],
+    leviers: [
+      { t: "La recherche et le design system", d: "Une mission de recherche utilisateur, de tests ou de construction d'un design system se facture 100 à 200 € de plus par jour que la production de maquettes." },
+      { t: "L'équipe produit plutôt que l'agence", d: "Le même designer, intégré à une squad chez un éditeur, est payé au tarif d'un développeur confirmé ; en agence, au tarif d'un jour de production." },
+      { t: "Le portfolio avec résultats", d: "Un cas qui montre l'effet mesuré d'une refonte — conversion, activation, support — vaut plus que dix écrans soignés." },
+      { t: "Les forfaits sur les projets courts", d: "Sur un site vitrine ou une application simple, un forfait calibré sur votre TJM réel évite de brader les jours de révision et d'échanges." },
+    ],
+    faqMetier: [
+      {
+        q: "Designer UX/UI freelance : agence ou équipe produit ?",
+        r: "Les agences achètent des jours de production à 400 à 500 € mais apportent un flux de missions sans prospection ; les équipes produit intègrent un designer à 600 € ou plus pour plusieurs mois, avec un périmètre plus large. Le choix dépend de votre tolérance à la prospection : la mission longue chez un éditeur paie mieux, mais il faut la trouver, et la suivante.",
+      },
+      {
+        q: "Faut-il facturer au forfait ou à la journée ?",
+        r: "À la journée pour les missions intégrées à une équipe, au forfait pour les projets délimités (site, application, identité). Dans les deux cas, partez de votre TJM cible : un forfait se construit en jours estimés multipliés par le TJM, avec une marge pour les allers-retours. Un forfait fixé « au prix du marché » sans ce calcul est la première cause de TJM réel effondré chez les designers.",
+      },
+    ],
+  },
+  {
+    slug: "tjm-chef-de-projet-it",
+    metierId: "chef-projet-it",
+    nom: "chef de projet IT",
+    nomTitre: "Chef de projet IT",
+    ligneBarometre: "Chef de projet tech / PMO",
+    marche: { junior: 450, confirme: 600, senior: 800 },
+    datePublished: "2026-11-03",
+    contexte: [
+      "Le chef de projet IT freelance — et ses variantes scrum master, PMO, coach agile — occupe un marché large et très intermédié : la majorité des missions passent par des ESN ou des cabinets qui placent des profils en régie chez des grands comptes, banques, assurances, industrie et secteur public. Un chef de projet confirmé facture autour de 600 € par jour, un directeur de projet ou un PMO sur un programme de transformation approche 800 €. Les missions sont longues, souvent un an ou plus, ce qui donne à ce métier l'un des meilleurs taux d'occupation du freelancing.",
+      "La contrepartie de ce confort est une pression sur le tarif : les ESN prennent 15 à 25 % entre le prix client et le TJM du freelance, et les acheteurs des grands comptes comparent des grilles. Le levier principal est donc de sortir de l'intermédiation ou de monter dans la chaîne — de chef de projet à directeur de projet, de scrum master à coach ou à PMO de programme.",
+      "À 600 € par jour sur 18 jours, le chiffre d'affaires annuel atteint 129 600 € : hors plafond micro, sauf à temps partiel. Le portage salarial est très répandu dans ce métier, parce que beaucoup de chefs de projet viennent du salariat en ESN, que les grands comptes le connaissent et que le chômage entre deux missions longues a de la valeur. La SASU reprend l'avantage au-delà de deux ou trois ans d'activité continue.",
+    ],
+    leviers: [
+      { t: "Le niveau dans la chaîne", d: "Directeur de projet, PMO de programme ou coach agile de plusieurs équipes se négocient 150 à 250 € au-dessus d'un chef de projet d'équipe." },
+      { t: "Le secteur réglementé", d: "Banque, assurance et pharma paient le haut de la grille et exigent des références sectorielles — un projet réglementaire mené à bout vaut un argument de prix." },
+      { t: "Les certifications", d: "PMP, Prince2, PSM II ou SAFe sont demandées dans les appels d'offres des grands comptes ; elles ne font pas le tarif, mais elles ouvrent la porte des missions qui le font." },
+      { t: "Le contrat en direct", d: "Récupérer les 15 à 25 % de marge d'une ESN en contractant directement avec le client final est le levier le plus rentable — et le plus lent, parce qu'il suppose un réseau." },
+    ],
+    faqMetier: [
+      {
+        q: "Scrum master, PMO, chef de projet : quel TJM pour quel rôle ?",
+        r: "Les baromètres regroupent ces rôles dans une même grille, de 450 € en junior à 800 € en senior. Dans la pratique, le scrum master d'une équipe se situe en bas de la fourchette confirmé, le chef de projet IT au milieu, le PMO de programme et le directeur de projet en haut. Le facteur décisif est le nombre d'équipes ou le budget piloté, davantage que le titre.",
+      },
+      {
+        q: "Pourquoi le portage salarial est-il si fréquent chez les chefs de projet freelance ?",
+        r: "Parce que ce métier vient massivement du salariat en ESN, que les grands comptes connaissent et acceptent le portage dans leurs référencements, et que les missions longues rendent précieuse l'assurance chômage entre deux contrats. À 600 € par jour, le portage prélève environ 8 % de frais de gestion ; c'est le prix de cette protection, à comparer avec une SASU dès que l'activité est stable.",
+      },
+    ],
+  },
 ];
 
 export const getTjmMetier = (slug: string) => TJM_METIERS.find((m) => m.slug === slug);
