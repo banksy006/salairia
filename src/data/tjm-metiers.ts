@@ -204,6 +204,96 @@ export const TJM_METIERS: TjmMetier[] = [
       },
     ],
   },
+  {
+    slug: "tjm-marketing-digital",
+    metierId: "marketing-digital",
+    nom: "consultant marketing digital",
+    nomTitre: "Marketing digital / growth",
+    ligneBarometre: "Consultant digital / growth",
+    marche: { junior: 400, confirme: 600, senior: 850 },
+    datePublished: "2026-11-04",
+    contexte: [
+      "Le marketing digital freelance recouvre des métiers très différents sous un même mot : acquisition payante (SEA, social ads), SEO, CRM et automation, growth au sens large. Les baromètres regroupent ces profils dans une grille « consultant digital / growth » : 400 € par jour en junior, autour de 600 € en confirmé, jusqu'à 850 € pour un head of growth ou un consultant acquisition qui pilote des budgets média à six chiffres. La dispersion est plus forte que dans la tech, parce que le tarif dépend moins de l'ancienneté que du résultat qu'on peut prouver.",
+      "Le marché est moins intermédié que l'IT : beaucoup de missions se trouvent en direct, via LinkedIn, le bouche-à-oreille ou des plateformes comme Malt, et une part importante se facture au forfait ou à l'abonnement mensuel plutôt qu'au jour. Le TJM reste la bonne unité pour comparer, mais le freelance marketing qui s'en sort le mieux vend un dispositif récurrent (gestion de campagnes, reporting mensuel) à plusieurs clients en parallèle, ce qui lisse le taux d'occupation.",
+      "À 600 € par jour sur 18 jours facturés, le chiffre d'affaires annuel atteint 129 600 € : le plafond de la micro-entreprise est dépassé dès le huitième mois. Les profils qui démarrent à 400 € ou qui facturent à temps partiel restent en micro la première année ; au-delà, la SASU est le statut le plus courant, le portage salarial restant une option pour ceux qui enchaînent des missions longues chez de grands annonceurs.",
+    ],
+    leviers: [
+      { t: "Le résultat prouvé", d: "Un coût d'acquisition divisé par deux, un trafic organique multiplié par trois sur une mission précédente : les chiffres de résultat justifient le haut de la fourchette plus sûrement que le nombre d'années." },
+      { t: "La spécialité", d: "SEA et social ads sur gros budgets, CRM et automation, SEO technique se négocient au-dessus d'un profil « community management » ou contenu généraliste." },
+      { t: "Le budget piloté", d: "Un consultant qui gère 50 000 € de média par mois se facture comme un pourcentage de ce budget, pas comme une journée de travail : viser les clients qui en ont." },
+      { t: "Le récurrent", d: "Transformer une mission en abonnement mensuel (gestion de campagnes, reporting) stabilise le revenu et autorise plusieurs clients en parallèle, donc un TJM effectif plus élevé." },
+    ],
+    faqMetier: [
+      {
+        q: "Faut-il facturer à la journée ou au forfait en marketing digital ?",
+        r: "Les deux coexistent. Le TJM sert de base de calcul et de comparaison avec un salaire ; le forfait ou l'abonnement mensuel est souvent plus simple à vendre à un client qui raisonne en budget marketing. Le piège du forfait est le périmètre : un forfait non borné devient vite un TJM effectif de 300 €. Chiffrer le forfait en jours, puis le vendre au résultat, protège des deux côtés.",
+      },
+      {
+        q: "Un freelance SEO ou SEA facture-t-il le même TJM qu'un growth ?",
+        r: "Le SEO et le SEA se situent légèrement en dessous de la grille growth dans les baromètres — autour de 500 € en confirmé contre 600 € —, sauf pour les profils qui pilotent de gros budgets média ou des sites à fort trafic. Le titre « growth » paie surtout quand il recouvre une responsabilité transverse sur l'acquisition, l'activation et la rétention.",
+      },
+    ],
+  },
+  {
+    slug: "tjm-consultant-it",
+    metierId: "consultant-it",
+    nom: "consultant IT",
+    nomTitre: "Consultant IT / SI",
+    ligneBarometre: "Consultant IT / technique",
+    marche: { junior: 450, confirme: 550, senior: 700 },
+    datePublished: "2026-11-04",
+    contexte: [
+      "Le consultant IT freelance — consultant technique, consultant SI, intégrateur de progiciel, AMOA — est le profil type de la régie chez les grands comptes : banques, assurances, énergie, secteur public. Le baromètre Free-Work relevé en novembre 2026 situe le consultant technique entre 410 et 440 € par jour avant deux ans d'expérience, autour de 520 à 570 € entre trois et dix ans, et vers 690 € au-delà de quinze ans en Île-de-France. Les missions sont longues, souvent renouvelées par semestre, et passent dans la grande majorité des cas par une ESN ou un cabinet.",
+      "C'est précisément ce circuit qui pèse sur le tarif : entre le prix facturé au client final et le TJM du consultant, l'ESN prend 15 à 25 %. Un consultant à 550 € coûte au client 650 à 700 €. Les écarts entre consultants s'expliquent moins par l'ancienneté que par la spécialité : un consultant SAP, Salesforce ou ServiceNow certifié sort de la grille générale et se rapproche des tarifs d'expert.",
+      "À 550 € par jour sur 18 jours facturés, le chiffre d'affaires annuel atteint 118 800 €, au-dessus du plafond micro dès le neuvième mois. Le portage salarial est très répandu dans ce métier — les grands comptes l'acceptent dans leurs référencements et beaucoup de consultants viennent du salariat en ESN — ; la SASU devient plus rentable dès que l'activité est stable sur plus d'un an.",
+    ],
+    leviers: [
+      { t: "La spécialité éditeur", d: "SAP, Salesforce, ServiceNow, Workday ou Microsoft Dynamics certifiés se négocient 100 à 300 € au-dessus d'un consultant technique généraliste à expérience égale." },
+      { t: "Le secteur", d: "Banque-assurance et énergie paient le haut de la grille et renouvellent longtemps ; le secteur public paie moins mais offre des missions pluriannuelles." },
+      { t: "Le référencement direct", d: "Être référencé en direct chez un grand compte, sans ESN, récupère la marge d'intermédiation — c'est long, mais c'est le levier le plus rentable sur une carrière." },
+      { t: "La durée et le renouvellement", d: "Une mission de douze mois vaut une remise de 5 % ; en échange, négocier une revalorisation annuelle de 3 à 5 % au renouvellement plutôt que de reconduire le même TJM trois ans de suite." },
+    ],
+    faqMetier: [
+      {
+        q: "Consultant IT en ESN ou en freelance : quelle différence de revenu ?",
+        r: "Un consultant salarié en ESN est généralement vendu 600 à 800 € par jour au client et touche un salaire brut de 45 000 à 55 000 € par an. En freelance à 550 € par jour sur 18 jours, le même profil dégage un chiffre d'affaires de près de 119 000 € : même après cotisations et frais, le net est supérieur, au prix de l'intermission non payée et d'une protection sociale à reconstruire.",
+      },
+      {
+        q: "Les baromètres communautaires sont-ils fiables pour fixer son TJM ?",
+        r: "Ils sont déclaratifs et bruités — le baromètre Free-Work affiche des contributions de quelques euros comme de plusieurs milliers —, mais les médianes par tranche d'expérience sont cohérentes avec les grilles des plateformes et des cabinets. Utilisez-les comme ordre de grandeur, puis ajustez sur la spécialité et le client.",
+      },
+    ],
+  },
+  {
+    slug: "tjm-architecte-logiciel",
+    metierId: "archi-logiciel",
+    nom: "architecte logiciel",
+    nomTitre: "Architecte logiciel",
+    ligneBarometre: "Architecte logiciel / technique",
+    marche: { junior: 450, confirme: 650, senior: 750 },
+    datePublished: "2026-11-04",
+    contexte: [
+      "L'architecte logiciel freelance — architecte technique, architecte solutions, architecte applicatif — est un métier de senior : on y arrive après huit à dix ans de développement, et la grille « junior » est en réalité celle d'un développeur senior qui prend un premier rôle d'architecture. Le baromètre Free-Work relevé en novembre 2026 situe l'architecte technique autour de 650 à 670 € par jour entre trois et dix ans d'expérience, 700 € entre onze et quinze ans et 740 € au-delà, en Île-de-France. Les architectes cloud et sécurité, qui ont leur propre grille, montent plus haut, jusqu'à 1 100 €.",
+      "Le marché est concentré sur les grands comptes et les éditeurs en forte croissance : refonte d'un monolithe, migration cloud, mise en place d'une plateforme interne. Les missions sont longues et souvent à temps partiel — deux ou trois jours par semaine sur plusieurs clients —, ce qui change le raisonnement sur le TJM : un architecte à 650 € trois jours par semaine facture autant qu'un développeur à 400 € à temps plein, avec un meilleur taux horaire et plus de marge pour la veille.",
+      "À 650 € par jour sur 18 jours facturés, le chiffre d'affaires annuel atteint 140 400 €, hors plafond micro dès le huitième mois. La SASU est le statut dominant dans ce métier, parce que la rémunération élevée rend l'optimisation salaire-dividendes rentable et que les frais (certifications, matériel, formation) sont réels. Le portage salarial reste pertinent pour ceux qui veulent la couverture chômage entre deux missions longues.",
+    ],
+    leviers: [
+      { t: "Le périmètre cloud et sécurité", d: "Un architecte qui couvre aussi l'infrastructure cloud (AWS, Azure, GCP certifiés) ou la sécurité passe dans la grille « cloud architect », 150 à 300 € au-dessus de l'architecte applicatif." },
+      { t: "Le temps partagé", d: "Vendre deux ou trois jours par semaine à plusieurs clients plutôt qu'un temps plein : le TJM monte parce que chaque client paie une expertise, pas une présence." },
+      { t: "Les références de migration", d: "Une migration de monolithe vers des services ou un passage au cloud mené à terme, chiffré en gain de coûts ou de délai, vaut un argument de prix auprès du client suivant." },
+      { t: "Le rôle de décision", d: "Facturer la responsabilité (choix d'architecture, revue de code des équipes, arbitrages techniques) plutôt que des jours de développement supplémentaires : c'est ce qui distingue l'architecte du développeur senior." },
+    ],
+    faqMetier: [
+      {
+        q: "Développeur senior ou architecte : où est la frontière de TJM ?",
+        r: "Un développeur senior facture autour de 750 € dans le haut de la grille, un architecte technique confirmé 650 à 700 € : les deux grilles se chevauchent. Ce qui fait l'écart, c'est le type de mission : l'architecte est payé pour décider et faire décider, souvent à temps partiel sur plusieurs clients, là où le développeur senior est payé pour livrer à temps plein. À tarif journalier proche, l'architecte dégage un meilleur revenu horaire et plus de temps.",
+      },
+      {
+        q: "Pourquoi les baromètres donnent-ils un TJM junior aussi bas pour un architecte ?",
+        r: "Parce que la tranche « moins de deux ans » d'un baromètre communautaire mélange des profils très différents, dont des développeurs qui se déclarent architectes. Un premier rôle d'architecte freelance se négocie en pratique au niveau d'un développeur senior, autour de 550 à 650 €, rarement en dessous.",
+      },
+    ],
+  },
 ];
 
 export const getTjmMetier = (slug: string) => TJM_METIERS.find((m) => m.slug === slug);

@@ -127,6 +127,8 @@ const faq = [
 const sourcesLinks = [
   { label: "Malt — baromètre des tarifs freelance", href: "https://www.malt.fr/t/barometre-tarifs" },
   { label: "Free-Work — grilles TJM par métier tech", href: "https://www.free-work.com/fr/tech-it" },
+  { label: "Free-Work — TJM consultant technique (baromètre communautaire)", href: "https://www.free-work.com/fr/tech-it/consultant-technique/rate-tjm-freelance" },
+  { label: "Free-Work — TJM architecte technique (baromètre communautaire)", href: "https://www.free-work.com/fr/tech-it/architecte-technique/rate-tjm-freelance" },
   { label: "Silkhom — baromètre TJM informatique et digital", href: "https://www.silkhom.com/barometre-des-tjm-informatique-electronique-digital/" },
   { label: "Hays France — études salariales annuelles", href: "https://www.hays.fr" },
   { label: "Jobbers — étude TJM freelance 2026", href: "https://www.jobbers.io/fr/etude-2025-levolution-des-tjm-freelance-en-france-par-secteur/" },
@@ -359,14 +361,17 @@ export default function GuideTjmFreelancePage() {
                 régulièrement le haut de la fourchette.
               </p>
               <p className="mt-3 text-base leading-relaxed text-foreground/80">
-                Six métiers ont leur dossier complet, du TJM de marché au net
+                Neuf métiers ont leur dossier complet, du TJM de marché au net
                 selon le statut :{" "}
                 <Link href="/guides/tjm-developpeur-web" className="text-primary hover:underline">développeur web</Link>,{" "}
                 <Link href="/guides/tjm-data-scientist" className="text-primary hover:underline">data scientist</Link>,{" "}
                 <Link href="/guides/tjm-devops" className="text-primary hover:underline">DevOps</Link>,{" "}
                 <Link href="/guides/tjm-product-manager" className="text-primary hover:underline">product manager</Link>,{" "}
-                <Link href="/guides/tjm-designer-ux" className="text-primary hover:underline">designer UX/UI</Link> et{" "}
-                <Link href="/guides/tjm-chef-de-projet-it" className="text-primary hover:underline">chef de projet IT</Link>.
+                <Link href="/guides/tjm-designer-ux" className="text-primary hover:underline">designer UX/UI</Link>,{" "}
+                <Link href="/guides/tjm-chef-de-projet-it" className="text-primary hover:underline">chef de projet IT</Link>,{" "}
+                <Link href="/guides/tjm-marketing-digital" className="text-primary hover:underline">marketing digital</Link>,{" "}
+                <Link href="/guides/tjm-consultant-it" className="text-primary hover:underline">consultant IT</Link> et{" "}
+                <Link href="/guides/tjm-architecte-logiciel" className="text-primary hover:underline">architecte logiciel</Link>.
               </p>
 
               <div className="mt-6 overflow-x-auto rounded-xl border border-border bg-background">
@@ -389,6 +394,9 @@ export default function GuideTjmFreelancePage() {
                       ["Data scientist / ML engineer", "500 €", "750 €", "950 €"],
                       ["Expert IA / LLM", "600 €", "900 €", "1 500 €"],
                       ["DevOps / SRE", "500 €", "700 €", "950 €"],
+                      // Free-Work, baromètre « architecte technique », Île-de-France, relevé le 4 novembre 2026 :
+                      // < 1 an 433 €, 3-4 ans 667 €, 5-10 ans 652 €, 11-15 ans 699 €, > 15 ans 739 €.
+                      ["Architecte logiciel / technique", "450 €", "650 €", "750 €"],
                       ["Cloud architect", "600 €", "850 €", "1 100 €"],
                       ["Expert cybersécurité", "600 €", "850 €", "1 200 €"],
                       ["Chef de projet tech / PMO", "450 €", "600 €", "800 €"],
@@ -396,6 +404,9 @@ export default function GuideTjmFreelancePage() {
                       ["UX / UI designer", "400 €", "600 €", "800 €"],
                       ["Designer produit (senior)", "500 €", "700 €", "900 €"],
                       ["Consultant stratégie", "600 €", "850 €", "1 500 €"],
+                      // Free-Work, baromètre « consultant technique », Île-de-France, relevé le 4 novembre 2026 :
+                      // < 1 an 412 €, 1-2 ans 436 €, 3-4 ans 524 €, 5-10 ans 570 €, > 15 ans 690 €.
+                      ["Consultant IT / technique", "450 €", "550 €", "700 €"],
                       ["Consultant digital / growth", "400 €", "600 €", "850 €"],
                       ["SEO / SEA", "350 €", "500 €", "750 €"],
                       ["Rédacteur / copywriter", "300 €", "500 €", "700 €"],

@@ -553,6 +553,30 @@ const guides = [
     audience: "Chefs de projet IT, scrum masters et PMO en régie",
     lecture: "9 min",
   },
+  {
+    titre: "TJM marketing digital freelance 2026",
+    desc:
+      "SEO, SEA, CRM, growth : 400 à 850 € par jour selon le niveau, le TJM d'équivalence avec le salaire, le net selon le statut et le poids des jours facturés. Résultat prouvé, budget média piloté, abonnement mensuel : les leviers du tarif.",
+    href: "/guides/tjm-marketing-digital",
+    audience: "Freelances marketing, SEO, SEA et growth",
+    lecture: "9 min",
+  },
+  {
+    titre: "TJM consultant IT freelance 2026",
+    desc:
+      "Consultant technique, SI, AMOA, intégrateur : 450 à 700 € par jour selon le baromètre Free-Work, le TJM d'équivalence avec le salaire, le net selon le statut et le poids des jours facturés. Spécialité éditeur, secteur, référencement direct : les leviers du tarif.",
+    href: "/guides/tjm-consultant-it",
+    audience: "Consultants IT en régie, en ESN ou en transition",
+    lecture: "9 min",
+  },
+  {
+    titre: "TJM architecte logiciel freelance 2026",
+    desc:
+      "Architecte technique, solutions, applicatif : 450 à 750 € par jour selon le baromètre, le TJM d'équivalence avec le salaire, le net selon le statut et le poids des jours facturés. Périmètre cloud, temps partagé, rôle de décision : les leviers du tarif.",
+    href: "/guides/tjm-architecte-logiciel",
+    audience: "Architectes logiciel et développeurs seniors qui passent architecte",
+    lecture: "9 min",
+  },
 ] as const;
 
 export default function GuidesPage() {
