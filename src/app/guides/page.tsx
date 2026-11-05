@@ -418,9 +418,9 @@ const guides = [
     lecture: "8 min",
   },
   {
-    titre: "Frais de gestion en portage",
+    titre: "Frais de gestion en portage : le tableau des 10 sociétés",
     desc:
-      "De 4 à 10 % du CA selon la société : c'est la seule variable du portage que vous choisissez, et l'écart atteint plusieurs milliers d'euros par an. Les trois modèles décryptés — pourcentage simple, plafonné, abonnement fixe —, l'impact calculé société par société, et les questions à poser avant de signer.",
+      "Modèle tarifaire, frais affichés et net calculé à 5 000, 10 000 et 15 000 € de CA mensuel pour les 10 sociétés du comparatif. Les trois modèles décryptés — pourcentage simple, plafonné, abonnement fixe —, et les questions à poser avant de signer.",
     href: "/guides/frais-gestion-portage-salarial",
     audience: "Freelances qui comparent les sociétés de portage",
     lecture: "7 min",

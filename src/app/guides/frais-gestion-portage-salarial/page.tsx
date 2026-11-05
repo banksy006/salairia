@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
-import { IconBadge, PercentIcon, ScaleIcon, InfoIcon } from "@/components/icons";
+import { IconBadge, PercentIcon, ScaleIcon, InfoIcon, BuildingIcon } from "@/components/icons";
 import { calculerPortage, comparerSocietes } from "@/lib/calculators/portage";
+import societesData from "@/data/societes-portage.json";
 
 const TJM = 500;
 const JOURS = 18;
@@ -21,17 +22,56 @@ const pire = comp.reduce((a, b) => (b.netFinal < a.netFinal ? b : a));
 const ecartMensuel = meilleur.netFinal - pire.netFinal;
 const ca = calculerPortage(inputs).caHT;
 
+// Tableau des 10 sociétés : les frais sont modélisés selon le modèle tarifaire
+// déclaré dans societes-portage.json (pourcentage, pourcentage plafonné,
+// abonnement fixe), ce que `comparerSocietes` ne fait pas (taux simple
+// uniquement, abonnements et sociétés sous alerte écartés).
+type Modele = "pourcentage" | "plafonné" | "abonnement";
+interface SocieteJson {
+  slug: string;
+  nom: string;
+  fraisGestion: string;
+  plafond: string | null;
+  tauxEstimePct: number | null;
+  tarifPublie: boolean;
+  alerte: { titre: string } | null;
+}
+const CA_PALIERS = [5_000, 10_000, 15_000];
+const lignesTableau = (societesData as SocieteJson[])
+  .map((s) => {
+    const montantFixe = s.plafond ? parseInt(s.plafond, 10) : null;
+    const modele: Modele = s.tauxEstimePct === null ? "abonnement" : montantFixe ? "plafonné" : "pourcentage";
+    const frais = (caMensuel: number): number => {
+      if (modele === "abonnement") return montantFixe ?? 0;
+      const proportionnel = caMensuel * ((s.tauxEstimePct ?? 0) / 100);
+      return modele === "plafonné" ? Math.min(proportionnel, montantFixe ?? Infinity) : proportionnel;
+    };
+    const nets = CA_PALIERS.map((caMensuel) =>
+      s.alerte
+        ? null
+        : calculerPortage(
+            { ...inputs, tjm: caMensuel, joursTravailles: 1 },
+            { tauxFraisGestionOverride: (frais(caMensuel) / caMensuel) * 100 },
+          ).salaireNetAvantImpot,
+    );
+    return { slug: s.slug, nom: s.nom, modele, affiche: s.fraisGestion, publie: s.tarifPublie, exclue: s.alerte?.titre ?? null, nets };
+  })
+  .sort((a, b) => (b.nets[1] ?? -1) - (a.nets[1] ?? -1));
+const maxParPalier = CA_PALIERS.map((_, i) => Math.max(...lignesTableau.map((l) => l.nets[i] ?? 0)));
+const nbPubliees = lignesTableau.filter((l) => l.publie).length;
+
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 
 const meta: GuideMeta = {
   slug: "frais-gestion-portage-salarial",
   titre: "Frais de gestion en portage salarial",
-  sousTitre: `De 4 à 10 % du CA : jusqu'à ${EUR.format(ecartMensuel * 12)} d'écart par an sur votre net`,
-  chapo: `Les frais de gestion sont la seule variable du portage que vous choisissez vraiment — les charges sociales, elles, sont les mêmes partout. Trois modèles coexistent : le pourcentage simple, le pourcentage plafonné et l'abonnement fixe. À ${TJM} € de TJM, l'écart entre la société la moins chère et la plus chère atteint ${EUR.format(ecartMensuel)} nets par mois. Voici comment ces modèles fonctionnent et lequel correspond à votre niveau de facturation.`,
+  sousTitre: `Le tableau des 10 sociétés : jusqu'à ${EUR.format(ecartMensuel * 12)} d'écart par an sur votre net`,
+  chapo: `Les frais de gestion sont la seule variable du portage que vous choisissez vraiment — les charges sociales, elles, sont les mêmes partout. Trois modèles coexistent : le pourcentage simple, le pourcentage plafonné et l'abonnement fixe. Le tableau ci-dessous donne, pour les 10 sociétés de notre comparatif, le modèle, les frais affichés et le net calculé à 5 000, 10 000 et 15 000 € de facturation mensuelle. À ${TJM} € de TJM, l'écart entre la société la moins chère et la plus chère atteint ${EUR.format(ecartMensuel)} nets par mois.`,
   filAriane: "Frais de gestion portage",
   datePublished: "2026-08-19",
-  dateModified: "2026-10-14",
+  dateModified: "2026-11-05",
   tocItems: [
+    { id: "tableau", label: "Le tableau des 10 sociétés" },
     { id: "couvrent", label: "Ce qu'ils couvrent" },
     { id: "impact", label: "L'impact chiffré" },
     { id: "modeles", label: "Les 3 modèles" },
@@ -67,8 +107,8 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: "Frais de gestion portage salarial : 4 à 10 %, l'impact réel (2026)",
-  description: `Pourcentage, plafonné ou abonnement : les trois modèles de frais de gestion comparés. À ${TJM} € de TJM, l'écart atteint ${EUR.format(ecartMensuel)} nets/mois entre sociétés.`,
+  title: "Frais de gestion portage salarial : le tableau des 10 sociétés (2026)",
+  description: `Modèle tarifaire, frais affichés et net calculé à 5 000, 10 000 et 15 000 € de CA mensuel pour 10 sociétés de portage. À ${TJM} € de TJM, l'écart atteint ${EUR.format(ecartMensuel)} nets/mois.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Frais de gestion en portage : l'impact réel sur votre net",
@@ -80,6 +120,77 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <GuideShell meta={meta}>
+      <section id="tableau" className="scroll-mt-24">
+        <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
+          <IconBadge><BuildingIcon className="w-4 h-4" /></IconBadge>
+          Le tableau des 10 sociétés de portage
+        </h2>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+          Pour chaque société du{" "}
+          <Link href="/comparateurs/portage-salarial" className="text-primary underline-offset-4 hover:underline">comparatif</Link>
+          , le modèle de frais, le tarif affiché, et le net mensuel avant impôt
+          calculé à trois niveaux de facturation. Les frais sont modélisés tels
+          qu&apos;annoncés — pourcentage simple, pourcentage plafonné ou
+          abonnement fixe —, à charges sociales identiques. Le meilleur net de
+          chaque colonne est en vert.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-white shadow-md">
+          <table className="w-full min-w-[48rem] text-left text-sm">
+            <thead className="bg-muted/60 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              <tr>
+                <th className="px-4 py-4">Société</th>
+                <th className="px-4 py-4">Modèle</th>
+                <th className="px-4 py-4">Frais affichés</th>
+                <th className="px-4 py-4 text-center">Grille publiée</th>
+                {CA_PALIERS.map((p) => (
+                  <th key={p} className="px-4 py-4 text-right whitespace-nowrap">Net à {p.toLocaleString("fr-FR")} € de CA</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {lignesTableau.map((l) => (
+                <tr key={l.slug} className={`border-b border-border last:border-b-0 ${l.exclue ? "text-muted-foreground" : ""}`}>
+                  <td className="px-4 py-3 font-semibold text-foreground">
+                    <Link href={`/comparateurs/portage-salarial/${l.slug}`} className="hover:text-primary hover:underline">{l.nom}</Link>
+                    {l.exclue && <span className="mt-1 block text-xs font-normal text-destructive">{l.exclue} — exclue</span>}
+                  </td>
+                  <td className="px-4 py-3 capitalize text-foreground/80">{l.modele}</td>
+                  <td className="px-4 py-3 text-foreground/80">{l.affiche}</td>
+                  <td className="px-4 py-3 text-center text-foreground/80">{l.publie ? "oui" : "non"}</td>
+                  {l.nets.map((n, i) => (
+                    <td key={i} className={`px-4 py-3 text-right tabular-nums ${n !== null && n === maxParPalier[i] ? "font-bold text-accent" : "text-foreground"}`}>
+                      {n === null ? "—" : EUR.format(n)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs italic text-muted-foreground">
+          Hypothèses : statut senior, aucun frais professionnel, charges
+          patronales 43 % et salariales 22 % (moyennes de marché), net avant
+          impôt sur le revenu. Abonnement Jump retenu sur sa formule de base ;
+          la taxe et l&apos;assurance de 1 % annoncées par Régie Portage ne sont
+          pas modélisées. Grille publiée pour {nbPubliees} sociétés sur 10 ;
+          pour les autres, taux estimé de marché, signalé comme tel dans le
+          comparatif. Taux vérifiés entre juillet et octobre 2026.
+        </p>
+        <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+          Lecture : un abonnement à 99 € coûte moins qu&apos;un pourcentage à
+          5 % dès 2 000 € de CA mensuel, et l&apos;écart grandit avec la
+          facturation. Le plafonnement, lui, ne joue qu&apos;au-delà de 13 000 €
+          de CA (650 € ÷ 5 %) : en dessous, une société plafonnée à 5 % se
+          comporte comme un pourcentage simple à 5 %. Entre le modèle le moins
+          cher et un pourcentage à 10 %, l&apos;écart atteint{" "}
+          {EUR.format(maxParPalier[2] - Math.min(...lignesTableau.filter((l) => !l.exclue).map((l) => l.nets[2] ?? Infinity)))}{" "}
+          nets par mois à 15 000 € de CA. Le tarif n&apos;est pas tout : les
+          services inclus, l&apos;avance de salaire et la solidité financière de
+          la société comptent autant — c&apos;est l&apos;objet du comparatif. Ce
+          tableau peut être cité librement avec un lien vers cette page.
+        </p>
+      </section>
+
       <section id="couvrent" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><InfoIcon className="w-4 h-4" /></IconBadge>
