@@ -7,8 +7,8 @@ import { SITE_URL } from "@/lib/site";
 // envoyer le bon mail en décembre, pas à segmenter du marketing.
 export const CATEGORIES = {
   smic: {
-    promesse: "Reçois le SMIC 2027 le jour du décret",
-    quand: "mi-décembre 2026, dès la publication au Journal officiel",
+    promesse: "Reçois le SMIC officiel le jour du décret",
+    quand: "dès la publication du décret au Journal officiel, attendue avant le 1er décembre 2026",
     sujet: "SMIC 2027",
     lien: "/simulateurs/salaire-brut-net",
     lienLabel: "Calculer un salaire brut en net",
@@ -134,13 +134,36 @@ export function lienDesinscription(email: string): string {
   return `${SITE_URL}/api/newsletter/desinscrire?t=${encodeURIComponent(signer("desinscrire", email))}`;
 }
 
-const esc = (s: string) =>
+export const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-export async function envoyerBienvenue(email: string, categorie: Categorie) {
+// Envoi unitaire, commun au mail de bienvenue et aux campagnes. Chaque mail
+// porte la désinscription en un clic (List-Unsubscribe + corps du message).
+export async function envoyerMail(m: { email: string; sujet: string; texte: string; html: string }) {
   const key = process.env.RESEND_API_KEY;
   if (!key) throw new Error("RESEND_API_KEY manquant");
   const from = process.env.NEWSLETTER_FROM ?? "Salairia <newsletter@salairia.com>";
+  const desinscription = lienDesinscription(m.email);
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from,
+      to: [m.email],
+      reply_to: "contact@salairia.com",
+      subject: m.sujet,
+      text: m.texte,
+      html: m.html,
+      headers: {
+        "List-Unsubscribe": `<${desinscription}>, <mailto:contact@salairia.com?subject=desinscription>`,
+        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+      },
+    }),
+  });
+  if (!res.ok) throw new Error(`Resend : ${res.status} ${await res.text()}`);
+}
+
+export async function envoyerBienvenue(email: string, categorie: Categorie) {
   const cat = CATEGORIES[categorie];
   const desinscription = lienDesinscription(email);
   const lien = `${SITE_URL}${cat.lien}`;
@@ -218,21 +241,10 @@ Tu reçois ce mail parce que tu t'es inscrit sur salairia.com. Te désinscrire :
 </table>
 </body></html>`;
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from,
-      to: [email],
-      reply_to: "contact@salairia.com",
-      subject: general ? "Bienvenue : les chiffres officiels, le jour J" : `C'est noté : le ${cat.sujet} dès sa publication`,
-      text: texte,
-      html,
-      headers: {
-        "List-Unsubscribe": `<${desinscription}>, <mailto:contact@salairia.com?subject=desinscription>`,
-        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
-      },
-    }),
+  await envoyerMail({
+    email,
+    sujet: general ? "Bienvenue : les chiffres officiels, le jour J" : `C'est noté : le ${cat.sujet} dès sa publication`,
+    texte,
+    html,
   });
-  if (!res.ok) throw new Error(`Resend : ${res.status} ${await res.text()}`);
 }

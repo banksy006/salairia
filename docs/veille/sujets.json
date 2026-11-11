@@ -1,0 +1,217 @@
+{
+  "_lisezmoi": "Liste de surveillance de scripts/veille.mjs. Un sujet = une requête d'actualité, des mots-clés (au moins un doit figurer dans le titre ou l'extrait) et les pages du site à relire si quelque chose bouge. Ajouter un sujet à chaque nouvelle page « chiffre daté ». Chaque sujet coûte un crédit Serper par exécution.",
+  "sujets": [
+    {
+      "id": "smic",
+      "libelle": "SMIC",
+      "requete": "SMIC revalorisation décret",
+      "motsCles": [
+        "smic",
+        "salaire minimum"
+      ],
+      "pages": [
+        "/guides/smic-2027",
+        "/guides/salaire-apprenti-2027",
+        "/guides/ce-qui-change-1er-janvier-2027",
+        "src/lib/smic-annonce.ts",
+        "src/lib/calculators/salaire-brut-net.ts"
+      ]
+    },
+    {
+      "id": "pass",
+      "libelle": "Plafond de la Sécurité sociale",
+      "requete": "plafond de la sécurité sociale 2027 arrêté PASS",
+      "motsCles": [
+        "plafond de la sécurité sociale",
+        "plafond de la sécu",
+        "pass 2027",
+        "pmss"
+      ],
+      "pages": [
+        "/guides/plafond-securite-sociale-2027",
+        "/guides/gratification-stage-2027",
+        "/guides/ce-qui-change-1er-janvier-2027"
+      ]
+    },
+    {
+      "id": "bareme",
+      "libelle": "Barème de l'impôt et loi de finances",
+      "requete": "barème impôt sur le revenu 2027 loi de finances",
+      "motsCles": [
+        "barème",
+        "impôt sur le revenu",
+        "loi de finances",
+        "plf 2027",
+        "prélèvement à la source"
+      ],
+      "pages": [
+        "/guides/bareme-impot-2027",
+        "/guides/seuil-imposition-2027",
+        "/guides/calendrier-impots-2027",
+        "/guides/ce-qui-change-1er-janvier-2027"
+      ]
+    },
+    {
+      "id": "retraites",
+      "libelle": "Retraites de base et minimum vieillesse",
+      "requete": "revalorisation retraites 2027 pension de base",
+      "motsCles": [
+        "retraite",
+        "pension",
+        "aspa",
+        "minimum vieillesse",
+        "plfss"
+      ],
+      "pages": [
+        "/guides/revalorisation-retraites-2027",
+        "/guides/calendrier-paiement-retraite-2027",
+        "/guides/aspa-2027",
+        "/guides/retraite-brut-net"
+      ]
+    },
+    {
+      "id": "agirc-arrco",
+      "libelle": "Agirc-Arrco",
+      "requete": "Agirc-Arrco valeur du point accord",
+      "motsCles": [
+        "agirc",
+        "arrco",
+        "retraite complémentaire"
+      ],
+      "pages": [
+        "/guides/revalorisation-retraites-2027",
+        "/guides/portage-salarial-retraite"
+      ]
+    },
+    {
+      "id": "micro",
+      "libelle": "Micro-entreprise",
+      "requete": "auto-entrepreneur 2027 cotisations plafonds franchise TVA",
+      "motsCles": [
+        "auto-entrepreneur",
+        "micro-entrepreneur",
+        "micro-entreprise",
+        "franchise en base",
+        "acre"
+      ],
+      "pages": [
+        "/guides/plafonds-micro-entreprise-2027",
+        "/guides/auto-entrepreneur",
+        "/simulateurs/auto-entrepreneur",
+        "src/lib/calculators/auto-entrepreneur.ts"
+      ]
+    },
+    {
+      "id": "aides",
+      "libelle": "Prestations et aides",
+      "requete": "prime d'activité APL allocations familiales revalorisation 2027",
+      "motsCles": [
+        "prime d'activité",
+        "apl",
+        "allocations familiales",
+        "chèque énergie",
+        "prime de noël",
+        "rsa"
+      ],
+      "pages": [
+        "/guides/prime-activite-2027",
+        "/guides/apl-2027",
+        "/guides/allocations-familiales-2027",
+        "/guides/cheque-energie-2027",
+        "/guides/prime-de-noel-2026"
+      ]
+    },
+    {
+      "id": "fonction-publique",
+      "libelle": "Fonction publique",
+      "requete": "point d'indice fonction publique 2027",
+      "motsCles": [
+        "point d'indice",
+        "fonctionnaires",
+        "fonction publique"
+      ],
+      "pages": [
+        "/guides/point-indice-fonction-publique"
+      ]
+    },
+    {
+      "id": "apprentis",
+      "libelle": "Apprentissage et stages",
+      "requete": "apprentissage aide à l'embauche 2027 apprenti",
+      "motsCles": [
+        "apprenti",
+        "apprentissage",
+        "gratification de stage",
+        "stagiaire"
+      ],
+      "pages": [
+        "/guides/salaire-apprenti-2027",
+        "/guides/salaire-apprenti",
+        "/guides/gratification-stage-2027"
+      ]
+    },
+    {
+      "id": "paie",
+      "libelle": "Paie des salariés",
+      "requete": "titres-restaurant prime de partage de la valeur heures supplémentaires 2027",
+      "motsCles": [
+        "titres-restaurant",
+        "titre-restaurant",
+        "prime de partage de la valeur",
+        "heures supplémentaires",
+        "transparence salariale",
+        "indemnités de rupture"
+      ],
+      "pages": [
+        "/guides/titres-restaurant",
+        "/guides/prime-partage-valeur",
+        "/guides/heures-supplementaires",
+        "/guides/transparence-salaires",
+        "/guides/indemnite-rupture-conventionnelle"
+      ]
+    },
+    {
+      "id": "portage",
+      "libelle": "Portage salarial",
+      "requete": "portage salarial société liquidation OR redressement OR rachat OR décret",
+      "motsCles": [
+        "portage salarial"
+      ],
+      "pages": [
+        "/comparateurs/portage-salarial",
+        "src/data/societes-portage.json",
+        "/guides/portage-salarial"
+      ]
+    },
+    {
+      "id": "chomage",
+      "libelle": "Assurance chômage",
+      "requete": "assurance chômage allocation ARE revalorisation règles 2027",
+      "motsCles": [
+        "assurance chômage",
+        "allocation chômage",
+        "france travail",
+        "are "
+      ],
+      "pages": [
+        "/guides/portage-salarial-chomage",
+        "/guides/auto-entrepreneur-chomage",
+        "/guides/sasu-chomage-dirigeant"
+      ]
+    }
+  ],
+  "fluxOfficiels": [
+    {
+      "nom": "Ministère du Travail",
+      "url": "https://travail-emploi.gouv.fr/rss.xml"
+    },
+    {
+      "nom": "Ministère de l'Économie",
+      "url": "https://www.economie.gouv.fr/rss/toutesactualites"
+    },
+    {
+      "nom": "Agirc-Arrco",
+      "url": "https://www.agirc-arrco.fr/feed/"
+    }
+  ]
+}

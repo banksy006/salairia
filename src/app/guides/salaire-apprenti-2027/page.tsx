@@ -16,7 +16,9 @@ const GRILLE = [
 // Exonération de cotisations salariales jusqu'à 50 % du SMIC (LFSS 2025).
 const SEUIL_EXO = 0.5;
 // Hypothèses de revalorisation du SMIC au 1er janvier 2027, à titre
-// d'illustration : +1 %, +1,5 %, +2 %. Le décret est attendu mi-décembre.
+// d'illustration : +1 %, +1,5 %, +2 %. Depuis l'annonce du 9 novembre 2026
+// (+1,6 % au 1er décembre, décret attendu), le scénario réel se situe entre
+// +1,5 % et +2 % ; les textes de la page le signalent.
 const SCENARIOS = [1, 1.5, 2];
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
@@ -27,10 +29,10 @@ const meta: GuideMeta = {
   slug: "salaire-apprenti-2027",
   titre: "Salaire d'un apprenti en 2027 : ce qui va changer au 1er janvier",
   sousTitre: `Une grille en pourcentage du SMIC — donc mécaniquement revalorisée avec lui — de ${EUR.format(SMIC * 0.27)} à ${EUR.format(SMIC)} bruts aujourd'hui`,
-  chapo: `Le salaire d'un apprenti ne se négocie pas : c'est un pourcentage du SMIC, fixé par une grille légale selon l'âge et l'année de contrat. Chaque revalorisation du SMIC se répercute donc automatiquement, au premier jour, sur toutes les cases de la grille. Le SMIC 2027 sera fixé par décret mi-décembre 2026 : voici la grille en vigueur en euros, ce que chaque point de hausse du SMIC représente case par case, et les trois autres paramètres — cotisations, impôt, aides — qui peuvent bouger au 1er janvier.`,
+  chapo: `Le salaire d'un apprenti ne se négocie pas : c'est un pourcentage du SMIC, fixé par une grille légale selon l'âge et l'année de contrat. Chaque revalorisation du SMIC se répercute donc automatiquement, au premier jour, sur toutes les cases de la grille. Le gouvernement a annoncé le 9 novembre 2026 une hausse du SMIC de 1,6 % dès le 1er décembre 2026, en avance sur la revalorisation de janvier (décret attendu) : voici la grille en vigueur en euros, ce que chaque point de hausse du SMIC représente case par case, et les trois autres paramètres — cotisations, impôt, aides — qui peuvent bouger au 1er janvier.`,
   filAriane: "Salaire apprenti 2027",
   datePublished: "2026-09-19",
-  dateModified: "2026-10-14",
+  dateModified: "2026-11-11",
   tocItems: [
     { id: "grille", label: "La grille en vigueur" },
     { id: "2027", label: "Ce qu'une hausse du SMIC change" },
@@ -40,7 +42,7 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Quel sera le salaire d'un apprenti en 2027 ?",
-      r: `Il sera égal aux mêmes pourcentages du SMIC qu'aujourd'hui — 27 % à 100 % selon l'âge et l'année — appliqués au SMIC 2027, qui sera fixé par décret mi-décembre 2026 pour le 1er janvier. Sur le SMIC actuel (${EUR2.format(SMIC)}), un apprenti de 18 à 20 ans en première année touche ${EUR.format(SMIC * 0.43)} bruts ; chaque hausse de 1 % du SMIC lui apporte environ ${EUR2.format(SMIC * 0.43 * 0.01)} de plus par mois. La grille légale elle-même n'a pas été modifiée depuis 2019 et aucun projet de réforme n'est annoncé pour 2027 : c'est le SMIC, et lui seul, qui fera bouger les montants.`,
+      r: `Il sera égal aux mêmes pourcentages du SMIC qu'aujourd'hui — 27 % à 100 % selon l'âge et l'année — appliqués au nouveau SMIC. Une hausse de 1,6 % a été annoncée le 9 novembre 2026 pour le 1er décembre 2026, en avance sur la revalorisation de janvier ; son décret est attendu. Sur le SMIC actuel (${EUR2.format(SMIC)}), un apprenti de 18 à 20 ans en première année touche ${EUR.format(SMIC * 0.43)} bruts ; chaque hausse de 1 % du SMIC lui apporte environ ${EUR2.format(SMIC * 0.43 * 0.01)} de plus par mois. La grille légale elle-même n'a pas été modifiée depuis 2019 et aucun projet de réforme n'est annoncé pour 2027 : c'est le SMIC, et lui seul, qui fera bouger les montants.`,
     },
     {
       q: "Le nouveau SMIC s'applique-t-il immédiatement aux contrats en cours ?",
@@ -69,7 +71,7 @@ const meta: GuideMeta = {
 
 export const metadata: Metadata = {
   title: "Salaire apprenti 2027 : grille en % du SMIC, montants actuels et effet de la revalorisation",
-  description: `La grille légale des apprentis (27 % à 100 % du SMIC selon l'âge et l'année) suit mécaniquement le SMIC 2027, fixé mi-décembre. Les montants en vigueur (${EUR.format(SMIC * 0.27)} à ${EUR.format(SMIC)} bruts), l'effet chiffré de chaque point de hausse, les cotisations, l'impôt et le calendrier du 1er janvier 2027.`,
+  description: `La grille légale des apprentis (27 % à 100 % du SMIC selon l'âge et l'année) suit mécaniquement le SMIC, en hausse annoncée de 1,6 % dès le 1er décembre 2026. Les montants en vigueur (${EUR.format(SMIC * 0.27)} à ${EUR.format(SMIC)} bruts), l'effet chiffré de chaque point de hausse, les cotisations, l'impôt et le calendrier du 1er janvier 2027.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Salaire d'un apprenti en 2027 : ce qui va changer au 1er janvier",
@@ -191,8 +193,10 @@ export default function Page() {
               de calcul</strong>, pas des prévisions. Elles montrent l&apos;ordre
               de grandeur : pour un apprenti en première année, une
               revalorisation du SMIC se traduit par quelques euros à une
-              dizaine d&apos;euros par mois. Les montants exacts seront publiés
-              ici le jour du décret.
+              dizaine d&apos;euros par mois. Depuis l&apos;annonce du 9 novembre
+              2026, la hausse attendue est de 1,6 % dès le 1er décembre 2026 :
+              la réalité se situe entre les colonnes +1,5 % et +2 %. Les
+              montants exacts seront publiés ici le jour du décret.
             </span>
           </p>
         </div>
@@ -242,10 +246,11 @@ export default function Page() {
         </h2>
         <ol className="mt-6 space-y-4">
           {[
-            { d: "Fin novembre 2026", t: "Rapport du groupe d'experts sur le SMIC", x: "Il éclaire le gouvernement sur l'opportunité d'un « coup de pouce » au-delà de la formule légale — recommandé nulle part depuis 2012." },
-            { d: "Mi-décembre 2026", t: "Décret de revalorisation du SMIC", x: "Publication au Journal officiel du SMIC horaire et mensuel au 1er janvier 2027. Toutes les cases de la grille des apprentis en découlent immédiatement." },
+            { d: "9 novembre 2026", t: "Annonce d'une hausse de 1,6 % au 1er décembre", x: "Le gouvernement avance d'un mois la revalorisation du SMIC. Le décret, attendu avant le 1er décembre, fixera le taux horaire officiel ; toutes les cases de la grille des apprentis en découlent immédiatement." },
+            { d: "Fin novembre 2026", t: "Rapport du groupe d'experts sur le SMIC", x: "Il chiffre la revalorisation mécanique du 1er janvier. Si elle dépassait le niveau atteint en décembre, un complément serait dû en janvier." },
+            { d: "Décembre 2026", t: "Première paie au nouveau SMIC", x: "Application automatique aux contrats en cours, pour les heures travaillées à partir du 1er décembre. Vérifiez sur le bulletin que le pourcentage est appliqué au nouveau montant." },
             { d: "Fin décembre 2026", t: "Lois de finances et de financement de la Sécurité sociale", x: "Montant de l'aide à l'embauche pour les contrats 2027 ; éventuelles modifications du régime social des apprentis." },
-            { d: "Janvier 2027", t: "Première paie au nouveau SMIC", x: "Application automatique aux contrats en cours. Vérifiez sur le bulletin que le pourcentage est appliqué au nouveau montant." },
+            { d: "Janvier 2027", t: "Aide à l'embauche et régime social 2027", x: "Entrée en vigueur des mesures votées en loi de finances pour les contrats signés en 2027." },
           ].map((e) => (
             <li key={e.t} className="flex gap-4 rounded-2xl border border-border bg-white p-5 shadow-md">
               <span className="w-32 flex-shrink-0 text-sm font-semibold text-primary">{e.d}</span>

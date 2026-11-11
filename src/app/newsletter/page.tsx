@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const ALERTES = [
-  { href: "/guides/smic-2027", label: "SMIC 2027", quand: "décret de mi-décembre" },
+  { href: "/guides/smic-2027", label: "SMIC 2027", quand: "décret attendu avant le 1er décembre" },
   { href: "/guides/plafond-securite-sociale-2027", label: "Plafond de la Sécurité sociale 2027", quand: "arrêté de fin décembre" },
   { href: "/guides/bareme-impot-2027", label: "Barème de l'impôt 2027", quand: "promulgation de la loi de finances" },
   { href: "/guides/revalorisation-retraites-2027", label: "Revalorisation des retraites", quand: "montants de janvier" },

@@ -3,6 +3,7 @@ import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
 import { IconBadge, CalendarIcon, EuroIcon, CompassIcon, InfoIcon } from "@/components/icons";
 import { SALAIRE_2026 } from "@/lib/calculators/salaire-brut-net";
+import { smicDecembre2026 } from "@/lib/smic-annonce";
 
 // Valeurs prévisionnelles et mesures des projets de textes déposés le 1er
 // octobre 2026 (PLF n° 3210, PLFSS n° 3211). Elles ne sont pas votées : les
@@ -31,7 +32,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés. Pour 2027, la photo s'est précisée le 1er octobre 2026 avec le dépôt du projet de loi de finances et du projet de loi de financement de la Sécurité sociale : barème de l'impôt relevé de 2,1 %, revalorisation des retraites réservée aux petites pensions, plafond unique pour les indemnités de rupture, prime d'activité gelée. Cette page distingue ce qui est acquis, ce qui n'est encore qu'un projet, et ce qui reste à publier — avec un lien vers notre analyse détaillée de chaque sujet.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-10-24",
+  dateModified: "2026-11-11",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },
@@ -45,7 +46,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Quels changements sont déjà certains au 1er janvier 2027 ?",
-      r: "Peu, à ce stade. Sont acquis parce que déjà votés : la fin du régime simplifié de TVA (loi de finances pour 2025), qui fait passer les entreprises concernées à des déclarations trimestrielles, et le maintien des plafonds de la micro-entreprise jusqu'en 2028. Sont certains dans leur principe mais pas encore chiffrés : la revalorisation du SMIC (décret de mi-décembre) et celle du plafond de la Sécurité sociale (arrêté de fin d'année, estimé à 4 075 € par mois). Tout le reste — barème, retraites, indemnités de rupture, prime de partage de la valeur — dépend du vote des lois de finances.",
+      r: "Peu, à ce stade. Sont acquis parce que déjà votés : la fin du régime simplifié de TVA (loi de finances pour 2025), qui fait passer les entreprises concernées à des déclarations trimestrielles, et le maintien des plafonds de la micro-entreprise jusqu'en 2028. Est annoncée, dans l'attente de son décret : la hausse du SMIC de 1,6 %, avancée au 1er décembre 2026. Est certaine dans son principe mais pas encore chiffrée : la revalorisation du plafond de la Sécurité sociale (arrêté de fin d'année, estimé à 4 075 € par mois). Tout le reste — barème, retraites, indemnités de rupture, prime de partage de la valeur — dépend du vote des lois de finances.",
     },
     {
       q: "Mon salaire net va-t-il changer au 1er janvier 2027 ?",
@@ -61,7 +62,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Quand tous les montants seront-ils connus ?",
-      r: "L'essentiel se joue entre mi-novembre et fin décembre : inflation d'octobre (qui fixe le coefficient légal des retraites), rapport du groupe d'experts sur le SMIC, arrêté PASS et décret SMIC à la mi-décembre, puis vote et promulgation des lois de finances. Ce dernier point n'est pas garanti avant le 31 décembre : les budgets 2025 et 2026 ont été promulgués en février. Cette page est mise à jour à chaque publication au Journal officiel.",
+      r: "L'essentiel se joue entre mi-novembre et fin décembre : inflation d'octobre (qui fixe le coefficient légal des retraites), décret SMIC (hausse de 1,6 % annoncée pour le 1er décembre), rapport du groupe d'experts sur le SMIC, arrêté PASS à la mi-décembre, puis vote et promulgation des lois de finances. Ce dernier point n'est pas garanti avant le 31 décembre : les budgets 2025 et 2026 ont été promulgués en février. Cette page est mise à jour à chaque publication au Journal officiel.",
     },
   ],
   sources: [
@@ -151,7 +152,7 @@ export default function Page() {
             quoi: "SMIC",
             statut: "attente",
             actuel: `${EUR2.format(SALAIRE_2026.SMIC_MENSUEL_BRUT)} bruts/mois (12,31 €/h) depuis le 1er juin 2026`,
-            prevu: "Décret mi-décembre. Revalorisation légale : inflation des ménages modestes + ½ du gain de pouvoir d'achat ouvrier. La hausse de juin 2026 a déjà « consommé » une partie de l'inflation.",
+            prevu: `Hausse de 1,6 % annoncée le 9 novembre et avancée au 1er décembre 2026 : environ ${EUR2.format(smicDecembre2026.mensuel)} bruts/mois (${EUR2.format(smicDecembre2026.horaire)}/h), montants calculés dans l'attente du décret. Pas de seconde hausse attendue au 1er janvier, sauf si le minimum légal dépasse ce niveau.`,
             href: "/guides/smic-2027",
             lien: "Notre analyse SMIC 2027",
           },
@@ -303,8 +304,10 @@ export default function Page() {
                 ["14 octobre 2026 ✓", "Agirc-Arrco : +1,4 % au 1er novembre, après vingt mois de gel du point."],
                 ["23 octobre 2026 ✓", "PLFSS 2027 rejeté par l'Assemblée en première lecture (partie recettes, 115 voix contre 1), partie dépenses non examinée ; le Sénat s'en saisit à partir du 9 novembre. PLF 2027 : vote de la première partie reporté."],
                 ["Mi-novembre 2026", "Inflation d'octobre publiée par l'INSEE : coefficient légal de revalorisation des retraites."],
-                ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : premier chiffrage de la hausse de janvier."],
-                ["Mi-décembre 2026", "Décret SMIC et arrêté PASS au Journal officiel. Date limite pour moduler l'avance de crédits d'impôt."],
+                ["9 novembre 2026 ✓", "SMIC : hausse de 1,6 % annoncée pour le 1er décembre 2026, en avance sur la revalorisation de janvier. Décret attendu."],
+                ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : chiffrage de la revalorisation mécanique de janvier."],
+                ["1er décembre 2026", "Entrée en vigueur du nouveau SMIC."],
+                ["Mi-décembre 2026", "Arrêté PASS au Journal officiel. Date limite pour moduler l'avance de crédits d'impôt."],
                 ["Fin décembre 2026", "Date visée pour la promulgation des lois de finances 2027 — les budgets 2025 et 2026 ne l'avaient été qu'en février."],
                 ["1er janvier 2027", "Entrée en vigueur. Cette page bascule des « prévus » aux montants définitifs, et les constantes de nos simulateurs sont mises à jour le même jour."],
               ].map(([d, t]) => (

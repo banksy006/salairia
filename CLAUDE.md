@@ -161,6 +161,29 @@ Objectif : transformer les lecteurs des pages « chiffre 2027 » (SMIC, PASS, ba
 
 **Règles** : chaque mail envoyé doit contenir le lien de désinscription signé (`signer("desinscrire", email)`) ; la politique de confidentialité (section « Newsletter et alertes par email ») cite Supabase et Resend comme sous-traitants — la mettre à jour si l'un des deux change. Tutoiement dans les formulaires et les mails, comme le reste de l'interface.
 
+## SMIC : hausse annoncée du 1er décembre 2026 (11 novembre 2026)
+
+Le 9 novembre 2026, le ministre du Travail a annoncé +1,6 % au 1er décembre 2026, en avance sur la revalorisation de janvier. **Le décret n'était pas paru le 11 novembre** : seul le taux est annoncé. Tous les montants « au 1er décembre » du site (12,51 €/h, 1 897,35 € bruts, environ 1 502 € nets) sont **calculés** dans `src/lib/smic-annonce.ts` et présentés comme tels. `SALAIRE_2026.SMIC_MENSUEL_BRUT` n'a pas été touché : il reste le SMIC en vigueur jusqu'au 30 novembre.
+
+**À la parution du décret** : passer `DECRET_PUBLIE` à `true` et remplacer le taux calculé par le taux officiel dans `smic-annonce.ts`, mettre à jour `SALAIRE_2026` (source en commentaire), retirer les mentions « calculé / décret attendu » de smic-2027, ce-qui-change-1er-janvier-2027 et salaire-apprenti-2027, puis envoyer le second mail promis aux abonnés `smic` (nouvelle campagne dans `newsletter-campagnes.ts`).
+
+## Campagnes newsletter (11 novembre 2026)
+
+Un mail de campagne est une fonction dans `src/lib/newsletter-campagnes.ts` (objet, texte, HTML), dont les chiffres viennent des mêmes modules que les pages. Envoi par `POST /api/newsletter/envoyer`, route fermée (404) sans le jeton `NEWSLETTER_ADMIN_TOKEN` (Vercel + `.env.local`). La route ne lit pas la table : la liste des destinataires vient d'un export CSV de `abonnes` fait dans le dashboard Supabase.
+
+```bash
+node scripts/envoyer-campagne.mjs <campagne> --apercu             # HTML dans .newsletter/
+node scripts/envoyer-campagne.mjs <campagne> --test moi@exemple.fr
+node scripts/envoyer-campagne.mjs <campagne> --liste export.csv            # à blanc
+node scripts/envoyer-campagne.mjs <campagne> --liste export.csv --envoyer  # réel
+```
+
+Le script consigne les adresses servies dans `.newsletter/<campagne>.json` (non commité) : le relancer n'envoie jamais deux fois. **Aucun envoi réel sans validation explicite de Nizar sur un mail de test.** Exporter uniquement les lignes `desinscrit_le is null` de la bonne catégorie.
+
+## Veille réglementaire (11 novembre 2026)
+
+Née d'un retard de deux jours sur l'annonce SMIC. `node scripts/veille.mjs` interroge les flux RSS officiels (ministères du Travail et de l'Économie, Agirc-Arrco) et la recherche d'actualités serper.dev (clé `SERPER_API_KEY` dans `.env.local`, un crédit par sujet et par exécution), filtre sur les mots-clés de `docs/veille/sujets.json` et sur un vocabulaire de changement (décret, arrêté, revalorisation…), et n'affiche que ce qui est nouveau depuis la dernière exécution (historique dans `.veille/`, non commité). Chaque sujet liste les pages et fichiers à relire. Une tâche planifiée de l'app Claude (`veille-salairia`) le lance chaque matin et vérifie les signaux forts à la source officielle. **Toute nouvelle page « chiffre daté » ajoute son sujet à `sujets.json`.** Le script détecte, il ne source pas : un titre de presse ne justifie jamais à lui seul un chiffre publié.
+
 ## Blocs de redirection « GuideCta » (24 octobre 2026)
 
 Search Console du 24 octobre : 84 % des clics viennent de 7 pages « chiffre 2027 » (SMIC, PASS, où se situe mon salaire, calendrier retraites, plafonds micro, calendrier impôts, barème), avec un lecteur qui lit un chiffre et repart. Chacune porte désormais deux blocs `GuideCta` (`src/components/guides/GuideCta.tsx`) : un bloc **en tête** (« dans ta situation ») vers 3 simulateurs, et un bloc **en fin** (`accent`) « Freelance ou indépendant ? » vers le comparateur portage, le TJM et les statuts. Les liens sont choisis par page selon l'intention des requêtes (ex. « smic net 2027 » → brut/net). Toute nouvelle page 2027 reprend ce moule.

@@ -158,6 +158,8 @@ Réponse : blocs `GuideCta` sur les 7 pages de tête (voir CLAUDE.md) et événe
 
 ## Newsletter — 21 octobre 2026
 
+**11 novembre 2026** : smic-2027 réécrite après l'annonce du 9 novembre (+1,6 % au 1er décembre 2026, montants calculés dans `src/lib/smic-annonce.ts`, décret attendu) ; ce-qui-change-1er-janvier-2027 et salaire-apprenti-2027 alignées. Première campagne newsletter (`smic-decembre-2026-annonce`) prête, envoi par `scripts/envoyer-campagne.mjs`. Veille quotidienne : `scripts/veille.mjs` + `docs/veille/sujets.json`. À faire à la parution du décret : voir CLAUDE.md, section SMIC.
+
 Blocs `NewsletterForm` sur smic-2027, plafond-securite-sociale-2027, bareme-impot-2027 et calendrier-paiement-retraite-2027, hub `/newsletter`, pages `/newsletter/confirmee` et `/newsletter/desinscrite` (noindex), routes `/api/newsletter*`. Liste stockée dans Supabase (`docs/newsletter.sql`), confirmation envoyée par Resend. Objectif : 150 à 300 inscrits confirmés avant le décret SMIC de mi-décembre ; premier envoi ce jour-là. Mesure : objectif Plausible « Inscription newsletter » (propriété `categorie`).
 
 ## Fraîcheur des données

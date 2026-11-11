@@ -348,7 +348,7 @@ const guides = [
   {
     titre: "Salaire d'un apprenti en 2027",
     desc:
-      "La grille légale (27 % à 100 % du SMIC) suit mécaniquement le SMIC 2027, fixé mi-décembre. Les montants en vigueur, l'effet chiffré de chaque point de hausse case par case, le régime de cotisations et d'impôt, l'aide employeur suspendue à la loi de finances, et le calendrier jusqu'à la paie de janvier.",
+      "La grille légale (27 % à 100 % du SMIC) suit mécaniquement le SMIC, qui augmente de 1,6 % dès le 1er décembre 2026. Les montants en vigueur, l'effet chiffré de chaque point de hausse case par case, le régime de cotisations et d'impôt, l'aide employeur suspendue à la loi de finances, et le calendrier jusqu'à la paie de janvier.",
     href: "/guides/salaire-apprenti-2027",
     audience: "Apprentis, parents, CFA, employeurs",
     lecture: "7 min",
@@ -372,7 +372,7 @@ const guides = [
   {
     titre: "SMIC 2027",
     desc:
-      "Le montant n'existe pas encore — le décret tombera mi-décembre — mais la formule qui le fixera est publique : inflation des ménages modestes plus la moitié du gain de pouvoir d'achat du salaire ouvrier moyen. Les valeurs en vigueur (1 867,02 € bruts, ~1 478 € nets), le calendrier jusqu'au 1er janvier, et ce qu'une hausse déclenche vraiment. Page mise à jour le jour du décret.",
+      "Hausse de 1,6 % annoncée le 9 novembre pour le 1er décembre 2026 : environ 12,51 € de l'heure, 1 897 € bruts et 1 502 € nets par mois. Ce qui est officiel et ce qui attend le décret, ce qui se passe au 1er janvier 2027, la paie de décembre, et la formule légale. Page corrigée au centime le jour de la parution au Journal officiel.",
     href: "/guides/smic-2027",
     audience: "Salariés au SMIC, employeurs, apprentis",
     lecture: "7 min",

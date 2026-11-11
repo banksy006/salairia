@@ -63,3 +63,7 @@ pids
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# newsletter : journaux d envoi (adresses) et veille locale
+/.newsletter/
+/.veille/
