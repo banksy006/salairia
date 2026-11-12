@@ -3,6 +3,7 @@ import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
 import GuideCta from "@/components/guides/GuideCta";
 import NewsletterForm from "@/components/NewsletterForm";
+import SondageProfil from "@/components/SondageProfil";
 import { IconBadge, CalendarIcon, CalculatorIcon, PercentIcon, InfoIcon, BarChartIcon, TargetIcon, ScaleIcon, CompassIcon, AlertTriangleIcon, ReceiptIcon } from "@/components/icons";
 import { SMIC_DEC_2026, smicJanvier2026, smicEnVigueur, smicDecembre2026, gainSmicDecembre } from "@/lib/smic-annonce";
 
@@ -153,6 +154,8 @@ export default function Page() {
           celui du décret.
         </p>
       </section>
+
+      <SondageProfil page="/guides/smic-2027" question="Tu consultes le SMIC en tant que…" />
 
       <section id="officiel" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
