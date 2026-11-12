@@ -442,6 +442,14 @@ const guides = [
     lecture: "8 min",
   },
   {
+    titre: "Expert-comptable pour une SASU : combien ça coûte",
+    desc:
+      "Pas obligatoire, mais presque toujours pris : les obligations comptables réelles d'une SASU selon Service-Public, les prix publics des cabinets en ligne (de 69 à 179 € HT par mois), et ce que les honoraires retirent vraiment de ton net une fois déduits, calculé par notre simulateur.",
+    href: "/guides/expert-comptable-sasu-prix",
+    audience: "Présidents de SASU et freelances qui créent leur société",
+    lecture: "8 min",
+  },
+  {
     titre: "SASU et chômage du dirigeant",
     desc:
       "« Assimilé salarié » ne veut pas dire assuré chômage : le président de SASU ne cotise pas à l'assurance chômage et n'ouvre aucun droit à l'ARE, quel que soit son salaire. Pourquoi, les exceptions réelles — cumul avec un contrat de travail, rescrit France Travail —, les alternatives, et la comparaison chiffrée avec le portage.",

@@ -40,6 +40,7 @@ const guidesLinks = [
   { label: "TJM architecte logiciel", href: "/guides/tjm-architecte-logiciel" },
   { label: "Auto-entrepreneur", href: "/guides/auto-entrepreneur" },
   { label: "SASU vs EURL", href: "/guides/sasu-eurl" },
+  { label: "Expert-comptable SASU", href: "/guides/expert-comptable-sasu-prix" },
   { label: "Salaire brut/net", href: "/guides/salaire-brut-net" },
   { label: "Tous les guides", href: "/guides" },
   { label: "Actualités", href: "/actualites" },

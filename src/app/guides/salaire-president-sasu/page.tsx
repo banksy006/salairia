@@ -226,6 +226,10 @@ export default function Page() {
             <Link href="/guides/sasu-chomage-dirigeant" className="underline underline-offset-4">
               SASU et chômage du dirigeant
             </Link>
+            . Et pour le coût de la comptabilité qui va avec, voir{" "}
+            <Link href="/guides/expert-comptable-sasu-prix" className="underline underline-offset-4">
+              combien coûte un expert-comptable pour une SASU
+            </Link>
             .
           </p>
         </div>

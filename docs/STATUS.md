@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 172 |
-| URLs au sitemap | 165 |
+| Routes publiées | 173 |
+| URLs au sitemap | 166 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -112,7 +112,9 @@ Déclenché par une anomalie GSC : le site est en **position 1** sur des dizaine
 
 Règle produit : sous le plafond de la Sécurité sociale, le net cadre est identique au non-cadre (seule l'APEC à 0,024 % les sépare). La page bascule alors sur une carte unique avec mention explicite — afficher deux montants identiques laisserait croire à un bug, et les FAQ affirmaient un écart inexistant.
 
-### Guides — 48
+### Guides — 49
+
+Guide **expert-comptable-sasu-prix** du 12 novembre 2026 : obligations comptables (Service-Public F37169 et F31214), prix publics Keobiz et L-Expert-Comptable relevés le 12/11/2026, coût net des honoraires calculé par `calculerStatut` (SASU, 550 €/j). Porte le lien partenaire Keobiz (Affilae, 110 € par lead transformé). Prix à revérifier tous les trimestres.
 
 Dossiers « TJM par métier » du 30 octobre 2026 : **tjm-developpeur-web** · **tjm-data-scientist** · **tjm-devops** ; du 3 novembre 2026 : **tjm-product-manager** · **tjm-designer-ux** · **tjm-chef-de-projet-it** ; du 4 novembre 2026 : **tjm-marketing-digital** · **tjm-consultant-it** · **tjm-architecte-logiciel** (les deux derniers ont reçu une ligne dans la grille du guide TJM, sourcée sur le baromètre Free-Work relevé le 4 novembre 2026, valeurs en commentaire au-dessus de la ligne). Composant partagé `src/components/guides/TjmMetierGuide.tsx`, config `src/data/tjm-metiers.ts` (TJM de marché repris de la grille du guide TJM freelance ; salaire, net, TJM d'équivalence et net par statut calculés par `src/lib/metiers.ts` et `tjm-freelance.ts`). Cibles : requêtes « tjm développeur », « tjm data scientist », « tjm devops » ; chaque dossier renvoie vers le comparateur portage, la compta et les banques pro. Prochains métiers du moule, s'il faut continuer : expert cybersécurité, data analyst / BI, développeur mobile (lignes déjà dans la grille, mais sans fiche salaire dans `salaires-metiers.json` : la créer d'abord).
 

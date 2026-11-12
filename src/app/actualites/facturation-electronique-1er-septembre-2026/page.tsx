@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   },
 };
 
+// Lien tracké Affilae, partenariat Tiime accepté (novembre 2026).
+const LIEN_TIIME =
+  "https://lb.affilae.com/r/?p=651c0d1e40e2d575f87b3b27&af=1252&lp=https%3A%2F%2Fwww.tiime.fr%2Ffacturation-electronique-2026%3Futm_source%3Dother%26utm_medium%3Daffiliation%26utm_campaign%3DSalairia%26ae%3D1252%26program_id%3D651c0d1e40e2d575f87b3b27%26program_name%3DTiime";
+
 const calendrier = [
   {
     date: "1er septembre 2026",
@@ -152,6 +156,19 @@ export default function Page() {
                 rattacher. Si vous utilisez déjà un outil de facturation ou un
                 cabinet comptable, la question à leur poser est simple : « êtes-vous
                 plateforme agréée, ou raccordé à l&apos;une d&apos;elles ? »
+                Parmi les outils pensés pour les indépendants,{" "}
+                <a
+                  href={LIEN_TIIME}
+                  target="_blank"
+                  rel="sponsored noopener noreferrer"
+                  data-partenaire="Tiime"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  Tiime détaille son offre de facturation électronique
+                </a>{" "}
+                (lien partenaire : Salairia peut être rémunéré, sans surcoût
+                pour vous). Vérifiez dans tous les cas le statut de
+                l&apos;outil retenu sur la liste officielle de la DGFiP.
               </span>
             </li>
             <li className="flex gap-3">
