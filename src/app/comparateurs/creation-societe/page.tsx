@@ -158,7 +158,7 @@ export default function ComparateurCreationSocietePage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_14rem]">
+        <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_14rem]">
           <div className="space-y-16">
             <section id="comparatif" className="scroll-mt-24">
               <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">

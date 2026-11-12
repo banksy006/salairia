@@ -117,7 +117,7 @@ export default function GuideShell({
           {meta.chapo}
         </p>
 
-        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_14rem]">
+        <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_14rem]">
           <div className="space-y-16">
             {children}
 
