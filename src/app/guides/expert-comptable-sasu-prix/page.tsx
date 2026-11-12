@@ -43,7 +43,6 @@ const coutNetHypothese = (netSansCompta - netSasu(TJM_2026.SASU_FRAIS_COMPTA_ANN
 const partNette = coutNetHypothese / TJM_2026.SASU_FRAIS_COMPTA_ANNUEL;
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
-const PCT = (x: number) => `${Math.round(x * 100)} %`;
 
 // Landing partenaire Keobiz (Affilae, partenariat accepté le 30 oct. 2026) :
 // elle porte le suivi et le mois d'honoraires offert aux clients recommandés.
