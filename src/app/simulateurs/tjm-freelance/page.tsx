@@ -131,9 +131,9 @@ const partners = [
   {
     category: "Compte bancaire pro",
     desc: "Qonto, Shine, Finom — essentiel dès la création d'une SASU ou EURL.",
-    ctaLabel: "Découvrir Qonto",
-    href: "https://www.qonto.com",
-    internal: false,
+    ctaLabel: "Comparer les comptes pro",
+    href: "/comparateurs/banques-pro",
+    internal: true,
   },
   {
     category: "Comptabilité freelance",

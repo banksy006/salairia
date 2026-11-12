@@ -57,7 +57,7 @@ const faq = [
   },
   {
     q: "Comment ce comparatif est-il financé ?",
-    r: "Salairia prévoit d'être financé par l'affiliation. Le classement ci-dessus est trié par prix de l'offre d'entrée, un critère objectif et vérifiable — il n'est pas influencé par une rémunération. Si des liens d'affiliation sont ajoutés, ils seront signalés et ne modifieront pas l'ordre.",
+    r: "Salairia est financé en partie par l'affiliation. Les boutons « Ouvrir un compte » de Qonto et de Shine sont des liens partenaires, signalés comme tels : si tu ouvres un compte par ce biais, Salairia peut percevoir une commission, sans surcoût pour toi. Le classement reste trié par prix de l'offre d'entrée, un critère objectif et vérifiable, et n'est pas influencé par ces partenariats : les banques sans partenariat y figurent au même titre.",
   },
 ];
 
@@ -276,16 +276,36 @@ export default function ComparateurBanquesProPage() {
                         transférés vers {b.arret.remplacant} d&apos;ici {b.arret.echeance}.
                       </p>
                     )}
-                    <a
-                      href={b.urlTarifs}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-partenaire={b.nom}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
-                    >
-                      Grille tarifaire officielle
-                      <span aria-hidden>↗</span>
-                    </a>
+                    <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                      {b.lienPartenaire && !b.arret && (
+                        <a
+                          href={b.lienPartenaire}
+                          target="_blank"
+                          rel="sponsored noopener noreferrer"
+                          data-partenaire={b.nom}
+                          className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-sm transition hover:opacity-90"
+                        >
+                          Ouvrir un compte {b.nom}
+                          <span aria-hidden>↗</span>
+                        </a>
+                      )}
+                      <a
+                        href={b.urlTarifs}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-partenaire={b.nom}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                      >
+                        Grille tarifaire officielle
+                        <span aria-hidden>↗</span>
+                      </a>
+                    </div>
+                    {b.lienPartenaire && !b.arret && (
+                      <p className="mt-2 text-xs text-muted-foreground">
+                        Lien partenaire : Salairia peut être rémunéré si tu ouvres un compte, sans surcoût pour toi.
+                        {b.offrePartenaire ? ` ${b.offrePartenaire}.` : ""}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>

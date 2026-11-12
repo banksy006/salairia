@@ -21,7 +21,9 @@
         "echeance": "janvier 2027",
         "source": "https://www.moneyvox.fr/banque-pro/actualites/109623/le-credit-agricole-enterre-blank-sa-banque-en-ligne-pour-les-pro",
         "sourceLabel": "MoneyVox, 9 juillet 2026"
-      }
+      },
+      "lienPartenaire": null,
+      "offrePartenaire": null
     },
     {
       "slug": "propulse",
@@ -42,7 +44,9 @@
         "echeance": "janvier 2027",
         "source": "https://www.moneyvox.fr/banque-pro/actualites/109623/le-credit-agricole-enterre-blank-sa-banque-en-ligne-pour-les-pro",
         "sourceLabel": "MoneyVox, 9 juillet 2026"
-      }
+      },
+      "lienPartenaire": null,
+      "offrePartenaire": null
     },
     {
       "slug": "qonto",
@@ -57,7 +61,9 @@
       "autresPaliers": "Smart 19 € HT (100 virements/mois, 1 sous-compte), Premium 39 € HT",
       "urlTarifs": "https://qonto.com/fr/pricing",
       "cible": "Freelances et sociétés en croissance",
-      "arret": null
+      "arret": null,
+      "lienPartenaire": "https://lb.affilae.com/r/?p=5ce4f2a2b6302009e29d84f3&af=3483&lp=https%3A%2F%2Fqonto.com%2Ffr%3Futm_medium%3Daffilaefr%26utm_source%3Daffiliate%26utm_campaign%3Dsalairia",
+      "offrePartenaire": null
     },
     {
       "slug": "shine",
@@ -72,7 +78,9 @@
       "autresPaliers": "Start 9 € HT (30 virements/mois, 2 IBAN, plafond 40 000 €/30 j)",
       "urlTarifs": "https://www.shine.fr/tarifs/",
       "cible": "Démarrage d'activité, faible volume",
-      "arret": null
+      "arret": null,
+      "lienPartenaire": "https://www.shine.fr/lp/partenaire/Salairia/?ae=2370&aev=Salairia/",
+      "offrePartenaire": "3 mois de compte offerts à l'ouverture via ce lien (offre Shine)"
     },
     {
       "slug": "finom",
@@ -87,7 +95,9 @@
       "autresPaliers": "Basic et Smart (tarifs non publiés en clair sur la page)",
       "urlTarifs": "https://finom.co/fr-fr/pricing/",
       "cible": "Indépendants à faible volume de virements",
-      "arret": null
+      "arret": null,
+      "lienPartenaire": null,
+      "offrePartenaire": null
     },
     {
       "slug": "revolut-business",
@@ -102,7 +112,10 @@
       "autresPaliers": "Grow 35 €/mois (100 virements domestiques, 5 internationaux, 1 carte Metal, épargne 1,55 %), Scale 125 €/mois (1 000 virements domestiques, 25 internationaux, 2 cartes Metal, épargne 2 %), Enterprise sur demande",
       "urlTarifs": "https://www.revolut.com/fr-FR/business/business-account-plans/",
       "cible": "Freelances et entreprises à activité multidevise",
-      "arret": null
+      "arret": null,
+      "lienPartenaire": null,
+      "offrePartenaire": null
     }
-  ]
+  ],
+  "_liensPartenaires": "lienPartenaire : lien d'affiliation (rel=sponsored), ajouté le 12 novembre 2026. Il ne change ni l'ordre du tableau ni les données comparées. null = pas de partenariat."
 }
