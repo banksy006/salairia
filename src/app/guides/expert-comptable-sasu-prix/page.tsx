@@ -30,7 +30,7 @@ const LEC_COMMERCE = 109;
 const CABINET_ANNUEL_MIN = 1_200;
 
 const scenarios = [
-  { label: "Tu tiens ta compta seul", annuel: 0, detail: "Logiciel non compté" },
+  { label: "Comptabilité tenue seul", annuel: 0, detail: "Logiciel non compté" },
   { label: `Offre en ligne d'entrée (${KEOBIZ_MIN} € HT/mois)`, annuel: KEOBIZ_MIN * 12, detail: "Hors paie du dirigeant" },
   { label: `Même offre + paie du président (${KEOBIZ_PAIE_MANDATAIRE} € HT/mois)`, annuel: (KEOBIZ_MIN + KEOBIZ_PAIE_MANDATAIRE) * 12, detail: "Cas d'un président rémunéré" },
   { label: "Hypothèse de nos simulateurs", annuel: TJM_2026.SASU_FRAIS_COMPTA_ANNUEL, detail: "1 500 € par an" },
@@ -51,15 +51,15 @@ const LIEN_KEOBIZ = "https://www.keobiz.fr/programme-affiliation-keobiz-2/?utm_c
 const meta: GuideMeta = {
   slug: "expert-comptable-sasu-prix",
   titre: "Expert-comptable pour une SASU : combien ça coûte vraiment",
-  sousTitre: `De ${KEOBIZ_MIN} à plus de ${KEOBIZ_MAX} € HT par mois, et ce que ça retire réellement de ton net`,
-  chapo: `Un expert-comptable n'est pas obligatoire pour une SASU, mais presque tous les présidents en prennent un. Les offres en ligne démarrent autour de ${LEC_FREELANCE} à ${KEOBIZ_MIN} € HT par mois, les cabinets de proximité à partir de ${EUR.format(CABINET_ANNUEL_MIN)} par an. Comme les honoraires sont déductibles, leur coût réel sur ton revenu est plus faible que le prix affiché : sur notre cas type, ${EUR.format(TJM_2026.SASU_FRAIS_COMPTA_ANNUEL)} d'honoraires annuels retirent environ ${EUR.format(coutNetHypothese)} de ton net. Voici les obligations réelles, les prix publics et le calcul.`,
+  sousTitre: `De ${KEOBIZ_MIN} à plus de ${KEOBIZ_MAX} € HT par mois, et ce que cela retire réellement de votre net`,
+  chapo: `Un expert-comptable n'est pas obligatoire pour une SASU, mais presque tous les présidents en prennent un. Les offres en ligne démarrent autour de ${LEC_FREELANCE} à ${KEOBIZ_MIN} € HT par mois, les cabinets de proximité à partir de ${EUR.format(CABINET_ANNUEL_MIN)} par an. Comme les honoraires sont déductibles, leur coût réel sur votre revenu est plus faible que le prix affiché : sur notre cas type, ${EUR.format(TJM_2026.SASU_FRAIS_COMPTA_ANNUEL)} d'honoraires annuels retirent environ ${EUR.format(coutNetHypothese)} de votre net. Voici les obligations réelles, les prix publics et le calcul.`,
   filAriane: "Expert-comptable SASU",
   datePublished: "2026-11-12",
   dateModified: "2026-11-12",
   tocItems: [
     { id: "obligatoire", label: "Est-ce obligatoire ?" },
     { id: "prix", label: "Les prix publics" },
-    { id: "net", label: "Le coût sur ton net" },
+    { id: "net", label: "Le coût sur votre net" },
     { id: "seul", label: "Seul ou accompagné" },
     { id: "choisir", label: "Bien choisir" },
   ],
@@ -74,7 +74,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Les honoraires d'expert-comptable sont-ils déductibles ?",
-      r: `Oui, ce sont des charges de la société. Ils réduisent le résultat, donc la rémunération ou les dividendes que tu peux te verser, mais aussi les cotisations et l'impôt correspondants. Sur notre cas type, chaque euro d'honoraires ne te coûte qu'environ ${Math.round(partNette * 100)} centimes de net.`,
+      r: `Oui, ce sont des charges de la société. Ils réduisent le résultat, donc la rémunération ou les dividendes que vous pouvez vous verser, mais aussi les cotisations et l'impôt correspondants. Sur notre cas type, chaque euro d'honoraires ne vous coûte qu'environ ${Math.round(partNette * 100)} centimes de net.`,
     },
     {
       q: "Quels documents une SASU doit-elle déposer chaque année ?",
@@ -82,7 +82,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Peut-on changer d'expert-comptable en cours d'année ?",
-      r: "Oui. La lettre de mission fixe un préavis, souvent de trois mois, et le nouveau cabinet se charge généralement de la reprise du dossier avec l'ancien. Le moment le plus simple reste la clôture de l'exercice : le nouveau cabinet démarre sur un exercice vierge.",
+      r: "Oui. La lettre de mission fixe la durée d'engagement et le préavis à respecter, et le nouveau cabinet se charge généralement de la reprise du dossier avec l'ancien. Le moment le plus simple reste la clôture de l'exercice : le nouveau cabinet démarre sur un exercice vierge.",
     },
   ],
   sources: [
@@ -95,12 +95,12 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: "Expert-comptable SASU : prix 2026 et coût réel sur ton net",
+  title: "Expert-comptable SASU : prix 2026 et coût réel sur votre net",
   description: `Prix d'un expert-comptable pour une SASU : de ${LEC_FREELANCE} à ${KEOBIZ_MAX} € HT par mois en ligne, ${EUR.format(CABINET_ANNUEL_MIN)} par an et plus en cabinet. Obligations officielles, coût réel après déduction calculé par notre simulateur, et quand faire seul.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Expert-comptable pour une SASU : combien ça coûte vraiment",
-    description: "Les prix publics, les obligations officielles et le coût réel sur ton revenu.",
+    description: "Les prix publics, les obligations officielles et le coût réel sur votre revenu.",
     url: `/guides/${meta.slug}`,
   },
 };
@@ -137,11 +137,11 @@ export default function Page() {
             lui-même. Une SASU doit :
           </p>
           <ul className="mt-4 space-y-3 text-base text-foreground/80">
-            <li className="flex gap-3"><span aria-hidden className="text-primary">1.</span><span><strong>tenir une comptabilité</strong> d&apos;engagement, avec livre-journal et grand-livre, simplifiée si elle relève du régime réel simplifié ;</span></li>
+            <li className="flex gap-3"><span aria-hidden className="text-primary">1.</span><span><strong>tenir une comptabilité</strong>, avec livre-journal et grand-livre, simplifiée si elle relève du régime réel simplifié ;</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">2.</span><span><strong>établir chaque année ses comptes</strong> : bilan, compte de résultat et annexe. Les micro-entreprises au sens comptable sont dispensées d&apos;annexe ;</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">3.</span><span><strong>faire approuver les comptes</strong> par l&apos;associé unique, en pratique dans les six mois suivant la clôture ;</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">4.</span><span><strong>les déposer au greffe</strong> dans le mois qui suit l&apos;approbation, ou deux mois en dépôt électronique, sous peine d&apos;une amende pénale de 1 500 € ;</span></li>
-            <li className="flex gap-3"><span aria-hidden className="text-primary">5.</span><span><strong>produire la liasse fiscale</strong> et la déclaration d&apos;impôt sur les sociétés, déclarer la TVA et, si tu te rémunères, établir la paie du président et ses déclarations sociales ;</span></li>
+            <li className="flex gap-3"><span aria-hidden className="text-primary">5.</span><span><strong>produire la liasse fiscale</strong> et la déclaration d&apos;impôt sur les sociétés, déclarer la TVA et, si vous vous rémunérez, établir la paie du président et ses déclarations sociales ;</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">6.</span><span><strong>conserver les pièces</strong> au moins dix ans à compter de la clôture.</span></li>
           </ul>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
@@ -175,9 +175,9 @@ export default function Page() {
             </thead>
             <tbody>
               {[
-                ["L-Expert-Comptable, consultants et freelances", `dès ${LEC_FREELANCE} € HT/mois`, "Formule d'entrée en ligne. La formule commerçants à 109 € HT mentionne explicitement la liasse IS et la CFE : vérifie ce que couvre la tienne."],
+                ["L-Expert-Comptable, consultants et freelances", `dès ${LEC_FREELANCE} € HT/mois`, "Formule d'entrée en ligne. La formule commerçants à 109 € HT mentionne explicitement la liasse IS et la CFE : vérifiez ce que couvre la vôtre."],
                 ["L-Expert-Comptable, commerçants et BTP", `dès ${LEC_COMMERCE} € HT/mois`, "Inclut liasse fiscale, solde d'IS et CFE."],
-                ["Keobiz, formules d'entrée", `dès ${KEOBIZ_MIN} € HT/mois`, "Bilan validé par un expert-comptable, liasse et TVA télédéclarées. La page d'accueil annonce « dès 89 € » pour les sociétés : demande le prix exact pour ta SASU."],
+                ["Keobiz, formules d'entrée", `dès ${KEOBIZ_MIN} € HT/mois`, "Bilan validé par un expert-comptable, liasse et TVA télédéclarées. La page d'accueil annonce « dès 89 € » pour les sociétés : demandez le prix exact pour votre SASU."],
                 ["Keobiz, formules complètes", `dès ${KEOBIZ_MAX} € HT/mois`, "Dépôt des comptes au greffe inclus à partir de la formule Plus."],
                 ["Keobiz, paie du président", `${KEOBIZ_PAIE_MANDATAIRE} € HT/mois`, "Option pour 0 à 1 bulletin par mois, en plus de la formule comptable."],
                 ["Cabinet de proximité (ordre de grandeur LegalPlace)", `dès ${EUR.format(CABINET_ANNUEL_MIN)}/an`, "Pour une TPE, sur devis. Jusqu'à 5 000 € par an pour un dossier plus lourd."],
@@ -195,7 +195,7 @@ export default function Page() {
           Prix « à partir de », hors taxes, relevés sur les pages tarifs
           publiques citées en source. Ils évoluent et dépendent du volume
           d&apos;opérations, du régime de TVA et des options : seul un devis
-          sur ton dossier fait foi.
+          sur votre dossier fait foi.
         </p>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
           Trois postes font varier la facture plus que la formule elle-même :
@@ -211,12 +211,12 @@ export default function Page() {
       <section id="net" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><CalculatorIcon className="w-4 h-4" /></IconBadge>
-          Ce que les honoraires retirent vraiment de ton net
+          Ce que les honoraires retirent vraiment de votre net
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
-          Le prix affiché n&apos;est pas ce que tu paies de ta poche. Les
+          Le prix affiché n&apos;est pas ce que vous payez de votre poche. Les
           honoraires sont une charge de la société : ils réduisent le résultat,
-          donc la rémunération que tu peux te verser, mais aussi les
+          donc la rémunération que vous pouvez vous verser, mais aussi les
           cotisations qui s&apos;appliquent dessus. Calcul sur notre cas type :
           un consultant à {TJM} € par jour sur {JOURS} jours par mois, avec{" "}
           {FRAIS_PRO} € de frais professionnels mensuels, qui se verse tout le
@@ -261,7 +261,7 @@ export default function Page() {
             {EUR.format(TJM_2026.SASU_FRAIS_COMPTA_ANNUEL)} d&apos;honoraires ≈ {EUR.format(coutNetHypothese)} de net en moins
           </p>
           <p className="mt-3 text-base opacity-90">
-            Sur ce cas type, chaque euro d&apos;honoraires ne te coûte
+            Sur ce cas type, chaque euro d&apos;honoraires ne vous coûte
             qu&apos;environ {Math.round(partNette * 100)} centimes de net : le
             reste aurait de toute façon été absorbé par les cotisations.
           </p>
@@ -277,19 +277,19 @@ export default function Page() {
           <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
             <p className="font-semibold text-foreground">Faire seul tient la route si…</p>
             <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/80">
-              <li>tu as peu d&apos;opérations : quelques factures et quelques achats par mois ;</li>
-              <li>tu ne te verses pas de salaire, donc pas de paie ni de déclarations sociales ;</li>
-              <li>tu as une formation en gestion ou un logiciel qui produit la liasse fiscale ;</li>
-              <li>tu acceptes de consacrer plusieurs jours par an à la clôture.</li>
+              <li>vous avez peu d&apos;opérations : quelques factures et quelques achats par mois ;</li>
+              <li>vous ne vous versez pas de salaire, donc pas de paie ni de déclarations sociales ;</li>
+              <li>vous avez une formation en gestion ou un logiciel qui produit la liasse fiscale ;</li>
+              <li>vous acceptez de consacrer plusieurs jours par an à la clôture.</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
             <p className="font-semibold text-foreground">Un cabinet devient rentable si…</p>
             <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/80">
-              <li>tu te rémunères en salaire : la paie du président suppose des déclarations mensuelles ou trimestrielles ;</li>
-              <li>tu arbitres entre salaire et dividendes, un choix qui pèse des milliers d&apos;euros par an ;</li>
-              <li>tu factures à {TJM} € par jour : deux jours de clôture faits seul valent déjà plus d&apos;un an d&apos;offre d&apos;entrée ;</li>
-              <li>tu veux un interlocuteur en cas de contrôle fiscal ou Urssaf.</li>
+              <li>vous vous rémunérez en salaire : la paie du président suppose des déclarations mensuelles ou trimestrielles ;</li>
+              <li>vous arbitrez entre salaire et dividendes, un choix qui pèse des milliers d&apos;euros par an ;</li>
+              <li>vous facturez à {TJM} € par jour : deux jours de clôture faits seul valent déjà plus d&apos;un an d&apos;offre d&apos;entrée ;</li>
+              <li>vous voulez un interlocuteur en cas de contrôle fiscal ou Urssaf.</li>
             </ul>
           </div>
         </div>
@@ -306,8 +306,8 @@ export default function Page() {
           <p>
             Le régime de la micro-entreprise n&apos;a rien à voir : un
             micro-entrepreneur n&apos;établit ni bilan ni liasse, et un
-            expert-comptable lui est rarement utile. Si tu hésites encore sur
-            le statut, compare d&apos;abord avec notre{" "}
+            expert-comptable lui est rarement utile. Si vous hésitez encore sur
+            le statut, comparez d&apos;abord avec notre{" "}
             <Link href="/simulateurs/tjm-freelance" className="font-semibold underline underline-offset-4">simulateur TJM</Link>.
           </p>
         </div>
@@ -323,11 +323,11 @@ export default function Page() {
             <li className="flex gap-3"><span aria-hidden className="text-primary">1.</span><span><strong>Le dépôt des comptes au greffe est-il inclus</strong>, frais de greffe compris ? Chez plusieurs cabinets en ligne, il ne l&apos;est que dans les formules supérieures.</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">2.</span><span><strong>La paie du président est-elle comprise ?</strong> Sinon, combien par bulletin, et à quelle fréquence ?</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">3.</span><span><strong>Combien de pièces par mois</strong> la formule couvre-t-elle, et que coûte le dépassement ?</span></li>
-            <li className="flex gap-3"><span aria-hidden className="text-primary">4.</span><span><strong>Qui est ton interlocuteur</strong> : un expert-comptable nommé, ou une équipe tournante ? Peut-il te conseiller sur l&apos;arbitrage salaire et dividendes ?</span></li>
+            <li className="flex gap-3"><span aria-hidden className="text-primary">4.</span><span><strong>Qui est votre interlocuteur</strong> : un expert-comptable nommé, ou une équipe tournante ? Peut-il vous conseiller sur l&apos;arbitrage salaire et dividendes ?</span></li>
             <li className="flex gap-3"><span aria-hidden className="text-primary">5.</span><span><strong>Quelle durée d&apos;engagement et quel préavis</strong> figurent dans la lettre de mission ?</span></li>
           </ul>
           <p className="mt-5 text-base leading-relaxed text-foreground/80">
-            Compare ensuite le prix annuel tout compris, pas le tarif mensuel
+            Comparez ensuite le prix annuel tout compris, pas le tarif mensuel
             d&apos;appel : bilan, liasse, TVA, paie, dépôt et options.
           </p>
         </div>
@@ -337,9 +337,9 @@ export default function Page() {
           <p className="mt-2 text-lg font-bold text-foreground">Demander un devis à Keobiz</p>
           <p className="mt-2 text-base leading-relaxed text-foreground/80">
             Keobiz publie ses tarifs, propose des formules pour les SASU et
-            offre un mois d&apos;honoraires aux clients qui passent par ce lien.
-            Salairia peut être rémunéré si tu deviens client, sans surcoût pour
-            toi. Cela ne change rien à l&apos;analyse ci-dessus : compare
+            annonce un mois d&apos;honoraires offert aux clients recommandés par un partenaire.
+            Salairia peut être rémunéré si vous devenez client, sans surcoût pour
+            vous. Cela ne change rien à l&apos;analyse ci-dessus : comparez
             plusieurs devis avec les cinq questions avant de signer.
           </p>
           <a

@@ -34,7 +34,7 @@ const meta: GuideMeta = {
     { id: "montants", label: "Les nouveaux montants" },
     { id: "officiel", label: "Ce qui est officiel" },
     { id: "janvier", label: "Et au 1er janvier 2027 ?" },
-    { id: "paie", label: "Sur ta fiche de paie" },
+    { id: "paie", label: "Sur votre fiche de paie" },
     { id: "annee", label: "Trois hausses en 2026" },
     { id: "formule", label: "La formule légale" },
     { id: "effets", label: "Ce que la hausse déclenche" },
@@ -58,7 +58,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Mon salaire est juste au-dessus du SMIC : vais-je être augmenté ?",
-      r: `Pas automatiquement. Seuls les salaires qui passeraient sous le nouveau minimum sont relevés : si tu gagnes moins de ${EUR2.format(apres.mensuel)} bruts pour 35 heures, ton employeur doit t'aligner au 1er décembre. Au-dessus, rien n'est dû par décret. C'est la négociation, dans l'entreprise ou dans la branche, qui répercute la hausse sur le reste de la grille.`,
+      r: `Pas automatiquement. Seuls les salaires qui passeraient sous le nouveau minimum sont relevés : si vous gagnez moins de ${EUR2.format(apres.mensuel)} bruts pour 35 heures, votre employeur doit vous aligner au 1er décembre. Au-dessus, rien n'est dû par décret. C'est la négociation, dans l'entreprise ou dans la branche, qui répercute la hausse sur le reste de la grille.`,
     },
     {
       q: "S'agit-il d'un coup de pouce du gouvernement ?",
@@ -252,13 +252,13 @@ export default function Page() {
       <section id="paie" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><ReceiptIcon className="w-4 h-4" /></IconBadge>
-          Ce que ça change sur ta fiche de paie
+          Ce que cela change sur votre fiche de paie
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
-            <p className="font-semibold text-foreground">Tu es payé au SMIC</p>
+            <p className="font-semibold text-foreground">Vous êtes payé au SMIC</p>
             <p className="mt-2 text-base leading-relaxed text-foreground/80">
-              Ton bulletin de décembre affiche {EUR2.format(apres.horaire)}{" "}de
+              Votre bulletin de décembre affiche {EUR2.format(apres.horaire)}{" "}de
               l&apos;heure. À temps plein, environ {EUR.format(gain.netMensuel)}{" "}
               nets de plus, soit {EUR.format(gain.netAnnuel)}{" "}sur douze mois.
               Rien à demander : l&apos;alignement est une obligation de
@@ -266,18 +266,18 @@ export default function Page() {
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
-            <p className="font-semibold text-foreground">Tu es à temps partiel</p>
+            <p className="font-semibold text-foreground">Vous êtes à temps partiel</p>
             <p className="mt-2 text-base leading-relaxed text-foreground/80">
-              Le gain suit tes heures : {EUR2.format(gain.horaire)}{" "}bruts de
+              Le gain suit vos heures : {EUR2.format(gain.horaire)}{" "}bruts de
               plus par heure travaillée. Pour 24 heures par semaine, cela
               représente environ {EUR2.format(gain.horaire * 24 * 52 / 12)}{" "}
               bruts de plus par mois.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-white p-6 shadow-md">
-            <p className="font-semibold text-foreground">Tu es apprenti</p>
+            <p className="font-semibold text-foreground">Vous êtes apprenti</p>
             <p className="mt-2 text-base leading-relaxed text-foreground/80">
-              Ta rémunération est un pourcentage du SMIC : elle suit le même
+              Votre rémunération est un pourcentage du SMIC : elle suit le même
               jour. À 43 % du SMIC (18 à 20 ans, première année), on passe de{" "}
               {EUR.format(avant.mensuel * PCT_APPRENTI)}{" "}à environ{" "}
               {EUR.format(apres.mensuel * PCT_APPRENTI)}{" "}bruts. La grille
