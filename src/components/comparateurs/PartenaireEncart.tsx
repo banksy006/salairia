@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import partenaires from "@/data/partenaires-portage.json";
 import societes from "@/data/societes-portage.json";
@@ -8,6 +9,9 @@ interface Partenaire {
   actif: boolean;
   debut: string;
   fin: string;
+  // Logo fourni par le partenaire, dans public/partenaires/. Dimensions
+  // d'origine du fichier, pour que next/image réserve la bonne place.
+  logo: { src: string; largeur: number; hauteur: number } | null;
   accroche: string;
   avantages: string[];
   ctaLabel: string;
@@ -34,9 +38,9 @@ export default function PartenaireEncart({ slugFiche }: { slugFiche?: string }) 
   return (
     <aside
       aria-label={`Partenaire : ${s.nom}`}
-      className="rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-primary/5 p-6 shadow-md sm:p-8"
+      className="overflow-hidden rounded-2xl border-2 border-accent/30 bg-white shadow-md"
     >
-      <div className="flex flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-accent/20 bg-gradient-to-r from-accent/10 to-primary/5 px-6 py-3 sm:px-8">
         <span className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
           <AwardIcon className="h-3.5 w-3.5" /> Partenaire Salairia
         </span>
@@ -47,36 +51,52 @@ export default function PartenaireEncart({ slugFiche }: { slugFiche?: string }) 
           </Link>
         </span>
       </div>
-      <div className="mt-4 grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+
+      <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center">
+        {p.logo && (
+          <div className="flex h-20 w-full items-center justify-center rounded-xl border border-border bg-white px-5 lg:w-48">
+            <Image
+              src={p.logo.src}
+              alt={`Logo ${s.nom}`}
+              width={p.logo.largeur}
+              height={p.logo.hauteur}
+              unoptimized
+              className="h-auto max-h-10 w-auto max-w-full"
+            />
+          </div>
+        )}
+
         <div>
-          <p className="text-2xl font-bold text-foreground">
-            {s.nom}{" "}
-            <span className="ml-2 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 align-middle text-sm font-bold text-primary">
-              {s.fraisGestion}
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-bold text-foreground">
+            {s.nom}
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-bold text-primary whitespace-nowrap">
+              {s.fraisGestion} de frais de gestion
             </span>
           </p>
-          <p className="mt-2 text-base text-foreground/80">{p.accroche}</p>
-          <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm text-foreground/80">
+          <p className="mt-2 text-base leading-relaxed text-foreground/80">{p.accroche}</p>
+          <ul className="mt-4 flex flex-wrap gap-2 text-sm text-foreground/80">
             {p.avantages.map((a) => (
-              <li key={a} className="flex items-center gap-1.5">
-                <span aria-hidden className="text-accent">✅</span> {a}
+              <li key={a} className="flex items-center gap-2 rounded-lg bg-muted/60 px-3 py-2">
+                <span aria-hidden className="text-accent">✅</span>
+                <span>{a}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="flex flex-col gap-2 sm:items-end">
+
+        <div className="flex flex-col gap-2 lg:items-end">
           <a
             href={p.url}
             target="_blank"
             rel="noopener nofollow sponsored"
             data-partenaire={s.nom}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-base font-semibold text-accent-foreground shadow-md transition hover:opacity-90"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-base font-semibold text-accent-foreground shadow-md transition hover:opacity-90 whitespace-nowrap"
           >
             {p.ctaLabel} ↗
           </a>
           <Link
             href={`/comparateurs/portage-salarial/${s.slug}`}
-            className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+            className="text-center text-sm font-semibold text-primary underline-offset-4 hover:underline lg:text-right"
           >
             Voir la fiche et les avis
           </Link>
