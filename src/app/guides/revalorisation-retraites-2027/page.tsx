@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import GuideShell, { type GuideMeta } from "@/components/GuideShell";
 import { IconBadge, CalendarIcon, PercentIcon, InfoIcon, ScaleIcon, CalculatorIcon } from "@/components/icons";
+import { TAUX_REVALO_2027, GLISSEMENT_OCTOBRE_2026, DATE_PUBLICATION_INSEE } from "@/lib/revalorisation-2027";
 
 // Revalorisation différenciée des pensions de base pour 2027 : PLFSS 2027,
 // art. 35 (Assemblée nationale n° 3211, déposé le 1er octobre 2026). Seuils
@@ -64,20 +65,22 @@ const PROFILS = [
   { label: "Ancien cadre", base: 1_400, compl: 1_400 },
 ].map((p) => {
   const total = p.base + p.compl;
-  return { ...p, total, parPoint: p.base * 0.01, agirc: p.compl * AGIRC_HAUSSE, plein: total <= SEUIL_PLEIN };
+  return { ...p, total, parPoint: p.base * 0.01, hausse: p.base * TAUX_REVALO_2027, agirc: p.compl * AGIRC_HAUSSE, plein: total <= SEUIL_PLEIN };
 });
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const EUR2 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 2 });
+const PCT1 = (x: number) => (x * 100).toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const TAUX = PCT1(TAUX_REVALO_2027);
 
 const meta: GuideMeta = {
   slug: "revalorisation-retraites-2027",
   titre: "Revalorisation des retraites 2027 : qui sera augmenté, qui sera gelé",
-  sousTitre: `Le budget 2027 réserve la hausse de janvier aux pensions jusqu'à ${EUR.format(SEUIL_PLEIN)} par mois et gèle par défaut les autres — l'Agirc-Arrco, elle, a tranché : +1,4 % au 1er novembre`,
-  chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. Les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, a décidé le 14 octobre 2026 une hausse de 1,4 % au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
+  sousTitre: `L'inflation de référence est connue : +${TAUX} %. Mais le budget 2027 réserve cette hausse aux petites pensions et gèle par défaut les autres, et le Sénat vote cette semaine`,
+  chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. L'inflation qui sert de base au calcul est désormais connue : appliquée aux indices publiés par l'INSEE le ${DATE_PUBLICATION_INSEE}, la règle légale donne +${TAUX} %. Mais les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, a décidé le 14 octobre 2026 une hausse de 1,4 % au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-11-03",
+  dateModified: "2026-11-16",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "La base : ce que prévoit le PLFSS" },
@@ -96,7 +99,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Le gel est-il certain pour les pensions au-dessus de 1 281 € ?",
-      r: `Non, à trois titres. D'abord, c'est un projet, et il est en difficulté : le 23 octobre 2026, l'Assemblée nationale a rejeté le PLFSS en première lecture (partie recettes, 115 voix contre 1) sans examiner la partie dépenses où figure l'article 35 ; le Sénat l'examine à partir du 9 novembre. Le précédent plaide pour la prudence : en 2025, le budget 2026 prévoyait déjà un gel des pensions, finalement abandonné au Parlement — les pensions de base ont été revalorisées de 0,9 % au 1er janvier 2026. Ensuite, le texte permet au gouvernement de fixer par décret une hausse partielle, entre 0 et l'inflation, éventuellement dégressive jusqu'à ${EUR.format(SEUIL_HAUT)} de pension totale. Un tel décret pourrait intervenir en cours d'année et s'appliquer rétroactivement au 1er janvier 2027. Sans décret au 31 octobre 2027, le gel deviendrait définitif pour l'année.`,
+      r: `Non, à trois titres. D'abord, c'est un projet, et il est en difficulté : le 23 octobre 2026, l'Assemblée nationale a rejeté le PLFSS en première lecture (partie recettes, 115 voix contre 1) sans examiner la partie dépenses où figure l'article 35. Au Sénat, la commission des affaires sociales a proposé le 4 novembre de relever le seuil de 1 260 à 1 500 € et de supprimer la possibilité d'atténuer le gel par décret ; l'article est débattu en séance les 16 et 17 novembre, avant le vote du texte le 18 novembre. Une commission mixte paritaire devra ensuite trouver un texte commun avec les députés. Le précédent plaide pour la prudence : en 2025, le budget 2026 prévoyait déjà un gel des pensions, finalement abandonné au Parlement — les pensions de base ont été revalorisées de 0,9 % au 1er janvier 2026. Ensuite, le texte permet au gouvernement de fixer par décret une hausse partielle, entre 0 et l'inflation, éventuellement dégressive jusqu'à ${EUR.format(SEUIL_HAUT)} de pension totale. Un tel décret pourrait intervenir en cours d'année et s'appliquer rétroactivement au 1er janvier 2027. Sans décret au 31 octobre 2027, le gel deviendrait définitif pour l'année.`,
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",
@@ -110,6 +113,9 @@ const meta: GuideMeta = {
   sources: [
     { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211, art. 35 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
     { label: "Projet de loi de finances pour 2027, n° 3210, art. 3 — abattement des retraités (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
+    { label: "INSEE — prix à la consommation d'octobre 2026, résultats définitifs (Informations rapides n° 271, 13 novembre 2026)", href: "https://www.insee.fr/fr/statistiques/9131332" },
+    { label: "INSEE — série 011814056, indice des prix hors tabac (base 2025)", href: "https://www.insee.fr/fr/statistiques/serie/011814056" },
+    { label: "Public Sénat — les sénateurs proposent de revaloriser les pensions jusqu'à 1 500 € (4 novembre 2026)", href: "https://www.publicsenat.fr/actualites/sante/budget-2027-de-la-securite-sociale-les-senateurs-proposent-de-revaloriser-sur-linflation-les-pensions-allant-jusqua-1500-euros" },
     { label: "Code de la sécurité sociale, art. L161-25 — revalorisation sur l'inflation (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033715437" },
     { label: "Agirc-Arrco — actualité du 14 octobre 2026 : revalorisation de +1,4 % au 1er novembre 2026", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
     { label: "Agirc-Arrco — communiqué de presse du 14 octobre 2026 (PDF) : fourchette 1,2 à 1,9 %, valeur d'achat renvoyée à l'accord 2027-2030", href: "https://www.agirc-arrco.fr/storage/261014_Communique-de-presse_Revalorisation-valeur-du-point-Agirc-Arrco.pdf" },
@@ -149,7 +155,7 @@ export default function Page() {
               {[
                 ["Date", "1er janvier 2027", "1er novembre 2026"],
                 ["Qui décide", "La loi — mais le PLFSS 2027 déroge à l'indexation automatique pour 2027", "Le conseil d'administration paritaire du régime"],
-                ["Sur quelle base", "Inflation moyenne hors tabac, novembre 2025 → octobre 2026 (chiffre connu mi-novembre)", "Inflation prévue, minorée d'un facteur de soutenabilité (jusqu'à −0,4 pt)"],
+                ["Sur quelle base", `Inflation moyenne hors tabac, novembre 2025 → octobre 2026 : +${TAUX} % (calcul Salairia sur les indices INSEE du ${DATE_PUBLICATION_INSEE})`, "Inflation prévue, minorée d'un facteur de soutenabilité (jusqu'à −0,4 pt)"],
                 ["Ce qui est décidé", `Hausse pleine si pensions totales ≤ ${EUR.format(SEUIL_PLEIN)}/mois ; gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}, sauf décret (projet de loi)`, "+1,4 % au 1er novembre 2026, décidé le 14 octobre (formule de référence : 1,6 %)"],
                 ["Précédents récents", "Gel proposé pour 2026 puis abandonné : +0,9 % au 1er janvier 2026", "0 % en novembre 2025"],
               ].map(([k, a, b]) => (
@@ -171,7 +177,7 @@ export default function Page() {
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
-            { v: `≤ ${EUR.format(SEUIL_PLEIN)}`, t: "Revalorisation pleine", d: "La pension de base suit le coefficient légal : l'inflation moyenne hors tabac de novembre 2025 à octobre 2026, publiée par l'INSEE mi-novembre." },
+            { v: `≤ ${EUR.format(SEUIL_PLEIN)}`, t: "Revalorisation pleine", d: `La pension de base suit le coefficient légal : l'inflation moyenne hors tabac de novembre 2025 à octobre 2026, soit +${TAUX} % d'après les indices INSEE.` },
             { v: `${EUR.format(SEUIL_PLEIN)} – ${EUR.format(SEUIL_LISSAGE)}`, t: "Hausse réduite", d: "Quatre paliers (1 265, 1 270, 1 275 et 1 281 €) avec un coefficient réduit fixé par décret, pour éviter qu'un euro de pension en plus fasse perdre toute la hausse." },
             { v: `> ${EUR.format(SEUIL_LISSAGE)}`, t: "Gel par défaut", d: `Coefficient fixé à 1, sauf décret prévoyant une hausse partielle — éventuellement dégressive jusqu'à ${EUR.format(SEUIL_HAUT)}, puis plus faible encore au-delà.` },
           ].map((c) => (
@@ -191,7 +197,7 @@ export default function Page() {
             revalorisation, jamais faire baisser une pension, et peuvent
             s&apos;appliquer rétroactivement au 1er janvier 2027. Le
             gouvernement chiffre l&apos;économie à 4 milliards d&apos;euros en
-            2027 si les pensions au-delà de {EUR.format(SEUIL_LISSAGE)} restent
+            2027 si les pensions au-delà de {EUR.format(SEUIL_LISSAGE)}{" "}restent
             gelées toute l&apos;année.
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
@@ -231,7 +237,7 @@ export default function Page() {
             formule de référence (2 % d&apos;inflation prévue moins 0,4 point),
             dans une fourchette que l&apos;accord bornait entre 1,2 et 1,9 %.
             La valeur de service du point passe ainsi de{" "}
-            {EUR4.format(AGIRC_POINT_AVANT)} à{" "}
+            {EUR4.format(AGIRC_POINT_AVANT)}{" "}à{" "}
             <strong>{EUR4.format(AGIRC_POINT_APRES)}</strong> (1,4386 × 1,014),
             après deux ans sans hausse — visible depuis le virement du 2 novembre.
             L&apos;article 35 du PLFSS ne la concerne pas. Rappel utile : la
@@ -253,7 +259,7 @@ export default function Page() {
           <p className="text-base leading-relaxed text-foreground/80">
             Les pensions de retraite bénéficient d&apos;un abattement de 10 %
             avant le calcul de l&apos;impôt, plafonné aujourd&apos;hui à{" "}
-            {EUR.format(PLAFOND_ABATTEMENT_ACTUEL)} par foyer. Le projet de loi
+            {EUR.format(PLAFOND_ABATTEMENT_ACTUEL)}{" "}par foyer. Le projet de loi
             de finances (article 3) ajouterait un sous-plafond de{" "}
             <strong>{EUR.format(PLAFOND_ABATTEMENT_PLF)}</strong> pour les
             pensions de retraite, dès l&apos;impôt payé en 2027 sur les revenus
@@ -263,13 +269,13 @@ export default function Page() {
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
             Exemple : un couple de retraités percevant chacun 1 800 € de
-            pensions imposables par mois, soit {EUR.format(PENSIONS_COUPLE)} par
+            pensions imposables par mois, soit {EUR.format(PENSIONS_COUPLE)}{" "}par
             an. Son abattement passerait de{" "}
-            {EUR.format(abattement(PLAFOND_ABATTEMENT_ACTUEL))} à{" "}
+            {EUR.format(abattement(PLAFOND_ABATTEMENT_ACTUEL))}{" "}à{" "}
             {EUR.format(abattement(PLAFOND_ABATTEMENT_PLF))}. Avec le barème
             proposé pour 2027, son impôt passerait de{" "}
-            {EUR.format(IMPOT_ACTUEL)} à <strong>{EUR.format(IMPOT_PLF)}</strong>,
-            soit {EUR.format(IMPOT_PLF - IMPOT_ACTUEL)} de plus — la décote, qui
+            {EUR.format(IMPOT_ACTUEL)}{" "}à <strong>{EUR.format(IMPOT_PLF)}</strong>,
+            soit {EUR.format(IMPOT_PLF - IMPOT_ACTUEL)}{" "}de plus — la décote, qui
             se réduit quand l&apos;impôt augmente, amplifie l&apos;effet à ce
             niveau de revenu.
           </p>
@@ -282,10 +288,11 @@ export default function Page() {
           Ce que ça change, profil par profil
         </h2>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
-          Le coefficient légal ne sera connu qu&apos;à la mi-novembre. Pour
-          raisonner dès maintenant, voici ce que vaut chaque point de
-          revalorisation sur la pension de base de trois profils — et ce que le
-          texte leur laisse par défaut, sans décret :
+          L&apos;INSEE a publié le {DATE_PUBLICATION_INSEE} le dernier indice
+          qui manquait. Appliquée à ces indices, la règle légale donne{" "}
+          <strong>+{TAUX} %</strong> sur la pension de base. Voici ce que cela
+          représente pour trois profils, et ce que le texte du gouvernement
+          leur laisse par défaut :
         </p>
         <div className="mt-6 overflow-x-auto rounded-2xl border border-border bg-white shadow-md">
           <table className="w-full min-w-[40rem] text-left text-sm">
@@ -294,7 +301,7 @@ export default function Page() {
                 <th className="px-5 py-4">Profil</th>
                 <th className="px-5 py-4 text-right">Base + complémentaire</th>
                 <th className="px-5 py-4 text-right">Agirc-Arrco +1,4 % (nov. 2026)</th>
-                <th className="px-5 py-4 text-right">1 point d&apos;inflation vaut</th>
+                <th className="px-5 py-4 text-right">Hausse pleine (+{TAUX} %)</th>
                 <th className="px-5 py-4 text-right">En janvier 2027, par défaut</th>
               </tr>
             </thead>
@@ -307,7 +314,7 @@ export default function Page() {
                     <span className="block text-xs text-muted-foreground">total {EUR.format(p.total)}</span>
                   </td>
                   <td className="px-5 py-3 text-right tabular-nums text-accent">+{EUR2.format(p.agirc)} / mois</td>
-                  <td className="px-5 py-3 text-right tabular-nums text-foreground/80">+{EUR2.format(p.parPoint)} / mois</td>
+                  <td className="px-5 py-3 text-right tabular-nums text-foreground/80">+{EUR2.format(p.hausse)} / mois</td>
                   <td className="px-5 py-3 text-right">
                     {p.plein ? (
                       <span className="rounded-full bg-accent/10 px-2 py-0.5 text-xs font-semibold text-accent">hausse pleine</span>
@@ -322,12 +329,21 @@ export default function Page() {
         </div>
         <div className="mt-4 rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
           <p className="text-base leading-relaxed text-foreground/80">
-            Lecture : pour le profil non-cadre, chaque point d&apos;inflation
-            non répercuté représente {EUR2.format(PROFILS[1].parPoint)} par mois,
-            soit {EUR.format(PROFILS[1].parPoint * 12)} par an — à multiplier
-            par le coefficient connu mi-novembre. Le gel ne fait pas baisser la
-            pension en euros, mais il la fait baisser en pouvoir d&apos;achat
-            du montant de l&apos;inflation.
+            Lecture : le profil non-cadre, dont le total des pensions dépasse
+            le seuil, perdrait {EUR2.format(PROFILS[1].hausse)}{" "}par mois en cas
+            de gel, soit {EUR.format(PROFILS[1].hausse * 12)}{" "}sur l&apos;année.
+            Le gel ne fait pas baisser la pension en euros, mais il la fait
+            baisser en pouvoir d&apos;achat du montant de l&apos;inflation. Si le
+            seuil de 1 500 € proposé par la commission du Sénat était retenu,
+            ce profil serait revalorisé.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-foreground/80">
+            Ne confondez pas ce taux avec les +
+            {PCT1(GLISSEMENT_OCTOBRE_2026)} % d&apos;inflation sur un an annoncés
+            pour octobre : la loi ne retient pas le dernier mois, mais la
+            moyenne des douze derniers indices, qui lisse la poussée récente
+            des prix de l&apos;énergie. Le coefficient officiel sera publié par
+            la CNAV ; nous l&apos;afficherons dès sa parution.
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
             Deux rappels pour lire son relevé : les montants s&apos;entendent{" "}

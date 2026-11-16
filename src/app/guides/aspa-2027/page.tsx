@@ -18,18 +18,16 @@ import {
   FileTextIcon,
 } from "@/components/icons";
 import { ASPA_2026, calculerAspa, recuperationSuccession } from "@/lib/calculators/aspa";
+import { TAUX_REVALO_2027, DATE_PUBLICATION_INSEE } from "@/lib/revalorisation-2027";
 
 const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
 const EUR2 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 2 });
 const PCT1 = (x: number) => x.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
 // Revalorisation du 1er janvier 2027 : coefficient de l'article L. 161-23-1 CSS,
-// moyenne des IPC hors tabac de novembre 2025 à octobre 2026 rapportée aux
-// douze mois précédents. Onze indices sur douze sont connus (INSEE, IPC de
-// septembre 2026 publié le 15 octobre) : fourchette 1,7 à 1,8 % selon
-// l'indice d'octobre, publié mi-novembre. Estimation, pas un chiffre officiel.
-const REVALO_2027_BASSE = 0.017;
-const REVALO_2027_HAUTE = 0.018;
+// calculé dans src/lib/revalorisation-2027.ts sur les douze indices INSEE
+// désormais connus. Calcul Salairia, pas le coefficient officiel de la CNAV.
+const REVALO_2027 = TAUX_REVALO_2027;
 const mensuel2027 = (annuel: number, taux: number) => (annuel * (1 + taux)) / 12;
 
 // Historique, circulaires Cnav 2023-03, 2023-34, 2024-39, 2025-29.
@@ -47,11 +45,11 @@ const EX_SUCC = recuperationSuccession("seul", 130_000, 6);
 const meta: GuideMeta = {
   slug: "aspa-2027",
   titre: "ASPA 2027 : montant du minimum vieillesse, plafonds et calcul",
-  sousTitre: `${EUR2.format(ASPA_2026.SEUL_MENSUEL)} par mois pour une personne seule, ${EUR2.format(ASPA_2026.COUPLE_MENSUEL)} pour un couple en 2026 — et une revalorisation d'environ 1,7 à 1,8 % attendue au 1er janvier 2027`,
+  sousTitre: `${EUR2.format(ASPA_2026.SEUL_MENSUEL)} par mois pour une personne seule, ${EUR2.format(ASPA_2026.COUPLE_MENSUEL)} pour un couple en 2026 — et +${PCT1(REVALO_2027 * 100)} % au 1er janvier 2027 selon la règle légale`,
   chapo: `L'allocation de solidarité aux personnes âgées, l'ex-minimum vieillesse, complète les ressources des retraités de 65 ans et plus jusqu'à un plafond. Elle n'est pas automatique, elle se calcule par différence, et elle peut être reprise sur la succession au-delà d'un certain patrimoine. Cette page donne les montants 2026, un calcul dans votre situation, la règle de la succession chiffrée, et ce que 2027 réserve : la revalorisation de janvier, et la raison pour laquelle le gel des pensions prévu par le budget de la Sécurité sociale ne devrait pas s'appliquer à l'ASPA.`,
   filAriane: "ASPA 2027",
   datePublished: "2026-10-24",
-  dateModified: "2026-10-24",
+  dateModified: "2026-11-16",
   tocItems: [
     { id: "montants", label: "Montants et plafonds 2026" },
     { id: "calcul", label: "Dans votre situation" },
@@ -63,7 +61,7 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Quel sera le montant de l'ASPA en 2027 ?",
-      r: `Il n'est pas encore fixé. L'ASPA est revalorisée chaque 1er janvier comme les pensions de base, sur l'inflation hors tabac des douze mois arrêtés en octobre. Onze indices sur douze sont connus : la hausse devrait se situer entre 1,7 et 1,8 %, soit environ ${EUR.format(mensuel2027(ASPA_2026.SEUL_ANNUEL, REVALO_2027_BASSE))} à ${EUR.format(mensuel2027(ASPA_2026.SEUL_ANNUEL, REVALO_2027_HAUTE))} par mois pour une personne seule et ${EUR.format(mensuel2027(ASPA_2026.COUPLE_ANNUEL, REVALO_2027_BASSE))} à ${EUR.format(mensuel2027(ASPA_2026.COUPLE_ANNUEL, REVALO_2027_HAUTE))} pour un couple. Le chiffre officiel est publié par instruction interministérielle en décembre ; cette page l'affichera ce jour-là.`,
+      r: `L'ASPA est revalorisée chaque 1er janvier comme les pensions de base, sur l'inflation hors tabac des douze mois arrêtés en octobre. Le dernier indice a été publié par l'INSEE le ${DATE_PUBLICATION_INSEE} : appliquée à ces indices, la règle légale donne +${PCT1(REVALO_2027 * 100)} %, soit environ ${EUR2.format(mensuel2027(ASPA_2026.SEUL_ANNUEL, REVALO_2027))} par mois pour une personne seule et ${EUR2.format(mensuel2027(ASPA_2026.COUPLE_ANNUEL, REVALO_2027))} pour un couple. C'est notre calcul : le montant officiel sera fixé par la CNAV.`,
     },
     {
       q: "L'ASPA est-elle concernée par le gel des retraites prévu en 2027 ?",
@@ -131,7 +129,7 @@ export default function Page() {
             <div key={c.l} className="rounded-2xl border border-border bg-white p-6 shadow-md">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{c.l}</p>
               <p className="mt-2 text-3xl font-bold tabular-nums text-primary">{EUR2.format(c.m)} <span className="text-base font-medium text-muted-foreground">par mois</span></p>
-              <p className="mt-1 text-sm text-muted-foreground">{EUR2.format(c.a)} par an — montant maximal et plafond de ressources</p>
+              <p className="mt-1 text-sm text-muted-foreground">{EUR2.format(c.a)}{" "}par an — montant maximal et plafond de ressources</p>
             </div>
           ))}
         </div>
@@ -165,11 +163,11 @@ export default function Page() {
         </div>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
           Deux exemples. Une retraitée seule avec 720 € de pension par mois
-          reçoit <strong>{EUR2.format(EX_SEUL.allocationMensuelle)} d&apos;ASPA</strong>,
+          reçoit <strong>{EUR2.format(EX_SEUL.allocationMensuelle)}{" "}d&apos;ASPA</strong>,
           ce qui porte ses ressources à {EUR2.format(ASPA_2026.SEUL_MENSUEL)}.
           Un couple avec 1 300 € de pensions cumulées et 20 000 € d&apos;épargne
-          voit cette épargne comptée pour {EUR.format(20_000 * ASPA_2026.TAUX_PATRIMOINE)} par
-          an, soit {EUR2.format((20_000 * ASPA_2026.TAUX_PATRIMOINE) / 12)} par mois ; il
+          voit cette épargne comptée pour {EUR.format(20_000 * ASPA_2026.TAUX_PATRIMOINE)}{" "}par
+          an, soit {EUR2.format((20_000 * ASPA_2026.TAUX_PATRIMOINE) / 12)}{" "}par mois ; il
           perçoit <strong>{EUR2.format(EX_COUPLE.allocationMensuelle)}</strong>. La
           caisse examine d&apos;abord les ressources des trois derniers mois ;
           si elles dépassent le plafond, elle refait le calcul sur douze mois,
@@ -203,7 +201,7 @@ export default function Page() {
               <p className="text-sm font-semibold uppercase tracking-wider text-foreground">Comptées</p>
               <ul className="mt-3 space-y-2 text-sm text-foreground/80">
                 <li>Pensions de retraite, de réversion, d&apos;invalidité</li>
-                <li>Revenus d&apos;activité, après abattement de {EUR.format(ASPA_2026.ABATTEMENT_ACTIVITE_SEUL_12M)} par an (seul) ou {EUR.format(ASPA_2026.ABATTEMENT_ACTIVITE_COUPLE_12M)} (couple)</li>
+                <li>Revenus d&apos;activité, après abattement de {EUR.format(ASPA_2026.ABATTEMENT_ACTIVITE_SEUL_12M)}{" "}par an (seul) ou {EUR.format(ASPA_2026.ABATTEMENT_ACTIVITE_COUPLE_12M)} (couple)</li>
                 <li>Pensions alimentaires fixées par un juge</li>
                 <li>Biens mobiliers et immobiliers hors résidence principale, pour 3 % de leur valeur par an</li>
                 <li>Biens donnés au cours des dix dernières années, sous conditions</li>
@@ -254,8 +252,8 @@ export default function Page() {
             Trois limites protègent les héritiers. La reprise porte sur la{" "}
             <strong>seule part de l&apos;actif au-dessus du seuil</strong>. Elle
             est <strong>plafonnée par année de versement</strong> :{" "}
-            {EUR2.format(ASPA_2026.RECUPERABLE_PAR_AN_SEUL)} pour une personne
-            seule, {EUR2.format(ASPA_2026.RECUPERABLE_PAR_AN_COUPLE)} pour un
+            {EUR2.format(ASPA_2026.RECUPERABLE_PAR_AN_SEUL)}{" "}pour une personne
+            seule, {EUR2.format(ASPA_2026.RECUPERABLE_PAR_AN_COUPLE)}{" "}pour un
             couple, en 2026. Et elle peut être <strong>reportée</strong> au décès
             du conjoint survivant, ou tant qu&apos;un héritier d&apos;au moins
             65 ans vivant au foyer a des ressources sous le plafond de
@@ -304,12 +302,13 @@ export default function Page() {
             L&apos;ASPA et ses plafonds sont revalorisés chaque 1er janvier avec
             le même coefficient que les pensions de base : l&apos;évolution de
             la moyenne des indices des prix hors tabac de novembre 2025 à
-            octobre 2026, rapportée aux douze mois précédents. Onze indices sur
-            douze sont publiés ; celui de septembre 2026 affiche +3,1 % sur un
-            an, tiré par l&apos;énergie, mais la moyenne glissante reste bien
-            plus sage : <strong>la hausse devrait se situer entre{" "}
-            {PCT1(REVALO_2027_BASSE * 100)} et {PCT1(REVALO_2027_HAUTE * 100)} %</strong>,
-            selon l&apos;indice d&apos;octobre publié mi-novembre.
+            octobre 2026, rapportée aux douze mois précédents. Le dernier
+            indice a été publié le {DATE_PUBLICATION_INSEE}. L&apos;inflation
+            d&apos;octobre affiche +3,4 % sur un an, tirée par l&apos;énergie,
+            mais la moyenne des douze mois est bien plus sage : appliquée à
+            ces indices, la règle légale donne{" "}
+            <strong>+{PCT1(REVALO_2027 * 100)} %</strong>. C&apos;est notre
+            calcul ; le montant officiel sera publié par la CNAV.
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[32rem] text-left text-sm">
@@ -317,8 +316,7 @@ export default function Page() {
                 <tr className="border-b border-border text-xs uppercase tracking-wider text-muted-foreground">
                   <th className="px-4 py-3">Par mois</th>
                   <th className="px-4 py-3">2026</th>
-                  <th className="px-4 py-3">2027 à +{PCT1(REVALO_2027_BASSE * 100)} %</th>
-                  <th className="px-4 py-3">2027 à +{PCT1(REVALO_2027_HAUTE * 100)} %</th>
+                  <th className="px-4 py-3">1er janvier 2027 (+{PCT1(REVALO_2027 * 100)} %)</th>
                 </tr>
               </thead>
               <tbody>
@@ -329,8 +327,7 @@ export default function Page() {
                   <tr key={c.l} className="border-b border-border last:border-b-0 hover:bg-muted/50">
                     <td className="whitespace-nowrap px-4 py-3 font-semibold text-foreground">{c.l}</td>
                     <td className="whitespace-nowrap px-4 py-3 tabular-nums text-foreground">{EUR2.format(c.m)}</td>
-                    <td className="whitespace-nowrap px-4 py-3 tabular-nums text-muted-foreground">≈ {EUR2.format(mensuel2027(c.a, REVALO_2027_BASSE))}</td>
-                    <td className="whitespace-nowrap px-4 py-3 tabular-nums text-muted-foreground">≈ {EUR2.format(mensuel2027(c.a, REVALO_2027_HAUTE))}</td>
+                    <td className="whitespace-nowrap px-4 py-3 font-semibold tabular-nums text-foreground">≈ {EUR2.format(mensuel2027(c.a, REVALO_2027))}</td>
                   </tr>
                 ))}
               </tbody>
@@ -400,7 +397,7 @@ export default function Page() {
           100 € par mois étalée sur 2018-2020. Le seuil de récupération sur
           succession, lui, a fait un bond : 39 000 € jusqu&apos;en août 2023,
           100 000 € ensuite, puis indexé chaque année jusqu&apos;aux{" "}
-          {EUR2.format(ASPA_2026.SEUIL_SUCCESSION)} de 2026. C&apos;est ce
+          {EUR2.format(ASPA_2026.SEUIL_SUCCESSION)}{" "}de 2026. C&apos;est ce
           relèvement qui a levé, pour la plupart des petits patrimoines, la
           crainte de léser ses héritiers.
         </p>

@@ -32,7 +32,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés. Pour 2027, la photo s'est précisée le 1er octobre 2026 avec le dépôt du projet de loi de finances et du projet de loi de financement de la Sécurité sociale : barème de l'impôt relevé de 2,1 %, revalorisation des retraites réservée aux petites pensions, plafond unique pour les indemnités de rupture, prime d'activité gelée. Cette page distingue ce qui est acquis, ce qui n'est encore qu'un projet, et ce qui reste à publier — avec un lien vers notre analyse détaillée de chaque sujet.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-11-11",
+  dateModified: "2026-11-16",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },
@@ -62,7 +62,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Quand tous les montants seront-ils connus ?",
-      r: "L'essentiel se joue entre mi-novembre et fin décembre : inflation d'octobre (qui fixe le coefficient légal des retraites), décret SMIC (hausse de 1,6 % annoncée pour le 1er décembre), rapport du groupe d'experts sur le SMIC, arrêté PASS à la mi-décembre, puis vote et promulgation des lois de finances. Ce dernier point n'est pas garanti avant le 31 décembre : les budgets 2025 et 2026 ont été promulgués en février. Cette page est mise à jour à chaque publication au Journal officiel.",
+      r: "L'essentiel se joue entre mi-novembre et fin décembre : inflation d'octobre (publiée le 13 novembre : +1,8 % pour les retraites selon la règle légale), décret SMIC (hausse de 1,6 % annoncée pour le 1er décembre), rapport du groupe d'experts sur le SMIC, arrêté PASS à la mi-décembre, puis vote et promulgation des lois de finances. Ce dernier point n'est pas garanti avant le 31 décembre : les budgets 2025 et 2026 ont été promulgués en février. Cette page est mise à jour à chaque publication au Journal officiel.",
     },
   ],
   sources: [
@@ -266,7 +266,7 @@ export default function Page() {
             quoi: "Pensions de retraite de base",
             statut: "projet",
             actuel: "Revalorisation annuelle automatique sur l'inflation (novembre à octobre)",
-            prevu: "PLFSS (art. 35) : revalorisation sur l'inflation seulement si le total des pensions ne dépasse pas 1 260 €/mois, lissage jusqu'à 1 281 € ; au-delà, gel par défaut sauf décret. L'Agirc-Arrco a décidé +1,4 % au 1er novembre 2026.",
+            prevu: "Inflation de référence : +1,8 % (calcul Salairia sur les indices INSEE). PLFSS (art. 35) : revalorisation seulement si le total des pensions ne dépasse pas 1 260 €/mois (1 500 € dans la version de la commission du Sénat), gel par défaut au-delà. L'Agirc-Arrco a décidé +1,4 % au 1er novembre 2026.",
             href: "/guides/revalorisation-retraites-2027",
             lien: "Les deux revalorisations",
           },
@@ -303,7 +303,8 @@ export default function Page() {
                 ["12 octobre 2026 ✓", "Titres-restaurant : proposition de loi adoptée par l'Assemblée en première lecture ; Sénat le 19 novembre."],
                 ["14 octobre 2026 ✓", "Agirc-Arrco : +1,4 % au 1er novembre, après vingt mois de gel du point."],
                 ["23 octobre 2026 ✓", "PLFSS 2027 rejeté par l'Assemblée en première lecture (partie recettes, 115 voix contre 1), partie dépenses non examinée ; le Sénat s'en saisit à partir du 9 novembre. PLF 2027 : vote de la première partie reporté."],
-                ["Mi-novembre 2026", "Inflation d'octobre publiée par l'INSEE : coefficient légal de revalorisation des retraites."],
+                ["13 novembre 2026 ✓", "Inflation d'octobre publiée par l'INSEE : la règle légale de revalorisation des retraites donne +1,8 % (calcul Salairia)."],
+                ["18 novembre 2026", "Vote du Sénat sur le PLFSS 2027, dont le gel des pensions (seuil porté à 1 500 € par sa commission), puis commission mixte paritaire."],
                 ["9 novembre 2026 ✓", "SMIC : hausse de 1,6 % annoncée pour le 1er décembre 2026, en avance sur la revalorisation de janvier. Décret attendu."],
                 ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : chiffrage de la revalorisation mécanique de janvier."],
                 ["1er décembre 2026", "Entrée en vigueur du nouveau SMIC."],
