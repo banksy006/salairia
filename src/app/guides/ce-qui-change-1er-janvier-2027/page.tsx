@@ -32,7 +32,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés. Pour 2027, la photo s'est précisée le 1er octobre 2026 avec le dépôt du projet de loi de finances et du projet de loi de financement de la Sécurité sociale : barème de l'impôt relevé de 2,1 %, revalorisation des retraites réservée aux petites pensions, plafond unique pour les indemnités de rupture, prime d'activité gelée. Cette page distingue ce qui est acquis, ce qui n'est encore qu'un projet, et ce qui reste à publier — avec un lien vers notre analyse détaillée de chaque sujet.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-11-16",
+  dateModified: "2026-11-20",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },
@@ -42,7 +42,7 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Que contient le budget 2027 présenté le 1er octobre 2026 ?",
-      r: "Pour les ménages, cinq mesures principales : l'indexation de 2,1 % du barème de l'impôt sur le revenu, une revalorisation des pensions de base réservée aux retraités dont l'ensemble des pensions ne dépasse pas 1 260 € par mois (gel par défaut au-delà), un plafond unique d'exonération des indemnités de rupture égal au plafond de la Sécurité sociale, le plafonnement à 3 000 € de l'abattement de 10 % des retraités, et l'absence de revalorisation de la prime d'activité en 2027. Ce sont des projets : le Parlement peut les modifier jusqu'au vote définitif.",
+      r: "Pour les ménages, cinq mesures principales : l'indexation de 2,1 % du barème de l'impôt sur le revenu, une revalorisation des pensions de base réservée aux retraités dont l'ensemble des pensions ne dépasse pas 1 260 € par mois (mesure supprimée par le Sénat le 16 novembre), un plafond unique d'exonération des indemnités de rupture égal au plafond de la Sécurité sociale, le plafonnement à 3 000 € de l'abattement de 10 % des retraités, et l'absence de revalorisation de la prime d'activité en 2027. Ce sont des projets : le Parlement peut les modifier jusqu'au vote définitif.",
     },
     {
       q: "Quels changements sont déjà certains au 1er janvier 2027 ?",
@@ -77,7 +77,7 @@ const meta: GuideMeta = {
 
 export const metadata: Metadata = {
   title: "Ce qui change au 1er janvier 2027 : impôt, retraites, PASS, PPV, micro",
-  description: "Le récapitulatif de ce qui bouge au 1er janvier 2027, mis à jour avec le budget déposé le 1er octobre : barème de l'impôt +2,1 %, retraites revalorisées sous 1 260 € seulement, PASS estimé à 4 075 €, indemnités de rupture plafonnées à 1 PASS, PPV, titres-restaurant, micro-entreprise. Ce qui est acquis, ce qui n'est qu'un projet.",
+  description: "Le récapitulatif de ce qui bouge au 1er janvier 2027, mis à jour avec le budget déposé le 1er octobre : barème de l'impôt +2,1 %, retraites +1,8 % (gel au-delà de 1 260 € supprimé par le Sénat), PASS estimé à 4 075 €, indemnités de rupture plafonnées à 1 PASS, PPV, titres-restaurant, micro-entreprise. Ce qui est acquis, ce qui n'est qu'un projet.",
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
     title: "Ce qui change pour votre argent au 1er janvier 2027",
@@ -266,7 +266,7 @@ export default function Page() {
             quoi: "Pensions de retraite de base",
             statut: "projet",
             actuel: "Revalorisation annuelle automatique sur l'inflation (novembre à octobre)",
-            prevu: "Inflation de référence : +1,8 % (calcul Salairia sur les indices INSEE). PLFSS (art. 35) : revalorisation seulement si le total des pensions ne dépasse pas 1 260 €/mois (1 500 € dans la version de la commission du Sénat), gel par défaut au-delà. L'Agirc-Arrco a décidé +1,4 % au 1er novembre 2026.",
+            prevu: "Inflation de référence : +1,8 % (calcul Salairia sur les indices INSEE). Le gel prévu par le gouvernement au-dessus de 1 260 €/mois a été supprimé par le Sénat le 16 novembre ; budget pas encore définitif. L'Agirc-Arrco a décidé +1,4 % au 1er novembre 2026.",
             href: "/guides/revalorisation-retraites-2027",
             lien: "Les deux revalorisations",
           },
@@ -304,7 +304,8 @@ export default function Page() {
                 ["14 octobre 2026 ✓", "Agirc-Arrco : +1,4 % au 1er novembre, après vingt mois de gel du point."],
                 ["23 octobre 2026 ✓", "PLFSS 2027 rejeté par l'Assemblée en première lecture (partie recettes, 115 voix contre 1), partie dépenses non examinée ; le Sénat s'en saisit à partir du 9 novembre. PLF 2027 : vote de la première partie reporté."],
                 ["13 novembre 2026 ✓", "Inflation d'octobre publiée par l'INSEE : la règle légale de revalorisation des retraites donne +1,8 % (calcul Salairia)."],
-                ["18 novembre 2026", "Vote du Sénat sur le PLFSS 2027, dont le gel des pensions (seuil porté à 1 500 € par sa commission), puis commission mixte paritaire."],
+                ["16-18 novembre 2026 ✓", "Sénat : gel des pensions supprimé (329 voix pour, 0 contre), texte adopté le 18 novembre."],
+                ["26 novembre 2026", "Commission mixte paritaire annoncée sur le PLFSS 2027 ; en cas d'échec, nouvelle lecture et dernier mot à l'Assemblée."],
                 ["9 novembre 2026 ✓", "SMIC : hausse de 1,6 % annoncée pour le 1er décembre 2026, en avance sur la revalorisation de janvier. Décret attendu."],
                 ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : chiffrage de la revalorisation mécanique de janvier."],
                 ["1er décembre 2026", "Entrée en vigueur du nouveau SMIC."],

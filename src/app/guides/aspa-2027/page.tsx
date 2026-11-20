@@ -49,7 +49,7 @@ const meta: GuideMeta = {
   chapo: `L'allocation de solidarité aux personnes âgées, l'ex-minimum vieillesse, complète les ressources des retraités de 65 ans et plus jusqu'à un plafond. Elle n'est pas automatique, elle se calcule par différence, et elle peut être reprise sur la succession au-delà d'un certain patrimoine. Cette page donne les montants 2026, un calcul dans votre situation, la règle de la succession chiffrée, et ce que 2027 réserve : la revalorisation de janvier, et la raison pour laquelle le gel des pensions prévu par le budget de la Sécurité sociale ne devrait pas s'appliquer à l'ASPA.`,
   filAriane: "ASPA 2027",
   datePublished: "2026-10-24",
-  dateModified: "2026-11-16",
+  dateModified: "2026-11-20",
   tocItems: [
     { id: "montants", label: "Montants et plafonds 2026" },
     { id: "calcul", label: "Dans votre situation" },
@@ -65,7 +65,7 @@ const meta: GuideMeta = {
     },
     {
       q: "L'ASPA est-elle concernée par le gel des retraites prévu en 2027 ?",
-      r: "A priori non. L'article 35 du projet de loi de financement de la Sécurité sociale pour 2027 déroge à la revalorisation des « pensions de vieillesse servies par les régimes obligatoires de base » au-dessus de 1 260 € par mois. L'ASPA n'est pas une pension : c'est une allocation différentielle, revalorisée par un autre article du code, et le texte ne la cite nulle part. Le ministre a indiqué que le minimum vieillesse n'était pas visé. Par ailleurs, l'Assemblée nationale a rejeté le projet le 23 octobre 2026 avant même d'examiner cet article ; le Sénat s'en saisit à partir du 9 novembre.",
+      r: "A priori non. L'article 35 du projet de loi de financement de la Sécurité sociale pour 2027 déroge à la revalorisation des « pensions de vieillesse servies par les régimes obligatoires de base » au-dessus de 1 260 € par mois. L'ASPA n'est pas une pension : c'est une allocation différentielle, revalorisée par un autre article du code, et le texte ne la cite nulle part. Le ministre a indiqué que le minimum vieillesse n'était pas visé. Surtout, le Sénat a supprimé cet article le 16 novembre 2026, à l'unanimité des votants, après son retrait par les députés en commission. Le budget n'est pas encore définitif.",
     },
     {
       q: "Comment est calculée l'ASPA ?",
@@ -334,9 +334,10 @@ export default function Page() {
             </table>
           </div>
           <p className="mt-6 text-base leading-relaxed text-foreground/80">
-            Le budget de la Sécurité sociale pour 2027 prévoit, à son article
-            35, une revalorisation réduite ou nulle des pensions de base
-            au-dessus de 1 260 € par mois. <strong>L&apos;ASPA ne devrait pas
+            Le projet de budget de la Sécurité sociale pour 2027 prévoyait, à
+            son article 35, une revalorisation réduite ou nulle des pensions de
+            base au-dessus de 1 260 € par mois. Le Sénat l&apos;a supprimé le 16
+            novembre 2026 ; le budget n&apos;est pas encore définitif. <strong>L&apos;ASPA ne devrait pas
             être touchée</strong> : l&apos;article ne vise que « les pensions de
             vieillesse servies par les régimes obligatoires de base », et
             l&apos;allocation, qui n&apos;est pas une pension, est revalorisée

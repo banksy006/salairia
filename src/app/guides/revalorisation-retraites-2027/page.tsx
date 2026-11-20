@@ -75,15 +75,15 @@ const TAUX = PCT1(TAUX_REVALO_2027);
 
 const meta: GuideMeta = {
   slug: "revalorisation-retraites-2027",
-  titre: "Revalorisation des retraites 2027 : qui sera augmenté, qui sera gelé",
-  sousTitre: `L'inflation de référence est connue : +${TAUX} %. Mais le budget 2027 réserve cette hausse aux petites pensions et gèle par défaut les autres, et le Sénat vote cette semaine`,
-  chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? Pour 2027, le projet de loi de financement de la Sécurité sociale, déposé le 1er octobre 2026, change la réponse selon votre niveau de pension. L'inflation qui sert de base au calcul est désormais connue : appliquée aux indices publiés par l'INSEE le ${DATE_PUBLICATION_INSEE}, la règle légale donne +${TAUX} %. Mais les pensions de base ne suivraient l'inflation que si l'ensemble de vos retraites ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois ; au-delà de ${EUR.format(SEUIL_LISSAGE)}, elles seraient gelées par défaut. La complémentaire Agirc-Arrco, qui n'est pas concernée, a décidé le 14 octobre 2026 une hausse de 1,4 % au 1er novembre. Et côté impôt, l'abattement de 10 % des retraités serait plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Voici le mécanisme exact, profil par profil.`,
+  titre: "Revalorisation des retraites 2027 : +1,8 %, et le gel supprimé par le Sénat",
+  sousTitre: `+${TAUX} % pour toutes les pensions de base si le vote du Sénat tient : il a supprimé le 16 novembre le gel prévu au-dessus de ${EUR.format(SEUIL_PLEIN)}. Le texte n'est pas encore définitif`,
+  chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? L'inflation qui sert de base au calcul est connue : appliquée aux indices publiés par l'INSEE le ${DATE_PUBLICATION_INSEE}, la règle légale donne +${TAUX} %. Le gouvernement voulait réserver cette hausse aux retraités dont l'ensemble des pensions ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois et geler les autres. Le Sénat a supprimé cette mesure le 16 novembre 2026, à l'unanimité des votants, après que les députés l'avaient retirée en commission. Le budget n'est pas encore adopté : voici où en est le texte, et ce que chaque scénario change pour vous. La complémentaire Agirc-Arrco, elle, a augmenté de 1,4 % au 1er novembre.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-11-16",
+  dateModified: "2026-11-20",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
-    { id: "base", label: "La base : ce que prévoit le PLFSS" },
+    { id: "base", label: "Le gel prévu, puis supprimé" },
     { id: "complementaire", label: "L'Agirc-Arrco" },
     { id: "impot", label: "L'abattement de 10 %" },
     { id: "concret", label: "Ce que ça change, profil par profil" },
@@ -91,15 +91,15 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Les retraites vont-elles augmenter en janvier 2027 ?",
-      r: `Pas toutes, si le budget est voté en l'état. L'article 35 du PLFSS 2027 déroge à l'indexation automatique : les pensions de base seraient revalorisées sur l'inflation si le total mensuel de vos pensions — base et complémentaires — ne dépasse pas ${EUR.format(SEUIL_PLEIN)} au 31 décembre 2026. Entre ${EUR.format(SEUIL_PLEIN)} et ${EUR.format(SEUIL_LISSAGE)}, une hausse réduite, fixée par décret, évite un effet de seuil. Au-delà, le coefficient serait fixé à 1 — c'est-à-dire aucune hausse — tant qu'un décret n'en décide pas autrement. C'est un projet de loi : le Parlement peut le modifier, comme il l'a fait pour le budget 2026.`,
+      r: `Toutes, si la suppression votée par le Sénat le 16 novembre 2026 est maintenue : les pensions de base suivront alors la règle légale, soit +${TAUX} % selon notre calcul. Le texte initial du gouvernement, lui, prévoyait autre chose. Son article 35 dérogeait à l'indexation automatique : les pensions de base seraient revalorisées sur l'inflation si le total mensuel de vos pensions — base et complémentaires — ne dépasse pas ${EUR.format(SEUIL_PLEIN)} au 31 décembre 2026. Entre ${EUR.format(SEUIL_PLEIN)} et ${EUR.format(SEUIL_LISSAGE)}, une hausse réduite, fixée par décret, évite un effet de seuil. Au-delà, le coefficient serait fixé à 1 — c'est-à-dire aucune hausse — tant qu'un décret n'en décide pas autrement. Le budget n'est pas définitif : une commission mixte paritaire doit se réunir, et l'Assemblée nationale aura le dernier mot si elle échoue.`,
     },
     {
       q: "Comment savoir si je suis sous le seuil de 1 260 € ?",
       r: "Le texte retient le montant mensuel total, au 31 décembre 2026, de toutes les pensions de vieillesse servies par les régimes légaux ou légalement obligatoires : votre retraite de base, mais aussi l'Agirc-Arrco ou l'Ircantec, les pensions de réversion, ainsi que leurs majorations et accessoires — à l'exception de la majoration pour tierce personne. C'est donc le cumul qui compte, pas la seule pension de base. Selon l'exposé des motifs, le seuil de 1 281 € correspond au niveau de pension garanti après une carrière complète.",
     },
     {
-      q: "Le gel est-il certain pour les pensions au-dessus de 1 281 € ?",
-      r: `Non, à trois titres. D'abord, c'est un projet, et il est en difficulté : le 23 octobre 2026, l'Assemblée nationale a rejeté le PLFSS en première lecture (partie recettes, 115 voix contre 1) sans examiner la partie dépenses où figure l'article 35. Au Sénat, la commission des affaires sociales a proposé le 4 novembre de relever le seuil de 1 260 à 1 500 € et de supprimer la possibilité d'atténuer le gel par décret ; l'article est débattu en séance les 16 et 17 novembre, avant le vote du texte le 18 novembre. Une commission mixte paritaire devra ensuite trouver un texte commun avec les députés. Le précédent plaide pour la prudence : en 2025, le budget 2026 prévoyait déjà un gel des pensions, finalement abandonné au Parlement — les pensions de base ont été revalorisées de 0,9 % au 1er janvier 2026. Ensuite, le texte permet au gouvernement de fixer par décret une hausse partielle, entre 0 et l'inflation, éventuellement dégressive jusqu'à ${EUR.format(SEUIL_HAUT)} de pension totale. Un tel décret pourrait intervenir en cours d'année et s'appliquer rétroactivement au 1er janvier 2027. Sans décret au 31 octobre 2027, le gel deviendrait définitif pour l'année.`,
+      q: "Le gel des pensions peut-il encore revenir ?",
+      r: `Oui, mais il a perdu beaucoup de terrain. Le 16 novembre 2026, le Sénat a supprimé l'article 35 par 329 voix pour, aucune contre et 15 abstentions, avec l'accord du gouvernement ; il a adopté l'ensemble du texte le 18 novembre. À l'Assemblée nationale, l'article avait déjà été retiré en commission, et le texte rejeté en séance le 23 octobre avant d'arriver aux dépenses. Reste la suite de la procédure : une commission mixte paritaire, annoncée pour le 26 novembre, doit chercher un texte commun ; si elle échoue, chaque chambre relit le texte et l'Assemblée tranche en dernier. Le gouvernement peut aussi recourir au 49.3 avec un texte de son choix. Le précédent rassure : le budget 2026 prévoyait déjà un gel, abandonné au Parlement, et les pensions de base avaient été revalorisées de 0,9 % au 1er janvier 2026.`,
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",
@@ -115,7 +115,8 @@ const meta: GuideMeta = {
     { label: "Projet de loi de finances pour 2027, n° 3210, art. 3 — abattement des retraités (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
     { label: "INSEE — prix à la consommation d'octobre 2026, résultats définitifs (Informations rapides n° 271, 13 novembre 2026)", href: "https://www.insee.fr/fr/statistiques/9131332" },
     { label: "INSEE — série 011814056, indice des prix hors tabac (base 2025)", href: "https://www.insee.fr/fr/statistiques/serie/011814056" },
-    { label: "Public Sénat — les sénateurs proposent de revaloriser les pensions jusqu'à 1 500 € (4 novembre 2026)", href: "https://www.publicsenat.fr/actualites/sante/budget-2027-de-la-securite-sociale-les-senateurs-proposent-de-revaloriser-sur-linflation-les-pensions-allant-jusqua-1500-euros" },
+    { label: "Public Sénat — budget 2027 de la Sécurité sociale : les modifications à retenir après le passage au Sénat (18 novembre 2026)", href: "https://www.publicsenat.fr/actualites/politique/budget-2027-de-la-securite-sociale-les-modifications-a-retenir-apres-le-passage-du-projet-de-loi-au-senat" },
+    { label: "NosParlementaires — calendrier d'examen du PLFSS 2027 (mis à jour le 20 novembre 2026)", href: "https://nosparlementaires.fr/actualites/plfss-2027-calendrier-examen-date-par-date" },
     { label: "Code de la sécurité sociale, art. L161-25 — revalorisation sur l'inflation (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033715437" },
     { label: "Agirc-Arrco — actualité du 14 octobre 2026 : revalorisation de +1,4 % au 1er novembre 2026", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
     { label: "Agirc-Arrco — communiqué de presse du 14 octobre 2026 (PDF) : fourchette 1,2 à 1,9 %, valeur d'achat renvoyée à l'accord 2027-2030", href: "https://www.agirc-arrco.fr/storage/261014_Communique-de-presse_Revalorisation-valeur-du-point-Agirc-Arrco.pdf" },
@@ -124,12 +125,12 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: "Revalorisation des retraites 2027 : hausse sous 1 260 €, gel au-delà (PLFSS)",
-  description: `Le PLFSS 2027 réserve la revalorisation de janvier aux retraités dont l'ensemble des pensions ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois, avec un gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}. L'Agirc-Arrco a décidé +1,4 % au 1er novembre. Abattement de 10 % plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Mécanisme, seuils et effet chiffré par profil.`,
+  title: "Revalorisation des retraites 2027 : +1,8 %, le Sénat supprime le gel des pensions",
+  description: `Inflation de référence : +${TAUX} % au 1er janvier 2027. Le Sénat a supprimé le 16 novembre le gel des pensions au-dessus de ${EUR.format(SEUIL_PLEIN)} prévu par le gouvernement ; le texte n'est pas définitif. L'Agirc-Arrco a décidé +1,4 % au 1er novembre. Abattement de 10 % plafonné à ${EUR.format(PLAFOND_ABATTEMENT_PLF)}. Mécanisme, seuils et effet chiffré par profil.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
-    title: "Retraites 2027 : qui sera augmenté, qui sera gelé",
-    description: "Hausse réservée aux pensions jusqu'à 1 260 €, gel par défaut au-delà : ce que prévoit le budget 2027.",
+    title: "Retraites 2027 : +1,8 %, et le gel supprimé par le Sénat",
+    description: "Ce que change le vote du Sénat du 16 novembre, et ce qui peut encore bouger d'ici la fin du budget.",
     url: `/guides/${meta.slug}`,
   },
 };
@@ -156,7 +157,7 @@ export default function Page() {
                 ["Date", "1er janvier 2027", "1er novembre 2026"],
                 ["Qui décide", "La loi — mais le PLFSS 2027 déroge à l'indexation automatique pour 2027", "Le conseil d'administration paritaire du régime"],
                 ["Sur quelle base", `Inflation moyenne hors tabac, novembre 2025 → octobre 2026 : +${TAUX} % (calcul Salairia sur les indices INSEE du ${DATE_PUBLICATION_INSEE})`, "Inflation prévue, minorée d'un facteur de soutenabilité (jusqu'à −0,4 pt)"],
-                ["Ce qui est décidé", `Hausse pleine si pensions totales ≤ ${EUR.format(SEUIL_PLEIN)}/mois ; gel par défaut au-delà de ${EUR.format(SEUIL_LISSAGE)}, sauf décret (projet de loi)`, "+1,4 % au 1er novembre 2026, décidé le 14 octobre (formule de référence : 1,6 %)"],
+                ["Ce qui est décidé", `Rien de définitif. Le gouvernement proposait un gel au-delà de ${EUR.format(SEUIL_LISSAGE)}/mois ; le Sénat l'a supprimé le 16 novembre. Sans gel : +${TAUX} % pour tous`, "+1,4 % au 1er novembre 2026, décidé le 14 octobre (formule de référence : 1,6 %)"],
                 ["Précédents récents", "Gel proposé pour 2026 puis abandonné : +0,9 % au 1er janvier 2026", "0 % en novembre 2025"],
               ].map(([k, a, b]) => (
                 <tr key={k} className="border-b border-border align-top last:border-b-0">
@@ -173,7 +174,7 @@ export default function Page() {
       <section id="base" className="scroll-mt-24">
         <h2 className="flex items-center text-2xl font-bold text-foreground sm:text-3xl">
           <IconBadge><PercentIcon className="w-4 h-4" /></IconBadge>
-          La base : une revalorisation à trois étages
+          Le texte du gouvernement : une revalorisation à trois étages
         </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
@@ -190,21 +191,30 @@ export default function Page() {
         </div>
         <div className="mt-4 rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
           <p className="text-base leading-relaxed text-foreground/80">
-            Le seuil s&apos;apprécie sur le <strong>montant mensuel total de
-            toutes vos pensions</strong> au 31 décembre 2026 — base,
-            complémentaires et réversion comprises —, pas sur la seule pension
-            de base. Les éventuels décrets ne peuvent qu&apos;améliorer la
-            revalorisation, jamais faire baisser une pension, et peuvent
+            Dans le texte du gouvernement, le seuil s&apos;apprécie sur le{" "}
+            <strong>montant mensuel total de toutes vos pensions</strong> au 31
+            décembre 2026 — base, complémentaires et réversion comprises —,
+            pas sur la seule pension de base. La lettre du texte vise un
+            montant mensuel, et non les sommes versées en décembre. Il ne
+            précise pas comment seraient traitées les pensions payées par
+            trimestre ou une fois par an, comme certaines pensions de
+            l&apos;Ircantec : ce point relèverait des caisses de retraite ou
+            d&apos;un décret si le gel était rétabli. Dans ce texte, les éventuels décrets ne pouvaient qu&apos;améliorer la
+            revalorisation, jamais faire baisser une pension, et pouvaient
             s&apos;appliquer rétroactivement au 1er janvier 2027. Le
-            gouvernement chiffre l&apos;économie à 4 milliards d&apos;euros en
-            2027 si les pensions au-delà de {EUR.format(SEUIL_LISSAGE)}{" "}restent
-            gelées toute l&apos;année.
+            gouvernement chiffrait l&apos;économie à 4 milliards d&apos;euros
+            en 2027 si les pensions au-delà de {EUR.format(SEUIL_LISSAGE)}{" "}
+            restaient gelées toute l&apos;année.
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
-            La réserve habituelle s&apos;applique : ce n&apos;est qu&apos;un
-            projet. Le budget 2026 prévoyait déjà un gel des pensions, abandonné
-            pendant les débats ; les pensions de base avaient finalement été
-            revalorisées de 0,9 % au 1er janvier 2026. Nous suivons ce dossier
+            <strong>Le Sénat a supprimé cette mesure le 16 novembre 2026</strong>,
+            par 329 voix pour et aucune contre, avec l&apos;accord du
+            gouvernement. Les députés l&apos;avaient déjà retirée en commission.
+            Le budget n&apos;est pas encore adopté : une commission mixte
+            paritaire doit se réunir, et le gouvernement peut toujours recourir
+            au 49.3. Le budget 2026 avait connu le même sort : un gel proposé,
+            puis abandonné, et des pensions revalorisées de 0,9 % au 1er
+            janvier 2026. Nous suivons ce dossier
             jusqu&apos;au vote dans notre{" "}
             <Link href="/guides/ce-qui-change-1er-janvier-2027" className="text-primary underline-offset-4 hover:underline">
               récapitulatif du 1er janvier 2027
@@ -302,7 +312,7 @@ export default function Page() {
                 <th className="px-5 py-4 text-right">Base + complémentaire</th>
                 <th className="px-5 py-4 text-right">Agirc-Arrco +1,4 % (nov. 2026)</th>
                 <th className="px-5 py-4 text-right">Hausse pleine (+{TAUX} %)</th>
-                <th className="px-5 py-4 text-right">En janvier 2027, par défaut</th>
+                <th className="px-5 py-4 text-right">Si le gel revenait</th>
               </tr>
             </thead>
             <tbody>
@@ -329,13 +339,13 @@ export default function Page() {
         </div>
         <div className="mt-4 rounded-2xl border border-border bg-white p-6 shadow-md sm:p-8">
           <p className="text-base leading-relaxed text-foreground/80">
-            Lecture : le profil non-cadre, dont le total des pensions dépasse
-            le seuil, perdrait {EUR2.format(PROFILS[1].hausse)}{" "}par mois en cas
-            de gel, soit {EUR.format(PROFILS[1].hausse * 12)}{" "}sur l&apos;année.
-            Le gel ne fait pas baisser la pension en euros, mais il la fait
-            baisser en pouvoir d&apos;achat du montant de l&apos;inflation. Si le
-            seuil de 1 500 € proposé par la commission du Sénat était retenu,
-            ce profil serait revalorisé.
+            Lecture : si la suppression votée par le Sénat tient, les trois
+            profils reçoivent la hausse pleine. Si le gel du gouvernement
+            revenait, le profil non-cadre, dont le total des pensions dépasse
+            le seuil, perdrait {EUR2.format(PROFILS[1].hausse)}{" "}par mois, soit{" "}
+            {EUR.format(PROFILS[1].hausse * 12)}{" "}sur l&apos;année. Le gel ne fait
+            pas baisser la pension en euros, mais il la fait baisser en pouvoir
+            d&apos;achat du montant de l&apos;inflation.
           </p>
           <p className="mt-4 text-base leading-relaxed text-foreground/80">
             Ne confondez pas ce taux avec les +
