@@ -99,7 +99,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Le gel des pensions peut-il encore revenir ?",
-      r: `Oui, mais il a perdu beaucoup de terrain. Le 16 novembre 2026, le Sénat a supprimé l'article 35 par 329 voix pour, aucune contre et 15 abstentions, avec l'accord du gouvernement ; il a adopté l'ensemble du texte le 18 novembre. À l'Assemblée nationale, l'article avait déjà été retiré en commission, et le texte rejeté en séance le 23 octobre avant d'arriver aux dépenses. Reste la suite de la procédure : une commission mixte paritaire, annoncée pour le 26 novembre, doit chercher un texte commun ; si elle échoue, chaque chambre relit le texte et l'Assemblée tranche en dernier. Le gouvernement peut aussi recourir au 49.3 avec un texte de son choix. Le précédent rassure : le budget 2026 prévoyait déjà un gel, abandonné au Parlement, et les pensions de base avaient été revalorisées de 0,9 % au 1er janvier 2026.`,
+      r: `Oui, mais il a perdu beaucoup de terrain. Le 16 novembre 2026, le Sénat a supprimé l'article 35 par 329 voix pour, aucune contre et 15 abstentions, avec l'accord du gouvernement ; il a adopté l'ensemble du texte le 18 novembre. À l'Assemblée nationale, l'article avait déjà été retiré en commission, et le texte rejeté en séance le 23 octobre avant d'arriver aux dépenses. Reste la suite de la procédure : une commission mixte paritaire, annoncée pour le 26 novembre, doit chercher un texte commun ; si elle échoue, chaque chambre relit le texte et l'Assemblée tranche en dernier. Le gouvernement peut aussi recourir au 49.3 avec un texte de son choix ; et si le budget était appliqué par ordonnance, passé le délai constitutionnel du 26 novembre, ce serait a priori sur la base du texte initial, qui contient le gel. Enfin, la suppression a une contrepartie annoncée : les sénateurs entendent la financer, dans le projet de loi de finances, par la suppression totale de l'abattement fiscal de 10 % des retraités. Le précédent rassure : le budget 2026 prévoyait déjà un gel, abandonné au Parlement, et les pensions de base avaient été revalorisées de 0,9 % au 1er janvier 2026.`,
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",
@@ -116,6 +116,7 @@ const meta: GuideMeta = {
     { label: "INSEE — prix à la consommation d'octobre 2026, résultats définitifs (Informations rapides n° 271, 13 novembre 2026)", href: "https://www.insee.fr/fr/statistiques/9131332" },
     { label: "INSEE — série 011814056, indice des prix hors tabac (base 2025)", href: "https://www.insee.fr/fr/statistiques/serie/011814056" },
     { label: "Public Sénat — budget 2027 de la Sécurité sociale : les modifications à retenir après le passage au Sénat (18 novembre 2026)", href: "https://www.publicsenat.fr/actualites/politique/budget-2027-de-la-securite-sociale-les-modifications-a-retenir-apres-le-passage-du-projet-de-loi-au-senat" },
+    { label: "Sénat — scrutin n° 111 du 16 novembre 2026 : suppression de l'article 35 (329 pour, 0 contre, 15 abstentions)", href: "https://www.senat.fr/scrutin-public/2026/scr2026-111.html" },
     { label: "NosParlementaires — calendrier d'examen du PLFSS 2027 (mis à jour le 20 novembre 2026)", href: "https://nosparlementaires.fr/actualites/plfss-2027-calendrier-examen-date-par-date" },
     { label: "Code de la sécurité sociale, art. L161-25 — revalorisation sur l'inflation (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033715437" },
     { label: "Agirc-Arrco — actualité du 14 octobre 2026 : revalorisation de +1,4 % au 1er novembre 2026", href: "https://www.agirc-arrco.fr/nous-connaitre/nos-actualites/retraites-complementaires-agirc-arrco-une-revalorisation-de-14-au-1er-novembre-2026/" },
@@ -212,7 +213,10 @@ export default function Page() {
             gouvernement. Les députés l&apos;avaient déjà retirée en commission.
             Le budget n&apos;est pas encore adopté : une commission mixte
             paritaire doit se réunir, et le gouvernement peut toujours recourir
-            au 49.3. Le budget 2026 avait connu le même sort : un gel proposé,
+            au 49.3. Les sénateurs ont aussi annoncé une contrepartie : financer
+            cette suppression en supprimant totalement l&apos;abattement fiscal
+            de 10 % des retraités dans le projet de loi de finances, ce qui
+            alourdirait l&apos;impôt des retraités imposables. Le budget 2026 avait connu le même sort : un gel proposé,
             puis abandonné, et des pensions revalorisées de 0,9 % au 1er
             janvier 2026. Nous suivons ce dossier
             jusqu&apos;au vote dans notre{" "}
