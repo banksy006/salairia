@@ -18,6 +18,8 @@ const EUR = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR",
 const EUR2 = new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", minimumFractionDigits: 2 });
 const PCT1 = (x: number) => x.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const HAUSSE = PCT1(SMIC_DEC_2026.HAUSSE * 100);
+// Durée légale mensualisée (35 h × 52 / 12), pour ramener le net mensuel à l'heure.
+const HEURES_MOIS = (35 * 52) / 12;
 
 // Apprenti de 18 à 20 ans en première année : 43 % du SMIC (grille légale,
 // détaillée dans le guide salaire-apprenti-2027).
@@ -25,12 +27,12 @@ const PCT_APPRENTI = 0.43;
 
 const meta: GuideMeta = {
   slug: "smic-2027",
-  titre: `SMIC 2027 : +${HAUSSE} % dès le 1er décembre 2026`,
-  sousTitre: `Environ ${EUR.format(apres.net)} nets par mois, ${EUR2.format(apres.horaire)} bruts de l'heure : la hausse annoncée le 9 novembre, en chiffres`,
-  chapo: `La revalorisation attendue pour le 1er janvier 2027 arrive un mois plus tôt. Le ministre du Travail a annoncé le 9 novembre 2026 une hausse du SMIC de ${HAUSSE} % au 1er décembre 2026. Le salaire minimum passerait de ${EUR2.format(avant.mensuel)} à environ ${EUR2.format(apres.mensuel)} bruts par mois, soit près de ${EUR.format(apres.net)} nets : le SMIC franchit pour la première fois les 1 500 € nets. Le décret n'est pas encore paru au Journal officiel : les montants ci-dessous sont calculés à partir du taux annoncé, et cette page sera corrigée au centime près le jour de sa publication.`,
+  titre: `SMIC 2027 : ${EUR2.format(apres.horaire)} brut de l'heure, ${EUR.format(apres.net)} net par mois`,
+  sousTitre: `Les montants du SMIC au 1er décembre 2026 et en 2027, après la hausse de ${HAUSSE} % annoncée le 9 novembre : horaire, mensuel, annuel, brut et net`,
+  chapo: `Le SMIC passe à ${EUR2.format(apres.horaire)} brut de l'heure au 1er décembre 2026, soit ${EUR2.format(apres.mensuel)} brut par mois pour 35 heures et environ ${EUR.format(apres.net)} net. Ce montant vaut aussi pour le début de 2027 : la revalorisation attendue pour le 1er janvier arrive un mois plus tôt. Le ministre du Travail a annoncé le 9 novembre 2026 une hausse du SMIC de ${HAUSSE} % au 1er décembre 2026. Le salaire minimum passerait de ${EUR2.format(avant.mensuel)} à environ ${EUR2.format(apres.mensuel)} bruts par mois, soit près de ${EUR.format(apres.net)} nets : le SMIC franchit pour la première fois les 1 500 € nets. Le décret n'est pas encore paru au Journal officiel : les montants ci-dessous sont calculés à partir du taux annoncé, et cette page sera corrigée au centime près le jour de sa publication.`,
   filAriane: "SMIC 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-11-11",
+  dateModified: "2026-11-20",
   tocItems: [
     { id: "montants", label: "Les nouveaux montants" },
     { id: "officiel", label: "Ce qui est officiel" },
@@ -43,7 +45,7 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Quel est le montant du SMIC au 1er décembre 2026 ?",
-      r: `Le gouvernement a annoncé le 9 novembre 2026 une hausse de ${HAUSSE} % au 1er décembre. Appliquée au taux en vigueur (${EUR2.format(avant.horaire)} de l'heure), elle donne ${EUR2.format(apres.horaire)} bruts de l'heure, soit ${EUR2.format(apres.mensuel)} bruts par mois pour 35 heures et environ ${EUR.format(apres.net)} nets avant impôt d'après notre simulateur. Ces montants sont calculés : le taux horaire officiel sera celui du décret, pas encore publié au Journal officiel le 11 novembre 2026.`,
+      r: `Le gouvernement a annoncé le 9 novembre 2026 une hausse de ${HAUSSE} % au 1er décembre. Appliquée au taux en vigueur (${EUR2.format(avant.horaire)} de l'heure), elle donne ${EUR2.format(apres.horaire)} bruts de l'heure, soit ${EUR2.format(apres.mensuel)} bruts par mois pour 35 heures et environ ${EUR.format(apres.net)} nets avant impôt d'après notre simulateur. Ces montants sont calculés : le taux horaire officiel sera celui du décret, pas encore publié au Journal officiel le 20 novembre 2026.`,
     },
     {
       q: "Quel sera le SMIC au 1er janvier 2027 ?",
@@ -77,11 +79,11 @@ const meta: GuideMeta = {
 };
 
 export const metadata: Metadata = {
-  title: `SMIC 2027 : +${HAUSSE} % dès le 1er décembre 2026, environ ${EUR.format(apres.net)} nets`,
-  description: `Hausse du SMIC annoncée le 9 novembre 2026 : +${HAUSSE} % au 1er décembre, soit ${EUR2.format(apres.horaire)} de l'heure, ${EUR2.format(apres.mensuel)} bruts et environ ${EUR.format(apres.net)} nets par mois. Ce qui est officiel, ce qui attend le décret, et ce qui se passe au 1er janvier 2027.`,
+  title: `SMIC 2027 : ${EUR2.format(apres.horaire)} brut de l'heure, ${EUR.format(apres.net)} net (dès décembre 2026)`,
+  description: `SMIC au 1er décembre 2026 et en 2027 : ${EUR2.format(apres.horaire)} brut de l'heure, ${EUR2.format(apres.mensuel)} brut par mois, environ ${EUR.format(apres.net)} net, après la hausse de ${HAUSSE} % annoncée le 9 novembre. Montants horaire, mensuel et annuel, paie de décembre, et ce qui attend encore le décret.`,
   alternates: { canonical: `/guides/${meta.slug}` },
   openGraph: {
-    title: `SMIC : +${HAUSSE} % au 1er décembre 2026, environ ${EUR.format(apres.net)} nets`,
+    title: `SMIC 2027 : ${EUR2.format(apres.horaire)} brut de l'heure, ${EUR.format(apres.net)} net par mois`,
     description: "Les nouveaux montants calculés, la paie de décembre, et ce qui reste à confirmer par décret.",
     url: `/guides/${meta.slug}`,
   },
@@ -132,6 +134,7 @@ export default function Page() {
             <tbody>
               {[
                 ["Horaire brut", EUR2.format(avant.horaire), EUR2.format(apres.horaire), `+ ${EUR2.format(gain.horaire)}`],
+                ["Horaire net avant impôt", `≈ ${EUR2.format(avant.net / HEURES_MOIS)}`, `≈ ${EUR2.format(apres.net / HEURES_MOIS)}`, `+ ${EUR2.format((apres.net - avant.net) / HEURES_MOIS)} environ`],
                 ["Mensuel brut (35 h)", EUR2.format(avant.mensuel), EUR2.format(apres.mensuel), `+ ${EUR2.format(gain.brutMensuel)}`],
                 ["Annuel brut", EUR2.format(avant.annuel), EUR2.format(apres.annuel), `+ ${EUR2.format(apres.annuel - avant.annuel)}`],
                 ["Mensuel net avant impôt", EUR2.format(avant.net), `≈ ${EUR.format(apres.net)}`, `+ ${EUR.format(gain.netMensuel)} environ`],
@@ -190,7 +193,7 @@ export default function Page() {
         <div className="mt-4 flex gap-3 rounded-r-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-sm text-amber-900">
           <AlertTriangleIcon className="mt-0.5 h-5 w-5 shrink-0" />
           <p>
-            <strong>Le décret n&apos;est pas paru.</strong>{" "}Au 11 novembre 2026,
+            <strong>Le décret n&apos;est pas paru.</strong>{" "}Au 20 novembre 2026,
             aucun texte n&apos;a été publié au Journal officiel et la fiche
             SMIC de Service-Public.fr affiche toujours{" "}
             {EUR2.format(avant.horaire)}{" "}de l&apos;heure. Une annonce ne modifie
