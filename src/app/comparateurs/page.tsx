@@ -35,7 +35,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "Qonto, Shine, Finom, Revolut (Blank et Propulse by CA en extinction)",
     critereCount: 5,
-    lastUpdate: "octobre 2026",
+    lastUpdate: "novembre 2026",
   },
   {
     titre: "Comptabilité freelance",
@@ -45,7 +45,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "Indy, Pennylane, L'Expert-Comptable, Dougs, Keobiz",
     critereCount: 4,
-    lastUpdate: "octobre 2026",
+    lastUpdate: "novembre 2026",
   },
   {
     titre: "Création SASU / EURL",
@@ -55,7 +55,7 @@ const comparateurs = [
     dispo: true,
     acteurs: "Legalstart, Captain Contrat, Qonto, Indy, Dougs",
     critereCount: 5,
-    lastUpdate: "octobre 2026",
+    lastUpdate: "novembre 2026",
   },
 ] as const;
 
@@ -105,7 +105,7 @@ export default function ComparateursPage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour octobre 2026
+          À jour novembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

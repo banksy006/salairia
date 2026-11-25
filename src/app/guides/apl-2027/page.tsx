@@ -44,7 +44,7 @@ const meta: GuideMeta = {
   chapo: `Les aides personnelles au logement concernent 5,6 millions de ménages, pour un montant moyen de 235 € par mois en APL. Leur calcul repose sur des plafonds de loyer par zone, un forfait de charges et une participation personnelle, revalorisés chaque 1er octobre sur l'indice de référence des loyers. Cette page donne les paramètres en vigueur depuis le 1er octobre 2026, lus dans l'arrêté du 28 septembre 2026, un calcul du loyer plafond dans votre situation, et ce que le projet de loi de finances pour 2027 prévoit : aucune revalorisation en octobre 2027, et la fin de l'APL pour les étudiants rattachés à un foyer fiscal aisé.`,
   filAriane: "APL 2027",
   datePublished: "2026-10-24",
-  dateModified: "2026-10-24",
+  dateModified: "2026-11-25",
   tocItems: [
     { id: "plafonds", label: "Plafonds de loyer 2026" },
     { id: "calcul", label: "Dans votre situation" },
@@ -80,6 +80,7 @@ const meta: GuideMeta = {
     { label: "INSEE — Indice de référence des loyers, 2e trimestre 2026 (+1,15 %)", href: "https://www.insee.fr/fr/statistiques/9022797" },
     { label: "service-public.gouv.fr — Aide personnalisée au logement (F12006)", href: "https://www.service-public.gouv.fr/particuliers/vosdroits/F12006" },
     { label: "Assemblée nationale — Projet de loi de finances pour 2027 (n° 3210), articles 74 et 78", href: "https://www.assemblee-nationale.fr/dyn/opendata/PRJLANR5L17B3210.html" },
+    { label: "LCP — l'Assemblée rejette à l'unanimité la partie recettes du budget 2027 (4 novembre 2026)", href: "https://lcp.fr/actualites/budget-2027-l-assemblee-rejette-a-l-unanimite-la-partie-recettes-le-projet-de-loi-de" },
     { label: "Assemblée nationale — Projet annuel de performances 2027, mission Cohésion des territoires (programme 109)", href: "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128212/file/PAP%202027%20-%20Coh%C3%A9sion%20des%20territoires.pdf" },
     { label: "Journal officiel — Arrêté du 5 septembre 2025 (paramètres au 1er octobre 2025)", href: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052212770" },
     { label: "CAF — Estimer mes droits (simulateur officiel)", href: "https://www.caf.fr/allocataires/mes-services-en-ligne/estimer-mes-droits" },
@@ -280,10 +281,11 @@ export default function Page() {
           <div className="mt-6 flex items-start gap-3 rounded-r-lg border-l-4 border-amber-500 bg-amber-50 p-4 text-amber-900">
             <InfoIcon className="mt-0.5 h-5 w-5 shrink-0" />
             <p className="text-sm">
-              Rien n&apos;est voté. Le vote de la première partie du budget,
-              prévu le 20 octobre, a été reporté faute d&apos;avoir épuisé les
-              amendements ; ces deux articles relèvent de la seconde partie,
-              examinée ensuite, puis le texte passe au Sénat en novembre. Le programme budgétaire qui finance les aides
+              Rien n&apos;est voté. L&apos;Assemblée nationale a rejeté la
+              première partie du budget le 4 novembre 2026 (458 voix contre,
+              0 pour) : elle n&apos;a donc pas examiné la seconde partie, dont
+              relèvent ces deux articles, et c&apos;est le texte initial du
+              gouvernement qui est discuté au Sénat. Le programme budgétaire qui finance les aides
               passe de 16,57 à 16,52 milliards d&apos;euros, soit −0,3 %. Cette
               page sera mise à jour à chaque vote.
             </p>

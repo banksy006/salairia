@@ -39,7 +39,7 @@ const meta: GuideMeta = {
   chapo: `Les allocations familiales sont versées dès le deuxième enfant, sans condition d'activité, mais leur montant dépend des revenus du foyer depuis 2015 : taux plein, moitié ou quart selon deux plafonds. Cette page donne le barème en vigueur au 1er avril 2026, les plafonds 2026 et leur valeur probable au 1er janvier 2027, un calcul dans votre situation, et l'état exact du « gel » que le projet de budget de la Sécurité sociale pour 2027 prévoit — un projet que l'Assemblée nationale a rejeté le 23 octobre, et qui repart au Sénat.`,
   filAriane: "Allocations familiales 2027",
   datePublished: "2026-10-24",
-  dateModified: "2026-10-24",
+  dateModified: "2026-11-25",
   tocItems: [
     { id: "montants", label: "Les montants 2026" },
     { id: "calcul", label: "Dans votre situation" },
@@ -55,7 +55,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Les allocations familiales vont-elles être gelées en 2027 ?",
-      r: "C'est le projet du gouvernement : l'annexe du projet de loi de financement de la Sécurité sociale pour 2027 prévoit « le maintien des prestations familiales à leur niveau de 2026 », pour 0,5 milliard d'euros d'économie, avec un retour à l'indexation normale en 2028. Mais aucun article du texte ne porte cette mesure, et l'Assemblée nationale a rejeté le projet en première lecture le 23 octobre 2026. Le texte est examiné au Sénat à partir du 9 novembre. Un gel analogue avait été écarté pour 2026 : la base de calcul avait finalement été revalorisée de 0,8 %.",
+      r: "C'est le projet du gouvernement : l'annexe du projet de loi de financement de la Sécurité sociale pour 2027 prévoit « le maintien des prestations familiales à leur niveau de 2026 », pour 0,5 milliard d'euros d'économie, avec un retour à l'indexation normale en 2028. Mais aucun article du texte ne porte cette mesure, et l'Assemblée nationale a rejeté le projet en première lecture le 23 octobre 2026. Le Sénat a adopté sa version le 18 novembre, et une commission mixte paritaire est annoncée le 26 novembre. Un gel analogue avait été écarté pour 2026 : la base de calcul avait finalement été revalorisée de 0,8 %.",
     },
     {
       q: "Quels revenus la CAF prend-elle en compte en 2027 ?",
@@ -338,7 +338,7 @@ export default function Page() {
             </li>
             <li className="flex gap-3">
               <span aria-hidden className="font-bold text-primary">2.</span>
-              <span><strong>L&apos;Assemblée nationale a rejeté le projet.</strong> La commission des affaires sociales l&apos;a repoussé le 16 octobre ; en séance, les députés ont rejeté la partie recettes le 23 octobre 2026, par 115 voix contre 1, ce qui vaut rejet de l&apos;ensemble en première lecture. La partie dépenses, où figuraient les mesures famille, n&apos;a pas été examinée. Le texte est transmis au Sénat dans sa version initiale, pour un examen à partir du 9 novembre.</span>
+              <span><strong>L&apos;Assemblée nationale a rejeté le projet.</strong> La commission des affaires sociales l&apos;a repoussé le 16 octobre ; en séance, les députés ont rejeté la partie recettes le 23 octobre 2026, par 115 voix contre 1, ce qui vaut rejet de l&apos;ensemble en première lecture. La partie dépenses, où figuraient les mesures famille, n&apos;a pas été examinée. Le Sénat, saisi du texte initial, a adopté sa propre version le 18 novembre ; une commission mixte paritaire est annoncée le 26 novembre, et le gouvernement garde la possibilité de passer par l&apos;article 49.3 ou par ordonnance.</span>
             </li>
             <li className="flex gap-3">
               <span aria-hidden className="font-bold text-primary">3.</span>

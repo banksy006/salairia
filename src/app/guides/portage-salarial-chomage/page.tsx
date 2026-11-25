@@ -178,7 +178,7 @@ export default function GuidePortageChomagePage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour octobre 2026
+          À jour novembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -493,7 +493,7 @@ export default function GuidePortageChomagePage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : octobre 2026. Les montants d&apos;allocation
+                  Dernière mise à jour : novembre 2026. Les montants d&apos;allocation
                   présentés sont des estimations calculées avec les paramètres
                   Unédic en vigueur depuis juillet 2025 (reconduits en juin 2026) ; seule France Travail détermine votre
                   droit réel, en fonction de votre parcours exact. Ce guide est

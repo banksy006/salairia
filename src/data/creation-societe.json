@@ -1,6 +1,6 @@
 {
   "_source": "Tarifs relevés le 28 juillet 2026 sur les pages publiques de chaque plateforme, pour une création de SASU ou EURL. Le prix affiché correspond aux HONORAIRES DE LA PLATEFORME uniquement. Les frais de greffe et d'annonce légale, obligatoires quel que soit le prestataire, s'ajoutent systématiquement. Vérifier la grille officielle avant de souscrire.",
-  "dateReleve": "2026-07-28",
+  "dateReleve": "2026-11-25",
   "fraisIncompressibles": 246.86,
   "sourceFraisIncompressibles": "Qonto — FAQ Pack création : « Les frais de greffe et d'annonce légale de 246,86 € restent à votre charge. Ces frais sont des coûts administratifs inhérents à toute création d'entreprise. »",
   "plateformes": [
@@ -43,7 +43,7 @@
       "offreEntree": "Création offerte",
       "honorairesHT": 0,
       "modele": "Offerte avec un abonnement compta",
-      "conditionGratuite": "Abonnement Indy Premium, à partir de 22 € HT par mois",
+      "conditionGratuite": "Abonnement Indy, à partir de 22 € HT par mois",
       "inclus": "Démarches, rédaction des statuts, validation du dossier, immatriculation, garantie anti-rejet, compte pro gratuit",
       "autresPaliers": "Dépôt de capital 59 € sans abonnement, certificat sous 72 h",
       "urlTarifs": "https://www.indy.fr/creation-entreprise/"
@@ -59,5 +59,6 @@
       "autresPaliers": "150 € en création seule, avancés en deux étapes (80 € au rendez-vous juridique puis 70 €)",
       "urlTarifs": "https://www.dougs.fr/creation-entreprise"
     }
-  ]
+  ],
+  "_relecture": "Pages relues le 25 novembre 2026 (Legalstart, Captain Contrat, Indy, Dougs) : honoraires inchangés depuis le relevé du 28 juillet 2026. Qonto relu sur sa grille bancaire le même jour."
 }

@@ -1,6 +1,6 @@
 {
   "_source": "Tarifs relevés le 28 juillet 2026 sur les grilles tarifaires publiques de chaque acteur. Seules les OFFRES D'ENTRÉE sont comparées ligne à ligne : c'est le palier pertinent pour un freelance ou une micro-entreprise, et c'est celui que chaque éditeur documente publiquement de façon comparable. Les paliers supérieurs sont mentionnés à titre indicatif. Vérifier la grille officielle avant de souscrire, les tarifs évoluent. Blank et Propulse by CA : le Crédit Agricole a annoncé le 9 juillet 2026 l'arrêt des deux marques, remplacées par Pro by CA ; les clients sont transférés jusqu'en janvier 2027 au plus tard. Leurs lignes sont conservées pour mémoire, hors classement.",
-  "dateReleve": "2026-07-28",
+  "dateReleve": "2026-11-25",
   "banques": [
     {
       "slug": "blank",
@@ -91,7 +91,7 @@
       "ibanFrancais": true,
       "virementsInclus": "2 500 € de SEPA sortants gratuits",
       "cartePhysique": "Aucune incluse (carte virtuelle)",
-      "specificite": "Compte rémunéré 0,25 %, transferts internationaux à 1 %",
+      "specificite": "Compte rémunéré 0,5 %, transferts internationaux à 1 %",
       "autresPaliers": "Basic et Smart (tarifs non publiés en clair sur la page)",
       "urlTarifs": "https://finom.co/fr-fr/pricing/",
       "cible": "Indépendants à faible volume de virements",
@@ -118,5 +118,5 @@
     }
   ],
   "_liensPartenaires": "lienPartenaire : lien d'affiliation (rel=sponsored), ajouté le 12 novembre 2026. Il ne change ni l'ordre du tableau ni les données comparées. null = pas de partenariat.",
-  "_relecture": "Shine (Free 0 €, Start 9 € HT) et Qonto (Basic 9 € HT facturé annuellement, 30 virements/mois, 1 carte physique + 2 virtuelles) relus le 25 novembre 2026 sur leurs pages tarifs. Finom et Revolut Business non relus (pages inaccessibles) : valeurs du 28 juillet 2026."
+  "_relecture": "Grilles relues le 25 novembre 2026 : Shine (Free 0 €, Start 9 € HT), Qonto (Basic 9 € HT facturé annuellement, 30 virements/mois, 1 carte physique + 2 virtuelles), Finom (Solo 0 €, 2 500 € de SEPA sortants, compte rémunéré au taux standard de 0,5 %) et Revolut Business (Basique 10 €/mois, 10 virements domestiques). Taux d'épargne Revolut non relu : valeur du 28 juillet 2026."
 }

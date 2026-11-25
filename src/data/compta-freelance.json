@@ -1,6 +1,6 @@
 {
   "_source": "Tarifs relevés le 28 juillet 2026 sur les grilles publiques de chaque éditeur. Deux familles distinctes sont séparées volontairement : les OUTILS de comptabilité autonome (vous tenez votre compta, le logiciel automatise) et les CABINETS d'expertise comptable en ligne (un expert-comptable inscrit à l'Ordre engage sa responsabilité). Les mélanger dans un même classement serait trompeur : l'écart de prix va de 1 à 10 et le service n'est pas le même. Vérifier la grille officielle avant de souscrire.",
-  "dateReleve": "2026-07-28",
+  "dateReleve": "2026-11-25",
   "outils": [
     {
       "slug": "indy",
@@ -10,7 +10,7 @@
       "gratuit": true,
       "cible": "Micro-entrepreneurs",
       "inclus": "Facturation électronique (plateforme agréée DGFiP), devis et factures illimités, comptabilité automatisée, compte pro avec carte",
-      "autresPaliers": "Plus dès 9 € HT/mois (108 € HT/an, ou 12 € HT en mensuel), Premium dès 15 € HT/mois",
+      "autresPaliers": "Plus dès 9 € HT/mois (108 € HT/an, ou 12 € HT en mensuel), Autonomie dès 15 € HT/mois",
       "expertComptable": false,
       "urlTarifs": "https://www.indy.fr/tarifs/"
     },
@@ -64,5 +64,6 @@
       "expertComptable": true,
       "urlTarifs": "https://www.keobiz.fr/"
     }
-  ]
+  ],
+  "_relecture": "Grilles relues le 25 novembre 2026 sur les pages tarifs d'Indy, Pennylane, L-Expert-Comptable.com et Dougs : prix inchangés depuis le relevé du 28 juillet 2026 ; le palier Indy « Premium » s'appelle désormais « Autonomie ». Promotions temporaires (Black Friday) non reprises."
 }

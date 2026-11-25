@@ -252,7 +252,7 @@ const guides = [
   {
     titre: "Revalorisation des retraites 2027",
     desc:
-      "Le PLFSS 2027 réserve la revalorisation de janvier aux retraités dont l'ensemble des pensions ne dépasse pas 1 260 € par mois, avec un gel par défaut au-delà de 1 281 € ; l'Agirc-Arrco décide seule pour le 1er novembre. Le mécanisme exact, l'abattement de 10 % plafonné à 3 000 €, et l'effet chiffré profil par profil.",
+      "La règle légale donne +1,8 % au 1er janvier 2027. Le gouvernement voulait réserver cette hausse aux pensions de 1 260 € par mois au plus ; le Sénat a supprimé ce gel le 16 novembre, et le budget n'est pas encore définitif. L'Agirc-Arrco, elle, a relevé ses pensions de 1,4 % au 1er novembre. Le mécanisme exact et l'effet chiffré profil par profil.",
     href: "/guides/revalorisation-retraites-2027",
     audience: "Retraités du privé, actifs qui préparent leur départ",
     lecture: "8 min",
@@ -647,7 +647,7 @@ export default function GuidesPage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour octobre 2026
+          À jour novembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">

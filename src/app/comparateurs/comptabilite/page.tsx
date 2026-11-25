@@ -16,7 +16,7 @@ import data from "@/data/compta-freelance.json";
 export const metadata: Metadata = {
   title: "Comparatif comptabilité freelance 2026 : outils et cabinets en ligne",
   description:
-    "Comparatif indépendant des solutions comptables pour freelances : Indy, Pennylane, L'Expert-Comptable, Dougs, Keobiz. Tarifs relevés en juillet 2026 sur les grilles officielles.",
+    "Comparatif indépendant des solutions comptables pour freelances : Indy, Pennylane, L'Expert-Comptable, Dougs, Keobiz. Tarifs relus en novembre 2026 sur les grilles officielles.",
   alternates: { canonical: "/comparateurs/comptabilite" },
   openGraph: {
     title: "Comparatif comptabilité freelance 2026 : outils et cabinets en ligne",
@@ -167,7 +167,7 @@ export default function ComparateurComptabilitePage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-07-28",
-      dateModified: "2026-10-14",
+      dateModified: "2026-11-25",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/comparateurs/comptabilite`,
     },
@@ -218,7 +218,7 @@ export default function ComparateurComptabilitePage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour octobre 2026
+          À jour novembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -367,7 +367,7 @@ export default function ComparateurComptabilitePage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : octobre 2026. Comparatif limité aux
+                  Dernière mise à jour : novembre 2026. Comparatif limité aux
                   offres d&apos;entrée publiques. Salairia n&apos;est pas un
                   cabinet d&apos;expertise comptable : ces informations sont
                   documentaires et ne constituent pas un conseil. Une erreur ?{" "}

@@ -50,7 +50,7 @@ const faq = [
   },
   {
     q: "Les créations « offertes » le sont-elles vraiment ?",
-    r: "Elles sont offertes en échange d'un abonnement. Qonto offre les formalités si vous prenez un forfait bancaire, Indy si vous prenez un abonnement Premium, Dougs si vous souscrivez à sa comptabilité. Sur douze mois, un abonnement à 79 € HT représente près de 950 € : la création n'est pas gratuite, elle est intégrée à un contrat plus large. Ce n'est pas malhonnête — c'est souvent avantageux si vous aviez de toute façon besoin du service — mais il faut raisonner en coût total sur l'année.",
+    r: "Elles sont offertes en échange d'un abonnement. Qonto offre les formalités si vous prenez un forfait bancaire, Indy si vous prenez un abonnement, Dougs si vous souscrivez à sa comptabilité. Sur douze mois, un abonnement à 79 € HT représente près de 950 € : la création n'est pas gratuite, elle est intégrée à un contrat plus large. Ce n'est pas malhonnête — c'est souvent avantageux si vous aviez de toute façon besoin du service — mais il faut raisonner en coût total sur l'année.",
   },
   {
     q: "Faut-il vraiment passer par une plateforme ?",
@@ -85,7 +85,7 @@ export default function ComparateurCreationSocietePage() {
       author: { "@type": "Person", name: "Nizar Laghrifi", url: `${SITE_URL}/a-propos` },
       publisher: { "@type": "Organization", name: "Salairia", url: SITE_URL },
       datePublished: "2026-07-28",
-      dateModified: "2026-10-14",
+      dateModified: "2026-11-25",
       inLanguage: "fr-FR",
       url: `${SITE_URL}/comparateurs/creation-societe`,
     },
@@ -136,7 +136,7 @@ export default function ComparateurCreationSocietePage() {
 
         <span className="mt-6 inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-primary">
           <CalendarIcon className="h-3.5 w-3.5" />
-          À jour octobre 2026
+          À jour novembre 2026
         </span>
 
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
@@ -365,7 +365,7 @@ export default function ComparateurCreationSocietePage() {
                   Montant des frais obligatoires : {data.sourceFraisIncompressibles}
                 </p>
                 <p className="mt-6 text-xs italic text-muted-foreground">
-                  Dernière mise à jour : octobre 2026. Comparatif limité aux
+                  Dernière mise à jour : novembre 2026. Comparatif limité aux
                   offres d&apos;entrée publiques pour une SASU ou une EURL.
                   Salairia n&apos;exerce ni le conseil juridique ni
                   l&apos;expertise comptable : ces informations sont

@@ -96,7 +96,7 @@ const meta: GuideMeta = {
   chapo: "Le projet de loi de finances pour 2027, déposé à l'Assemblée nationale le 1er octobre 2026, donne la première version officielle du barème qui s'appliquera à vos revenus de 2026, déclarés au printemps 2027 : toutes les tranches relevées de 2,1 %, l'inflation que le gouvernement prévoit pour 2026. La décote, le quotient familial et les grilles du prélèvement à la source suivent le mouvement. Rien n'est définitif avant le vote — mais voici le barème proposé, son effet chiffré sur votre impôt, et les autres mesures du texte qui touchent salariés et retraités.",
   filAriane: "Barème impôt 2027",
   datePublished: "2026-08-23",
-  dateModified: "2026-10-24",
+  dateModified: "2026-11-25",
   tocItems: [
     { id: "plf", label: "Le barème proposé" },
     { id: "effet", label: "L'effet sur votre impôt" },
@@ -128,6 +128,7 @@ const meta: GuideMeta = {
   ],
   sources: [
     { label: "Projet de loi de finances pour 2027, n° 3210 — texte déposé le 1er octobre 2026 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
+    { label: "LCP — l'Assemblée rejette à l'unanimité la partie recettes du budget 2027, le texte initial transmis au Sénat (4 novembre 2026)", href: "https://lcp.fr/actualites/budget-2027-l-assemblee-rejette-a-l-unanimite-la-partie-recettes-le-projet-de-loi-de" },
     { label: "PLF 2027 — évaluations préalables des articles (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/contenu/visualisation/1128179/file/PLF%202027%20-%20Evaluations%20pr%C3%A9alables.pdf" },
     { label: "CGI, art. 197 — barème de l'impôt (Légifrance)", href: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000050809514" },
     { label: "impots.gouv.fr — les tranches et taux de l'impôt sur le revenu", href: "https://www.impots.gouv.fr/particulier/questions/comment-calculer-mon-taux-dimposition-dapres-le-bareme-progressif" },
@@ -198,8 +199,10 @@ export default function Page() {
             <InfoIcon className="mt-0.5 h-5 w-5 flex-shrink-0" />
             <span>
               Ces montants sont ceux du <strong>projet de loi</strong>, déposé
-              le 1er octobre 2026. Ils peuvent être modifiés par amendement
-              pendant l&apos;examen parlementaire et ne deviendront officiels
+              le 1er octobre 2026. L&apos;Assemblée nationale a rejeté la partie
+              recettes le 4 novembre : le Sénat examine donc ce texte initial.
+              Les montants peuvent encore être modifiés par amendement et ne
+              deviendront officiels
               qu&apos;à la promulgation de la loi de finances. Nos simulateurs
               continuent d&apos;appliquer le barème en vigueur jusque-là.
             </span>
@@ -361,7 +364,8 @@ export default function Page() {
             <tbody>
               {[
                 ["1er octobre 2026 ✓", "Dépôt du projet de loi de finances 2027 à l'Assemblée nationale (n° 3210) : barème relevé de 2,1 %."],
-                ["Octobre – décembre", "Examen parlementaire, Assemblée puis Sénat : le barème peut évoluer au fil des amendements, rien n'est définitif."],
+                ["4 novembre 2026 ✓", "L'Assemblée nationale rejette la partie recettes (458 voix contre, 0 pour) : ses amendements tombent, et c'est le texte initial du gouvernement, avec ce barème, qui est transmis au Sénat."],
+                ["Novembre – décembre", "Examen au Sénat, puis tentative d'accord entre les deux chambres : le barème peut encore évoluer, rien n'est définitif."],
                 ["Fin décembre 2026", "Date visée pour la promulgation et la publication au Journal officiel. Cette page sera mise à jour ce jour-là."],
                 ["Avril – juin 2027", "Déclaration des revenus 2026 : première application concrète du barème voté."],
               ].map(([d, t]) => (
