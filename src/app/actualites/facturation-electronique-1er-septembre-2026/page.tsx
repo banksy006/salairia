@@ -127,7 +127,11 @@ export default function Page() {
             <Link href="/comparateurs/comptabilite" className="text-primary underline-offset-4 hover:underline">
               comparateur de solutions comptables
             </Link>{" "}
-            recense les acteurs du marché et leurs tarifs.
+            recense les acteurs du marché et leurs tarifs, et notre{" "}
+            <Link href="/guides/logiciel-facturation-electronique-auto-entrepreneur" className="text-primary underline-offset-4 hover:underline">
+              comparatif des logiciels de facturation électronique
+            </Link>{" "}
+            détaille les offres gratuites et payantes pour les indépendants.
           </p>
         </div>
       </section>

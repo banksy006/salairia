@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 174 |
-| URLs au sitemap | 167 |
+| Routes publiées | 175 |
+| URLs au sitemap | 168 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -112,7 +112,9 @@ Déclenché par une anomalie GSC : le site est en **position 1** sur des dizaine
 
 Règle produit : sous le plafond de la Sécurité sociale, le net cadre est identique au non-cadre (seule l'APEC à 0,024 % les sépare). La page bascule alors sur une carte unique avec mention explicite — afficher deux montants identiques laisserait croire à un bug, et les FAQ affirmaient un écart inexistant.
 
-### Guides — 50
+### Guides — 51
+
+Guide **logiciel-facturation-electronique-auto-entrepreneur** du 25 novembre 2026 : calendrier de la réforme (Service-Public A15683, impots.gouv), 7 outils relevés le 25/11/2026 hors promotions (données en tête du fichier de la page), statut de plateforme agréée tel que déclaré par l'éditeur. Liens partenaires Tiime et Qonto. À relire avant le 1er septembre 2027 et à chaque changement de grille.
 
 Guide **compte-bancaire-auto-entrepreneur** du 25 novembre 2026 : règle des 10 000 € (Service-Public F35991, art. L613-10 CSS), compte personnel dédié ou compte pro, offres d'entrée tirées de `banques-pro.json`. Porte les liens partenaires Shine et Qonto. Première page « intention commerciale » pour l'affiliation ; tarifs à relire chaque trimestre.
 

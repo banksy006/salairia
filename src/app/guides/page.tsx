@@ -482,6 +482,14 @@ const guides = [
     lecture: "7 min",
   },
   {
+    titre: "Logiciel de facturation électronique : comparatif 2027",
+    desc:
+      "Recevoir depuis le 1er septembre 2026, émettre à partir du 1er septembre 2027 : ce que la réforme impose à un auto-entrepreneur, sept outils comparés dont cinq avec une offre gratuite, leur statut de plateforme agréée, et quatre questions à poser avant de s'abonner.",
+    href: "/guides/logiciel-facturation-electronique-auto-entrepreneur",
+    audience: "Micro-entrepreneurs et freelances qui facturent des professionnels",
+    lecture: "7 min",
+  },
+  {
     titre: "Cumuler salariat et micro-entreprise",
     desc:
       "Légal, sans plafond, sans autorisation — mais trois clauses à vérifier avant la première facture : exclusivité, loyauté, non-concurrence. Le revenu combiné calculé sur un cas type CDI + side business, la question des cotisations doubles, et le cas d'école du versement libératoire quand le salaire occupe déjà les tranches basses du barème.",
