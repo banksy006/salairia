@@ -226,6 +226,30 @@ const guides = [
     lecture: "9 min",
   },
   {
+    titre: "Pension de réversion 2027 : plafond de ressources et montants",
+    desc:
+      "Le plafond de ressources vaut 2 080 fois le SMIC horaire du 1er janvier : 25 001,60 € en 2026 pour une personne seule, et ce qu'il deviendrait en 2027 avec la hausse du SMIC annoncée. Taux de 54 %, minimum, maximum, majorations, règles de l'Agirc-Arrco et de la fonction publique, et la demande unique.",
+    href: "/guides/pension-de-reversion-2027",
+    audience: "Veufs et veuves, conjoints de retraités",
+    lecture: "8 min",
+  },
+  {
+    titre: "Mutuelle à la retraite 2027 : loi Évin, C2S ou contrat individuel",
+    desc:
+      "Six mois pour demander le maintien de la mutuelle d'entreprise, à un tarif plafonné pendant trois ans ; la complémentaire santé solidaire, gratuite ou à 25-30 € par mois selon l'âge ; et le prix moyen d'un contrat individuel de 60 à 85 ans selon la DREES. Les règles, les plafonds en vigueur et l'ordre dans lequel décider.",
+    href: "/guides/mutuelle-retraite",
+    audience: "Futurs retraités et retraités",
+    lecture: "8 min",
+  },
+  {
+    titre: "Frais bancaires 2027 : plafonds légaux et prix moyens",
+    desc:
+      "Commissions d'intervention plafonnées à 8 € par opération et 80 € par mois, rejet de prélèvement à 20 € au plus, offre clientèle fragile à 3 € par mois : ce qu'une banque a le droit de facturer, les prix moyens relevés par l'Observatoire des tarifs bancaires, et quatre leviers pour payer moins.",
+    href: "/guides/frais-bancaires",
+    audience: "Salariés, retraités, budgets serrés",
+    lecture: "8 min",
+  },
+  {
     titre: "APL 2027",
     desc:
       "Les plafonds de loyer relevés de 1,15 % au 1er octobre 2026, lus dans l'arrêté du 28 septembre : 336,97 € à Paris pour une personne seule, 293,68 € en zone 2, 275,25 € ailleurs. Le calcul de la dépense retenue dans votre situation, la mécanique de l'aide, et les deux mesures du budget 2027 : aucune revalorisation en octobre 2027 et la fin de l'APL pour les étudiants rattachés à un foyer fiscal aisé.",

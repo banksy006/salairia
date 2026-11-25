@@ -14,7 +14,8 @@
         "/guides/salaire-apprenti-2027",
         "/guides/ce-qui-change-1er-janvier-2027",
         "src/lib/smic-annonce.ts",
-        "src/lib/calculators/salaire-brut-net.ts"
+        "src/lib/calculators/salaire-brut-net.ts",
+        "/guides/pension-de-reversion-2027"
       ]
     },
     {
@@ -66,7 +67,8 @@
         "/guides/revalorisation-retraites-2027",
         "/guides/calendrier-paiement-retraite-2027",
         "/guides/aspa-2027",
-        "/guides/retraite-brut-net"
+        "/guides/retraite-brut-net",
+        "/guides/pension-de-reversion-2027"
       ]
     },
     {
@@ -197,6 +199,22 @@
         "/guides/portage-salarial-chomage",
         "/guides/auto-entrepreneur-chomage",
         "/guides/sasu-chomage-dirigeant"
+      ]
+    },
+    {
+      "id": "sante-banque",
+      "libelle": "Complémentaire santé et frais bancaires",
+      "requete": "complémentaire santé solidaire plafond OR mutuelles cotisations 2027 OR frais bancaires plafonnement",
+      "motsCles": [
+        "complémentaire santé",
+        "mutuelle",
+        "c2s",
+        "frais bancaires",
+        "tarifs bancaires"
+      ],
+      "pages": [
+        "/guides/mutuelle-retraite",
+        "/guides/frais-bancaires"
       ]
     }
   ],

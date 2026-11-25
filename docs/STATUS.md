@@ -1,14 +1,14 @@
 # STATUS — état du site
 
 > Référence factuelle de ce qui existe. À relire avant toute tâche qui touche la structure du site, et à mettre à jour à chaque ajout de route.
-> **Dernière mise à jour : 24 octobre 2026.**
+> **Dernière mise à jour : 25 novembre 2026.**
 
 ## En un coup d'œil
 
 | | |
 |---|---|
-| Routes publiées | 175 |
-| URLs au sitemap | 168 |
+| Routes publiées | 178 |
+| URLs au sitemap | 171 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -112,7 +112,11 @@ Déclenché par une anomalie GSC : le site est en **position 1** sur des dizaine
 
 Règle produit : sous le plafond de la Sécurité sociale, le net cadre est identique au non-cadre (seule l'APEC à 0,024 % les sépare). La page bascule alors sur une carte unique avec mention explicite — afficher deux montants identiques laisserait croire à un bug, et les FAQ affirmaient un écart inexistant.
 
-### Guides — 51
+### Guides — 54
+
+Batch « particuliers » du 25 novembre 2026 (3 guides, aucun lien d'affiliation posé) : **pension-de-reversion-2027** (plafond = 2 080 × SMIC horaire du 1er janvier, circulaires Cnav 2025-33 et 2026-16 ; la colonne 2027 est calculée depuis `smic-annonce.ts`, le minimum depuis `revalorisation-2027.ts`, le maximum depuis le PASS estimé : à remplacer par la circulaire Cnav de fin décembre) · **mutuelle-retraite** (loi Évin d'après Service-Public F20744, barème C2S du 1er avril 2026, primes DREES 2023 ; support prévu pour une candidature Affilae « mutuelle senior », enquête Mutualité française 2027 attendue mi-décembre) · **frais-bancaires** (plafonds Service-Public F18777, offre clientèle fragile Banque de France, rapport 2026 de l'Observatoire des tarifs bancaires ; page « finance perso » à citer dans la nouvelle candidature BoursoBank, possible à partir du 21 décembre 2026).
+
+Revue de novembre (25 novembre 2026) : titres-restaurant (Sénat, 19 novembre : adoption à l'unanimité d'une version modifiée, commission mixte paritaire à venir), PLF 2027 (rejet de la partie recettes à l'Assemblée le 4 novembre, texte initial transmis au Sénat) reportés sur titres-restaurant, ce-qui-change, bareme-impot-2027, apl-2027, allocations-familiales-2027 et le hub. Comparateurs banques pro, comptabilité et création de société relus sur les grilles officielles (seuls écarts : palier Indy renommé « Autonomie », taux du compte rémunéré Finom). Mentions « À jour » passées en novembre sur les pages relues ; laissées en octobre : comparateur portage (frais non relus depuis juillet), villes, métiers, pouvoir d'achat par ville (données de juillet).
 
 Guide **logiciel-facturation-electronique-auto-entrepreneur** du 25 novembre 2026 : calendrier de la réforme (Service-Public A15683, impots.gouv), 7 outils relevés le 25/11/2026 hors promotions (données en tête du fichier de la page), statut de plateforme agréée tel que déclaré par l'éditeur. Liens partenaires Tiime et Qonto. À relire avant le 1er septembre 2027 et à chaque changement de grille.
 
