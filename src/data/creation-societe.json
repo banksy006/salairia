@@ -13,7 +13,8 @@
       "conditionGratuite": null,
       "inclus": "Dossier préparé en autonomie, statuts, immatriculation au Guichet Unique, obtention du Kbis",
       "autresPaliers": "Standard 99 € HT, Premium 199 € HT (traitement en 24 h, garantie anti-rejet, juriste-formaliste). Assistance : 30 jours offerts puis 29,90 €/mois sans engagement",
-      "urlTarifs": "https://www.legalstart.fr/creation-entreprise/"
+      "urlTarifs": "https://www.legalstart.fr/creation-entreprise/",
+      "lienPartenaire": "https://www.legalstart.fr/?ae=980"
     },
     {
       "slug": "captain-contrat",
@@ -24,7 +25,8 @@
       "conditionGratuite": null,
       "inclus": "Dossier préparé depuis votre espace, démarches gérées seul, frais administratifs à prix coûtant",
       "autresPaliers": "Standard 99 € HT (délégation complète des démarches), formule express 269 € HT avec accompagnement administratif pendant 1 an",
-      "urlTarifs": "https://www.captaincontrat.com/creer-entreprise/creation-sasu-en-ligne"
+      "urlTarifs": "https://www.captaincontrat.com/creer-entreprise/creation-sasu-en-ligne",
+      "lienPartenaire": null
     },
     {
       "slug": "qonto",
@@ -35,7 +37,8 @@
       "conditionGratuite": "Abonnement à un forfait Qonto : Basic 9 € HT, Smart 19 € HT ou Essential 49 € HT par mois",
       "inclus": "Toutes les formalités offertes (statuts, annonce légale, immatriculation), un mois d'abonnement, dépôt de capital à 69 €",
       "autresPaliers": "Dépôt de capital 69 € (hors micro-entreprise)",
-      "urlTarifs": "https://qonto.com/fr/pricing/creation"
+      "urlTarifs": "https://qonto.com/fr/pricing/creation",
+      "lienPartenaire": null
     },
     {
       "slug": "indy",
@@ -46,7 +49,8 @@
       "conditionGratuite": "Abonnement Indy, à partir de 22 € HT par mois",
       "inclus": "Démarches, rédaction des statuts, validation du dossier, immatriculation, garantie anti-rejet, compte pro gratuit",
       "autresPaliers": "Dépôt de capital 59 € sans abonnement, certificat sous 72 h",
-      "urlTarifs": "https://www.indy.fr/creation-entreprise/"
+      "urlTarifs": "https://www.indy.fr/creation-entreprise/",
+      "lienPartenaire": "https://www.indy.fr/?ae=2133"
     },
     {
       "slug": "dougs",
@@ -57,8 +61,10 @@
       "conditionGratuite": "Souscription à l'offre comptabilité Dougs, à partir de 79 € HT par mois — les 150 € d'honoraires sont alors offerts",
       "inclus": "Juriste dédié, création en 48 h, accompagnement pendant et après la création, expert-comptable inscrit à l'Ordre",
       "autresPaliers": "150 € en création seule, avancés en deux étapes (80 € au rendez-vous juridique puis 70 €)",
-      "urlTarifs": "https://www.dougs.fr/creation-entreprise"
+      "urlTarifs": "https://www.dougs.fr/creation-entreprise",
+      "lienPartenaire": null
     }
   ],
-  "_relecture": "Pages relues le 25 novembre 2026 (Legalstart, Captain Contrat, Indy, Dougs) : honoraires inchangés depuis le relevé du 28 juillet 2026. Qonto relu sur sa grille bancaire le même jour."
+  "_relecture": "Pages relues le 25 novembre 2026 (Legalstart, Captain Contrat, Indy, Dougs) : honoraires inchangés depuis le relevé du 28 juillet 2026. Qonto relu sur sa grille bancaire le même jour.",
+  "_liensPartenaires": "lienPartenaire : lien d'affiliation Affilae (rel=sponsored), ajouté le 25 novembre 2026 après validation des programmes Legalstart (16 novembre) et Indy (13 novembre). Il ne change ni l'ordre ni le contenu du comparatif."
 }

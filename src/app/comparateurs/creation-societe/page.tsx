@@ -221,9 +221,27 @@ export default function ComparateurCreationSocietePage() {
                       </p>
                     )}
                     <p className="mt-3 text-sm text-muted-foreground">Autres options : {p.autresPaliers}</p>
-                    <a href={p.urlTarifs} target="_blank" rel="noopener noreferrer" data-partenaire={p.nom} className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
+                    <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                    {p.lienPartenaire && (
+            <a
+              href={p.lienPartenaire}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              data-partenaire={p.nom}
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-sm transition hover:opacity-90"
+            >
+              Créer avec {p.nom} <span aria-hidden>↗</span>
+            </a>
+          )}
+                    <a href={p.urlTarifs} target="_blank" rel="noopener noreferrer" data-partenaire={p.nom} className="inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline">
                       Page tarifaire officielle <span aria-hidden>↗</span>
                     </a>
+                    </div>
+                    {p.lienPartenaire && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Lien partenaire : Salairia peut être rémunéré si tu souscris, sans surcoût pour toi. Le classement n&apos;en dépend pas.
+            </p>
+          )}
                   </div>
                 ))}
               </div>

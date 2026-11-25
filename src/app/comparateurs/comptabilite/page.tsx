@@ -81,6 +81,7 @@ interface LigneCompta {
   inclus: string;
   autresPaliers: string;
   urlTarifs: string;
+  lienPartenaire: string | null;
 }
 
 function Tableau({
@@ -140,15 +141,33 @@ function Fiches({ lignes }: { lignes: LigneCompta[] }) {
           </h3>
           <p className="mt-2 text-base leading-relaxed text-foreground/80">{s.inclus}.</p>
           <p className="mt-3 text-sm text-muted-foreground">Autres paliers : {s.autresPaliers}</p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+          {s.lienPartenaire && (
+            <a
+              href={s.lienPartenaire}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              data-partenaire={s.nom}
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground shadow-sm transition hover:opacity-90"
+            >
+              Découvrir {s.nom} <span aria-hidden>↗</span>
+            </a>
+          )}
           <a
             href={s.urlTarifs}
             target="_blank"
             rel="noopener noreferrer"
             data-partenaire={s.nom}
-            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline"
           >
             Grille tarifaire officielle <span aria-hidden>↗</span>
           </a>
+          </div>
+          {s.lienPartenaire && (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Lien partenaire : Salairia peut être rémunéré si tu souscris, sans surcoût pour toi. Le classement n&apos;en dépend pas.
+            </p>
+          )}
         </div>
       ))}
     </div>

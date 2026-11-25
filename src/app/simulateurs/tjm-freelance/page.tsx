@@ -138,16 +138,16 @@ const partners = [
   {
     category: "Comptabilité freelance",
     desc: "Indy, L-Expert-Comptable, Dougs — automatisation de la compta et des déclarations.",
-    ctaLabel: "Découvrir Indy",
-    href: "https://www.indy.fr",
-    internal: false,
+    ctaLabel: "Comparer les solutions compta",
+    href: "/comparateurs/comptabilite",
+    internal: true,
   },
   {
     category: "Création de société",
     desc: "Legalstart, Captain Contrat, Indy — SASU / EURL en quelques clics.",
-    ctaLabel: "Découvrir Legalstart",
-    href: "https://www.legalstart.fr",
-    internal: false,
+    ctaLabel: "Comparer les plateformes",
+    href: "/comparateurs/creation-societe",
+    internal: true,
   },
 ];
 
