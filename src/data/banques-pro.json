@@ -55,8 +55,8 @@
       "prixMensuelHT": 9,
       "gratuit": false,
       "ibanFrancais": true,
-      "virementsInclus": "SEPA instantanés",
-      "cartePhysique": "1 carte incluse",
+      "virementsInclus": "30 virements par mois",
+      "cartePhysique": "1 carte physique et 2 virtuelles",
       "specificite": "Conformité facturation électronique, support client 24h/24 7j/7, outils de trésorerie",
       "autresPaliers": "Smart 19 € HT (100 virements/mois, 1 sous-compte), Premium 39 € HT",
       "urlTarifs": "https://qonto.com/fr/pricing",
@@ -117,5 +117,6 @@
       "offrePartenaire": null
     }
   ],
-  "_liensPartenaires": "lienPartenaire : lien d'affiliation (rel=sponsored), ajouté le 12 novembre 2026. Il ne change ni l'ordre du tableau ni les données comparées. null = pas de partenariat."
+  "_liensPartenaires": "lienPartenaire : lien d'affiliation (rel=sponsored), ajouté le 12 novembre 2026. Il ne change ni l'ordre du tableau ni les données comparées. null = pas de partenariat.",
+  "_relecture": "Shine (Free 0 €, Start 9 € HT) et Qonto (Basic 9 € HT facturé annuellement, 30 virements/mois, 1 carte physique + 2 virtuelles) relus le 25 novembre 2026 sur leurs pages tarifs. Finom et Revolut Business non relus (pages inaccessibles) : valeurs du 28 juillet 2026."
 }

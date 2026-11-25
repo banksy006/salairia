@@ -474,6 +474,14 @@ const guides = [
     lecture: "7 min",
   },
   {
+    titre: "Compte bancaire auto-entrepreneur 2027",
+    desc:
+      "Pas de compte pro obligatoire, mais un compte dédié au-delà de 10 000 € de chiffre d'affaires deux années de suite, et dès le départ pour une activité commerciale. La règle officielle, le compte personnel dédié face au compte professionnel, les offres gratuites et payantes comparées, et le droit au compte en cas de refus.",
+    href: "/guides/compte-bancaire-auto-entrepreneur",
+    audience: "Micro-entrepreneurs qui créent ou dépassent 10 000 € de chiffre d'affaires",
+    lecture: "7 min",
+  },
+  {
     titre: "Cumuler salariat et micro-entreprise",
     desc:
       "Légal, sans plafond, sans autorisation — mais trois clauses à vérifier avant la première facture : exclusivité, loyauté, non-concurrence. Le revenu combiné calculé sur un cas type CDI + side business, la question des cotisations doubles, et le cas d'école du versement libératoire quand le salaire occupe déjà les tranches basses du barème.",

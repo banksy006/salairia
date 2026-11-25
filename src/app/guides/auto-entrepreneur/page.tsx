@@ -252,6 +252,7 @@ export default function GuideAutoEntrepreneurPage() {
                   <li><strong>Régime fiscal :</strong> Micro-fiscal (abattement forfaitaire ou versement libératoire)</li>
                   <li><strong>Régime social :</strong> Micro-social simplifié (cotisations proportionnelles au CA)</li>
                   <li><strong>Comptabilité :</strong> Livre des recettes uniquement (pas de bilan, pas d&apos;expert-comptable)</li>
+                  <li><strong>Compte bancaire :</strong> compte dédié obligatoire au-delà de 10 000 € de chiffre d&apos;affaires deux années de suite — voir <Link href="/guides/compte-bancaire-auto-entrepreneur" className="text-primary underline-offset-4 hover:underline">quel compte choisir</Link></li>
                   <li><strong>Responsabilité :</strong> Limitée au patrimoine professionnel depuis 2022</li>
                 </ul>
               </div>

@@ -7,8 +7,8 @@
 
 | | |
 |---|---|
-| Routes publiées | 173 |
-| URLs au sitemap | 166 |
+| Routes publiées | 174 |
+| URLs au sitemap | 167 |
 | Calculateurs | 11 |
 | Domaine | `salairia.com` (le `.fr` renvoie une erreur Vercel 436, non traité) |
 | Analytics | Plausible, sans cookie |
@@ -112,7 +112,9 @@ Déclenché par une anomalie GSC : le site est en **position 1** sur des dizaine
 
 Règle produit : sous le plafond de la Sécurité sociale, le net cadre est identique au non-cadre (seule l'APEC à 0,024 % les sépare). La page bascule alors sur une carte unique avec mention explicite — afficher deux montants identiques laisserait croire à un bug, et les FAQ affirmaient un écart inexistant.
 
-### Guides — 49
+### Guides — 50
+
+Guide **compte-bancaire-auto-entrepreneur** du 25 novembre 2026 : règle des 10 000 € (Service-Public F35991, art. L613-10 CSS), compte personnel dédié ou compte pro, offres d'entrée tirées de `banques-pro.json`. Porte les liens partenaires Shine et Qonto. Première page « intention commerciale » pour l'affiliation ; tarifs à relire chaque trimestre.
 
 Guide **expert-comptable-sasu-prix** du 12 novembre 2026 : obligations comptables (Service-Public F37169 et F31214), prix publics Keobiz et L-Expert-Comptable relevés le 12/11/2026, coût net des honoraires calculé par `calculerStatut` (SASU, 550 €/j). Porte le lien partenaire Keobiz (Affilae, 110 € par lead transformé). Prix à revérifier tous les trimestres.
 
