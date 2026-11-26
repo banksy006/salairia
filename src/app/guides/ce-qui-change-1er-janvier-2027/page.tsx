@@ -32,7 +32,7 @@ const meta: GuideMeta = {
   chapo: "Chaque 1er janvier, une dizaine de paramètres qui pilotent votre paie, vos cotisations et votre impôt sont refixés. Pour 2027, la photo s'est précisée le 1er octobre 2026 avec le dépôt du projet de loi de finances et du projet de loi de financement de la Sécurité sociale : barème de l'impôt relevé de 2,1 %, revalorisation des retraites réservée aux petites pensions, plafond unique pour les indemnités de rupture, prime d'activité gelée. Cette page distingue ce qui est acquis, ce qui n'est encore qu'un projet, et ce qui reste à publier — avec un lien vers notre analyse détaillée de chaque sujet.",
   filAriane: "1er janvier 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-11-25",
+  dateModified: "2026-11-26",
   tocItems: [
     { id: "salaries", label: "Pour les salariés" },
     { id: "independants", label: "Pour les indépendants" },
@@ -66,6 +66,7 @@ const meta: GuideMeta = {
     },
   ],
   sources: [
+    { label: "Public Sénat — budget 2027 de la Sécurité sociale : échec de la commission mixte paritaire (26 novembre 2026)", href: "https://www.publicsenat.fr/actualites/politique/budget-2027-de-la-securite-sociale-echec-de-la-tentative-de-compromis-entre-deputes-et-senateurs" },
     { label: "Projet de loi de finances pour 2027, n° 3210 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
     { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
     { label: "Revue fiduciaire — le plafond de la Sécurité sociale pour 2027 pourrait s'établir à 4 075 € par mois", href: "https://www.revue-fiduciaire.com/actualite/article/le-plafond-de-la-securite-sociale-pour-2027-pourrait-s-etablir-a-4-075-par-mois" },
@@ -307,7 +308,7 @@ export default function Page() {
                 ["13 novembre 2026 ✓", "Inflation d'octobre publiée par l'INSEE : la règle légale de revalorisation des retraites donne +1,8 % (calcul Salairia)."],
                 ["16-18 novembre 2026 ✓", "Sénat : gel des pensions supprimé (329 voix pour, 0 contre), texte adopté le 18 novembre."],
                 ["19 novembre 2026 ✓", "Titres-restaurant : le Sénat adopte la proposition de loi à l'unanimité (344 voix), dans une version modifiée ; commission mixte paritaire avant la fin de l'année."],
-                ["26 novembre 2026", "Commission mixte paritaire annoncée sur le PLFSS 2027 ; en cas d'échec, nouvelle lecture et dernier mot à l'Assemblée."],
+                ["26 novembre 2026 ✓", "PLFSS 2027 : échec de la commission mixte paritaire. Nouvelle lecture à l'Assemblée nationale, puis au Sénat ; l'Assemblée aura le dernier mot."],
                 ["9 novembre 2026 ✓", "SMIC : hausse de 1,6 % annoncée pour le 1er décembre 2026, en avance sur la revalorisation de janvier. Décret attendu."],
                 ["Fin novembre 2026", "Rapport du groupe d'experts sur le SMIC : chiffrage de la revalorisation mécanique de janvier."],
                 ["1er décembre 2026", "Entrée en vigueur du nouveau SMIC."],

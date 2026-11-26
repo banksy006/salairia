@@ -80,7 +80,7 @@ const meta: GuideMeta = {
   chapo: `Chaque automne, la même question : de combien les retraites vont-elles augmenter ? L'inflation qui sert de base au calcul est connue : appliquée aux indices publiés par l'INSEE le ${DATE_PUBLICATION_INSEE}, la règle légale donne +${TAUX} %. Le gouvernement voulait réserver cette hausse aux retraités dont l'ensemble des pensions ne dépasse pas ${EUR.format(SEUIL_PLEIN)} par mois et geler les autres. Le Sénat a supprimé cette mesure le 16 novembre 2026, à l'unanimité des votants, après que les députés l'avaient retirée en commission. Le budget n'est pas encore adopté : voici où en est le texte, et ce que chaque scénario change pour vous. La complémentaire Agirc-Arrco, elle, a augmenté de 1,4 % au 1er novembre.`,
   filAriane: "Retraites 2027",
   datePublished: "2026-08-25",
-  dateModified: "2026-11-20",
+  dateModified: "2026-11-26",
   tocItems: [
     { id: "deux", label: "Les deux revalorisations" },
     { id: "base", label: "Le gel prévu, puis supprimé" },
@@ -91,7 +91,7 @@ const meta: GuideMeta = {
   faq: [
     {
       q: "Les retraites vont-elles augmenter en janvier 2027 ?",
-      r: `Toutes, si la suppression votée par le Sénat le 16 novembre 2026 est maintenue : les pensions de base suivront alors la règle légale, soit +${TAUX} % selon notre calcul. Le texte initial du gouvernement, lui, prévoyait autre chose. Son article 35 dérogeait à l'indexation automatique : les pensions de base seraient revalorisées sur l'inflation si le total mensuel de vos pensions — base et complémentaires — ne dépasse pas ${EUR.format(SEUIL_PLEIN)} au 31 décembre 2026. Entre ${EUR.format(SEUIL_PLEIN)} et ${EUR.format(SEUIL_LISSAGE)}, une hausse réduite, fixée par décret, évite un effet de seuil. Au-delà, le coefficient serait fixé à 1 — c'est-à-dire aucune hausse — tant qu'un décret n'en décide pas autrement. Le budget n'est pas définitif : une commission mixte paritaire doit se réunir, et l'Assemblée nationale aura le dernier mot si elle échoue.`,
+      r: `Toutes, si la suppression votée par le Sénat le 16 novembre 2026 est maintenue : les pensions de base suivront alors la règle légale, soit +${TAUX} % selon notre calcul. Le texte initial du gouvernement, lui, prévoyait autre chose. Son article 35 dérogeait à l'indexation automatique : les pensions de base seraient revalorisées sur l'inflation si le total mensuel de vos pensions — base et complémentaires — ne dépasse pas ${EUR.format(SEUIL_PLEIN)} au 31 décembre 2026. Entre ${EUR.format(SEUIL_PLEIN)} et ${EUR.format(SEUIL_LISSAGE)}, une hausse réduite, fixée par décret, évite un effet de seuil. Au-delà, le coefficient serait fixé à 1 — c'est-à-dire aucune hausse — tant qu'un décret n'en décide pas autrement. Le budget n'est pas définitif : la commission mixte paritaire a échoué le 26 novembre 2026, une nouvelle lecture s'ouvre à l'Assemblée nationale, qui aura le dernier mot.`,
     },
     {
       q: "Comment savoir si je suis sous le seuil de 1 260 € ?",
@@ -99,7 +99,7 @@ const meta: GuideMeta = {
     },
     {
       q: "Le gel des pensions peut-il encore revenir ?",
-      r: `Oui, mais il a perdu beaucoup de terrain. Le 16 novembre 2026, le Sénat a supprimé l'article 35 par 329 voix pour, aucune contre et 15 abstentions, avec l'accord du gouvernement ; il a adopté l'ensemble du texte le 18 novembre. À l'Assemblée nationale, l'article avait déjà été retiré en commission, et le texte rejeté en séance le 23 octobre avant d'arriver aux dépenses. Reste la suite de la procédure : une commission mixte paritaire, annoncée pour le 26 novembre, doit chercher un texte commun ; si elle échoue, chaque chambre relit le texte et l'Assemblée tranche en dernier. Le gouvernement peut aussi recourir au 49.3 avec un texte de son choix ; et si le budget était appliqué par ordonnance, passé le délai constitutionnel du 26 novembre, ce serait a priori sur la base du texte initial, qui contient le gel. Enfin, la suppression a une contrepartie annoncée : les sénateurs entendent la financer, dans le projet de loi de finances, par la suppression totale de l'abattement fiscal de 10 % des retraités. Le précédent rassure : le budget 2026 prévoyait déjà un gel, abandonné au Parlement, et les pensions de base avaient été revalorisées de 0,9 % au 1er janvier 2026.`,
+      r: `Oui, mais il a perdu beaucoup de terrain. Le 16 novembre 2026, le Sénat a supprimé l'article 35 par 329 voix pour, aucune contre et 15 abstentions, avec l'accord du gouvernement ; il a adopté l'ensemble du texte le 18 novembre. À l'Assemblée nationale, l'article avait déjà été retiré en commission, et le texte rejeté en séance le 23 octobre avant d'arriver aux dépenses. Reste la suite de la procédure : la commission mixte paritaire réunie le 26 novembre n'a pas trouvé de texte commun. Chaque chambre relit donc le texte, en commençant par l'Assemblée nationale, dont la commission des affaires sociales l'examine dès la semaine suivante, et l'Assemblée tranchera en dernier. Le gouvernement peut aussi recourir au 49.3 avec un texte de son choix ; et si le budget était appliqué par ordonnance, passé le délai constitutionnel du 26 novembre, ce serait a priori sur la base du texte initial, qui contient le gel. Enfin, la suppression a une contrepartie annoncée : les sénateurs entendent la financer, dans le projet de loi de finances, par la suppression totale de l'abattement fiscal de 10 % des retraités. Le précédent rassure : le budget 2026 prévoyait déjà un gel, abandonné au Parlement, et les pensions de base avaient été revalorisées de 0,9 % au 1er janvier 2026.`,
     },
     {
       q: "L'Agirc-Arrco est-elle concernée par ce gel ?",
@@ -111,6 +111,7 @@ const meta: GuideMeta = {
     },
   ],
   sources: [
+    { label: "Public Sénat — budget 2027 de la Sécurité sociale : échec de la commission mixte paritaire (26 novembre 2026)", href: "https://www.publicsenat.fr/actualites/politique/budget-2027-de-la-securite-sociale-echec-de-la-tentative-de-compromis-entre-deputes-et-senateurs" },
     { label: "Projet de loi de financement de la Sécurité sociale pour 2027, n° 3211, art. 35 (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi" },
     { label: "Projet de loi de finances pour 2027, n° 3210, art. 3 — abattement des retraités (Assemblée nationale)", href: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3210_projet-loi.pdf" },
     { label: "INSEE — prix à la consommation d'octobre 2026, résultats définitifs (Informations rapides n° 271, 13 novembre 2026)", href: "https://www.insee.fr/fr/statistiques/9131332" },
@@ -211,9 +212,10 @@ export default function Page() {
             <strong>Le Sénat a supprimé cette mesure le 16 novembre 2026</strong>,
             par 329 voix pour et aucune contre, avec l&apos;accord du
             gouvernement. Les députés l&apos;avaient déjà retirée en commission.
-            Le budget n&apos;est pas encore adopté : une commission mixte
-            paritaire doit se réunir, et le gouvernement peut toujours recourir
-            au 49.3. Les sénateurs ont aussi annoncé une contrepartie : financer
+            Le budget n&apos;est pas encore adopté : la commission mixte
+            paritaire du 26 novembre a échoué, une nouvelle lecture
+            commence à l&apos;Assemblée nationale, qui aura le dernier mot,
+            et le gouvernement peut toujours recourir au 49.3. Les sénateurs ont aussi annoncé une contrepartie : financer
             cette suppression en supprimant totalement l&apos;abattement fiscal
             de 10 % des retraités dans le projet de loi de finances, ce qui
             alourdirait l&apos;impôt des retraités imposables. Le budget 2026 avait connu le même sort : un gel proposé,
